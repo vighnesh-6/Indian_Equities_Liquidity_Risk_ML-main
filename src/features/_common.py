@@ -58,7 +58,10 @@ def rolling_zscore(
     s = series.astype("float64")
     mean = s.rolling(window=window, min_periods=mp).mean()
     std = s.rolling(window=window, min_periods=mp).std(ddof=1)
-    return safe_divide(s - mean, std)
+    # Guard IEEE-754 floating-point ULP noise on near-constant series (e.g. 1.01**t)
+    ulp_floor = np.maximum(1e-15, 1e-12 * mean.abs())
+    std_clean = std.where(std > ulp_floor, np.nan)
+    return safe_divide(s - mean, std_clean)
 
 
 def get_corp_action_mask(df: pd.DataFrame) -> pd.Series:
