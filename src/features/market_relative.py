@@ -75,6 +75,10 @@ def compute_market_relative_features(
 
     std_stock_60 = daily_return.rolling(window=60, min_periods=60).std(ddof=1)
     std_bench_60 = bench_ret.rolling(window=60, min_periods=60).std(ddof=1)
+    mean_stock_60 = daily_return.rolling(window=60, min_periods=60).mean().abs()
+    mean_bench_60 = bench_ret.rolling(window=60, min_periods=60).mean().abs()
+    std_stock_60 = std_stock_60.where(std_stock_60 > np.maximum(1e-15, 1e-12 * mean_stock_60), np.nan)
+    std_bench_60 = std_bench_60.where(std_bench_60 > np.maximum(1e-15, 1e-12 * mean_bench_60), np.nan)
     rolling_corr_60d = safe_divide(cov_60, std_stock_60 * std_bench_60).clip(
         lower=-1.0, upper=1.0
     )
