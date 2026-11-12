@@ -351,7 +351,7 @@ Verified PyArrow schema (`565,190` rows, `27` columns, `300` tickers, `2018-01-0
 - [x] **Decision C8 (Approved):** Exclude `^NSEBANK` from `F01`–`F55` and reserve for future supplementary sector analysis.
 - [x] **Decision C9 (Approved):** Add optional `vix_path` to `FeatureEngineer.process_universe()`, standardize output path to `data/processed/features.parquet`, and reconcile stale Garman-Klass/Yang-Zhang references.
 - [x] **Decision C10 (Approved):** Use exact 20-observation window `[t-19, t]` for `F20` (`max_drawdown_20d`).
-- [ ] **Implementation & Verification Gate (Pending Phase 5 Execution):** Implement `src/features/*.py`, update synced config/doc counts, generate `data/processed/features.parquet`, and pass analytical closed-form unit tests in `tests/test_features.py` with zero `inf` values and `float32` output.
+- [x] **Implementation & Verification Gate (Completed):** Implemented `src/features/*.py`, synchronized configs/docs, generated `data/processed/features.parquet` (565,190 rows × 70 cols, `float32`, zero `inf` values), and passed all 61 unit and integration tests (`tests/`). See `reports/phase5_feature_engineering_report.md`.
 
 ---
 
