@@ -199,5 +199,6 @@ jupyter notebook notebooks/01_data_collection.ipynb
 - **Phase 2 (Microstructure Proxy Formulation):** Completed. F01–F55 documented in `configs/feature_config.yaml`.
 - **Phase 3 (Pipeline Infrastructure):** Completed. Modular fetcher, validator, and storage managers implemented.
 - **Phase 4.1 (Historical Ingestion):** Completed. 300 stocks (565,190 rows) and 3 market indices acquired and verified in `data/raw/`.
-- **Phase 4.2 (Data Cleaning & Interim Dataset):** Completed. Validated interim datasets generated at `data/interim/stocks/ohlcv_clean.parquet` and `data/interim/market/` with comprehensive EDA report in `reports/phase4_2_cleaning_eda.md` and 34 passing unit tests.
-- **Next Step:** **Phase 5: Feature Engineering Pipeline (F01–F55)** (`src/features/` to produce `data/processed/features.parquet`).
+- **Phase 4.2 (Data Cleaning & Interim Dataset):** Completed. Validated interim datasets generated at `data/interim/stocks/ohlcv_clean.parquet` and `data/interim/market/` with comprehensive EDA report in `reports/phase4_2_cleaning_eda.md`.
+- **Phase 5 (Feature Engineering Pipeline):** Completed. Implemented all 55 core features (`F01`–`F55`) + 3 India VIX supplementary features in `src/features/`, generated `data/processed/features.parquet` (565,190 rows × 70 columns, `float32`, Snappy), and verified with 61 passing tests in `tests/`.
+- **Next Step:** **Phase 6: Post-Engineering EDA & Regime Analysis / Phase 7: LRS & HRE Target Engineering** (`src/labels/`).
