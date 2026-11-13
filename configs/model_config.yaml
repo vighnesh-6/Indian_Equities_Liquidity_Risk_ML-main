@@ -6,6 +6,7 @@ validation:
   n_splits: 10
   min_train_days: 490  # approximately 2 trading years
   test_window_days: 60  # approximately 1 trading quarter
+  purge_sessions: 5  # 5-trading-session purge buffer preventing forward-target lookahead
   embargo_gap_days: 1
   holdout_fraction_or_days: 250  # 1 year final test holdout reserved
   random_state: 42
