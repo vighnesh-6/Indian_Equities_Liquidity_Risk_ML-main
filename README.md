@@ -54,7 +54,8 @@ An institutional-grade decision-support platform designed to quantify, forecast,
 ### Dual-Output Architecture + Anomaly Detection
 ```text
                           ┌────────────────────────────────────────────────────────┐
-                          │         Daily Stock-Day Observation (F01–F55)          │
+                          │   Processed Feature Matrix (F01–F55 + 3 VIX features)  │
+                          │        data/processed/features.parquet (float32)       │
                           └──────────────────────────┬─────────────────────────────┘
                                                      │
          ┌───────────────────────────────────────────┼───────────────────────────────────────────┐
@@ -62,9 +63,17 @@ An institutional-grade decision-support platform designed to quantify, forecast,
 ┌─────────────────────────────┐             ┌─────────────────────────────┐             ┌─────────────────────────────┐
 │  Composite LRS (Rule-Based) │             │ Forward HRE Prediction (ML) │             │  Isolation Forest (Anomaly) │
 │  - Range: 0 to 100          │             │  - Target: HRE_5d (binary)  │             │  - Unsupervised outlier     │
-│  - Percentile-ranked proxies│             │  - Models: LR, RF, HGBT     │             │  - Historical unusualness   │
-│  - Instantaneous State      │             │  - Walk-Forward Validation  │             │  - NOT forward prediction   │
-└─────────────────────────────┘             └─────────────────────────────┘             └─────────────────────────────┘
+│  - 6 academic proxies       │             │  - Models: LR, RF, HGBT     │             │  - 12 designated features   │
+│  - Instantaneous State      │             │  - Walk-Forward Validation  │             │  - Historical unusualness   │
+│  - Cross-sectional ranks    │             │  - Evaluated by PR-AUC      │             │  - NOT forward prediction   │
+└──────────────┬──────────────┘             └──────────────┬──────────────┘             └──────────────┬──────────────┘
+               │                                           │                                           │
+               └───────────────────────────────────────────┼───────────────────────────────────────────┘
+                                                           ▼
+                                      ┌───────────────────────────────────────────┐
+                                      │   Presentation Tier: Streamlit Dashboard  │
+                                      │   (5 Interactive Multi-Page Risk Views)   │
+                                      └───────────────────────────────────────────┘
 ```
 
 ### Audited 55-Feature Engine (F01 to F55)
@@ -105,22 +114,22 @@ liquidity-risk-intelligence/
 ├── data/                     # Data stores (market data excluded from Git)
 │   ├── raw/                  # Downloaded Parquet files (300 stocks, 3 market indices)
 │   ├── interim/              # Cleaned interim datasets (stocks/ and market/ subfolders)
-│   │   ├── stocks/           # data/interim/stocks/ohlcv_clean.parquet (300 stocks)
+│   │   ├── stocks/           # data/interim/stocks/ohlcv_clean.parquet (565,190 rows x 27 cols)
 │   │   └── market/           # Cleaned Nifty 50, Bank Nifty, and India VIX indices
-│   ├── processed/            # Engineered feature matrix (55 features + is_warmup)
+│   ├── processed/            # Engineered feature matrix (data/processed/features.parquet: 565,190 x 70)
 │   ├── predictions/          # Scored daily predictions (LRS, HRE_prob, anomaly_score)
 │   ├── manifests/            # Data collection and pipeline audit manifests
-│   └── events/               # Curated market events calendar (market_events_template.csv)
+│   └── events/               # Curated market events calendar (market_events.csv, 86 events)
 ├── audit/                    # Cryptographic verification tools and universe audit evidence
 │   ├── compute_raw_sha256.py # Recomputes SHA-256 digests and verifies raw Merkle root
 │   ├── raw_data_sha256.json  # Cryptographic baseline hashes for all 303 raw files
 │   └── smallcap250_adtv_ranked.csv # 6-month ADTV ranking for smallcap selection
-├── notebooks/                # Sequential exploratory notebooks (01_data_collection.ipynb active)
+├── notebooks/                # Sequential exploratory notebooks (01_data_collection & 03_feature_exploration executed)
 ├── src/                      # Production Python package
-│   ├── data/                 # Universe loader, fetcher, validator, storage manager
-│   ├── features/             # Feature orchestrator, returns, vol, liquidity, gaps, stress
+│   ├── data/                 # Universe loader, fetcher, validator, storage manager, events
+│   ├── features/             # Feature orchestrator, returns, vol, liquidity, gaps, stress (F01-F55 + VIX)
 │   ├── labels/               # Composite LRS calculator, forward HRE_5d target builder
-│   ├── modeling/             # Walk-forward trainer, scorer, Isolation Forest, evaluator
+│   ├── modeling/             # Walk-forward trainer, scorer, Isolation Forest anomaly, evaluator
 │   ├── pipeline/             # Daily refresh pipeline, system health checks
 │   ├── reporting/            # Validation report generator
 │   └── utils/                # Logger, config loader, calendar dates, constants
@@ -129,7 +138,9 @@ liquidity-risk-intelligence/
 │   ├── pages/                # 1_Overview, 2_Stock_Detail, 3_Portfolio_Risk, 4_Anomaly, 5_Health
 │   └── components/           # Plotly charts, styled tables, UI filter widgets
 ├── models/                   # Serialized model artifacts (*.joblib) & model_registry.json
-├── reports/                  # Markdown reports and presentation figures
+├── reports/                  # Markdown audit reports and presentation figures
+│   ├── phase4_2_cleaning_eda.md          # Data cleaning and interim dataset audit report
+│   ├── phase5_feature_engineering_report.md # Phase 5 feature validation & engineering report
 │   └── figures/              # Generated high-resolution visualization charts
 ├── logs/                     # Daily runtime logs (pipeline_YYYYMMDD.log)
 ├── scripts/                  # Standalone execution runners
@@ -137,7 +148,7 @@ liquidity-risk-intelligence/
 │   ├── generate_interim_dataset.py   # Phase 4.2 data cleaning & interim Parquet generator
 │   ├── generate_phase4_2_eda.py      # Phase 4.2 basic EDA metrics and figure generator
 │   └── train_models.py               # Model training runner
-├── tests/                    # Pytest offline test suite (34 unit tests)
+├── tests/                    # Pytest offline test suite (61 unit tests passing)
 ├── docs/                     # Architectural and methodology documentation
 │   └── ARCHITECTURE.md       # Canonical system architecture document
 ├── requirements.txt          # Pinned dependencies
