@@ -1,365 +1,447 @@
 # ARCHITECTURE
 ## ML-Based Liquidity and Trading-Risk Intelligence for Indian Equities
 
-**Version:** 1.1
-**Status:** System Architecture — Phase 4.2 Complete (Active Implementation)
+**Version:** 2.0  
+**Status:** Comprehensive End-to-End System Architecture (Phases 1–5 Complete; Phase 6 EDA Next)  
+**Last Updated:** November 2026  
 
 ---
 
-## 1. System Architecture Diagram
+## 1. End-to-End System Architecture Diagram
+
+The system operates across six logical layers, from external market feeds to the multi-page risk intelligence dashboard. Completed components are visually distinguished from planned components. Supervised risk modeling (`HRE_5d` prediction) and unsupervised historical anomaly detection (`IsolationForest`) execute as two separate, decoupled modeling branches whose outputs converge at the risk-intelligence and dashboard layer.
 
 ```mermaid
 flowchart TD
-    A["📅 Windows Task Scheduler\n(Post-Market Daily Trigger)\nConfigurable time: 17:30 IST"] --> B
-
-    subgraph PIPELINE["scripts/daily_refresh.py (Orchestrator)"]
-        B["1. Universe Loader\nsrc/data/universe.py\n→ configs/universe.json (300 stocks)"] --> C
-        C["2. Data Fetcher\nsrc/data/fetcher.py\n→ yfinance .NS tickers\n→ ^NSEI benchmark\n→ ^INDIAVIX (supplementary, if verified)"] --> D
-        D["3. Raw Storage\ndata/raw/*.parquet\n(append-only, idempotent)"] --> E
-        E["4. Data Validator\nsrc/data/validator.py\n→ quality checks, missing rows, stale prices"] --> F
-        F["5. Interim Storage\ndata/interim/stocks/*.parquet\ndata/interim/market/*.parquet\n(cleaned, deduplicated)"] --> G
-        G["6. Feature Engineer\nsrc/features/engineer.py\n→ F01-F55 per stock-day\n+ Market Stress features"] --> H
-        H["7. Processed Storage\ndata/processed/features.parquet"] --> I
-        I["8. LRS Calculator\nsrc/labels/lrs.py\n→ Composite Liquidity-Risk Score (0-100)"] --> J
-        J["9. Target Builder\nsrc/labels/targets.py\n→ HRE_5d binary label (t+1 to t+5)"] --> K
-        K["10. Model Scorer\nsrc/modeling/scorer.py\n→ Load saved artifacts from models/\n→ Generate HRE probability"] --> L
-        L["11. Anomaly Scorer\nsrc/modeling/anomaly.py\n→ Load Isolation Forest artifact\n→ Generate anomaly score (0-100)"] --> M
-        M["12. Prediction Writer\ndata/predictions/scored_YYYYMMDD.parquet"] --> N
-        N["13. Manifest Writer\ndata/manifests/manifest_YYYYMMDD.json\n→ run metadata, ticker counts, quality flags"] --> O
-        O["14. Logger\nlogs/pipeline_YYYYMMDD.log"]
+    %% ==========================================
+    %% TOP EXTERNAL SOURCES & CONFIGURATION LAYER
+    %% ==========================================
+    subgraph SOURCES["1. External Market Feeds & Configuration [IMPLEMENTED]"]
+        direction LR
+        SRC_YAHOO["Yahoo Finance API (yfinance)\n300 NSE Stocks (.NS)\n^NSEI (Nifty 50) | ^INDIAVIX\n(^NSEBANK reserved)"]
+        SRC_CONFIGS["Configuration Layer (configs/)\nuniverse.json | pipeline_config.yaml\nfeature_config.yaml | model_config.yaml\ndashboard_config.yaml"]
     end
 
-    EV["📅 Market Events Calendar\ndata/events/market_events_template.csv\n(Elections, Geopolitics, Disruptions)"] -.-> EA["9. Event & Stress Analysis\nnotebooks/09_event_analysis.ipynb"]
-    H -.-> EA
+    %% ==========================================
+    %% LAYER 1: DATA ACQUISITION & VALIDATION
+    %% ==========================================
+    subgraph L1["Layer 1: Data Acquisition, Validation & Storage [IMPLEMENTED]"]
+        direction TB
+        L1_UNIV["Universe Manager\nsrc/data/universe.py\n(100 Large, 150 Mid, 50 Small)"]
+        L1_EVENTS["Market Events Calendar\nsrc/data/events.py -> data/events/market_events.csv\n(86 curated macro/policy/shock events)"]
+        L1_FETCH["Data Fetcher\nsrc/data/fetcher.py\n(Batching, Retries, Exponential Backoff)"]
+        L1_RAW[("Raw Parquet Store\ndata/raw/stocks/*.parquet\ndata/raw/market/*.parquet\n(Cryptographic Merkle Baseline)")]
+        L1_VAL["Data Validator\nsrc/data/validator.py\n(Zero-vol, Stale streaks, Corp-action vs Shock,\nWarm-up 80d, Lookahead-free fallback)"]
+        L1_STORE["Storage Manager\nsrc/data/storage.py\n(StreamingParquetWriter, float32 downcast, Atomic writes)"]
+        L1_INTERIM[("Interim Clean Parquets\ndata/interim/stocks/ohlcv_clean.parquet (565,190 x 27)\ndata/interim/market/{nifty50, banknifty, india_vix}")]
 
-    P["📊 Streamlit Dashboard\napp/streamlit_app.py\n→ Reads data/predictions/\n→ Reads data/processed/\n→ Reads data/manifests/"] --> Q["👤 User: Browser"]
-
-    H --> P
-    M --> P
-
-    subgraph TRAINING["Offline: notebooks/ + scripts/train_models.py"]
-        T1["EDA & Analysis Notebooks\nnotebooks/02_eda.ipynb\nnotebooks/03_feature_exploration.ipynb\nnotebooks/04_label_analysis.ipynb"] --> T2
-        T2["Model Training & Walk-Forward Validation\nsrc/modeling/trainer.py\n→ Expanding-window (10 folds)\n→ Best model selection by PR-AUC"] --> T3
-        T3["Model Artifacts\nmodels/rf_vYYYYMMDD.joblib\nmodels/lr_vYYYYMMDD.joblib\nmodels/hgbt_vYYYYMMDD.joblib\nmodels/isolation_forest_vYYYYMMDD.joblib\nmodels/scaler_vYYYYMMDD.joblib\nmodels/model_registry.json"] --> K
+        L1_UNIV --> L1_FETCH
+        L1_FETCH --> L1_RAW
+        L1_RAW --> L1_VAL
+        L1_VAL --> L1_STORE
+        L1_STORE --> L1_INTERIM
     end
 
-    classDef storage fill:#2d4a7a,stroke:#5b8dd9,color:#fff
-    classDef compute fill:#1a3a2a,stroke:#4a9d6f,color:#fff
-    classDef external fill:#4a2d1a,stroke:#d97b3a,color:#fff
-    classDef ui fill:#3a1a4a,stroke:#9d4aad,color:#fff
+    SRC_YAHOO --> L1_FETCH
+    SRC_CONFIGS -.-> L1_UNIV
+    SRC_CONFIGS -.-> L1_FETCH
+    SRC_CONFIGS -.-> L1_VAL
 
-    class D,F,H,M,N storage
-    class C,E,G,I,J,K,L compute
-    class A,EV external
-    class P,Q ui
+    %% ==========================================
+    %% LAYER 2: FEATURE ENGINEERING & DATA EXPLORATION
+    %% ==========================================
+    subgraph L2["Layer 2: Feature Engineering & Exploration [IMPLEMENTED / IN PROGRESS]"]
+        direction TB
+        L2_FEATENG["Feature Engineer (Orchestrator) [IMPLEMENTED]\nsrc/features/engineer.py\n(Single-stock chronological streaming, float32)"]
+        
+        subgraph L2_MODULES["6 Audited Feature Modules [IMPLEMENTED]"]
+            direction LR
+            M_RET["Returns F01-F10\nsrc/features/returns.py"]
+            M_VOL["Volatility F11-F22\nsrc/features/volatility.py"]
+            M_LIQ["Liquidity F23-F36\nsrc/features/liquidity.py"]
+            M_GAP["Price Gaps F37-F45\nsrc/features/gaps.py"]
+            M_REL["Market Rel F46-F51\nsrc/features/market_relative.py"]
+            M_STR["Market Stress F52-F55 + VIX\nsrc/features/market_stress.py"]
+        end
+
+        L2_PROCDATA[("Processed Feature Matrix [IMPLEMENTED]\ndata/processed/features.parquet\n(565,190 rows x 70 cols, float32, Snappy)")]
+        
+        L2_EDA["Exploratory Data Analysis & Feature Selection [NEXT: PHASE 6]\nnotebooks/02_eda.ipynb | notebooks/03_feature_exploration.ipynb\n(Distribution profiling, collinearity checks |r|>0.95, fold-only selection)"]
+
+        L2_FEATENG --> L2_MODULES
+        L2_MODULES --> L2_PROCDATA
+        L2_PROCDATA --> L2_EDA
+    end
+
+    L1_INTERIM --> L2_FEATENG
+
+    %% ==========================================
+    %% LAYER 3: TARGET DESIGN & PARALLEL MODELING
+    %% ==========================================
+    subgraph L3["Layer 3: Target Engineering & Model Training [PLANNED / SCAFFOLD]"]
+        direction TB
+        
+        %% Supervised Branch
+        subgraph L3_SUPERVISED["Branch A: Supervised Liquidity Risk Modeling"]
+            direction TB
+            L3_TARGETS["Target Builder (HRE_5d)\nsrc/labels/targets.py\n(Forward t+1 to t+5 binary; NaN on live rows)"]
+            L3_LRS["Composite LRS (0-100)\nsrc/labels/lrs.py\n(Rule-based weighted percentile ranks)"]
+            L3_TRAIN["Walk-Forward Trainer\nsrc/modeling/trainer.py | scripts/train_models.py\n(10 expanding folds, fold-only StandardScaler,\nLogisticRegression, RandomForest, HistGradientBoosting)"]
+            L3_EVAL["Evaluation & Explainability\nsrc/modeling/evaluation.py | explainability.py\n(PR-AUC primary, ROC-AUC, Brier score, Permutation/Gini)"]
+
+            L3_TARGETS --> L3_TRAIN
+            L3_LRS -.-> L3_TARGETS
+            L3_TRAIN --> L3_EVAL
+        end
+
+        %% Unsupervised Anomaly Branch
+        subgraph L3_ANOMALY["Branch B: Unsupervised Anomaly Detection"]
+            direction TB
+            L3_ISOFOREST["Isolation Forest Trainer\nsrc/modeling/anomaly.py\n(Unsupervised fit on 12 designated features;\nlearns historical normal trading behavior)"]
+            L3_ANOM_EVAL["Anomaly Calibration\n(Score normalization to 0-100 scale;\ncontamination=0.05 calibration)"]
+
+            L3_ISOFOREST --> L3_ANOM_EVAL
+        end
+
+        L3_EVENT["Event Study & Macro Stress Testing\nnotebooks/09_event_analysis.ipynb\n(Stress analysis against 86 curated events)"]
+        
+        L3_REGISTRY[("Model Artifacts & Registry\nmodels/*.joblib\nmodels/model_registry.json")]
+        
+        L3_EVAL --> L3_REGISTRY
+        L3_ANOM_EVAL --> L3_REGISTRY
+    end
+
+    L2_PROCDATA --> L3_TARGETS
+    L2_PROCDATA --> L3_LRS
+    L2_PROCDATA --> L3_ISOFOREST
+    L1_EVENTS -.-> L3_EVENT
+    L2_PROCDATA -.-> L3_EVENT
+
+    %% ==========================================
+    %% LAYER 4: DAILY ORCHESTRATION & INFERENCE
+    %% ==========================================
+    subgraph L4["Layer 4: Daily Orchestration, Inference & Audit [PLANNED / SCAFFOLD]"]
+        direction TB
+        L4_SCHED["Scheduler Trigger\nscripts/daily_refresh.bat (Windows Task Scheduler 17:30 IST)\nscripts/daily_refresh.py (CLI Runner)"]
+        L4_PIPE["Daily Pipeline & Health Check\nsrc/pipeline/daily_pipeline.py | health_check.py\n(Incremental fetch -> validate -> features -> score)"]
+        
+        subgraph L4_INFERENCE["Inference Engine (models/ -> data/predictions/)"]
+            direction LR
+            L4_SUPSCORE["Supervised Scorer\nsrc/modeling/scorer.py\n(Loads best model; outputs hre_prob, hre_flag)"]
+            L4_ANOMSCORE["Anomaly Scorer\nsrc/modeling/anomaly.py\n(Loads Isolation Forest; outputs 0-100 anomaly_score)"]
+            L4_LRSSCORE["LRS Calculator\nsrc/labels/lrs.py\n(Evaluates instantaneous composite LRS)"]
+        end
+
+        L4_PRED[("Daily Scored Predictions\ndata/predictions/scored_YYYYMMDD.parquet\n(LRS, HRE_prob, Anomaly_score, Risk Bands)")]
+        L4_AUDIT[("Audit Run Manifests & Logs\ndata/manifests/manifest_YYYYMMDD.json\nlogs/pipeline_YYYYMMDD.log\nsrc/reporting/report_generator.py")]
+
+        L4_SCHED --> L4_PIPE
+        L4_PIPE --> L4_INFERENCE
+        L4_INFERENCE --> L4_PRED
+        L4_PIPE --> L4_AUDIT
+    end
+
+    L3_REGISTRY -.-> L4_INFERENCE
+
+    %% ==========================================
+    %% LAYER 5: RISK INTELLIGENCE & DASHBOARD
+    %% ==========================================
+    subgraph L5["Layer 5: Presentation Tier — Streamlit Risk Intelligence Dashboard [PLANNED / SCAFFOLD]"]
+        direction TB
+        L5_APP["Streamlit Application Entrypoint\napp/streamlit_app.py + app/components/{charts, tables, filters}.py\n(Read-only architecture, dark theme, interactive Plotly)"]
+
+        subgraph L5_PAGES["5 Functional Dashboard Pages (app/pages/)"]
+            direction LR
+            P1["Page 1: Overview\n1_Overview.py\n(Market heatmap, Top-15 LRS, Cap distribution)"]
+            P2["Page 2: Stock Deep-Dive\n2_Stock_Detail.py\n(LRS trajectory, HRE_prob, Anomaly markers, Proxies)"]
+            P3["Page 3: Portfolio Risk\n3_Portfolio_Risk.py\n(Portfolio LRS aggregation, Concentration alerts)"]
+            P4["Page 4: Anomaly Log\n4_Anomaly_Log.py\n(Isolation Forest outlier audit trail & feature drivers)"]
+            P5["Page 5: Data Quality\n5_Data_Quality.py\n(Pipeline health, staleness alerts, manifest audit)"]
+        end
+
+        L5_USERS["Target Stakeholders\nRetail Investors | Portfolio Managers | Risk Analysts | Quantitative Researchers"]
+
+        L5_APP --> L5_PAGES
+        L5_PAGES --> L5_USERS
+    end
+
+    L2_PROCDATA --> L5_APP
+    L4_PRED --> L5_APP
+    L4_AUDIT --> L5_APP
+
+    %% ==========================================
+    %% DIAGRAM STYLING & STATUS COLOR CODING
+    %% ==========================================
+    classDef implemented fill:#1b4d3e,stroke:#2ecc71,stroke-width:2px,color:#ffffff
+    classDef inprogress fill:#7d5a00,stroke:#f39c12,stroke-width:2px,color:#ffffff
+    classDef planned fill:#2c3e50,stroke:#7f8c8d,stroke-width:2px,stroke-dasharray: 5 5,color:#ecf0f1
+    classDef storage fill:#1a365d,stroke:#3182ce,stroke-width:2px,color:#ffffff
+    classDef external fill:#4a154b,stroke:#9b59b6,stroke-width:2px,color:#ffffff
+
+    class L1_UNIV,L1_EVENTS,L1_FETCH,L1_VAL,L1_STORE,L2_FEATENG,M_RET,M_VOL,M_LIQ,M_GAP,M_REL,M_STR implemented
+    class L2_EDA inprogress
+    class L3_TARGETS,L3_LRS,L3_TRAIN,L3_EVAL,L3_ISOFOREST,L3_ANOM_EVAL,L3_EVENT,L4_SCHED,L4_PIPE,L4_SUPSCORE,L4_ANOMSCORE,L4_LRSSCORE,L5_APP,P1,P2,P3,P4,P5 planned
+    class L1_RAW,L1_INTERIM,L2_PROCDATA,L3_REGISTRY,L4_PRED,L4_AUDIT storage
+    class SRC_YAHOO,SRC_CONFIGS,L5_USERS external
 ```
 
 ---
 
-## 2. Folder Structure
+## 2. Component Responsibility & Implementation Status Matrix
 
-```
-liquidity-risk-intelligence/
-│
-├── README.md                          # Comprehensive project overview, setup, methodology
-├── requirements.txt                   # Pinned Python dependencies
-├── pyproject.toml                     # Project packaging and tool configuration
-├── .gitignore                         # Configured repository ignore rules
-│
-├── audit/                             # Audit trail & data integrity verification
-│   ├── compute_raw_sha256.py          # SHA-256 Merkle root verification utility
-│   ├── raw_data_sha256.json           # Baseline hashes for all 303 raw Parquet files
-│   └── smallcap250_adtv_ranked.csv    # Smallcap 250 ADTV ranking audit evidence
-│
-├── configs/                           # Version-controlled configuration files
-│   ├── universe.json                  # 300 tickers (100 Large, 150 Mid, 50 Small), benchmark, VIX
-│   ├── pipeline_config.yaml           # File paths, fetch params, retry logic, date ranges
-│   ├── feature_config.yaml            # F01-F55 feature toggles, lookback windows, LRS weights
-│   ├── model_config.yaml              # Hyperparameters, walk-forward splits, decision threshold
-│   └── dashboard_config.yaml          # Streamlit UI settings, risk bands, color scheme
-│
-├── data/                              # Data directory (market data excluded from Git)
-│   ├── raw/                           # Original downloads from yfinance (Parquet)
-│   │   ├── stocks/<TICKER>.parquet    # 300 individual stock Parquet files
-│   │   └── market/<INDEX>.parquet     # ^NSEI, ^NSEBANK, ^INDIAVIX benchmark files
-│   ├── interim/                       # Cleaned, validated, deduplicated Parquets
-│   │   ├── stocks/
-│   │   │   └── ohlcv_clean.parquet    # Validated stock interim dataset (565,190 rows)
-│   │   └── market/                    # Cleaned market indices
-│   │       ├── nifty50_clean.parquet
-│   │       ├── banknifty_clean.parquet
-│   │       └── india_vix_clean.parquet
-│   ├── processed/                     # Feature-engineered datasets
-│   │   └── features.parquet           # Full feature matrix (F01-F55 + 3 VIX features + Phase 4.2 flags)
-│   ├── predictions/                   # Daily scored outputs
-│   │   └── scored_YYYYMMDD.parquet    # LRS, HRE_prob, anomaly_score per stock
-│   ├── manifests/                     # Run metadata, ticker counts, quality audit trail
-│   │   └── manifest_YYYYMMDD.json     # Ticker counts, quality flags, runtime metrics
-│   └── events/                        # Curated market-wide event calendar (committed)
-│       └── market_events_template.csv # Elections, geopolitics, circuit halts (NO stock news)
-│
-├── docs/                              # Project architecture, guides, and specifications
-│   ├── ARCHITECTURE.md                # Canonical architecture document
-│   ├── SCALABILITY_GUIDE.md           # Software scalability & memory guide
-│   ├── FEASIBILITY_AUDIT.md           # Feasibility benchmarks & constraints
-│   ├── PROJECT_STATUS.md              # Current milestone progress & readiness audit
-│   └── ...                            # Full specification set
-│
-├── notebooks/                         # Chronological exploratory Jupyter notebooks
-│   ├── README.md                      # Notebook sequence index and input/output contracts
-│   ├── 01_data_collection.ipynb       # Phase 1 & 3: pilot check, yfinance audit, VIX verification
-│   ├── 02_eda.ipynb                   # Phase 6: exploratory data analysis, quality distributions
-│   ├── 03_feature_exploration.ipynb   # Phase 6: feature distributions, correlation matrix, scaling
-│   ├── 04_label_analysis.ipynb        # Phase 7: composite LRS calibration, HRE class balance
-│   ├── 05_model_baseline.ipynb        # Phase 8: Logistic Regression baseline + walk-forward folds
-│   ├── 06_model_rf.ipynb              # Phase 8: Random Forest + Gini/permutation importance
-│   ├── 07_model_hgbt.ipynb            # Phase 8: HistGradientBoosting low-RAM experiments
-│   ├── 08_anomaly_detection.ipynb     # Phase 8: Isolation Forest unsupervised historical anomaly
-│   ├── 09_event_analysis.ipynb        # Phase 9: Market stress & major market events event study
-│   └── 10_dashboard_prototype.ipynb   # Phase 11: Plotly chart mock-ups & component prototyping
-│
-├── src/                               # Production Python package (importable)
-│   ├── __init__.py
-│   ├── data/                          # Data acquisition, validation, storage
-│   │   ├── __init__.py
-│   │   ├── universe.py                # Universe loader (300 stocks across tiers)
-│   │   ├── fetcher.py                 # yfinance download, retry, rate-limiting, VIX fetch
-│   │   ├── validator.py               # Quality gates: zero volume, stale price, extreme gaps
-│   │   └── storage.py                 # Atomic Parquet IO, deduplication on (date, ticker)
-│   ├── features/                      # Feature engineering (F01-F55)
-│   │   ├── __init__.py
-│   │   ├── engineer.py                # Per-stock orchestration, float32 casting, warm-up tagging
-│   │   ├── returns.py                 # F01-F10: Returns and price behaviour
-│   │   ├── volatility.py              # F11-F22: Volatility and downside risk
-│   │   ├── liquidity.py               # F23-F36: Liquidity and trading-activity proxies (Amihud)
-│   │   ├── gaps.py                    # F37-F45: Price-gap and price-impact proxies (Corwin-Schultz)
-│   │   ├── market_relative.py         # F46-F51: Market-relative features vs. ^NSEI
-│   │   └── market_stress.py           # F52-F55: Market-stress features + supplementary VIX hooks
-│   ├── labels/                        # Target and score design
-│   │   ├── __init__.py
-│   │   ├── lrs.py                     # Composite Liquidity-Risk Score (0-100) computation
-│   │   └── targets.py                 # HRE_5d binary target construction (strictly future)
-│   ├── modeling/                      # ML model training, scoring, anomaly detection
-│   │   ├── __init__.py
-│   │   ├── trainer.py                 # Expanding-window walk-forward training orchestrator
-│   │   ├── scorer.py                  # Inference engine (loads artifacts, generates HRE_prob)
-│   │   ├── anomaly.py                 # Isolation Forest training and 0-100 anomaly scoring
-│   │   ├── evaluation.py              # ROC-AUC, PR-AUC, confusion matrix, segment evaluation
-│   │   └── explainability.py          # Tree feature importance, permutation importance
-│   ├── pipeline/                      # End-to-end pipeline orchestration
-│   │   ├── __init__.py
-│   │   ├── daily_pipeline.py          # Daily refresh orchestrator (post-market refresh)
-│   │   └── health_check.py            # Data freshness (>2d warning), artifact verification
-│   ├── reporting/                     # Report generation
-│   │   ├── __init__.py
-│   │   └── report_generator.py        # Generates markdown/HTML summary reports
-│   └── utils/                         # Shared utilities
-│       ├── __init__.py
-│       ├── logger.py                  # Structured logging to console and logs/
-│       ├── config.py                  # YAML/JSON config loaders
-│       ├── dates.py                   # Trading calendar and date helpers
-│       └── constants.py               # Global constants, risk bands, feature categories
-│
-├── app/                               # Streamlit dashboard
-│   ├── streamlit_app.py               # Main navigation entry point
-│   ├── pages/
-│   │   ├── 1_Overview.py              # Market overview: top/bottom LRS, sector distributions
-│   │   ├── 2_Stock_Detail.py          # Single-stock deep-dive: LRS history, features, anomaly markers
-│   │   ├── 3_Portfolio_Risk.py        # Multi-stock portfolio risk aggregation
-│   │   ├── 4_Anomaly_Log.py           # Historical anomaly browser (Isolation Forest)
-│   │   └── 5_Data_Quality.py          # Pipeline health, manifest inspection, staleness alerts
-│   └── components/
-│       ├── __init__.py
-│       ├── charts.py                  # Reusable Plotly chart components
-│       ├── tables.py                  # Formatted risk tables with risk-band coloring
-│       └── filters.py                 # Date, ticker, segment filter controls
-│
-├── models/                            # Serialized model artifacts (git-ignored joblib files)
-│   ├── .gitkeep
-│   ├── model_registry.json            # Versioned registry mapping artifacts to metrics
-│   ├── rf_vYYYYMMDD.joblib            # Random Forest artifact
-│   ├── hgbt_vYYYYMMDD.joblib          # HistGradientBoosting artifact
-│   ├── lr_vYYYYMMDD.joblib            # Logistic Regression baseline artifact
-│   ├── isolation_forest_vYYYYMMDD.joblib # Isolation Forest artifact
-│   └── scaler_vYYYYMMDD.joblib        # Fitted StandardScaler artifact
-│
-├── reports/                           # Project reports and presentation artifacts
-│   ├── figures/                       # Evaluation charts for reports (.gitkeep tracked)
-│   ├── final_report.md                # Main comprehensive project report
-│   └── presentation.pptx              # Stakeholder slide deck
-│
-├── logs/                              # Runtime logs (git-ignored)
-│   ├── .gitkeep
-│   └── pipeline_YYYYMMDD.log          # Daily refresh execution logs
-│
-├── scripts/                           # Standalone execution scripts
-│   ├── daily_refresh.bat              # Windows batch wrapper for Task Scheduler
-│   ├── daily_refresh.py               # CLI runner for daily refresh pipeline
-│   ├── train_models.py                # Full offline model training script
-│   ├── build_universe.py              # One-time universe constituent parsing & filtering
-│   └── backfill_history.py            # Historical bulk data backfill script
-│
-└── tests/                             # Unit and integration tests (pytest)
-    ├── conftest.py                    # Shared synthetic data fixtures
-    ├── test_fetcher.py                # Tests yfinance parameters, retry, empty response handling
-    ├── test_validator.py              # Tests quality checks and data hygiene filters
-    ├── test_features.py               # Tests feature formulas against analytical expectations
-    ├── test_lrs.py                    # Tests LRS bounds [0, 100] and percentile weighting
-    ├── test_targets.py                # Tests forward HRE_5d target construction & leakage protection
-```
+| Layer / Stage | Component Name | Source File / Artifact Path | Phase | Status | Input Dependencies | Output Deliverables |
+|---|---|---|---|---|---|---|
+| **A. Ingestion** | Universe Manager | `src/data/universe.py` | Phase 3 | ✅ **IMPLEMENTED** | `configs/universe.json` | 300 validated tickers across Large, Mid, Small caps |
+| **A. Ingestion** | Market Events Calendar | `src/data/events.py` | Phase 4.2 | ✅ **IMPLEMENTED** | `data/events/market_events.csv` | 86 verified macro, geopolitical, and policy events |
+| **A. Ingestion** | Data Fetcher | `src/data/fetcher.py` | Phase 3 | ✅ **IMPLEMENTED** | Yahoo Finance API | Raw OHLCV Parquet files for stocks and indices |
+| **A. Ingestion** | Raw Data Store | `data/raw/` | Phase 3 | ✅ **IMPLEMENTED** | `src/data/fetcher.py` | 300 stock + 3 index raw Parquets (Merkle verified) |
+| **B. Preparation** | Data Validator | `src/data/validator.py` | Phase 4.2 | ✅ **IMPLEMENTED** | `data/raw/` | 9 Phase 4.2 quality flags and integrity reports |
+| **B. Preparation** | Storage Manager | `src/data/storage.py` | Phase 4.2 | ✅ **IMPLEMENTED** | Cleaned DataFrames | Atomic Parquet writes (`StreamingParquetWriter`) |
+| **B. Preparation** | Interim Clean Parquets | `data/interim/` | Phase 4.2 | ✅ **IMPLEMENTED** | `scripts/generate_interim_dataset.py` | `ohlcv_clean.parquet` (565,190 rows × 27 cols) |
+| **C. Features** | Feature Orchestrator | `src/features/engineer.py` | Phase 5 | ✅ **IMPLEMENTED** | `data/interim/` | Chronological streaming, memory-bounded execution |
+| **C. Features** | 6 Feature Modules | `src/features/{returns,volatility,liquidity,gaps,market_relative,market_stress}.py` | Phase 5 | ✅ **IMPLEMENTED** | Single-stock OHLCV + Benchmark | 55 Core Features (`F01`–`F55`) + 3 India VIX features |
+| **C. Features** | Processed Feature Store | `data/processed/features.parquet` | Phase 5 | ✅ **IMPLEMENTED** | `FeatureEngineer.process_universe()` | 565,190 rows × 70 cols (`float32`, Snappy, 156.86 MB) |
+| **D. EDA** | Feature Exploration & EDA | `notebooks/02_eda.ipynb`, `03_feature_exploration.ipynb` | Phase 6 | 🟡 **IN PROGRESS** | `data/processed/features.parquet` | Distribution profiling, collinearity check, scaling audit |
+| **E. Labels** | Composite LRS Calculator | `src/labels/lrs.py` | Phase 7 | ⏳ **PLANNED** (Scaffold) | `data/processed/features.parquet` | Rule-based 0–100 instantaneous risk score |
+| **E. Labels** | Supervised Target Builder | `src/labels/targets.py` | Phase 7 | ⏳ **PLANNED** (Scaffold) | Features + LRS | Forward-looking binary `HRE_5d` (t+1 to t+5) |
+| **F. Modeling** | Walk-Forward Trainer | `src/modeling/trainer.py`, `scripts/train_models.py` | Phase 8 | ⏳ **PLANNED** (Scaffold) | Features + Targets | 10-fold expanding window models (LR, RF, HGBT) |
+| **F. Modeling** | Model Evaluator | `src/modeling/evaluation.py` | Phase 8 | ⏳ **PLANNED** (Scaffold) | Out-of-fold validation preds | PR-AUC, ROC-AUC, Brier score, decision threshold |
+| **G. Anomaly** | Isolation Forest Trainer | `src/modeling/anomaly.py`, `notebooks/08_anomaly_detection.ipynb` | Phase 8 | ⏳ **PLANNED** (Scaffold) | 12 designated features | Unsupervised historical anomaly detector (`0–100`) |
+| **H. Intelligence**| Explainability Engine | `src/modeling/explainability.py` | Phase 8 | ⏳ **PLANNED** (Scaffold) | Trained tree models | Gini importance, permutation importance, top drivers |
+| **H. Intelligence**| Event Study Engine | `notebooks/09_event_analysis.ipynb` | Phase 9 | ⏳ **PLANNED** (Scaffold) | `features.parquet` + `market_events.csv` | Stress testing around major historical shocks |
+| **I. Dashboard** | Streamlit Web Application | `app/streamlit_app.py`, `app/pages/*.py`, `app/components/*.py` | Phase 11 | ⏳ **PLANNED** (Scaffold) | Predictions + Processed Features | Multi-page decision-support interface (Pages 1–5) |
+| **J. Automation** | Daily Pipeline Orchestrator | `src/pipeline/daily_pipeline.py`, `scripts/daily_refresh.py` | Phase 10/12 | ⏳ **PLANNED** (Scaffold) | All production modules | Automated end-to-end refresh, manifests, logs |
 
 ---
 
-## 3. Component Responsibilities
+## 3. Detailed Architectural Stages
 
-### src/data/fetcher.py
-- Downloads OHLCV data from Yahoo Finance via yfinance.
-- Fetches Nifty 50 benchmark (`^NSEI`).
-- Audits and fetches candidate India VIX (`^INDIAVIX`) as supplementary fear index if verified in Phase 1.
-- Supports two modes: full historical download and incremental (latest N days).
-- Implements retry logic with exponential backoff for rate-limiting errors.
-- Returns a standardized DataFrame; logs failed tickers to the manifest.
-- Does NOT perform any feature engineering.
-
-### data/events/ & Event Study Module
-- Stores manually curated market-wide event calendar (`market_events_template.csv`).
-- Covers macroeconomic, geopolitical, electoral, and exchange-halt events (schema: `event_id`, `event_date`, `event_name`, `event_category`, `event_description`, `source_url`, `date_confidence`, `notes`).
-- Explicitly excludes company-level news, earnings releases, and NLP/sentiment.
-- Utilized in `notebooks/09_event_analysis.ipynb` for stress-testing and liquidity shock analysis.
-
-### src/data/validator.py
-- Applies quality filters: zero-volume rows, stale prices (same close for 3+ consecutive days), negative prices, extreme single-day moves (>50% gap, likely data error).
-- Computes and logs coverage statistics per ticker.
-- Flags (but does not automatically remove) suspicious rows — final removal decision logged.
-- Outputs a quality report that is stored in the manifest.
-
-### src/data/storage.py
-- Handles all Parquet read/write operations.
-- Implements idempotent upsert: if a stock-date row already exists, it is not duplicated.
-- Deduplication key: (date, ticker).
-- All writes are atomic: write to temp file, rename on success to prevent partial writes.
-
-### src/features/engineer.py
-- Orchestrates all feature modules (returns, volatility, liquidity, gaps, market_relative, market_stress).
-- Processes one stock at a time to minimize peak RAM usage.
-- Concatenates results and writes to data/processed/.
-- Enforces warm-up window exclusion: rows within first 80 trading days of a stock's history are tagged `is_warmup=True` and excluded from model training.
-- Evaluates optional supplementary India VIX features if verified.
-
-### src/labels/lrs.py
-- Computes the Composite Liquidity-Risk Score per stock per day.
-- Percentile ranking is cross-sectional (across all stocks on each day) using the historical training distribution for rank calibration.
-- **IMPORTANT:** In the daily refresh mode, percentile ranks are computed against the stored distribution from the full historical dataset — not recalibrated daily (which would require all historical data in memory).
-
-### src/labels/targets.py
-- Constructs the HRE_5d binary target.
-- Requires future data (t+1 to t+5) — ONLY usable for training data, NOT for live scoring.
-- Live scored rows will have `hre_5d = NaN` (outcome not yet known).
-
-### src/modeling/trainer.py
-- Implements expanding-window walk-forward validation.
-- Fits scaler within each fold on training data only.
-- Trains Logistic Regression, Random Forest, and HGBT.
-- Evaluates each model and fold; selects the best model by validation PR-AUC.
-- Saves final trained model (fit on full training data) as a versioned Joblib artifact.
-
-### src/modeling/scorer.py
-- Loads the latest model artifacts from models/.
-- Applies the saved scaler and model to new feature rows.
-- Outputs: `hre_prob` (float), `hre_flag` (0/1 at threshold 0.5), `model_version`.
-- Does NOT retrain; inference only.
-
-### app/streamlit_app.py
-- Reads from data/predictions/ and data/processed/.
-- Reads from data/manifests/ for freshness information.
-- Does NOT write to any data files.
-- All heavy computation is done by the pipeline; dashboard only reads and visualizes.
+### Stage A: Data Collection & Storage
+- **Universe Definition (`configs/universe.json`):** 300 Indian equities listed on the National Stock Exchange (NSE), partitioned by 6-month Average Daily Traded Value (ADTV):
+  - 100 Large-Cap stocks (from NIFTY 100).
+  - 150 Mid-Cap stocks (from NIFTY Midcap 150).
+  - 50 Small-Cap stocks (from NIFTY Smallcap 250, selected by highest 6-month ADTV to prevent illiquid penny-stock distortions).
+- **Historical Scope:** Over 7.5 years of continuous trading history (`2018-01-01` to `2026-10-23`).
+- **Benchmark Coverage:**
+  - NIFTY 50 (`^NSEI`, 2,171 rows): Core broad-market benchmark for relative returns, beta, correlation, and market stress.
+  - NIFTY Bank (`^NSEBANK`, 2,172 rows): Reserved sector benchmark (excluded from Phase 5 core features per Decision C8).
+  - India VIX (`^INDIAVIX`, 2,156 rows): Verified and enabled supplementary market-fear index (Decision C1).
+- **Market Events Calendar (`data/events/market_events.csv`):** 86 curated macroeconomic, political, regulatory, and market disruption events used for downstream stress testing (Phase 9).
+- **Storage Tiering:**
+  - `data/raw/`: Append-only, immutable yfinance Parquet files verified by cryptographic SHA-256 Merkle root hashing (`audit/compute_raw_sha256.py`).
+  - `data/interim/`: Cleaned, validated, quality-flagged interim datasets.
+  - `data/processed/`: Standardized feature and label matrices.
 
 ---
 
-## 4. Data Flow Summary
-
-```
-yfinance API
-    ↓ (fetcher.py)
-data/raw/*.parquet          [Raw OHLCV + ^NSEI benchmark + ^INDIAVIX (if verified)]
-    ↓ (validator.py)
-data/interim/stocks/*.parquet [Cleaned, validated, deduplicated stocks]
-data/interim/market/*.parquet [Cleaned benchmark indices: Nifty 50, Bank Nifty, VIX]
-    ↓ (engineer.py)
-data/processed/*.parquet    [Full 55-feature matrix + LRS + target]
-    ↓ (scorer.py + anomaly.py)
-data/predictions/*.parquet  [HRE_prob + anomaly_score per stock-day]
-    ↓
-app/ (Streamlit)            [Read-only visualization]
-
-[data/events/market_events.csv] ──> notebooks/09_event_analysis.ipynb [Event Study]
-```
+### Stage B: Data Preparation & Quality Filtering
+- **Validation Engine (`src/data/validator.py`):** Operates on raw data and generates 9 boolean quality flags stored in `data/interim/stocks/ohlcv_clean.parquet` (565,190 rows × 27 columns):
+  1. `is_zero_volume` (751 rows): Identifies zero-share trading days without discarding time continuity.
+  2. `is_stale_price` (330 rows across 44 tickers): Detects frozen prices ($\ge 3$ consecutive days identical close).
+  3. `is_corporate_action_gap` (3 confirmed rows: `MOTILALOFS.NS`, `PATANJALI.NS`, `VEDL.NS`): Flags unadjusted corporate split/bonus price steps.
+  4. `is_market_shock` (2 confirmed rows: `YESBANK.NS` March 2020): Identifies genuine crisis events that must be retained unmasked.
+  5. `is_short_history` (273 rows across 3 tickers: `VAML.NS`, `VOGL.NS`, `VISL.NS`, 91 rows each): Flags newly listed companies.
+  6. `is_warmup` (24,000 rows): Tags initial 80 trading sessions per stock.
+  7. `is_benchmark_available` (False on 1,219 stock-days across 5 dates): Reconciles calendar mismatches (e.g., Diwali Muhurat trading).
+  8. `is_muhurat_session`: Flags special evening trading sessions.
+  9. `is_valid_ohlcv`: Confirms basic sanity ($H \ge L > 0, O > 0, C > 0$).
+- **Storage Engine (`src/data/storage.py`):** Enforces atomic writes via temporary files (`.tmp.parquet` $\rightarrow$ destination replacement) and automatic downcasting to `float32`.
 
 ---
 
-## 5. Configuration Management
-
-- All configurable parameters live in `configs/*.yaml` or `configs/*.json`.
-- No hard-coded paths or parameters in source code.
-- Environment-specific paths (absolute paths for Windows Task Scheduler) set in `configs/pipeline_config.yaml`.
-- Secrets (API keys if added later) NEVER in config files; use environment variables.
-
----
-
-## 6. Logging Strategy
-
-- Python `logging` module; structured log files in `logs/`.
-- Log levels: DEBUG (feature engineering details), INFO (pipeline step completions), WARNING (data quality flags), ERROR (failed tickers, unexpected exceptions).
-- Each daily run creates a new log file named by date: `pipeline_YYYYMMDD.log`.
-- Logs are NOT committed to Git.
+### Stage C: Feature Engineering (Phase 5 — Implemented)
+- **Feature Orchestrator (`src/features/engineer.py`):** Streams the universe stock-by-stock to maintain working RAM under 300 MB. Emits `data/processed/features.parquet` (565,190 rows × 70 columns).
+- **Core Feature Inventory (55 Features):**
+  - **Category 1: Returns & Price Behaviour (`F01`–`F10`, 10 features):** Simple and log returns, compounded multi-day momentum (5d, 20d, 60d), rolling return z-scores, absolute move magnitude, and price deviations from 20d/60d moving averages.
+  - **Category 2: Volatility & Downside Risk (`F11`–`F22`, 12 features):** Realized annualized volatilities (5d, 20d, 60d via $\sqrt{252}$ per Decision C3), volatility ratio (`vol_5d / vol_20d`), Parkinson (1980) high-low range vol, True Range and 20d ATR, target-zero downside semi-deviation (`F18`, Decision C4), Sortino ratio component (`F19`), trailing 20-observation maximum drawdown (`F20` `[t-19, t]`, Decision C10), 14-day Wilder RSI (`F21`, $\alpha=1/14$), and volatility-of-volatility (`F22`).
+  - **Category 3: Liquidity & Trading Activity (`F23`–`F36`, 14 features):** Log volume, volume moving averages and ratios, volume z-scores, Amihud (2002) illiquidity ratio scaled by $10^6$ (`F27`, strictly `NaN` when volume is zero or on corporate gaps), 20-day Amihud moving average (`F28`, `min_periods=15` per Decision C7), Amihud z-score (`F29`), rupee turnover metrics, zero-return flag (`F34`), zero-volume flag (`F35`), and low-volume streak (`F36`).
+  - **Category 4: Price Gaps & Price Impact (`F37`–`F45`, 9 features):** Intraday range and range z-scores, corporate-action-masked overnight gaps and gap z-scores, Corwin-Schultz (2012) high-low spread estimator floored at 0.0 with 2-day pair corporate gap masking (`F43`, Decision C6), 10-day smoothed spread (`F44`), and intraday return (`F45`).
+  - **Category 5: Market-Relative Behaviour (`F46`–`F51`, 6 features):** 1d and 20d excess return over NIFTY 50, 60-day rolling beta (`F48`), 60-day rolling correlation (`F49`, clipped to $[-1, 1]$), idiosyncratic volatility (`F50`), and relative volume (`F51`, strictly `NaN` on zero/invalid/unmatched NIFTY 50 volume per Decision C5).
+  - **Category 6: Market-Stress Features (`F52`–`F55`, 4 features per Decision C2):** 20-day annualized realized volatility of NIFTY 50 (`F52`), market volatility acceleration ratio (`F53`, `nifty_vol_5d / nifty_vol_20d`), 20-day NIFTY 50 return (`F54`), and stock volatility acceleration (`F55`, `vol_beta`).
+- **Supplementary India VIX Features (3 features outside `F01`–`F55`, Decision C1):** `vix_close` (index level), `vix_return_1d` (daily percentage change), and `vix_z20` (20-day normalized z-score).
+- **Causal Guarantee:** Strict $[t-W+1, t]$ backward-looking windows. Zero lookahead leakage, zero backward imputation (`bfill`), zero fabricated historical observations.
 
 ---
 
-## 7. Testing Strategy
-
-- Unit tests for all `src/` modules using `pytest`.
-- Feature tests verify against analytically computed expected values on small synthetic DataFrames.
-- Storage tests verify idempotent append and deduplication.
-- Tests use synthetic data only — no real market data committed to the test suite.
-- Target coverage: >80% of src/ modules.
+### Stage D: Exploratory Data Analysis & Feature Selection (Phase 6 — Planned)
+- **Exploratory Data Analysis (`notebooks/02_eda.ipynb` & `03_feature_exploration.ipynb`):**
+  - Verify distributional stability and tail risk across market-cap segments (`large`, `mid`, `small`).
+  - Audit Amihud illiquidity numerical stability and $10^6$ scaling across cap tiers (Decision D6).
+  - Identify multi-collinear feature pairs ($|r| > 0.95$) to prevent instability in linear baselines.
+- **Strict Leakage-Free Feature Selection Protocol:**
+  - Unsupervised redundancy filtering (e.g., removing redundant moving-average windows) can be guided by domain knowledge and EDA.
+  - Any **supervised feature selection** (e.g., recursive feature elimination, target correlation, or tree feature importance) must be computed **strictly inside training folds** during walk-forward cross-validation. Supervised feature selection on the global dataset is strictly prohibited.
 
 ---
 
-## 8. Git Practices
+### Stage E: Target & Label Engineering (Phase 7 — Planned)
+- **Composite Liquidity Risk Score (LRS, Rule-Based Current State — `src/labels/lrs.py`):**
+  - Formula-driven, academically grounded composite score bounded strictly within $[0, 100]$.
+  - Cross-sectional percentile ranking across 6 core components:
+    $$\text{LRS}_t = 0.25 \cdot \text{Rank}(\text{Amihud}_{20}) + 0.20 \cdot \text{Rank}(\text{Spread}_{10}) + 0.20 \cdot \text{Rank}(\text{Vol}_{20}) + 0.15 \cdot \text{Rank}(\text{Drought}) + 0.10 \cdot \text{Rank}(\text{Gap}) + 0.10 \cdot \text{Rank}(\text{IdioVol})$$
+  - Bounded risk categories: Low Risk ($0–25$), Moderate Risk ($25–50$), High Risk ($50–75$), Very High Risk ($75–100$).
+- **Supervised Forward Target (`HRE_5d` — `src/labels/targets.py`):**
+  - Binary target $Y_t \in \{0, 1\}$ indicating whether a High-Risk Event occurs in the forward window $[t+1, t+5]$.
+  - Triggers ($Y_t = 1$ if any condition is met on any day in $t+1 \dots t+5$):
+    1. Extreme illiquidity: `amihud_ratio` $> 95\text{th}$ percentile cross-sectionally.
+    2. Severe volume drought: `volume_ratio` $< 0.20$ (trading volume $<20\%$ of 20-day baseline).
+    3. Extreme price gap: `overnight_gap_abs` $> 5.0\%$.
+    4. Critical LRS: Composite $\text{LRS} > 75.0$.
+  - Target class balance calibrated in Phase 7 to achieve $5\%–30\%$ minority prevalence.
+  - Strict temporal separation: live inference rows assign `HRE_5d = NaN`. The target is **never** used as a feature.
 
-```gitignore
-# Python virtual environments & bytecode
-.venv/
-venv/
-__pycache__/
-*.py[cod]
+---
 
-# Secrets & Environment variables
-.env
-*.pem
-*.key
+### Stage F: Supervised Liquidity Risk Modelling (Phase 8 — Planned)
+- **Validation Framework (`src/modeling/trainer.py`):** Expanding-window chronological walk-forward validation (10 splits, minimum 490 trading days train, 60 trading days test, 1-day embargo gap). Standard random k-fold cross-validation is strictly prohibited.
+- **Scaler Isolation:** `StandardScaler` fitted strictly on training folds and applied to test folds.
+- **Model Candidates (`configs/model_config.yaml`):**
+  1. **Logistic Regression (Baseline):** L2 penalty, balanced class weighting; provides linear baseline and leakage sanity check.
+  2. **Random Forest Classifier (Primary Ensemble):** 150 trees, max depth 8, min samples leaf 50, balanced subsample weighting.
+  3. **HistGradientBoostingClassifier (Non-Linear Boosting):** 200 iterations, native NaN handling, max leaf nodes 31, L2 regularization 0.1.
+- **Evaluation Metrics (`src/modeling/evaluation.py`):** Primary metric is **PR-AUC** (Precision-Recall Area Under Curve) due to class imbalance; secondary metrics are ROC-AUC, Brier score calibration, and precision/recall at decision threshold.
+- **Model Registry (`models/model_registry.json`):** Tracks serialized artifacts (`models/*.joblib`), walk-forward metrics, and version tags.
 
-# Data & Models (Preserve configs, audit artifacts, and event templates)
-data/raw/
-data/interim/
-data/processed/
-data/predictions/
-models/*.joblib
-!data/events/*.csv
-!data/manifests/*.json
+---
 
-# Runtime logs & temporary cache
-logs/*.log
-!logs/.gitkeep
-*.tmp
-*.tmp.parquet
-.pytest_cache/
-.ipynb_checkpoints/
+### Stage G: Unsupervised Anomaly Detection (Phase 8 — Planned)
+- **Module Identity:** `Isolation Forest Trainer — src/modeling/anomaly.py`.
+- **Architectural Purpose:** Detects **historical structural unusualness**, NOT forward risk. Provides an unsupervised, label-free second opinion that operates independently of the supervised HRE models.
+- **Designated 12-Feature Subspace (`configs/model_config.yaml` & `src/modeling/anomaly.py`):**
+  1. `amihud_ratio` (instantaneous price impact)
+  2. `amihud_z20` (illiquidity shock)
+  3. `volume_ratio` (volume surge or drought)
+  4. `volume_z20` (standardized volume anomaly)
+  5. `vol_20d` (annualized realized volatility)
+  6. `vol_ratio_5_20` (volatility regime acceleration)
+  7. `daily_range` (normalized intraday dispersion)
+  8. `range_z20` (abnormal intraday spread)
+  9. `overnight_gap_abs` (overnight opening jump magnitude)
+  10. `cs_spread_est` (Corwin-Schultz bid-ask proxy)
+  11. `nifty_vol_20d` (broad-market volatility regime)
+  12. `return_z20` (20-day return outlier magnitude)
+- **Model Configuration:** `n_estimators = 100`, `contamination = 0.05`, `random_state = 42`.
+- **Output Signals:**
+  - `isolation_score`: Raw decision function score from scikit-learn.
+  - `isolation_flag`: Binary outlier indicator ($1$ for anomaly, $0$ for inlier).
+  - `anomaly_score_scaled`: Linearly rescaled continuous index ($0–100$, where $100$ indicates the most extreme historical outliers) for intuitive dashboard display.
+- **Dashboard Contribution:** Populates Page 4 (`4_Anomaly_Log.py`) and provides historical anomaly markers overlaid on stock price/risk trajectories on Page 2 (`2_Stock_Detail.py`).
+- **Decisions Pending Confirmation (Marked for Phase 8 Sign-Off):**
+  - *Decision A1 (Training Granularity):* Whether to fit a single pooled Isolation Forest across all 300 stocks, fit 3 segment-specific models (Large, Mid, Small), or fit per-stock baselines.
+  - *Decision A2 (Percentile Scaling Formula):* Specific min-max vs. quantile transformation used to map raw decision scores to $0–100$.
+
+---
+
+### Stage H: Risk Intelligence & Explainability (Phases 8–9 — Planned)
+- **Triangulation of Risk:** The dashboard synthesizes three distinct dimensions:
+  1. **Current State:** Composite LRS ($0–100$, rule-based, instantaneous).
+  2. **Forward Risk:** Supervised `hre_prob` ($0.0–1.0$, predicted probability of liquidity event in next 5 sessions).
+  3. **Structural Outlier:** Unsupervised `anomaly_score` ($0–100$, historical irregularity marker).
+- **Explainability Engine (`src/modeling/explainability.py`):**
+  - Global explainability: Gini impurity reduction and permutation feature importance across walk-forward folds.
+  - Local stock-level explainability: Identification of top-3 contributing feature z-scores driving high LRS or anomaly alerts on any given date.
+- **Event Study & Stress Testing (`notebooks/09_event_analysis.ipynb`):** Evaluates risk score surges against the 86 curated macro events in `data/events/market_events.csv` (e.g., COVID-19 March 2020 crash, 2024 General Election results, IL&FS crisis).
+
+---
+
+### Stage I: Dashboard Presentation Tier (Phase 11 — Planned)
+- **Technology Stack:** Multi-page Streamlit application (`app/streamlit_app.py`, `app/components/`, `app/pages/`) with Plotly interactive charts.
+- **Architectural Principle:** **Strictly Read-Only.** The dashboard reads `data/processed/features.parquet`, `data/predictions/scored_YYYYMMDD.parquet`, and `data/manifests/manifest_YYYYMMDD.json`. It never writes data files, executes model training, or triggers heavy feature engineering.
+- **5 Dedicated Pages (`configs/dashboard_config.yaml`):**
+  - **Page 1: Market Overview (`1_Overview.py`):** Cross-sectional risk distribution, Top-15 most illiquid stocks, sector/segment risk breakdowns, and broad market volatility gauges (NIFTY 50 vol, India VIX).
+  - **Page 2: Stock Deep-Dive (`2_Stock_Detail.py`):** Single-stock selector, 252-day LRS and HRE probability trajectories, interactive feature sub-charts (Amihud, Corwin-Schultz, Volume ratio), and Isolation Forest anomaly marker overlays.
+  - **Page 3: Portfolio Risk Aggregator (`3_Portfolio_Risk.py`):** Custom portfolio builder (up to 30 tickers, equal or custom weighting), portfolio-weighted aggregate LRS, and liquidity concentration warning alerts.
+  - **Page 4: Historical Anomaly Log (`4_Anomaly_Log.py`):** Filterable audit log of historical stock-day observations flagged by Isolation Forest, filterable by date range, ticker, and market-cap segment.
+  - **Page 5: Pipeline Health & Data Quality (`5_Data_Quality.py`):** System freshness monitor (alerts if latest date is $>2$ days old), manifest audit browser, and data quality flag counts.
+
+---
+
+### Stage J: Deployment & Daily Automation (Phases 10/12 — Planned)
+- **Local Scheduled Automation:** Windows Task Scheduler triggers `scripts/daily_refresh.bat` daily at 17:30 IST (2 hours after NSE market close at 15:30 IST).
+- **Execution Pipeline (`scripts/daily_refresh.py` $\rightarrow$ `src/pipeline/daily_pipeline.py`):**
+  1. *Health Check (`health_check.py`):* Verifies directory structure, model registry, and configuration files.
+  2. *Incremental Ingestion (`fetcher.py`):* Downloads only new trading dates for the active 300 stocks and benchmark indices.
+  3. *Validation Gate (`validator.py`):* Validates incoming bars against quality checks; aborts on corrupted feeds.
+  4. *Interim Upsert (`storage.py`):* Deduplicates on `(date, ticker)` and atomically appends to interim stores.
+  5. *Feature Generation (`engineer.py`):* Calculates trailing rolling features for new sessions.
+  6. *Inference (`scorer.py` & `anomaly.py`):* Loads saved model artifacts and evaluates LRS, `hre_prob`, and `anomaly_score`.
+  7. *Prediction Output:* Writes `data/predictions/scored_YYYYMMDD.parquet`.
+  8. *Audit Manifest & Logging:* Writes `data/manifests/manifest_YYYYMMDD.json` and records logs to `logs/pipeline_YYYYMMDD.log`.
+
+---
+
+## 4. End-to-End Data Flow
+
+```text
+[External Feeds]
+    Yahoo Finance API (300 Stocks + ^NSEI + ^INDIAVIX)
+        │
+        ▼ (src/data/fetcher.py)
+[Raw Tier]
+    data/raw/stocks/*.parquet & data/raw/market/*.parquet
+        │
+        ▼ (src/data/validator.py + src/data/storage.py)
+[Interim Tier]
+    data/interim/stocks/ohlcv_clean.parquet (565,190 rows × 27 cols)
+    data/interim/market/{nifty50_clean, banknifty_clean, india_vix_clean}.parquet
+        │
+        ▼ (src/features/engineer.py + 6 feature modules)
+[Processed Tier]
+    data/processed/features.parquet (565,190 rows × 70 cols, float32, Snappy)
+        │
+        ├─────────────────────────────────────────────────┐
+        ▼ (Phase 6 EDA)                                   ▼ (src/labels/lrs.py)
+    notebooks/02_eda.ipynb                           Composite LRS (0–100)
+    notebooks/03_feature_exploration.ipynb                │
+        │                                                 ▼ (src/labels/targets.py)
+        │                                            Target HRE_5d (Forward t+1..t+5)
+        │                                                 │
+        ├─────────────────────────────────┐               │
+        │                                 ▼               ▼
+        │                      ┌──────────────────────────────────────┐
+        │                      │ Branch A: Supervised Modeling        │
+        │                      │ src/modeling/trainer.py              │
+        │                      │ Walk-forward 10-fold cross-val       │
+        │                      │ (LogisticRegression, RF, HGBT)       │
+        │                      │ Evaluated by PR-AUC & ROC-AUC        │
+        │                      └──────────────────┬───────────────────┘
+        │                                         │
+        │                                         ▼
+        │                             models/best_model.joblib
+        │                                         │
+        ▼                                         │
+    ┌──────────────────────────────────────┐      │
+    │ Branch B: Unsupervised Anomaly       │      │
+    │ src/modeling/anomaly.py              │      │
+    │ Isolation Forest (12 features)       │      │
+    │ Historical unusualness detection     │      │
+    └──────────────────┬───────────────────┘      │
+                       │                          │
+                       ▼                          ▼
+               models/iforest.joblib      models/model_registry.json
+                       │                          │
+        ┌──────────────┴──────────────────────────┴───────────────┐
+        ▼ (Daily Inference: src/pipeline/daily_pipeline.py)       ▼ (Phase 9 Event Study)
+    data/predictions/scored_YYYYMMDD.parquet                 notebooks/09_event_analysis.ipynb
+    (Ticker, Date, LRS, HRE_prob, Anomaly_score, Bands)     (Stress testing vs 86 macro events)
+        │
+        ▼ (Read-Only Visualization)
+[Presentation Tier: Streamlit Dashboard]
+    app/streamlit_app.py
+    ├── Page 1: 1_Overview.py (Market overview & Top-15 high risk)
+    ├── Page 2: 2_Stock_Detail.py (Single-stock trajectory & anomaly overlay)
+    ├── Page 3: 3_Portfolio_Risk.py (Portfolio aggregation & concentration alerts)
+    ├── Page 4: 4_Anomaly_Log.py (Isolation Forest historical audit browser)
+    └── Page 5: 5_Data_Quality.py (Pipeline freshness & manifest health check)
 ```
 
-- Notebooks SHOULD be committed.
-- `configs/`, `audit/`, and `data/events/` ARE committed.
-- `requirements.txt` and `pyproject.toml` ARE committed.
-- `reports/figures/` visualizations ARE committed.
-- `data/manifests/` CAN be committed (small JSON files; useful for audit trail).
+---
+
+## 5. Architectural Invariants & Non-Negotiable Contracts
+
+1. **Strict Temporal Causality:** Features at time $t$ depend solely on observations in $[t-W+1, t]$. No future shifting (`shift(-k)`), backward-filling (`bfill`), or global dataset statistics are permitted in feature calculation.
+2. **Per-Stock Isolation:** Feature rolling calculations execute per ticker; windows never bleed across stock boundaries.
+3. **Target Separation:** The supervised label `HRE_5d` requires future outcomes ($t+1 \dots t+5$) and is strictly assigned `NaN` on live scoring rows. The target variable is never included in the feature matrix.
+4. **Decoupled Anomaly Detection:** The Isolation Forest model learns historical microstructure outliers independently of forward supervised targets. It produces descriptive anomaly markers and does not predict future returns or direction.
+5. **Read-Only Dashboard:** The Streamlit application never triggers feature engineering, model training, or data ingestion; it visualizes precomputed Parquet and JSON artifacts.
+6. **Immutable Historical Provenance:** Raw and interim Parquet stores are append-only. Historical revisions or corporate-action price step changes are managed transparently via quality flags and documented masking contracts rather than silent overwrites.
