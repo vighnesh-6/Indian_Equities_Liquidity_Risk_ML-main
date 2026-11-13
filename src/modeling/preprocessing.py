@@ -136,8 +136,20 @@ def get_model_features(model_name: str, candidate: str = "A") -> List[str]:
         ValueError: If model_name or candidate is unrecognized.
     """
     key = model_name.strip().lower()
-    if key in ("logistic_regression", "lr", "baseline"):
+    if key in (
+        "logistic_regression",
+        "lr",
+        "baseline",
+        "logistic_regression_standard",
+        "lr_standard",
+        "logistic_regression_robust",
+        "lr_robust",
+    ):
         return list(LOGISTIC_REGRESSION_FEATURES)
+    elif key in ("random_forest_candidate_b", "rf_b", "rf_candidate_b"):
+        return list(RANDOM_FOREST_CANDIDATE_B_FEATURES)
+    elif key in ("random_forest_candidate_a", "rf_a", "rf_candidate_a"):
+        return list(RANDOM_FOREST_CANDIDATE_A_FEATURES)
     elif key in ("random_forest", "rf"):
         cand = candidate.strip().upper()
         if cand == "A":
@@ -153,7 +165,8 @@ def get_model_features(model_name: str, candidate: str = "A") -> List[str]:
     else:
         raise ValueError(
             f"Unrecognized model_name '{model_name}'. Supported: "
-            "'logistic_regression', 'random_forest', 'hist_gradient_boosting', 'isolation_forest'."
+            "'logistic_regression', 'random_forest', 'random_forest_candidate_a', "
+            "'random_forest_candidate_b', 'hist_gradient_boosting', 'isolation_forest'."
         )
 
 
