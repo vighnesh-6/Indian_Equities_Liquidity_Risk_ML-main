@@ -51,31 +51,42 @@ class AnomalyDetector:
         self.score_min_: Optional[float] = None
         self.score_max_: Optional[float] = None
 
-    def fit(self, df: pd.DataFrame) -> "AnomalyDetector":
+    def fit(self, df: pd.DataFrame, train_idx: Optional[pd.Index] = None) -> "AnomalyDetector":
         """Fits Isolation Forest on historical feature observations.
 
         Population Rules Enforced:
+            - If train_idx is provided, uses df.loc[train_idx] strictly.
+            - Otherwise, selects eligible post-warmup training rows (split == 'train' and ~is_warmup).
             - Strictly excludes holdout observations ('split' == 'holdout').
             - Strictly excludes initial warmup observations ('is_warmup' == True).
             - Strictly DOES NOT filter by forward target labels (`hre_5d_train.notna()`).
-              Maintains complete target independence (466,486 training rows).
+              Maintains complete target independence.
 
         Args:
             df: Historical training feature matrix.
+            train_idx: Optional explicit row index slice for fold-level walk-forward fitting.
 
         Returns:
             AnomalyDetector: Fitted instance.
         """
         validate_features_present(df, self.feature_subset)
 
-        # Select eligible historical training population
-        mask = pd.Series(True, index=df.index)
-        if "split" in df.columns:
-            mask &= (df["split"] == "train")
-        if "is_warmup" in df.columns:
-            mask &= (~df["is_warmup"])
-
-        X_train = df.loc[mask, self.feature_subset]
+        if train_idx is not None:
+            # Explicit fold-scoped training rows
+            mask = pd.Series(True, index=train_idx)
+            if "split" in df.columns:
+                mask &= (df.loc[train_idx, "split"] == "train")
+            if "is_warmup" in df.columns:
+                mask &= (~df.loc[train_idx, "is_warmup"])
+            X_train = df.loc[train_idx[mask], self.feature_subset]
+        else:
+            # Select eligible historical training population
+            mask = pd.Series(True, index=df.index)
+            if "split" in df.columns:
+                mask &= (df["split"] == "train")
+            if "is_warmup" in df.columns:
+                mask &= (~df["is_warmup"])
+            X_train = df.loc[mask, self.feature_subset]
 
         # Build fresh independent pipeline
         self.pipeline = build_isolation_forest_pipeline(
