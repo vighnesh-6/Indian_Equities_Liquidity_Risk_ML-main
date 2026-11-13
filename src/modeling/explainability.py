@@ -6,7 +6,7 @@ Responsible for:
 - Flagging features with anomalous or unstable rankings.
 """
 
-from typing import List, Optional
+from typing import Any, List, Optional
 import pandas as pd
 
 
