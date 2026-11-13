@@ -21,3 +21,23 @@ DEFAULT_BENCHMARK = "^NSEI"
 CANDIDATE_INDIA_VIX = "^INDIAVIX"
 WARMUP_WINDOW_DAYS = 80
 DEFAULT_TARGET_UNIVERSE_SIZE = 300
+
+# Phase 7: Target & Label Engineering Constants (Frozen Contract D7.1 - D7.4)
+DEFAULT_LRS_WEIGHTS = {
+    "amihud_ma20": 0.35,
+    "cs_spread_ma10": 0.25,
+    "volume_z20": 0.20,
+    "downside_vol_20d": 0.20,
+}
+
+FROZEN_LRS_THRESHOLDS = {
+    "large": 73.8298,
+    "mid": 72.3251,
+    "small": 72.4359,
+}
+
+FORWARD_TARGET_WINDOW_DAYS = 5
+TRAIN_CUTOFF_DATE = "2025-10-17"
+EMBARGO_START_DATE = "2025-10-13"
+HOLDOUT_START_DATE = "2025-10-20"
+
