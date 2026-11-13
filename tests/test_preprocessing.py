@@ -256,3 +256,62 @@ def test_validate_features_present():
 
     with pytest.raises(ValueError, match="Missing 1 required feature columns"):
         validate_features_present(df, ["feat_a", "feat_b", "feat_c"])
+
+
+def test_model_identifier_feature_routing():
+    """Regression test: all model identifiers resolve to exact expected feature sets."""
+    # Logistic Regression variants (20 features)
+    for name in ["logistic_regression", "lr", "baseline", "logistic_regression_standard", "lr_standard", "logistic_regression_robust", "lr_robust"]:
+        feats = get_model_features(name)
+        assert len(feats) == 20
+        assert feats == LOGISTIC_REGRESSION_FEATURES
+
+    # Random Forest Candidate A variants (35 features, excludes F51)
+    for name in ["random_forest", "rf", "random_forest_candidate_a", "rf_a", "rf_candidate_a"]:
+        feats = get_model_features(name, candidate="A")
+        assert len(feats) == 35
+        assert feats == RANDOM_FOREST_CANDIDATE_A_FEATURES
+        assert "relative_volume" not in feats
+
+    # Random Forest Candidate B variants (36 features, includes F51)
+    for name in ["random_forest_candidate_b", "rf_b", "rf_candidate_b"]:
+        feats = get_model_features(name)
+        assert len(feats) == 36
+        assert feats == RANDOM_FOREST_CANDIDATE_B_FEATURES
+        assert "relative_volume" in feats
+
+    # HistGradientBoosting variants (36 features)
+    for name in ["hist_gradient_boosting", "hgbt", "boosting"]:
+        feats = get_model_features(name)
+        assert len(feats) == 36
+        assert feats == HGBT_FEATURES
+
+    # Isolation Forest variants (12 features)
+    for name in ["isolation_forest", "if", "anomaly"]:
+        feats = get_model_features(name)
+        assert len(feats) == 12
+        assert feats == ISOLATION_FOREST_FEATURES
+
+
+def test_isolation_forest_fold_scoped_fitting():
+    """Tests that AnomalyDetector.fit with train_idx fits exclusively on the scoped slice."""
+    rng = np.random.RandomState(42)
+    df = pd.DataFrame(rng.randn(100, 12), columns=ISOLATION_FOREST_FEATURES)
+    df["split"] = "train"
+    df["is_warmup"] = False
+
+    # Define a fold slice of first 40 rows
+    train_idx = df.index[:40]
+    detector = AnomalyDetector(n_estimators=10, random_state=42)
+    detector.fit(df, train_idx=train_idx)
+
+    assert detector.pipeline is not None
+    assert detector.score_min_ is not None
+    assert detector.score_max_ is not None
+
+    # Score remaining 60 rows
+    val_slice = df.iloc[40:]
+    scores = detector.score(val_slice)
+    assert len(scores) == 60
+    assert "anomaly_score_scaled" in scores.columns
+    assert scores["anomaly_score_scaled"].between(0.0, 100.0).all()
