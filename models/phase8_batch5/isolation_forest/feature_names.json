@@ -1,0 +1,17 @@
+{
+  "features": [
+    "amihud_ratio",
+    "amihud_z20",
+    "volume_ratio",
+    "volume_z20",
+    "vol_20d",
+    "vol_ratio_5_20",
+    "daily_range",
+    "range_z20",
+    "overnight_gap_abs",
+    "cs_spread_est",
+    "nifty_vol_20d",
+    "return_z20"
+  ],
+  "count": 12
+}
