@@ -1,0 +1,89 @@
+{
+  "model_hashes": {
+    "hist_gradient_boosting": "7848d911b5ca8afb04114675d5507ac91f104efaca57a47a44706e8fd37921b9",
+    "isolation_forest": "9d5a05088dfb2083da2fce9bd430d8ca6f1e752f7bd8f8a7016be14a02de7377"
+  },
+  "features": {
+    "hist_gradient_boosting": [
+      "daily_return",
+      "return_5d",
+      "return_20d",
+      "return_z20",
+      "abs_return",
+      "price_rel_ma20",
+      "vol_5d",
+      "vol_20d",
+      "vol_ratio_5_20",
+      "downside_vol_20d",
+      "max_drawdown_20d",
+      "rsi_14",
+      "vol_of_vol",
+      "log_volume",
+      "volume_z20",
+      "amihud_ratio",
+      "amihud_ma20",
+      "amihud_z20",
+      "log_turnover",
+      "turnover_ratio",
+      "low_volume_streak",
+      "daily_range",
+      "daily_range_ma20",
+      "range_z20",
+      "overnight_gap",
+      "overnight_gap_abs",
+      "cs_spread_est",
+      "cs_spread_ma10",
+      "excess_return_1d",
+      "rolling_beta_60d",
+      "rolling_corr_60d",
+      "relative_volume",
+      "nifty_vol_20d",
+      "nifty_return_20d",
+      "vol_beta",
+      "vix_close"
+    ],
+    "isolation_forest": [
+      "amihud_ratio",
+      "amihud_z20",
+      "volume_ratio",
+      "volume_z20",
+      "vol_20d",
+      "vol_ratio_5_20",
+      "daily_range",
+      "range_z20",
+      "overnight_gap_abs",
+      "cs_spread_est",
+      "nifty_vol_20d",
+      "return_z20"
+    ]
+  },
+  "if_score_bounds": [
+    -0.7758002614394625,
+    -0.34533976879598105
+  ],
+  "if_offset": -0.5366245497779618,
+  "coverage": {
+    "rows": 551,
+    "historical_rows": 398,
+    "sampled_cap_segments": [
+      "large",
+      "mid",
+      "small"
+    ],
+    "sampled_start": "2018-04-30 00:00:00",
+    "sampled_end": "2026-10-23 00:00:00",
+    "single_feature_missing_cases": 37,
+    "all_missing_case": true,
+    "bin_boundary_cases": 108,
+    "decision_boundary_cases": 4,
+    "note": "Synthetic bin and decision probes test runtime behavior and are not feature-engineering outputs."
+  },
+  "source": {
+    "path": "data/processed/features.parquet",
+    "sha256": "c3975cf9a99b84e109bf7bc2035ac0792c37ec49bef36d2049274395e4b758ae"
+  },
+  "files": {
+    "inputs.json": "de9a869af4a77301cc0e539ea81d7bc99dc33c54504799de257265b51ded7f56",
+    "windows_reference.json": "e8953f17a81826a2cef71a6c2b7ba5c17ae0153d44cab2de91f362d30a460b52"
+  }
+}
