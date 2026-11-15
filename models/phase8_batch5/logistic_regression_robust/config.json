@@ -1,0 +1,6 @@
+{
+  "model_name": "logistic_regression_robust",
+  "candidate": "A",
+  "feature_count": 20,
+  "hyperparameters": {}
+}
