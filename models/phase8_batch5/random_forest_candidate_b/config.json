@@ -1,0 +1,6 @@
+{
+  "model_name": "random_forest_candidate_b",
+  "candidate": "B",
+  "feature_count": 36,
+  "hyperparameters": {}
+}
