@@ -1,0 +1,25 @@
+{
+  "features": [
+    "daily_return",
+    "return_5d",
+    "vol_5d",
+    "downside_vol_20d",
+    "max_drawdown_20d",
+    "rsi_14",
+    "log_turnover",
+    "turnover_ratio",
+    "volume_z20",
+    "amihud_ma20",
+    "low_volume_streak",
+    "daily_range",
+    "overnight_gap_abs",
+    "gap_z20",
+    "cs_spread_ma10",
+    "rolling_beta_60d",
+    "rolling_corr_60d",
+    "nifty_vol_20d",
+    "nifty_return_20d",
+    "vix_close"
+  ],
+  "count": 20
+}
