@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "baseline_files": 318,
+  "modified_existing": [],
+  "deleted_existing": [],
+  "new_files": [
+    ".github/workflows/phase1-runtime-validation.yml",
+    "production/phase1/.gitattributes",
+    "production/phase1/PHASE1_VALIDATION_REPORT.md",
+    "production/phase1/contract.json",
+    "production/phase1/create_reference.py",
+    "production/phase1/inputs.json",
+    "production/phase1/linux_wheel_resolution.json",
+    "production/phase1/preservation_verification.json",
+    "production/phase1/requirements.lock",
+    "production/phase1/requirements.txt",
+    "production/phase1/validate_runtime.py",
+    "production/phase1/validation_controls.json",
+    "production/phase1/windows_reference.json",
+    "production/phase1/windows_validation.json"
+  ],
+  "head_unchanged": true,
+  "tracked_diff": "",
+  "staged_diff": "",
+  "initial_git_status": "?? data/processed/features.parquet\n?? data/processed/features_with_targets.parquet\n",
+  "final_git_status": "?? .github/workflows/phase1-runtime-validation.yml\n?? data/processed/features.parquet\n?? data/processed/features_with_targets.parquet\n?? production/phase1/.gitattributes\n?? production/phase1/PHASE1_VALIDATION_REPORT.md\n?? production/phase1/contract.json\n?? production/phase1/create_reference.py\n?? production/phase1/inputs.json\n?? production/phase1/linux_wheel_resolution.json\n?? production/phase1/preservation_verification.json\n?? production/phase1/requirements.lock\n?? production/phase1/requirements.txt\n?? production/phase1/validate_runtime.py\n?? production/phase1/validation_controls.json\n?? production/phase1/windows_reference.json\n?? production/phase1/windows_validation.json\n",
+  "workflow_bash_syntax": "PASS",
+  "new_file_whitespace": "PASS"
+}
