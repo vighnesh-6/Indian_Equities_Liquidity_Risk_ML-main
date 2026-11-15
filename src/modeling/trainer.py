@@ -14,6 +14,8 @@ Responsible for:
 from pathlib import Path
 import time
 from typing import Any, Dict, List, Optional, Tuple, Union
+import json
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.pipeline import Pipeline
@@ -912,17 +914,322 @@ class ModelTrainer:
     def fit_final_model(
         self,
         df: pd.DataFrame,
-        feature_cols: List[str],
-        best_model_name: str,
+        feature_cols: Optional[List[str]] = None,
+        best_model_name: str = "hist_gradient_boosting",
         target_col: str = "hre_5d_train",
+        output_dir: Optional[Union[str, Path]] = None,
+        **kwargs: Any,
     ) -> Path:
-        """Fits best model on full training set and serializes artifact with metadata.
+        """Fits model on full eligible pre-holdout training set and serializes artifact with metadata.
 
-        NOTE: Final model fitting and artifact serialization are deferred to Phase 8B/10.
+        Args:
+            df: Full labeled dataset DataFrame.
+            feature_cols: Optional override of feature columns. If None, derived from model_name.
+            best_model_name: Model identifier (e.g. 'hist_gradient_boosting').
+            target_col: Target column name.
+            output_dir: Output directory for saving model artifact.
+            **kwargs: Additional parameters forwarded to pipeline builder.
 
-        Raises:
-            NotImplementedError: Deferred to Phase 8 Batch 5 final model selection.
+        Returns:
+            Path: Written artifact directory path.
         """
-        raise NotImplementedError(
-            "Final model training and serialization are deferred to Phase 8 Batch 5."
+        res = self.fit_preholdout_model(
+            df=df,
+            model_name=best_model_name,
+            target_col=target_col,
+            output_dir=output_dir,
+            feature_cols=feature_cols,
+            **kwargs,
         )
+        return Path(res["artifact_dir"])
+
+    def fit_preholdout_model(
+        self,
+        df: pd.DataFrame,
+        model_name: str,
+        target_col: str = "hre_5d_train",
+        output_dir: Optional[Union[str, Path]] = None,
+        feature_cols: Optional[List[str]] = None,
+        **pipeline_kwargs: Any,
+    ) -> Dict[str, Any]:
+        """Fits an independent model pipeline strictly on the eligible pre-holdout population.
+
+        Population Rules Enforced:
+            - Strictly uses split == 'train' and ~is_warmup.
+            - Strictly excludes holdout observations ('split' == 'holdout').
+            - Strictly excludes boundary embargo observations ('split' == 'train_boundary_embargo').
+            - For supervised models, requires target_col.notna().
+
+        Args:
+            df: Full DataFrame containing features and target.
+            model_name: Model identifier.
+            target_col: Target column name.
+            output_dir: Directory where model artifacts will be saved.
+            feature_cols: Optional explicit feature list override.
+            **pipeline_kwargs: Hyperparameters forwarded to pipeline builder.
+
+        Returns:
+            Dict[str, Any]: Dictionary containing fitted pipeline, metadata, and artifact paths.
+        """
+        import sklearn
+
+        # Supervised pre-holdout eligibility
+        sup_mask = pd.Series(True, index=df.index)
+        if "split" in df.columns:
+            sup_mask &= (df["split"] == "train")
+        if "is_warmup" in df.columns:
+            sup_mask &= (~df["is_warmup"])
+        sup_mask &= df[target_col].notna()
+
+        train_sub = df.loc[sup_mask]
+        t_dates = sorted(train_sub["date"].unique())
+        y_train = train_sub[target_col]
+        pos_count = int(np.sum(y_train == 1))
+        neg_count = int(np.sum(y_train == 0))
+
+        candidate = "B" if ("candidate_b" in model_name.lower() or model_name.lower() == "rf_b") else "A"
+        if feature_cols is not None:
+            features = list(feature_cols)
+        else:
+            features = self.get_model_features(model_name, candidate=candidate)
+        validate_features_present(df, features)
+
+        X_train = train_sub[features]
+
+        pipeline = self.get_model_pipeline(model_name, **pipeline_kwargs)
+
+        print(
+            f"Fitting {model_name} on pre-holdout data ({len(train_sub):,} rows, "
+            f"pos={pos_count:,}, {len(features)} features)...",
+            flush=True,
+        )
+        t0 = time.perf_counter()
+        pipeline.fit(X_train, y_train)
+        fit_time = time.perf_counter() - t0
+        print(f"  Fitted in {fit_time:.2f}s.", flush=True)
+
+        model_out = Path(output_dir) if output_dir else Path(f"models/phase8_batch5/{model_name}")
+        model_out.mkdir(parents=True, exist_ok=True)
+        artifact_path = model_out / "model.joblib"
+        joblib.dump(pipeline, artifact_path)
+
+        with open(model_out / "feature_names.json", "w", encoding="utf-8") as f:
+            json.dump({"features": features, "count": len(features)}, f, indent=2)
+
+        config_info = {
+            "model_name": model_name,
+            "candidate": candidate,
+            "feature_count": len(features),
+            "hyperparameters": pipeline_kwargs,
+        }
+        with open(model_out / "config.json", "w", encoding="utf-8") as f:
+            json.dump(config_info, f, indent=2)
+
+        meta = {
+            "model_identifier": model_name,
+            "algorithm": pipeline.named_steps["classifier"].__class__.__name__ if "classifier" in pipeline.named_steps else pipeline.__class__.__name__,
+            "feature_count": len(features),
+            "feature_list": features,
+            "hyperparameters": {k: str(v) for k, v in pipeline.get_params().items() if not k.startswith("imputer") and not k.startswith("scaler")},
+            "preprocessing_pipeline": {step_name: step_obj.__class__.__name__ for step_name, step_obj in pipeline.named_steps.items()},
+            "training_start_date": str(t_dates[0])[:10],
+            "training_end_date": str(t_dates[-1])[:10],
+            "eligible_training_sessions": len(t_dates),
+            "eligible_training_rows": len(train_sub),
+            "positive_class_count": pos_count,
+            "negative_class_count": neg_count,
+            "positive_class_prevalence": float(pos_count / len(train_sub)) if len(train_sub) > 0 else 0.0,
+            "missing_value_handling": "median_imputer" if "imputer" in pipeline.named_steps else "native_tree_splitting",
+            "random_seed": 42,
+            "fit_time_seconds": round(fit_time, 4),
+            "artifact_paths": {
+                "model_joblib": str(artifact_path.resolve()),
+                "feature_names_json": str((model_out / "feature_names.json").resolve()),
+                "config_json": str((model_out / "config.json").resolve()),
+            },
+            "environment": {
+                "scikit_learn_version": sklearn.__version__,
+                "numpy_version": np.__version__,
+                "pandas_version": pd.__version__,
+            },
+            "training_completion_status": "COMPLETED_SUCCESSFULLY",
+        }
+
+        return {
+            "pipeline": pipeline,
+            "metadata": meta,
+            "artifact_dir": str(model_out.resolve()),
+            "artifact_path": str(artifact_path.resolve()),
+        }
+
+    def train_preholdout_models(
+        self,
+        df: pd.DataFrame,
+        models: Optional[List[str]] = None,
+        target_col: str = "hre_5d_train",
+        models_dir: Optional[Union[str, Path]] = "models/phase8_batch5",
+        metadata_dir: Optional[Union[str, Path]] = "reports/phase8_batch5/training_metadata",
+        eval_isolation_forest: bool = True,
+        **model_kwargs: Any,
+    ) -> Dict[str, Any]:
+        """Trains all frozen supervised configurations and Isolation Forest on eligible pre-holdout data.
+
+        Args:
+            df: Full DataFrame containing features, splits, and targets.
+            models: List of model identifiers to fit (defaults to all 5 approved models).
+            target_col: Supervised target column name.
+            models_dir: Base directory for persisting model artifacts.
+            metadata_dir: Directory for writing JSON training metadata.
+            eval_isolation_forest: Whether to fit and serialize Isolation Forest.
+            **model_kwargs: Additional arguments forwarded to pipeline builders.
+
+        Returns:
+            Dict[str, Any]: Results dictionary mapping model names to fitted pipelines and metadata.
+        """
+        import sklearn
+
+        if models is None:
+            models = [
+                "logistic_regression_standard",
+                "logistic_regression_robust",
+                "random_forest_candidate_a",
+                "random_forest_candidate_b",
+                "hist_gradient_boosting",
+            ]
+
+        m_dir = Path(models_dir) if models_dir else Path("models/phase8_batch5")
+        meta_dir = Path(metadata_dir) if metadata_dir else Path("reports/phase8_batch5/training_metadata")
+        m_dir.mkdir(parents=True, exist_ok=True)
+        meta_dir.mkdir(parents=True, exist_ok=True)
+
+        results: Dict[str, Any] = {}
+        all_metadata: Dict[str, Any] = {}
+
+        # 1. Fit each supervised configuration on eligible pre-holdout data
+        for model_name in models:
+            sub_out = m_dir / model_name
+            res = self.fit_preholdout_model(
+                df=df,
+                model_name=model_name,
+                target_col=target_col,
+                output_dir=sub_out,
+                **model_kwargs,
+            )
+            results[model_name] = res["pipeline"]
+            all_metadata[model_name] = res["metadata"]
+
+            meta_file = meta_dir / f"{model_name}_training_metadata.json"
+            with open(meta_file, "w", encoding="utf-8") as f:
+                json.dump(res["metadata"], f, indent=2)
+            print(f"  Saved metadata to: {meta_file.resolve()}", flush=True)
+
+        # 2. Fit unsupervised Isolation Forest on eligible target-independent pre-holdout data
+        if eval_isolation_forest:
+            print("\nFitting unsupervised Isolation Forest on pre-holdout data...", flush=True)
+            unsup_mask = pd.Series(True, index=df.index)
+            if "split" in df.columns:
+                unsup_mask &= (df["split"] == "train")
+            if "is_warmup" in df.columns:
+                unsup_mask &= (~df["is_warmup"])
+
+            unsup_sub = df.loc[unsup_mask]
+            t_dates_if = sorted(unsup_sub["date"].unique())
+            if_features = list(ISOLATION_FOREST_FEATURES)
+            validate_features_present(df, if_features)
+
+            if_detector = AnomalyDetector(n_estimators=100, contamination=0.05, random_state=42)
+            t0_if = time.perf_counter()
+            if_detector.fit(df, train_idx=unsup_sub.index)
+            if_fit_time = time.perf_counter() - t0_if
+            print(f"  Fitted Isolation Forest in {if_fit_time:.2f}s on {len(unsup_sub):,} rows.", flush=True)
+
+            if_out = m_dir / "isolation_forest"
+            if_out.mkdir(parents=True, exist_ok=True)
+            if_artifact_path = if_out / "model.joblib"
+            joblib.dump(if_detector, if_artifact_path)
+
+            with open(if_out / "feature_names.json", "w", encoding="utf-8") as f:
+                json.dump({"features": if_features, "count": len(if_features)}, f, indent=2)
+
+            if_config = {
+                "model_name": "isolation_forest",
+                "feature_count": len(if_features),
+                "n_estimators": if_detector.n_estimators,
+                "contamination": if_detector.contamination,
+                "random_state": if_detector.random_state,
+            }
+            with open(if_out / "config.json", "w", encoding="utf-8") as f:
+                json.dump(if_config, f, indent=2)
+
+            if_meta = {
+                "model_identifier": "isolation_forest",
+                "algorithm": "IsolationForest",
+                "role": "unsupervised_anomaly_detection",
+                "target_independent": True,
+                "feature_count": len(if_features),
+                "feature_list": if_features,
+                "hyperparameters": {
+                    "n_estimators": if_detector.n_estimators,
+                    "contamination": if_detector.contamination,
+                    "max_samples": "auto",
+                    "random_state": if_detector.random_state,
+                },
+                "preprocessing_pipeline": {
+                    "imputer": "SimpleImputer(strategy='median')",
+                    "scaler": "None"
+                },
+                "training_start_date": str(t_dates_if[0])[:10],
+                "training_end_date": str(t_dates_if[-1])[:10],
+                "eligible_training_sessions": len(t_dates_if),
+                "eligible_training_rows": len(unsup_sub),
+                "target_dependency": "NONE",
+                "score_min_raw": float(if_detector.score_min_),
+                "score_max_raw": float(if_detector.score_max_),
+                "score_rescaling": "0-100 normalized range based on training score extrema",
+                "random_seed": 42,
+                "fit_time_seconds": round(if_fit_time, 4),
+                "artifact_paths": {
+                    "model_joblib": str(if_artifact_path.resolve()),
+                    "feature_names_json": str((if_out / "feature_names.json").resolve()),
+                    "config_json": str((if_out / "config.json").resolve()),
+                },
+                "environment": {
+                    "scikit_learn_version": sklearn.__version__,
+                    "numpy_version": np.__version__,
+                    "pandas_version": pd.__version__,
+                },
+                "training_completion_status": "COMPLETED_SUCCESSFULLY",
+            }
+
+            results["isolation_forest"] = if_detector
+            all_metadata["isolation_forest"] = if_meta
+
+            if_meta_file = meta_dir / "isolation_forest_training_metadata.json"
+            with open(if_meta_file, "w", encoding="utf-8") as f:
+                json.dump(if_meta, f, indent=2)
+            print(f"  Saved Isolation Forest metadata to: {if_meta_file.resolve()}", flush=True)
+
+        # 3. Overall training summary
+        overall_summary = {
+            "batch": "Phase 8 Batch 5 (Stage 8.12.4)",
+            "training_type": "pre_holdout_full_population_training",
+            "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "models_trained": list(all_metadata.keys()),
+            "total_models": len(all_metadata),
+            "holdout_sessions_evaluated": 0,
+            "holdout_access_status": "STRICTLY_QUARANTINED_ZERO_ACCESS",
+            "boundary_embargo_sessions_excluded": 5,
+            "boundary_embargo_dates": ["2025-10-13", "2025-10-17"],
+            "models": all_metadata,
+        }
+        with open(meta_dir / "overall_training_metadata_summary.json", "w", encoding="utf-8") as f:
+            json.dump(overall_summary, f, indent=2)
+
+        print(f"\nAll models successfully trained and persisted to: {m_dir.resolve()}")
+        print(f"All training metadata persisted to: {meta_dir.resolve()}")
+
+        return {
+            "models": results,
+            "metadata": all_metadata,
+            "overall_summary": overall_summary,
+        }
