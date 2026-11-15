@@ -1,0 +1,130 @@
+{
+  "manifest_version": "1.0.0",
+  "phase": "phase8_batch5",
+  "stage": "8.12.8",
+  "decision_date": "2026-11-15",
+  "decision_status": "FINAL_SELECTED_CHAMPION_FROZEN",
+  "decision_summary": "HistGradientBoostingClassifier (CFG_05_HGBT, 36 features) is formally selected as the champion supervised predictive model for forward 5-day High-Risk Events (hre_5d). Random Forest Candidate B (CFG_04_RF_CANDIDATE_B) is designated as the primary reference alternative. Isolation Forest (CFG_06_IF_UNSUPERVISED) is retained strictly as an independent unsupervised anomaly surveillance signal.",
+  "selected_supervised_model": {
+    "configuration_id": "CFG_05_HGBT",
+    "model_name": "hist_gradient_boosting",
+    "algorithm_family": "supervised_boosting",
+    "estimator_class": "sklearn.ensemble.HistGradientBoostingClassifier",
+    "model_artifact_path": "models/phase8_batch5/hist_gradient_boosting/model.joblib",
+    "feature_count": 36,
+    "feature_list_reference": "reports/phase8_batch5/configuration_freeze/model_configuration_manifest.json#configurations.hist_gradient_boosting.feature_names",
+    "calibrated_decision_threshold": 0.534,
+    "threshold_calibration_reference": "data/interim/phase8_batch5/holdout/supervised_holdout_metrics.csv#calibrated_threshold",
+    "preprocessing_pipeline": {
+      "imputer": "None (Native integer histogram binning)",
+      "scaler": "None (Scale invariant tree partitioning)"
+    },
+    "hyperparameters": {
+      "max_iter": 200,
+      "max_leaf_nodes": 31,
+      "learning_rate": 0.05,
+      "l2_regularization": 0.1,
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "selection_evidence": {
+      "walk_forward_mean_pr_auc": 0.610654,
+      "walk_forward_pooled_pr_auc": 0.592605,
+      "holdout_pr_auc": 0.572332,
+      "pr_auc_generalization_retention_pct": 93.7245,
+      "holdout_roc_auc": 0.845966,
+      "holdout_brier_score": 0.116693,
+      "holdout_log_loss": 0.362502,
+      "holdout_f1_at_05": 0.532121,
+      "holdout_f1_calibrated": 0.531270,
+      "monthly_holdout_win_rate": "13 / 13 (100.0%)",
+      "market_cap_tier_pr_auc": {
+        "large_cap": 0.707882,
+        "mid_cap": 0.689047,
+        "small_cap": 0.587886
+      },
+      "inference_latency_seconds": 0.220570
+    }
+  },
+  "strongest_alternative_model": {
+    "configuration_id": "CFG_04_RF_CANDIDATE_B",
+    "model_name": "random_forest_candidate_b",
+    "algorithm_family": "supervised_ensemble",
+    "estimator_class": "sklearn.ensemble.RandomForestClassifier",
+    "model_artifact_path": "models/phase8_batch5/random_forest_candidate_b/model.joblib",
+    "preprocessor_artifact_path": "models/phase8_batch5/random_forest_candidate_b/preprocessor.joblib",
+    "feature_count": 36,
+    "feature_list_reference": "reports/phase8_batch5/configuration_freeze/model_configuration_manifest.json#configurations.random_forest_candidate_b.feature_names",
+    "calibrated_decision_threshold": 0.508,
+    "role": "Primary bagging reference alternative",
+    "f51_relative_volume_validated": true,
+    "f51_performance_gain_over_candidate_a_pr_auc": 0.006242,
+    "selection_evidence": {
+      "walk_forward_mean_pr_auc": 0.582892,
+      "holdout_pr_auc": 0.537998,
+      "pr_auc_generalization_retention_pct": 92.2981,
+      "holdout_roc_auc": 0.821112,
+      "holdout_brier_score": 0.124902,
+      "holdout_log_loss": 0.403562,
+      "monthly_holdout_win_rate_vs_candidate_a": "12 / 13 (92.3%)",
+      "market_cap_tier_pr_auc": {
+        "large_cap": 0.620945,
+        "mid_cap": 0.709719,
+        "small_cap": 0.588651
+      },
+      "inference_latency_seconds": 0.111691
+    }
+  },
+  "linear_baseline_benchmark": {
+    "configuration_id": "CFG_01_LOGREG_STANDARD",
+    "model_name": "logistic_regression_standard",
+    "algorithm_family": "supervised_linear",
+    "estimator_class": "sklearn.linear_model.LogisticRegression",
+    "model_artifact_path": "models/phase8_batch5/logistic_regression_standard/model.joblib",
+    "preprocessor_artifact_path": "models/phase8_batch5/logistic_regression_standard/preprocessor.joblib",
+    "feature_count": 20,
+    "role": "Standardized linear reference baseline",
+    "scaler_parity_confirmed": true,
+    "holdout_pr_auc_delta_vs_robust_scaler": 0.000070,
+    "selection_evidence": {
+      "walk_forward_mean_pr_auc": 0.498995,
+      "holdout_pr_auc": 0.405109,
+      "pr_auc_generalization_retention_pct": 81.1849,
+      "holdout_roc_auc": 0.793804,
+      "holdout_brier_score": 0.129792,
+      "holdout_log_loss": 0.434934
+    }
+  },
+  "unsupervised_anomaly_telemetry": {
+    "configuration_id": "CFG_06_IF_UNSUPERVISED",
+    "model_name": "isolation_forest",
+    "algorithm_family": "unsupervised_anomaly_detection",
+    "estimator_class": "sklearn.ensemble.IsolationForest",
+    "model_artifact_path": "models/phase8_batch5/isolation_forest/model.joblib",
+    "preprocessor_artifact_path": "models/phase8_batch5/isolation_forest/preprocessor.joblib",
+    "feature_count": 12,
+    "role": "Independent orthogonal microstructure dislocation surveillance tripwire",
+    "target_supervised": false,
+    "operational_metrics": {
+      "holdout_total_rows": 74334,
+      "holdout_flagged_rows": 1738,
+      "holdout_flag_rate": 0.023381,
+      "holdout_mean_scaled_score": 13.910908,
+      "walk_forward_mean_scaled_score": 14.247433,
+      "holdout_hre_rate_flagged": 0.193835,
+      "holdout_hre_rate_unflagged": 0.164780,
+      "holdout_hre_enrichment_ratio": 1.176324,
+      "point_biserial_target_correlation": 0.026378
+    },
+    "provenance_note": "Operational binary flags generated strictly via pre-fitted model internal decision offset. Numerical threshold 43.12 corresponds to the empirical ~97.41th percentile on the holdout partition."
+  },
+  "verification_status": {
+    "models_retrained": false,
+    "walk_forward_rerun": false,
+    "holdout_evaluation_rerun": false,
+    "notebook_cells_reexecuted": false,
+    "features_parquet_sha256": "c3975cf9a99b84e109bf7bc2035ac0792c37ec49bef36d2049274395e4b758ae",
+    "features_with_targets_parquet_sha256": "c6cebf3d93d022b11765c206b8e2ffb84e578a020e0d913d937b37d04028aa91",
+    "all_unit_tests_passing": true
+  }
+}
