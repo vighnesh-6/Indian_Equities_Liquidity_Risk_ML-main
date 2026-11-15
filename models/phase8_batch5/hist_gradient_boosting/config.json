@@ -1,0 +1,6 @@
+{
+  "model_name": "hist_gradient_boosting",
+  "candidate": "A",
+  "feature_count": 36,
+  "hyperparameters": {}
+}
