@@ -1,0 +1,2 @@
+# Preserve parity fixture hashes across Windows and Linux checkouts.
+*.json text eol=lf
