@@ -1,0 +1,7 @@
+{
+  "model_name": "isolation_forest",
+  "feature_count": 12,
+  "n_estimators": 100,
+  "contamination": 0.05,
+  "random_state": 42
+}
