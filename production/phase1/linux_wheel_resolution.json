@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "scope": "Linux CPython 3.13 x64 wheel availability and metadata resolution. Linux installation and execution remain pending.",
+  "packages": {
+    "joblib": {
+      "version": "1.4.2",
+      "filename": "joblib-1.4.2-py3-none-any.whl",
+      "sha256": "06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6",
+      "active_runtime_requirements": []
+    },
+    "numpy": {
+      "version": "2.1.3",
+      "filename": "numpy-2.1.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "5641516794ca9e5f8a4d17bb45446998c6554704d888f86df9b200e66bdcce56",
+      "active_runtime_requirements": []
+    },
+    "pandas": {
+      "version": "2.2.3",
+      "filename": "pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "f3a255b2c19987fbbe62a9dfd6cff7ff2aa9ccab3fc75218fd4b7530f01efa24",
+      "active_runtime_requirements": [
+        "numpy>=1.26.0; python_version >= \"3.12\"",
+        "python-dateutil>=2.8.2",
+        "pytz>=2020.1",
+        "tzdata>=2022.7"
+      ]
+    },
+    "pyarrow": {
+      "version": "19.0.0",
+      "filename": "pyarrow-19.0.0-cp313-cp313-manylinux_2_28_x86_64.whl",
+      "sha256": "5418d4d0fab3a0ed497bad21d17a7973aad336d66ad4932a3f5f7480d4ca0c04",
+      "active_runtime_requirements": []
+    },
+    "python-dateutil": {
+      "version": "2.9.0.post0",
+      "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "active_runtime_requirements": [
+        "six>=1.5"
+      ]
+    },
+    "pytz": {
+      "version": "2026.3.post1",
+      "filename": "pytz-2026.3.post1-py2.py3-none-any.whl",
+      "sha256": "dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815",
+      "active_runtime_requirements": []
+    },
+    "pyyaml": {
+      "version": "6.0.3",
+      "filename": "pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "0f29edc409a6392443abf94b9cf89ce99889a1dd5376d94316ae5145dfedd5d6",
+      "active_runtime_requirements": []
+    },
+    "scikit-learn": {
+      "version": "1.8.0",
+      "filename": "scikit_learn-1.8.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "8fdf95767f989b0cfedb85f7ed8ca215d4be728031f56ff5a519ee1e3276dc2e",
+      "active_runtime_requirements": [
+        "numpy>=1.24.1",
+        "scipy>=1.10.0",
+        "joblib>=1.3.0",
+        "threadpoolctl>=3.2.0"
+      ]
+    },
+    "scipy": {
+      "version": "1.15.3",
+      "filename": "scipy-1.15.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "c9deabd6d547aee2c9a81dee6cc96c6d7e9a9b1953f74850c179f91fdc729cb7",
+      "active_runtime_requirements": [
+        "numpy<2.5,>=1.23.5"
+      ]
+    },
+    "six": {
+      "version": "1.17.0",
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "active_runtime_requirements": []
+    },
+    "threadpoolctl": {
+      "version": "3.5.0",
+      "filename": "threadpoolctl-3.5.0-py3-none-any.whl",
+      "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467",
+      "active_runtime_requirements": []
+    },
+    "tzdata": {
+      "version": "2026.3",
+      "filename": "tzdata-2026.3-py2.py3-none-any.whl",
+      "sha256": "dc096730c87af6cab1b171c9d532be840741ff5d459015e7f6947bd7d7e54931",
+      "active_runtime_requirements": []
+    }
+  },
+  "dependency_errors": []
+}
