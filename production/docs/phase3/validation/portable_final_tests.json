@@ -1,0 +1,83 @@
+{
+  "python": "3.13.5",
+  "production_database_access": false,
+  "incremental_tolerance": {
+    "rtol": 1e-06,
+    "atol": 1e-08,
+    "null_masks": "exact",
+    "rsi": "exact float32"
+  },
+  "postgres": "PostgreSQL 18.7 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+  "phase3_tests": {
+    "result": "PASS",
+    "tests": 30,
+    "passed": [
+      "production.features.tests.test_engine.ContractTests.test_frozen_hashes_and_exact_58_names",
+      "production.features.tests.test_engine.ContractTests.test_numerical_function_bodies_match_approved_sources",
+      "production.features.tests.test_engine.ContractTests.test_text_identity_is_independent_of_checkout_line_endings",
+      "production.features.tests.test_engine.EngineTests.test_approved_corporate_gap_masks_without_dropping_rows",
+      "production.features.tests.test_engine.EngineTests.test_causality_future_benchmark_and_vix_perturbation",
+      "production.features.tests.test_engine.EngineTests.test_causality_future_price_and_volume_perturbation",
+      "production.features.tests.test_engine.EngineTests.test_output_order_dtype_warmup_and_null_boundaries",
+      "production.features.tests.test_engine.EngineTests.test_ticker_isolation_duplicate_dates_and_excluded_day",
+      "production.features.tests.test_engine.EngineTests.test_wilder_rsi_edges",
+      "production.features.tests.test_engine.EngineTests.test_zero_volume_and_benchmark_missingness",
+      "production.features.tests.test_entrypoint.EntrypointTests.test_300_stock_backfill_atomic_daily_failure_recovery_and_noop",
+      "production.features.tests.test_incremental.IncrementalTests.test_changed_vintage_and_backward_date_rejected",
+      "production.features.tests.test_incremental.IncrementalTests.test_daily_equivalence_serialization_and_recursive_state",
+      "production.features.tests.test_incremental.IncrementalTests.test_real_reference_preserves_pandas_variance_history",
+      "production.features.tests.test_incremental.IncrementalTests.test_recursive_rsi_survives_masked_corporate_action",
+      "production.features.tests.test_incremental.IncrementalTests.test_single_session_and_original_state_preserved",
+      "production.features.tests.test_persistence.LedgerTests.test_core_collector_accepts_optional_005_with_checksums_intact",
+      "production.features.tests.test_persistence.MigrationConcurrencyTests.test_two_migration_connections_install_once_and_replay",
+      "production.features.tests.test_persistence.PersistenceTests.test_atomic_rollback_after_all_writes_and_safe_retry",
+      "production.features.tests.test_persistence.PersistenceTests.test_concurrent_conflicting_keys_cannot_duplicate_or_overwrite",
+      "production.features.tests.test_persistence.PersistenceTests.test_direct_immutability_and_backward_checkpoint_writes_rejected",
+      "production.features.tests.test_persistence.PersistenceTests.test_direct_missing_historical_coverage_cannot_succeed",
+      "production.features.tests.test_persistence.PersistenceTests.test_direct_nonfinite_feature_insertion_rejected",
+      "production.features.tests.test_persistence.PersistenceTests.test_exact_roundtrip_nulls_publication_and_duplicate_replay",
+      "production.features.tests.test_persistence.PersistenceTests.test_incomplete_session_publication_rolls_back_every_write",
+      "production.features.tests.test_persistence.PersistenceTests.test_independent_connections_concurrent_identical_replay_once",
+      "production.features.tests.test_persistence.PersistenceTests.test_normal_entrypoint_rejects_same_count_wrong_universe",
+      "production.features.tests.test_persistence.PersistenceTests.test_private_backfill_blocks_publish_until_other_instrument_arrives",
+      "production.features.tests.test_persistence.PersistenceTests.test_recursive_checkpoint_wrong_previous_close_rolls_back",
+      "production.features.tests.test_persistence.PersistenceTests.test_replay_conflicting_values_and_stale_state_rejected"
+    ],
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "legacy_fixture_corrections": {
+    "source_sha256": "66cb940e7af47c6e0db2400ef48a1db3bb2a2da849f02e77de774ce8ba8db875",
+    "corrected_tests": [
+      "test_independent_instruments_can_write_in_parallel",
+      "test_different_instruments_in_same_run_serialize_safely"
+    ],
+    "expected_rows": 4,
+    "reason": "Two explicitly planned dates for each of two instruments. Original temporary file and all locking assertions are preserved."
+  },
+  "pipeline_concurrency": {
+    "result": "PASS",
+    "tests": 12,
+    "passed": [
+      "prior_phase2_concurrency.ConcurrencyTests.test_atomic_session_advisory_lock_replays_same_302_instrument_session",
+      "prior_phase2_concurrency.ConcurrencyTests.test_competing_runs_cannot_advance_stale_checkpoint",
+      "prior_phase2_concurrency.ConcurrencyTests.test_completion_wins_race_and_prevents_coverage_deletion",
+      "prior_phase2_concurrency.ConcurrencyTests.test_concurrent_changed_batch_key_payload_is_rejected",
+      "prior_phase2_concurrency.ConcurrencyTests.test_concurrent_identical_batch_replays_once",
+      "prior_phase2_concurrency.ConcurrencyTests.test_concurrent_identical_run_request_is_idempotent",
+      "prior_phase2_concurrency.ConcurrencyTests.test_deletion_wins_race_and_prevents_false_success",
+      "prior_phase2_concurrency.ConcurrencyTests.test_different_instruments_in_same_run_serialize_safely",
+      "prior_phase2_concurrency.ConcurrencyTests.test_failed_batch_rolls_back_and_waiting_retry_succeeds",
+      "prior_phase2_concurrency.ConcurrencyTests.test_independent_instruments_can_write_in_parallel",
+      "prior_phase2_concurrency.ConcurrencyTests.test_migration_advisory_lock_serializes_two_backends",
+      "prior_phase2_concurrency.ConcurrencyTests.test_migration_rollback_releases_lock_for_waiting_migrator"
+    ],
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "temporary_server_stopped": true,
+  "elapsed_seconds": 266.139,
+  "result": "PASS"
+}
