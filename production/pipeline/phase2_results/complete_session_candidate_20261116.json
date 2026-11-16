@@ -1,0 +1,4551 @@
+{
+  "status": "CANDIDATE_PENDING_DIVIDEND_BASIS_REVIEW",
+  "session": "2026-11-16",
+  "instruments": 302,
+  "yahoo_observations_preserved": 300,
+  "nse_final_observations": 2,
+  "snapshot": "production\\pipeline\\phase2_results\\pending_20261116_20261116T123010Z.jsonl",
+  "snapshot_sha256": "80d8e3b0ad429e4842d466fb79685405057fd35b3352955d728e21b8df5c84b8",
+  "source_version_sha256": "4b092142ecfdd80eb359a62a9146a598a5fad274ef84930d0d7caf0e9eeaf645",
+  "source_acknowledgment": "Source: National Stock Exchange of India Limited",
+  "source_permission_evidence": "independent_resolution_decisions_20261116.json",
+  "outstanding_basis_review": [
+    "COCHINSHIP.NS",
+    "SCI.NS"
+  ],
+  "observations": {
+    "360ONE.NS": {
+      "close": 1179.0,
+      "date": "2026-11-16",
+      "high": 1188.5999755859375,
+      "low": 1167.75,
+      "open": 1179.800048828125,
+      "turnover": null,
+      "volume": 524870
+    },
+    "ABB.NS": {
+      "close": 6895.0,
+      "date": "2026-11-16",
+      "high": 7107.0,
+      "low": 6803.0,
+      "open": 7100.0,
+      "turnover": null,
+      "volume": 819609
+    },
+    "ABBOTINDIA.NS": {
+      "close": 25980.0,
+      "date": "2026-11-16",
+      "high": 26440.0,
+      "low": 25905.0,
+      "open": 26405.0,
+      "turnover": null,
+      "volume": 4839
+    },
+    "ABCAPITAL.NS": {
+      "close": 408.5,
+      "date": "2026-11-16",
+      "high": 410.3500061035156,
+      "low": 402.5,
+      "open": 408.0,
+      "turnover": null,
+      "volume": 1368307
+    },
+    "ADANIENSOL.NS": {
+      "close": 1452.5999755859375,
+      "date": "2026-11-16",
+      "high": 1452.5999755859375,
+      "low": 1417.0,
+      "open": 1438.5,
+      "turnover": null,
+      "volume": 1017806
+    },
+    "ADANIENT.NS": {
+      "close": 2659.0,
+      "date": "2026-11-16",
+      "high": 2697.699951171875,
+      "low": 2641.0,
+      "open": 2693.5,
+      "turnover": null,
+      "volume": 810098
+    },
+    "ADANIGREEN.NS": {
+      "close": 1406.5999755859375,
+      "date": "2026-11-16",
+      "high": 1409.5999755859375,
+      "low": 1380.0,
+      "open": 1406.0,
+      "turnover": null,
+      "volume": 1991278
+    },
+    "ADANIPORTS.NS": {
+      "close": 1893.0,
+      "date": "2026-11-16",
+      "high": 1916.5999755859375,
+      "low": 1875.5999755859375,
+      "open": 1905.199951171875,
+      "turnover": null,
+      "volume": 1351209
+    },
+    "ADANIPOWER.NS": {
+      "close": 205.2899932861328,
+      "date": "2026-11-16",
+      "high": 207.39999389648438,
+      "low": 203.5500030517578,
+      "open": 205.5500030517578,
+      "turnover": null,
+      "volume": 10757354
+    },
+    "AEGISLOG.NS": {
+      "close": 1228.0999755859375,
+      "date": "2026-11-16",
+      "high": 1236.9000244140625,
+      "low": 1217.800048828125,
+      "open": 1230.5,
+      "turnover": null,
+      "volume": 389859
+    },
+    "AIAENG.NS": {
+      "close": 3205.300048828125,
+      "date": "2026-11-16",
+      "high": 3215.0,
+      "low": 3150.0,
+      "open": 3210.0,
+      "turnover": null,
+      "volume": 87880
+    },
+    "AIIL.NS": {
+      "close": 565.4000244140625,
+      "date": "2026-11-16",
+      "high": 576.0,
+      "low": 560.0499877929688,
+      "open": 573.9500122070312,
+      "turnover": null,
+      "volume": 93197
+    },
+    "AJANTPHARM.NS": {
+      "close": 3360.60009765625,
+      "date": "2026-11-16",
+      "high": 3405.300048828125,
+      "low": 3270.10009765625,
+      "open": 3282.0,
+      "turnover": null,
+      "volume": 162166
+    },
+    "ALKEM.NS": {
+      "close": 5136.0,
+      "date": "2026-11-16",
+      "high": 5186.5,
+      "low": 5096.0,
+      "open": 5115.0,
+      "turnover": null,
+      "volume": 72670
+    },
+    "AMBER.NS": {
+      "close": 6252.0,
+      "date": "2026-11-16",
+      "high": 6728.0,
+      "low": 6155.0,
+      "open": 6690.0,
+      "turnover": null,
+      "volume": 1020282
+    },
+    "AMBUJACEM.NS": {
+      "close": 382.0,
+      "date": "2026-11-16",
+      "high": 385.20001220703125,
+      "low": 379.20001220703125,
+      "open": 383.0,
+      "turnover": null,
+      "volume": 1919397
+    },
+    "ANANTRAJ.NS": {
+      "close": 462.79998779296875,
+      "date": "2026-11-16",
+      "high": 478.54998779296875,
+      "low": 461.0,
+      "open": 478.54998779296875,
+      "turnover": null,
+      "volume": 1329982
+    },
+    "ANGELONE.NS": {
+      "close": 348.1499938964844,
+      "date": "2026-11-16",
+      "high": 354.75,
+      "low": 345.20001220703125,
+      "open": 349.6499938964844,
+      "turnover": null,
+      "volume": 7322997
+    },
+    "ANTHEM.NS": {
+      "close": 931.4500122070312,
+      "date": "2026-11-16",
+      "high": 948.5,
+      "low": 930.0,
+      "open": 939.25,
+      "turnover": null,
+      "volume": 279822
+    },
+    "APARINDS.NS": {
+      "close": 14831.0,
+      "date": "2026-11-16",
+      "high": 14888.0,
+      "low": 14409.0,
+      "open": 14777.0,
+      "turnover": null,
+      "volume": 129717
+    },
+    "APLAPOLLO.NS": {
+      "close": 2250.199951171875,
+      "date": "2026-11-16",
+      "high": 2312.300048828125,
+      "low": 2233.300048828125,
+      "open": 2269.0,
+      "turnover": null,
+      "volume": 1854185
+    },
+    "APOLLOHOSP.NS": {
+      "close": 8771.0,
+      "date": "2026-11-16",
+      "high": 8786.5,
+      "low": 8534.5,
+      "open": 8565.0,
+      "turnover": null,
+      "volume": 605876
+    },
+    "ASHOKLEY.NS": {
+      "close": 167.49000549316406,
+      "date": "2026-11-16",
+      "high": 172.75999450683594,
+      "low": 167.3000030517578,
+      "open": 170.8000030517578,
+      "turnover": null,
+      "volume": 23075362
+    },
+    "ASIANPAINT.NS": {
+      "close": 2572.89990234375,
+      "date": "2026-11-16",
+      "high": 2619.39990234375,
+      "low": 2562.89990234375,
+      "open": 2575.0,
+      "turnover": null,
+      "volume": 1146195
+    },
+    "ASTERDM.NS": {
+      "close": 750.0,
+      "date": "2026-11-16",
+      "high": 757.4500122070312,
+      "low": 722.7000122070312,
+      "open": 723.3499755859375,
+      "turnover": null,
+      "volume": 1480009
+    },
+    "ASTRAL.NS": {
+      "close": 1257.0,
+      "date": "2026-11-16",
+      "high": 1261.0999755859375,
+      "low": 1248.0999755859375,
+      "open": 1259.0,
+      "turnover": null,
+      "volume": 248035
+    },
+    "ATGL.NS": {
+      "close": 571.0,
+      "date": "2026-11-16",
+      "high": 575.3499755859375,
+      "low": 567.2000122070312,
+      "open": 574.7000122070312,
+      "turnover": null,
+      "volume": 265276
+    },
+    "ATHERENERG.NS": {
+      "close": 1939.5999755859375,
+      "date": "2026-11-16",
+      "high": 2021.5,
+      "low": 1929.5,
+      "open": 1946.0,
+      "turnover": null,
+      "volume": 4417762
+    },
+    "AUBANK.NS": {
+      "close": 971.3499755859375,
+      "date": "2026-11-16",
+      "high": 974.4000244140625,
+      "low": 956.0999755859375,
+      "open": 967.0,
+      "turnover": null,
+      "volume": 1457510
+    },
+    "AUROPHARMA.NS": {
+      "close": 1794.0,
+      "date": "2026-11-16",
+      "high": 1849.300048828125,
+      "low": 1783.0,
+      "open": 1830.9000244140625,
+      "turnover": null,
+      "volume": 1475542
+    },
+    "AXISBANK.NS": {
+      "close": 1342.4000244140625,
+      "date": "2026-11-16",
+      "high": 1351.699951171875,
+      "low": 1333.0999755859375,
+      "open": 1344.0,
+      "turnover": null,
+      "volume": 5346656
+    },
+    "AZAD.NS": {
+      "close": 2398.300048828125,
+      "date": "2026-11-16",
+      "high": 2471.0,
+      "low": 2371.39990234375,
+      "open": 2467.800048828125,
+      "turnover": null,
+      "volume": 402371
+    },
+    "BAJAJ-AUTO.NS": {
+      "close": 10734.0,
+      "date": "2026-11-16",
+      "high": 10866.0,
+      "low": 10681.0,
+      "open": 10849.0,
+      "turnover": null,
+      "volume": 165512
+    },
+    "BAJAJFINSV.NS": {
+      "close": 1848.199951171875,
+      "date": "2026-11-16",
+      "high": 1874.300048828125,
+      "low": 1841.0,
+      "open": 1866.9000244140625,
+      "turnover": null,
+      "volume": 677239
+    },
+    "BAJAJHFL.NS": {
+      "close": 81.94999694824219,
+      "date": "2026-11-16",
+      "high": 82.0999984741211,
+      "low": 80.80999755859375,
+      "open": 81.45999908447266,
+      "turnover": null,
+      "volume": 2426709
+    },
+    "BAJAJHLDNG.NS": {
+      "close": 11319.0,
+      "date": "2026-11-16",
+      "high": 11338.0,
+      "low": 11169.0,
+      "open": 11193.0,
+      "turnover": null,
+      "volume": 18274
+    },
+    "BAJFINANCE.NS": {
+      "close": 1110.0,
+      "date": "2026-11-16",
+      "high": 1122.0,
+      "low": 1098.699951171875,
+      "open": 1117.0,
+      "turnover": null,
+      "volume": 8224916
+    },
+    "BALKRISIND.NS": {
+      "close": 2288.199951171875,
+      "date": "2026-11-16",
+      "high": 2346.89990234375,
+      "low": 2260.699951171875,
+      "open": 2265.0,
+      "turnover": null,
+      "volume": 123442
+    },
+    "BANDHANBNK.NS": {
+      "close": 172.89999389648438,
+      "date": "2026-11-16",
+      "high": 174.47000122070312,
+      "low": 170.66000366210938,
+      "open": 173.0,
+      "turnover": null,
+      "volume": 7786715
+    },
+    "BANKBARODA.NS": {
+      "close": 270.20001220703125,
+      "date": "2026-11-16",
+      "high": 275.69000244140625,
+      "low": 269.1199951171875,
+      "open": 273.8399963378906,
+      "turnover": null,
+      "volume": 10591834
+    },
+    "BANKINDIA.NS": {
+      "close": 152.97000122070312,
+      "date": "2026-11-16",
+      "high": 156.77999877929688,
+      "low": 151.3699951171875,
+      "open": 154.6699981689453,
+      "turnover": null,
+      "volume": 12827375
+    },
+    "BDL.NS": {
+      "close": 1033.0,
+      "date": "2026-11-16",
+      "high": 1040.699951171875,
+      "low": 1024.75,
+      "open": 1030.0,
+      "turnover": null,
+      "volume": 846973
+    },
+    "BEL.NS": {
+      "close": 401.3999938964844,
+      "date": "2026-11-16",
+      "high": 403.75,
+      "low": 399.3999938964844,
+      "open": 400.8500061035156,
+      "turnover": null,
+      "volume": 6882170
+    },
+    "BERGEPAINT.NS": {
+      "close": 470.29998779296875,
+      "date": "2026-11-16",
+      "high": 475.70001220703125,
+      "low": 467.29998779296875,
+      "open": 475.5,
+      "turnover": null,
+      "volume": 148737
+    },
+    "BHARATFORG.NS": {
+      "close": 1715.0,
+      "date": "2026-11-16",
+      "high": 1769.9000244140625,
+      "low": 1710.0999755859375,
+      "open": 1769.9000244140625,
+      "turnover": null,
+      "volume": 1054481
+    },
+    "BHARTIARTL.NS": {
+      "close": 2153.5,
+      "date": "2026-11-16",
+      "high": 2172.300048828125,
+      "low": 2123.0,
+      "open": 2128.800048828125,
+      "turnover": null,
+      "volume": 9553335
+    },
+    "BHARTIHEXA.NS": {
+      "close": 1709.9000244140625,
+      "date": "2026-11-16",
+      "high": 1725.4000244140625,
+      "low": 1639.300048828125,
+      "open": 1665.0,
+      "turnover": null,
+      "volume": 331039
+    },
+    "BHEL.NS": {
+      "close": 430.1000061035156,
+      "date": "2026-11-16",
+      "high": 438.0,
+      "low": 425.6000061035156,
+      "open": 437.0,
+      "turnover": null,
+      "volume": 7335882
+    },
+    "BIOCON.NS": {
+      "close": 362.20001220703125,
+      "date": "2026-11-16",
+      "high": 368.29998779296875,
+      "low": 359.20001220703125,
+      "open": 365.8999938964844,
+      "turnover": null,
+      "volume": 1829145
+    },
+    "BLUESTARCO.NS": {
+      "close": 1624.0,
+      "date": "2026-11-16",
+      "high": 1624.0,
+      "low": 1554.300048828125,
+      "open": 1588.699951171875,
+      "turnover": null,
+      "volume": 190596
+    },
+    "BOSCHLTD.NS": {
+      "close": 48795.0,
+      "date": "2026-11-16",
+      "high": 49840.0,
+      "low": 48370.0,
+      "open": 49500.0,
+      "turnover": null,
+      "volume": 30755
+    },
+    "BPCL.NS": {
+      "close": 305.29998779296875,
+      "date": "2026-11-16",
+      "high": 305.95001220703125,
+      "low": 301.1499938964844,
+      "open": 304.0,
+      "turnover": null,
+      "volume": 3078922
+    },
+    "BRITANNIA.NS": {
+      "close": 4754.0,
+      "date": "2026-11-16",
+      "high": 4799.7001953125,
+      "low": 4692.60009765625,
+      "open": 4760.2998046875,
+      "turnover": null,
+      "volume": 247438
+    },
+    "BSE.NS": {
+      "close": 3887.39990234375,
+      "date": "2026-11-16",
+      "high": 3969.39990234375,
+      "low": 3862.39990234375,
+      "open": 3937.699951171875,
+      "turnover": null,
+      "volume": 2270782
+    },
+    "CANBK.NS": {
+      "close": 132.39999389648438,
+      "date": "2026-11-16",
+      "high": 133.88999938964844,
+      "low": 131.11000061035156,
+      "open": 131.5,
+      "turnover": null,
+      "volume": 19334076
+    },
+    "CARTRADE.NS": {
+      "close": 2643.89990234375,
+      "date": "2026-11-16",
+      "high": 2701.89990234375,
+      "low": 2621.800048828125,
+      "open": 2698.89990234375,
+      "turnover": null,
+      "volume": 105043
+    },
+    "CDSL.NS": {
+      "close": 1433.9000244140625,
+      "date": "2026-11-16",
+      "high": 1456.699951171875,
+      "low": 1419.0,
+      "open": 1454.199951171875,
+      "turnover": null,
+      "volume": 1516697
+    },
+    "CGPOWER.NS": {
+      "close": 818.7000122070312,
+      "date": "2026-11-16",
+      "high": 827.75,
+      "low": 808.4000244140625,
+      "open": 827.3499755859375,
+      "turnover": null,
+      "volume": 2221260
+    },
+    "CHENNPETRO.NS": {
+      "close": 1424.0,
+      "date": "2026-11-16",
+      "high": 1436.5,
+      "low": 1387.699951171875,
+      "open": 1433.0,
+      "turnover": null,
+      "volume": 809193
+    },
+    "CHOLAFIN.NS": {
+      "close": 1849.800048828125,
+      "date": "2026-11-16",
+      "high": 1856.0,
+      "low": 1828.199951171875,
+      "open": 1855.0,
+      "turnover": null,
+      "volume": 1633292
+    },
+    "CIPLA.NS": {
+      "close": 1394.5,
+      "date": "2026-11-16",
+      "high": 1406.0,
+      "low": 1389.0,
+      "open": 1393.0,
+      "turnover": null,
+      "volume": 1248681
+    },
+    "COALINDIA.NS": {
+      "close": 397.5,
+      "date": "2026-11-16",
+      "high": 404.79998779296875,
+      "low": 395.0,
+      "open": 404.79998779296875,
+      "turnover": null,
+      "volume": 18169071
+    },
+    "COCHINSHIP.NS": {
+      "close": 1158.0,
+      "date": "2026-11-16",
+      "high": 1185.0,
+      "low": 1145.300048828125,
+      "open": 1184.300048828125,
+      "turnover": null,
+      "volume": 1334996
+    },
+    "COFORGE.NS": {
+      "close": 2010.0,
+      "date": "2026-11-16",
+      "high": 2054.10009765625,
+      "low": 1977.0999755859375,
+      "open": 2036.800048828125,
+      "turnover": null,
+      "volume": 1520853
+    },
+    "COLPAL.NS": {
+      "close": 1703.800048828125,
+      "date": "2026-11-16",
+      "high": 1722.4000244140625,
+      "low": 1693.699951171875,
+      "open": 1715.0,
+      "turnover": null,
+      "volume": 222710
+    },
+    "CONCOR.NS": {
+      "close": 442.0,
+      "date": "2026-11-16",
+      "high": 443.04998779296875,
+      "low": 437.54998779296875,
+      "open": 443.0,
+      "turnover": null,
+      "volume": 575017
+    },
+    "COROMANDEL.NS": {
+      "close": 1968.5,
+      "date": "2026-11-16",
+      "high": 1969.4000244140625,
+      "low": 1927.4000244140625,
+      "open": 1959.0999755859375,
+      "turnover": null,
+      "volume": 142495
+    },
+    "CRISIL.NS": {
+      "close": 4244.7001953125,
+      "date": "2026-11-16",
+      "high": 4368.5,
+      "low": 4221.0,
+      "open": 4352.39990234375,
+      "turnover": null,
+      "volume": 44386
+    },
+    "CUMMINSIND.NS": {
+      "close": 4233.0,
+      "date": "2026-11-16",
+      "high": 4395.2001953125,
+      "low": 4150.7001953125,
+      "open": 4395.2001953125,
+      "turnover": null,
+      "volume": 1011993
+    },
+    "CUPID.NS": {
+      "close": 361.8999938964844,
+      "date": "2026-11-16",
+      "high": 381.29998779296875,
+      "low": 360.25,
+      "open": 378.75,
+      "turnover": null,
+      "volume": 16551527
+    },
+    "DABUR.NS": {
+      "close": 381.8999938964844,
+      "date": "2026-11-16",
+      "high": 382.0,
+      "low": 378.20001220703125,
+      "open": 380.70001220703125,
+      "turnover": null,
+      "volume": 658975
+    },
+    "DALBHARAT.NS": {
+      "close": 1514.9000244140625,
+      "date": "2026-11-16",
+      "high": 1529.0,
+      "low": 1488.4000244140625,
+      "open": 1497.199951171875,
+      "turnover": null,
+      "volume": 189063
+    },
+    "DATAPATTNS.NS": {
+      "close": 4190.0,
+      "date": "2026-11-16",
+      "high": 4294.89990234375,
+      "low": 4167.0,
+      "open": 4280.0,
+      "turnover": null,
+      "volume": 331567
+    },
+    "DELHIVERY.NS": {
+      "close": 440.45001220703125,
+      "date": "2026-11-16",
+      "high": 441.6499938964844,
+      "low": 434.8999938964844,
+      "open": 436.29998779296875,
+      "turnover": null,
+      "volume": 1068389
+    },
+    "DIVISLAB.NS": {
+      "close": 11080.0,
+      "date": "2026-11-16",
+      "high": 11544.5,
+      "low": 10954.0,
+      "open": 11490.0,
+      "turnover": null,
+      "volume": 903606
+    },
+    "DIXON.NS": {
+      "close": 12890.0,
+      "date": "2026-11-16",
+      "high": 12909.0,
+      "low": 12638.0,
+      "open": 12798.0,
+      "turnover": null,
+      "volume": 224911
+    },
+    "DLF.NS": {
+      "close": 754.75,
+      "date": "2026-11-16",
+      "high": 762.7999877929688,
+      "low": 748.9500122070312,
+      "open": 762.7999877929688,
+      "turnover": null,
+      "volume": 1532441
+    },
+    "DMART.NS": {
+      "close": 3457.60009765625,
+      "date": "2026-11-16",
+      "high": 3462.0,
+      "low": 3427.0,
+      "open": 3434.0,
+      "turnover": null,
+      "volume": 159968
+    },
+    "DRREDDY.NS": {
+      "close": 1377.9000244140625,
+      "date": "2026-11-16",
+      "high": 1395.0,
+      "low": 1372.300048828125,
+      "open": 1383.0,
+      "turnover": null,
+      "volume": 974908
+    },
+    "EICHERMOT.NS": {
+      "close": 7599.0,
+      "date": "2026-11-16",
+      "high": 7947.0,
+      "low": 7534.0,
+      "open": 7782.0,
+      "turnover": null,
+      "volume": 1719821
+    },
+    "ENDURANCE.NS": {
+      "close": 2534.60009765625,
+      "date": "2026-11-16",
+      "high": 2555.199951171875,
+      "low": 2510.0,
+      "open": 2534.199951171875,
+      "turnover": null,
+      "volume": 38303
+    },
+    "ENRIN.NS": {
+      "close": 3097.0,
+      "date": "2026-11-16",
+      "high": 3168.10009765625,
+      "low": 3071.199951171875,
+      "open": 3160.0,
+      "turnover": null,
+      "volume": 439197
+    },
+    "ESCORTS.NS": {
+      "close": 2404.0,
+      "date": "2026-11-16",
+      "high": 2415.0,
+      "low": 2381.5,
+      "open": 2406.0,
+      "turnover": null,
+      "volume": 67901
+    },
+    "ETERNAL.NS": {
+      "close": 371.1000061035156,
+      "date": "2026-11-16",
+      "high": 372.5,
+      "low": 364.0,
+      "open": 364.5,
+      "turnover": null,
+      "volume": 23644234
+    },
+    "EXIDEIND.NS": {
+      "close": 365.5,
+      "date": "2026-11-16",
+      "high": 373.8999938964844,
+      "low": 363.1000061035156,
+      "open": 373.0,
+      "turnover": null,
+      "volume": 1069642
+    },
+    "FACT.NS": {
+      "close": 793.9500122070312,
+      "date": "2026-11-16",
+      "high": 811.25,
+      "low": 786.2000122070312,
+      "open": 811.1500244140625,
+      "turnover": null,
+      "volume": 147746
+    },
+    "FEDERALBNK.NS": {
+      "close": 362.0,
+      "date": "2026-11-16",
+      "high": 368.8999938964844,
+      "low": 359.0,
+      "open": 362.0,
+      "turnover": null,
+      "volume": 5925724
+    },
+    "FLUOROCHEM.NS": {
+      "close": 4824.10009765625,
+      "date": "2026-11-16",
+      "high": 4860.0,
+      "low": 4587.39990234375,
+      "open": 4716.0,
+      "turnover": null,
+      "volume": 132520
+    },
+    "FORCEMOT.NS": {
+      "close": 19389.0,
+      "date": "2026-11-16",
+      "high": 19789.0,
+      "low": 19234.0,
+      "open": 19765.0,
+      "turnover": null,
+      "volume": 54981
+    },
+    "FORTIS.NS": {
+      "close": 803.2000122070312,
+      "date": "2026-11-16",
+      "high": 804.2000122070312,
+      "low": 764.0,
+      "open": 764.0,
+      "turnover": null,
+      "volume": 3226968
+    },
+    "GAIL.NS": {
+      "close": 187.0,
+      "date": "2026-11-16",
+      "high": 188.1999969482422,
+      "low": 185.52000427246094,
+      "open": 187.33999633789062,
+      "turnover": null,
+      "volume": 7245576
+    },
+    "GESHIP.NS": {
+      "close": 1532.9000244140625,
+      "date": "2026-11-16",
+      "high": 1536.0,
+      "low": 1476.699951171875,
+      "open": 1526.0999755859375,
+      "turnover": null,
+      "volume": 770786
+    },
+    "GICRE.NS": {
+      "close": 344.5,
+      "date": "2026-11-16",
+      "high": 345.0,
+      "low": 331.79998779296875,
+      "open": 337.45001220703125,
+      "turnover": null,
+      "volume": 1162121
+    },
+    "GLAND.NS": {
+      "close": 3385.89990234375,
+      "date": "2026-11-16",
+      "high": 3429.0,
+      "low": 3341.0,
+      "open": 3350.800048828125,
+      "turnover": null,
+      "volume": 418675
+    },
+    "GLAXO.NS": {
+      "close": 2651.699951171875,
+      "date": "2026-11-16",
+      "high": 2685.800048828125,
+      "low": 2636.5,
+      "open": 2673.0,
+      "turnover": null,
+      "volume": 94064
+    },
+    "GLENMARK.NS": {
+      "close": 2632.89990234375,
+      "date": "2026-11-16",
+      "high": 2686.300048828125,
+      "low": 2620.0,
+      "open": 2643.0,
+      "turnover": null,
+      "volume": 351112
+    },
+    "GMRAIRPORT.NS": {
+      "close": 101.80000305175781,
+      "date": "2026-11-16",
+      "high": 101.80000305175781,
+      "low": 98.73999786376953,
+      "open": 99.0,
+      "turnover": null,
+      "volume": 13983018
+    },
+    "GODFRYPHLP.NS": {
+      "close": 1812.0,
+      "date": "2026-11-16",
+      "high": 1835.5,
+      "low": 1783.0999755859375,
+      "open": 1812.0,
+      "turnover": null,
+      "volume": 325983
+    },
+    "GODREJCP.NS": {
+      "close": 892.7000122070312,
+      "date": "2026-11-16",
+      "high": 892.7000122070312,
+      "low": 865.2999877929688,
+      "open": 870.5,
+      "turnover": null,
+      "volume": 994264
+    },
+    "GODREJIND.NS": {
+      "close": 1091.0,
+      "date": "2026-11-16",
+      "high": 1148.0,
+      "low": 1070.8499755859375,
+      "open": 1136.550048828125,
+      "turnover": null,
+      "volume": 1134479
+    },
+    "GODREJPROP.NS": {
+      "close": 1841.699951171875,
+      "date": "2026-11-16",
+      "high": 1870.0999755859375,
+      "low": 1825.199951171875,
+      "open": 1866.0999755859375,
+      "turnover": null,
+      "volume": 430962
+    },
+    "GRASIM.NS": {
+      "close": 3084.39990234375,
+      "date": "2026-11-16",
+      "high": 3087.0,
+      "low": 3012.10009765625,
+      "open": 3020.0,
+      "turnover": null,
+      "volume": 835620
+    },
+    "GROWW.NS": {
+      "close": 224.9199981689453,
+      "date": "2026-11-16",
+      "high": 227.3000030517578,
+      "low": 222.33999633789062,
+      "open": 226.0,
+      "turnover": null,
+      "volume": 14983782
+    },
+    "GRSE.NS": {
+      "close": 2130.300048828125,
+      "date": "2026-11-16",
+      "high": 2185.39990234375,
+      "low": 2121.199951171875,
+      "open": 2184.800048828125,
+      "turnover": null,
+      "volume": 265504
+    },
+    "GVT&D.NS": {
+      "close": 4337.0,
+      "date": "2026-11-16",
+      "high": 4440.0,
+      "low": 4300.0,
+      "open": 4440.0,
+      "turnover": null,
+      "volume": 628313
+    },
+    "HAL.NS": {
+      "close": 4789.0,
+      "date": "2026-11-16",
+      "high": 4830.5,
+      "low": 4756.60009765625,
+      "open": 4814.0,
+      "turnover": null,
+      "volume": 445991
+    },
+    "HAVELLS.NS": {
+      "close": 1172.0,
+      "date": "2026-11-16",
+      "high": 1175.5999755859375,
+      "low": 1151.199951171875,
+      "open": 1163.0,
+      "turnover": null,
+      "volume": 977917
+    },
+    "HBLENGINE.NS": {
+      "close": 780.4500122070312,
+      "date": "2026-11-16",
+      "high": 799.25,
+      "low": 773.7000122070312,
+      "open": 799.0,
+      "turnover": null,
+      "volume": 712552
+    },
+    "HCLTECH.NS": {
+      "close": 1384.5999755859375,
+      "date": "2026-11-16",
+      "high": 1398.5999755859375,
+      "low": 1371.0999755859375,
+      "open": 1390.9000244140625,
+      "turnover": null,
+      "volume": 2123739
+    },
+    "HDBFS.NS": {
+      "close": 566.0,
+      "date": "2026-11-16",
+      "high": 574.0,
+      "low": 563.0,
+      "open": 566.9000244140625,
+      "turnover": null,
+      "volume": 278656
+    },
+    "HDFCAMC.NS": {
+      "close": 2650.0,
+      "date": "2026-11-16",
+      "high": 2673.0,
+      "low": 2624.60009765625,
+      "open": 2663.0,
+      "turnover": null,
+      "volume": 443838
+    },
+    "HDFCBANK.NS": {
+      "close": 816.5,
+      "date": "2026-11-16",
+      "high": 817.7999877929688,
+      "low": 802.4000244140625,
+      "open": 804.0,
+      "turnover": null,
+      "volume": 27143063
+    },
+    "HDFCLIFE.NS": {
+      "close": 604.5,
+      "date": "2026-11-16",
+      "high": 609.75,
+      "low": 590.8499755859375,
+      "open": 592.25,
+      "turnover": null,
+      "volume": 3944800
+    },
+    "HEROMOTOCO.NS": {
+      "close": 5359.5,
+      "date": "2026-11-16",
+      "high": 5449.0,
+      "low": 5324.0,
+      "open": 5395.0,
+      "turnover": null,
+      "volume": 369238
+    },
+    "HEXT.NS": {
+      "close": 480.29998779296875,
+      "date": "2026-11-16",
+      "high": 496.3500061035156,
+      "low": 479.25,
+      "open": 492.0,
+      "turnover": null,
+      "volume": 748230
+    },
+    "HFCL.NS": {
+      "close": 195.1999969482422,
+      "date": "2026-11-16",
+      "high": 204.89999389648438,
+      "low": 195.1999969482422,
+      "open": 204.0,
+      "turnover": null,
+      "volume": 7231745
+    },
+    "HINDALCO.NS": {
+      "close": 923.2999877929688,
+      "date": "2026-11-16",
+      "high": 949.5999755859375,
+      "low": 922.7999877929688,
+      "open": 941.5,
+      "turnover": null,
+      "volume": 8855772
+    },
+    "HINDCOPPER.NS": {
+      "close": 430.54998779296875,
+      "date": "2026-11-16",
+      "high": 435.0,
+      "low": 427.5,
+      "open": 434.95001220703125,
+      "turnover": null,
+      "volume": 4418426
+    },
+    "HINDPETRO.NS": {
+      "close": 386.95001220703125,
+      "date": "2026-11-16",
+      "high": 386.95001220703125,
+      "low": 380.20001220703125,
+      "open": 384.3999938964844,
+      "turnover": null,
+      "volume": 3225705
+    },
+    "HINDUNILVR.NS": {
+      "close": 2000.300048828125,
+      "date": "2026-11-16",
+      "high": 2000.300048828125,
+      "low": 1979.300048828125,
+      "open": 1987.0,
+      "turnover": null,
+      "volume": 1093464
+    },
+    "HINDZINC.NS": {
+      "close": 550.2000122070312,
+      "date": "2026-11-16",
+      "high": 550.3499755859375,
+      "low": 540.1500244140625,
+      "open": 548.4500122070312,
+      "turnover": null,
+      "volume": 3149894
+    },
+    "HSCL.NS": {
+      "close": 547.6500244140625,
+      "date": "2026-11-16",
+      "high": 560.0,
+      "low": 544.7999877929688,
+      "open": 560.0,
+      "turnover": null,
+      "volume": 1125996
+    },
+    "HUDCO.NS": {
+      "close": 162.8800048828125,
+      "date": "2026-11-16",
+      "high": 167.75,
+      "low": 161.5,
+      "open": 167.75,
+      "turnover": null,
+      "volume": 1732034
+    },
+    "HYUNDAI.NS": {
+      "close": 2084.0,
+      "date": "2026-11-16",
+      "high": 2097.5,
+      "low": 2064.10009765625,
+      "open": 2076.0,
+      "turnover": null,
+      "volume": 251458
+    },
+    "ICICIAMC.NS": {
+      "close": 3025.0,
+      "date": "2026-11-16",
+      "high": 3071.10009765625,
+      "low": 2975.0,
+      "open": 3000.0,
+      "turnover": null,
+      "volume": 132412
+    },
+    "ICICIBANK.NS": {
+      "close": 1585.0,
+      "date": "2026-11-16",
+      "high": 1596.5999755859375,
+      "low": 1577.0,
+      "open": 1585.699951171875,
+      "turnover": null,
+      "volume": 10069097
+    },
+    "ICICIGI.NS": {
+      "close": 1709.4000244140625,
+      "date": "2026-11-16",
+      "high": 1713.0999755859375,
+      "low": 1684.800048828125,
+      "open": 1698.0999755859375,
+      "turnover": null,
+      "volume": 257532
+    },
+    "IDEA.NS": {
+      "close": 12.529999732971191,
+      "date": "2026-11-16",
+      "high": 12.819999694824219,
+      "low": 12.399999618530273,
+      "open": 12.539999961853027,
+      "turnover": null,
+      "volume": 282349163
+    },
+    "IDFCFIRSTB.NS": {
+      "close": 81.30000305175781,
+      "date": "2026-11-16",
+      "high": 81.5,
+      "low": 79.54000091552734,
+      "open": 79.76000213623047,
+      "turnover": null,
+      "volume": 14539718
+    },
+    "IFCI.NS": {
+      "close": 62.06999969482422,
+      "date": "2026-11-16",
+      "high": 63.58000183105469,
+      "low": 60.349998474121094,
+      "open": 61.61000061035156,
+      "turnover": null,
+      "volume": 16621302
+    },
+    "IIFL.NS": {
+      "close": 652.3499755859375,
+      "date": "2026-11-16",
+      "high": 658.0,
+      "low": 630.9500122070312,
+      "open": 643.9000244140625,
+      "turnover": null,
+      "volume": 3341566
+    },
+    "INDHOTEL.NS": {
+      "close": 886.0,
+      "date": "2026-11-16",
+      "high": 896.0,
+      "low": 882.0499877929688,
+      "open": 892.0,
+      "turnover": null,
+      "volume": 2213793
+    },
+    "INDIANB.NS": {
+      "close": 932.9500122070312,
+      "date": "2026-11-16",
+      "high": 946.7999877929688,
+      "low": 925.9000244140625,
+      "open": 935.0,
+      "turnover": null,
+      "volume": 1080526
+    },
+    "INDIGO.NS": {
+      "close": 5544.0,
+      "date": "2026-11-16",
+      "high": 5613.7998046875,
+      "low": 5491.10009765625,
+      "open": 5595.0,
+      "turnover": null,
+      "volume": 626691
+    },
+    "INDUSINDBK.NS": {
+      "close": 914.5499877929688,
+      "date": "2026-11-16",
+      "high": 923.7000122070312,
+      "low": 907.7000122070312,
+      "open": 917.2000122070312,
+      "turnover": null,
+      "volume": 1446888
+    },
+    "INDUSTOWER.NS": {
+      "close": 396.20001220703125,
+      "date": "2026-11-16",
+      "high": 402.5,
+      "low": 392.1000061035156,
+      "open": 397.5,
+      "turnover": null,
+      "volume": 3162097
+    },
+    "INFY.NS": {
+      "close": 1145.0999755859375,
+      "date": "2026-11-16",
+      "high": 1159.9000244140625,
+      "low": 1138.199951171875,
+      "open": 1150.0,
+      "turnover": null,
+      "volume": 4851757
+    },
+    "IOB.NS": {
+      "close": 31.18000030517578,
+      "date": "2026-11-16",
+      "high": 31.889999389648438,
+      "low": 31.06999969482422,
+      "open": 31.770000457763672,
+      "turnover": null,
+      "volume": 7638307
+    },
+    "IOC.NS": {
+      "close": 144.02999877929688,
+      "date": "2026-11-16",
+      "high": 144.47999572753906,
+      "low": 142.25999450683594,
+      "open": 144.0399932861328,
+      "turnover": null,
+      "volume": 7555389
+    },
+    "IPCALAB.NS": {
+      "close": 1865.5,
+      "date": "2026-11-16",
+      "high": 1896.300048828125,
+      "low": 1856.4000244140625,
+      "open": 1889.9000244140625,
+      "turnover": null,
+      "volume": 210602
+    },
+    "IRCTC.NS": {
+      "close": 451.6499938964844,
+      "date": "2026-11-16",
+      "high": 457.0,
+      "low": 449.0,
+      "open": 456.20001220703125,
+      "turnover": null,
+      "volume": 776330
+    },
+    "IREDA.NS": {
+      "close": 115.94999694824219,
+      "date": "2026-11-16",
+      "high": 118.3499984741211,
+      "low": 114.62999725341797,
+      "open": 118.30000305175781,
+      "turnover": null,
+      "volume": 5867778
+    },
+    "IRFC.NS": {
+      "close": 82.11000061035156,
+      "date": "2026-11-16",
+      "high": 83.6500015258789,
+      "low": 81.22000122070312,
+      "open": 83.6500015258789,
+      "turnover": null,
+      "volume": 10817587
+    },
+    "ITC.NS": {
+      "close": 295.1000061035156,
+      "date": "2026-11-16",
+      "high": 296.1499938964844,
+      "low": 283.8500061035156,
+      "open": 285.0,
+      "turnover": null,
+      "volume": 49024463
+    },
+    "ITCHOTELS.NS": {
+      "close": 174.16000366210938,
+      "date": "2026-11-16",
+      "high": 177.0399932861328,
+      "low": 172.50999450683594,
+      "open": 174.0,
+      "turnover": null,
+      "volume": 3215220
+    },
+    "JINDALSTEL.NS": {
+      "close": 1139.0,
+      "date": "2026-11-16",
+      "high": 1161.0,
+      "low": 1127.300048828125,
+      "open": 1161.0,
+      "turnover": null,
+      "volume": 743054
+    },
+    "JIOFIN.NS": {
+      "close": 226.0,
+      "date": "2026-11-16",
+      "high": 228.82000732421875,
+      "low": 225.60000610351562,
+      "open": 228.0,
+      "turnover": null,
+      "volume": 7702989
+    },
+    "JKCEMENT.NS": {
+      "close": 5252.60009765625,
+      "date": "2026-11-16",
+      "high": 5299.60009765625,
+      "low": 5130.2001953125,
+      "open": 5175.89990234375,
+      "turnover": null,
+      "volume": 56925
+    },
+    "JPPOWER.NS": {
+      "close": 13.8100004196167,
+      "date": "2026-11-16",
+      "high": 14.119999885559082,
+      "low": 13.739999771118164,
+      "open": 14.100000381469727,
+      "turnover": null,
+      "volume": 27213203
+    },
+    "JSL.NS": {
+      "close": 718.7000122070312,
+      "date": "2026-11-16",
+      "high": 727.5,
+      "low": 708.3499755859375,
+      "open": 710.0,
+      "turnover": null,
+      "volume": 582399
+    },
+    "JSWENERGY.NS": {
+      "close": 513.25,
+      "date": "2026-11-16",
+      "high": 516.5,
+      "low": 507.54998779296875,
+      "open": 513.5499877929688,
+      "turnover": null,
+      "volume": 984151
+    },
+    "JSWINFRA.NS": {
+      "close": 335.70001220703125,
+      "date": "2026-11-16",
+      "high": 339.5,
+      "low": 332.04998779296875,
+      "open": 339.5,
+      "turnover": null,
+      "volume": 1449070
+    },
+    "JSWSTEEL.NS": {
+      "close": 1334.5999755859375,
+      "date": "2026-11-16",
+      "high": 1348.800048828125,
+      "low": 1321.0,
+      "open": 1346.0,
+      "turnover": null,
+      "volume": 1864945
+    },
+    "JUBLFOOD.NS": {
+      "close": 431.04998779296875,
+      "date": "2026-11-16",
+      "high": 439.6000061035156,
+      "low": 428.04998779296875,
+      "open": 437.6000061035156,
+      "turnover": null,
+      "volume": 1380152
+    },
+    "KALYANKJIL.NS": {
+      "close": 708.1500244140625,
+      "date": "2026-11-16",
+      "high": 729.3499755859375,
+      "low": 691.0999755859375,
+      "open": 694.0,
+      "turnover": null,
+      "volume": 20719851
+    },
+    "KAYNES.NS": {
+      "close": 2980.0,
+      "date": "2026-11-16",
+      "high": 3087.0,
+      "low": 2744.0,
+      "open": 3087.0,
+      "turnover": null,
+      "volume": 9882559
+    },
+    "KEI.NS": {
+      "close": 4020.0,
+      "date": "2026-11-16",
+      "high": 4088.199951171875,
+      "low": 3990.0,
+      "open": 4080.0,
+      "turnover": null,
+      "volume": 165527
+    },
+    "KIRLOSENG.NS": {
+      "close": 1672.5999755859375,
+      "date": "2026-11-16",
+      "high": 1700.800048828125,
+      "low": 1644.4000244140625,
+      "open": 1700.4000244140625,
+      "turnover": null,
+      "volume": 286014
+    },
+    "KOTAKBANK.NS": {
+      "close": 494.20001220703125,
+      "date": "2026-11-16",
+      "high": 497.8999938964844,
+      "low": 489.54998779296875,
+      "open": 490.5,
+      "turnover": null,
+      "volume": 13326637
+    },
+    "KPITTECH.NS": {
+      "close": 536.2999877929688,
+      "date": "2026-11-16",
+      "high": 555.1500244140625,
+      "low": 532.0499877929688,
+      "open": 552.0,
+      "turnover": null,
+      "volume": 1214375
+    },
+    "KPRMILL.NS": {
+      "close": 1211.0,
+      "date": "2026-11-16",
+      "high": 1217.9000244140625,
+      "low": 1158.4000244140625,
+      "open": 1160.0,
+      "turnover": null,
+      "volume": 573761
+    },
+    "LAURUSLABS.NS": {
+      "close": 2220.0,
+      "date": "2026-11-16",
+      "high": 2439.0,
+      "low": 2190.0,
+      "open": 2430.0,
+      "turnover": null,
+      "volume": 6836877
+    },
+    "LENSKART.NS": {
+      "close": 734.7000122070312,
+      "date": "2026-11-16",
+      "high": 746.0,
+      "low": 729.25,
+      "open": 734.2999877929688,
+      "turnover": null,
+      "volume": 6513205
+    },
+    "LGEINDIA.NS": {
+      "close": 1722.9000244140625,
+      "date": "2026-11-16",
+      "high": 1761.0,
+      "low": 1714.0,
+      "open": 1750.0,
+      "turnover": null,
+      "volume": 476308
+    },
+    "LICHSGFIN.NS": {
+      "close": 605.5,
+      "date": "2026-11-16",
+      "high": 608.5499877929688,
+      "low": 582.6500244140625,
+      "open": 585.25,
+      "turnover": null,
+      "volume": 5668420
+    },
+    "LICI.NS": {
+      "close": 400.0,
+      "date": "2026-11-16",
+      "high": 403.45001220703125,
+      "low": 398.1000061035156,
+      "open": 403.3999938964844,
+      "turnover": null,
+      "volume": 8674304
+    },
+    "LINDEINDIA.NS": {
+      "close": 6911.5,
+      "date": "2026-11-16",
+      "high": 6994.5,
+      "low": 6830.0,
+      "open": 6850.5,
+      "turnover": null,
+      "volume": 39700
+    },
+    "LLOYDSME.NS": {
+      "close": 1748.300048828125,
+      "date": "2026-11-16",
+      "high": 1796.9000244140625,
+      "low": 1736.0999755859375,
+      "open": 1789.800048828125,
+      "turnover": null,
+      "volume": 937388
+    },
+    "LODHA.NS": {
+      "close": 1192.800048828125,
+      "date": "2026-11-16",
+      "high": 1221.0,
+      "low": 1175.5,
+      "open": 1220.0,
+      "turnover": null,
+      "volume": 891768
+    },
+    "LT.NS": {
+      "close": 4140.0,
+      "date": "2026-11-16",
+      "high": 4165.89990234375,
+      "low": 4115.0,
+      "open": 4157.0,
+      "turnover": null,
+      "volume": 1136716
+    },
+    "LTF.NS": {
+      "close": 279.0,
+      "date": "2026-11-16",
+      "high": 283.6000061035156,
+      "low": 274.75,
+      "open": 276.29998779296875,
+      "turnover": null,
+      "volume": 2869086
+    },
+    "LTM.NS": {
+      "close": 4199.7001953125,
+      "date": "2026-11-16",
+      "high": 4326.0,
+      "low": 4152.0,
+      "open": 4268.10009765625,
+      "turnover": null,
+      "volume": 181070
+    },
+    "LTTS.NS": {
+      "close": 4226.0,
+      "date": "2026-11-16",
+      "high": 4285.7998046875,
+      "low": 4202.60009765625,
+      "open": 4245.60009765625,
+      "turnover": null,
+      "volume": 62820
+    },
+    "LUPIN.NS": {
+      "close": 1976.699951171875,
+      "date": "2026-11-16",
+      "high": 2012.0,
+      "low": 1960.199951171875,
+      "open": 1982.300048828125,
+      "turnover": null,
+      "volume": 431566
+    },
+    "M&M.NS": {
+      "close": 3339.0,
+      "date": "2026-11-16",
+      "high": 3362.39990234375,
+      "low": 3313.0,
+      "open": 3344.60009765625,
+      "turnover": null,
+      "volume": 1245026
+    },
+    "M&MFIN.NS": {
+      "close": 285.54998779296875,
+      "date": "2026-11-16",
+      "high": 296.20001220703125,
+      "low": 285.0,
+      "open": 288.70001220703125,
+      "turnover": null,
+      "volume": 5766277
+    },
+    "MAHABANK.NS": {
+      "close": 92.0,
+      "date": "2026-11-16",
+      "high": 92.4000015258789,
+      "low": 91.2699966430664,
+      "open": 91.91000366210938,
+      "turnover": null,
+      "volume": 11781923
+    },
+    "MANAPPURAM.NS": {
+      "close": 303.79998779296875,
+      "date": "2026-11-16",
+      "high": 305.75,
+      "low": 300.1000061035156,
+      "open": 305.0,
+      "turnover": null,
+      "volume": 8235763
+    },
+    "MANKIND.NS": {
+      "close": 2626.60009765625,
+      "date": "2026-11-16",
+      "high": 2694.0,
+      "low": 2612.199951171875,
+      "open": 2625.60009765625,
+      "turnover": null,
+      "volume": 426990
+    },
+    "MARICO.NS": {
+      "close": 913.6500244140625,
+      "date": "2026-11-16",
+      "high": 913.6500244140625,
+      "low": 897.6500244140625,
+      "open": 900.9000244140625,
+      "turnover": null,
+      "volume": 1982128
+    },
+    "MARUTI.NS": {
+      "close": 12571.0,
+      "date": "2026-11-16",
+      "high": 12990.0,
+      "low": 12535.0,
+      "open": 12855.0,
+      "turnover": null,
+      "volume": 662297
+    },
+    "MAXHEALTH.NS": {
+      "close": 1009.9000244140625,
+      "date": "2026-11-16",
+      "high": 1009.9000244140625,
+      "low": 947.1500244140625,
+      "open": 948.0,
+      "turnover": null,
+      "volume": 8263633
+    },
+    "MAZDOCK.NS": {
+      "close": 1873.0,
+      "date": "2026-11-16",
+      "high": 1899.5999755859375,
+      "low": 1858.0999755859375,
+      "open": 1897.0,
+      "turnover": null,
+      "volume": 461781
+    },
+    "MCX.NS": {
+      "close": 3729.60009765625,
+      "date": "2026-11-16",
+      "high": 3772.60009765625,
+      "low": 3694.10009765625,
+      "open": 3772.60009765625,
+      "turnover": null,
+      "volume": 1517451
+    },
+    "MEDANTA.NS": {
+      "close": 1433.5999755859375,
+      "date": "2026-11-16",
+      "high": 1459.5,
+      "low": 1426.0,
+      "open": 1454.9000244140625,
+      "turnover": null,
+      "volume": 134996
+    },
+    "MEESHO.NS": {
+      "close": 251.19000244140625,
+      "date": "2026-11-16",
+      "high": 261.1000061035156,
+      "low": 250.10000610351562,
+      "open": 259.0,
+      "turnover": null,
+      "volume": 15792556
+    },
+    "MFSL.NS": {
+      "close": 1427.4000244140625,
+      "date": "2026-11-16",
+      "high": 1435.0,
+      "low": 1386.300048828125,
+      "open": 1401.0,
+      "turnover": null,
+      "volume": 1068983
+    },
+    "MOTHERSON.NS": {
+      "close": 162.97999572753906,
+      "date": "2026-11-16",
+      "high": 167.39999389648438,
+      "low": 160.3000030517578,
+      "open": 164.0,
+      "turnover": null,
+      "volume": 16583642
+    },
+    "MOTILALOFS.NS": {
+      "close": 1217.0,
+      "date": "2026-11-16",
+      "high": 1231.0,
+      "low": 1200.0,
+      "open": 1223.300048828125,
+      "turnover": null,
+      "volume": 844545
+    },
+    "MPHASIS.NS": {
+      "close": 2432.89990234375,
+      "date": "2026-11-16",
+      "high": 2470.0,
+      "low": 2405.89990234375,
+      "open": 2455.0,
+      "turnover": null,
+      "volume": 446748
+    },
+    "MRF.NS": {
+      "close": 128085.0,
+      "date": "2026-11-16",
+      "high": 129600.0,
+      "low": 127550.0,
+      "open": 127955.0,
+      "turnover": null,
+      "volume": 4356
+    },
+    "MRPL.NS": {
+      "close": 174.92999267578125,
+      "date": "2026-11-16",
+      "high": 179.61000061035156,
+      "low": 174.5,
+      "open": 178.1699981689453,
+      "turnover": null,
+      "volume": 4090364
+    },
+    "MTARTECH.NS": {
+      "close": 5909.0,
+      "date": "2026-11-16",
+      "high": 5957.5,
+      "low": 5810.0,
+      "open": 5926.0,
+      "turnover": null,
+      "volume": 165713
+    },
+    "MUTHOOTFIN.NS": {
+      "close": 2777.0,
+      "date": "2026-11-16",
+      "high": 2839.0,
+      "low": 2744.199951171875,
+      "open": 2839.0,
+      "turnover": null,
+      "volume": 679430
+    },
+    "NAM-INDIA.NS": {
+      "close": 1077.8499755859375,
+      "date": "2026-11-16",
+      "high": 1104.800048828125,
+      "low": 1068.0999755859375,
+      "open": 1102.0,
+      "turnover": null,
+      "volume": 1551918
+    },
+    "NATIONALUM.NS": {
+      "close": 318.95001220703125,
+      "date": "2026-11-16",
+      "high": 329.1499938964844,
+      "low": 317.5,
+      "open": 328.5,
+      "turnover": null,
+      "volume": 3392361
+    },
+    "NAUKRI.NS": {
+      "close": 1169.9000244140625,
+      "date": "2026-11-16",
+      "high": 1199.0,
+      "low": 1163.800048828125,
+      "open": 1186.699951171875,
+      "turnover": null,
+      "volume": 753153
+    },
+    "NAVINFLUOR.NS": {
+      "close": 9890.0,
+      "date": "2026-11-16",
+      "high": 10149.0,
+      "low": 9801.5,
+      "open": 10050.0,
+      "turnover": null,
+      "volume": 228070
+    },
+    "NESTLEIND.NS": {
+      "close": 1297.0,
+      "date": "2026-11-16",
+      "high": 1297.0,
+      "low": 1264.300048828125,
+      "open": 1264.699951171875,
+      "turnover": null,
+      "volume": 1340835
+    },
+    "NETWEB.NS": {
+      "close": 4059.0,
+      "date": "2026-11-16",
+      "high": 4199.60009765625,
+      "low": 4050.0,
+      "open": 4179.0,
+      "turnover": null,
+      "volume": 686956
+    },
+    "NH.NS": {
+      "close": 1895.300048828125,
+      "date": "2026-11-16",
+      "high": 1901.0,
+      "low": 1855.0,
+      "open": 1865.4000244140625,
+      "turnover": null,
+      "volume": 238255
+    },
+    "NHPC.NS": {
+      "close": 75.05000305175781,
+      "date": "2026-11-16",
+      "high": 75.83000183105469,
+      "low": 74.41999816894531,
+      "open": 75.75,
+      "turnover": null,
+      "volume": 10035866
+    },
+    "NLCINDIA.NS": {
+      "close": 235.99000549316406,
+      "date": "2026-11-16",
+      "high": 238.99000549316406,
+      "low": 230.35000610351562,
+      "open": 238.99000549316406,
+      "turnover": null,
+      "volume": 1739203
+    },
+    "NMDC.NS": {
+      "close": 68.91999816894531,
+      "date": "2026-11-16",
+      "high": 69.8499984741211,
+      "low": 68.30000305175781,
+      "open": 69.80000305175781,
+      "turnover": null,
+      "volume": 12000670
+    },
+    "NTPC.NS": {
+      "close": 321.25,
+      "date": "2026-11-16",
+      "high": 321.29998779296875,
+      "low": 316.8500061035156,
+      "open": 319.3500061035156,
+      "turnover": null,
+      "volume": 5538771
+    },
+    "NTPCGREEN.NS": {
+      "close": 82.33000183105469,
+      "date": "2026-11-16",
+      "high": 83.16000366210938,
+      "low": 82.0199966430664,
+      "open": 83.08999633789062,
+      "turnover": null,
+      "volume": 1525619
+    },
+    "NYKAA.NS": {
+      "close": 360.8500061035156,
+      "date": "2026-11-16",
+      "high": 368.29998779296875,
+      "low": 358.0,
+      "open": 366.0,
+      "turnover": null,
+      "volume": 3320457
+    },
+    "OBEROIRLTY.NS": {
+      "close": 1773.5999755859375,
+      "date": "2026-11-16",
+      "high": 1792.0999755859375,
+      "low": 1755.699951171875,
+      "open": 1789.0999755859375,
+      "turnover": null,
+      "volume": 238763
+    },
+    "OFSS.NS": {
+      "close": 9963.0,
+      "date": "2026-11-16",
+      "high": 10049.5,
+      "low": 9834.5,
+      "open": 9968.0,
+      "turnover": null,
+      "volume": 110372
+    },
+    "OIL.NS": {
+      "close": 441.3999938964844,
+      "date": "2026-11-16",
+      "high": 446.8999938964844,
+      "low": 435.70001220703125,
+      "open": 446.1499938964844,
+      "turnover": null,
+      "volume": 1570572
+    },
+    "OLAELEC.NS": {
+      "close": 33.72999954223633,
+      "date": "2026-11-16",
+      "high": 34.72999954223633,
+      "low": 33.40999984741211,
+      "open": 34.65999984741211,
+      "turnover": null,
+      "volume": 45231406
+    },
+    "ONGC.NS": {
+      "close": 226.99000549316406,
+      "date": "2026-11-16",
+      "high": 226.99000549316406,
+      "low": 223.0,
+      "open": 225.74000549316406,
+      "turnover": null,
+      "volume": 10243518
+    },
+    "PAGEIND.NS": {
+      "close": 31465.0,
+      "date": "2026-11-16",
+      "high": 31705.0,
+      "low": 31230.0,
+      "open": 31695.0,
+      "turnover": null,
+      "volume": 45278
+    },
+    "PATANJALI.NS": {
+      "close": 400.70001220703125,
+      "date": "2026-11-16",
+      "high": 427.04998779296875,
+      "low": 398.79998779296875,
+      "open": 425.0,
+      "turnover": null,
+      "volume": 6061186
+    },
+    "PAYTM.NS": {
+      "close": 1890.800048828125,
+      "date": "2026-11-16",
+      "high": 1956.0999755859375,
+      "low": 1872.199951171875,
+      "open": 1950.0,
+      "turnover": null,
+      "volume": 4684500
+    },
+    "PERSISTENT.NS": {
+      "close": 5978.5,
+      "date": "2026-11-16",
+      "high": 6102.5,
+      "low": 5940.0,
+      "open": 6005.0,
+      "turnover": null,
+      "volume": 291016
+    },
+    "PETRONET.NS": {
+      "close": 326.0,
+      "date": "2026-11-16",
+      "high": 328.20001220703125,
+      "low": 322.45001220703125,
+      "open": 324.04998779296875,
+      "turnover": null,
+      "volume": 2029740
+    },
+    "PFC.NS": {
+      "close": 332.79998779296875,
+      "date": "2026-11-16",
+      "high": 337.5,
+      "low": 329.0,
+      "open": 336.20001220703125,
+      "turnover": null,
+      "volume": 8802861
+    },
+    "PHOENIXLTD.NS": {
+      "close": 2202.0,
+      "date": "2026-11-16",
+      "high": 2265.89990234375,
+      "low": 2190.10009765625,
+      "open": 2260.0,
+      "turnover": null,
+      "volume": 469335
+    },
+    "PIDILITIND.NS": {
+      "close": 1545.800048828125,
+      "date": "2026-11-16",
+      "high": 1567.5,
+      "low": 1530.0,
+      "open": 1534.0999755859375,
+      "turnover": null,
+      "volume": 1045093
+    },
+    "PIIND.NS": {
+      "close": 1680.0,
+      "date": "2026-11-16",
+      "high": 1714.0,
+      "low": 1675.0,
+      "open": 1712.699951171875,
+      "turnover": null,
+      "volume": 586923
+    },
+    "PINELABS.NS": {
+      "close": 169.69000244140625,
+      "date": "2026-11-16",
+      "high": 176.39999389648438,
+      "low": 168.89999389648438,
+      "open": 176.39999389648438,
+      "turnover": null,
+      "volume": 8834444
+    },
+    "PIRAMALFIN.NS": {
+      "close": 2104.699951171875,
+      "date": "2026-11-16",
+      "high": 2126.89990234375,
+      "low": 2077.699951171875,
+      "open": 2123.10009765625,
+      "turnover": null,
+      "volume": 195019
+    },
+    "PNB.NS": {
+      "close": 144.58999633789062,
+      "date": "2026-11-16",
+      "high": 146.85000610351562,
+      "low": 143.00999450683594,
+      "open": 143.9600067138672,
+      "turnover": null,
+      "volume": 48122410
+    },
+    "POLICYBZR.NS": {
+      "close": 1081.199951171875,
+      "date": "2026-11-16",
+      "high": 1121.4000244140625,
+      "low": 1065.0,
+      "open": 1119.9000244140625,
+      "turnover": null,
+      "volume": 4088376
+    },
+    "POLYCAB.NS": {
+      "close": 7955.5,
+      "date": "2026-11-16",
+      "high": 7955.5,
+      "low": 7846.0,
+      "open": 7930.0,
+      "turnover": null,
+      "volume": 206124
+    },
+    "POWERGRID.NS": {
+      "close": 262.20001220703125,
+      "date": "2026-11-16",
+      "high": 262.20001220703125,
+      "low": 255.10000610351562,
+      "open": 256.75,
+      "turnover": null,
+      "volume": 6829550
+    },
+    "POWERINDIA.NS": {
+      "close": 30885.0,
+      "date": "2026-11-16",
+      "high": 31950.0,
+      "low": 30655.0,
+      "open": 31895.0,
+      "turnover": null,
+      "volume": 194660
+    },
+    "PREMIERENE.NS": {
+      "close": 822.5,
+      "date": "2026-11-16",
+      "high": 895.9000244140625,
+      "low": 813.7000122070312,
+      "open": 895.9000244140625,
+      "turnover": null,
+      "volume": 3130644
+    },
+    "PRESTIGE.NS": {
+      "close": 1638.800048828125,
+      "date": "2026-11-16",
+      "high": 1666.9000244140625,
+      "low": 1619.0,
+      "open": 1662.9000244140625,
+      "turnover": null,
+      "volume": 376608
+    },
+    "PWL.NS": {
+      "close": 129.4499969482422,
+      "date": "2026-11-16",
+      "high": 132.47999572753906,
+      "low": 128.5,
+      "open": 132.44000244140625,
+      "turnover": null,
+      "volume": 2536503
+    },
+    "RADICO.NS": {
+      "close": 4665.0,
+      "date": "2026-11-16",
+      "high": 4690.0,
+      "low": 4584.39990234375,
+      "open": 4628.0,
+      "turnover": null,
+      "volume": 329759
+    },
+    "RBLBANK.NS": {
+      "close": 381.8999938964844,
+      "date": "2026-11-16",
+      "high": 389.45001220703125,
+      "low": 380.75,
+      "open": 386.20001220703125,
+      "turnover": null,
+      "volume": 1771626
+    },
+    "RECLTD.NS": {
+      "close": 297.75,
+      "date": "2026-11-16",
+      "high": 303.70001220703125,
+      "low": 295.29998779296875,
+      "open": 303.0,
+      "turnover": null,
+      "volume": 2942452
+    },
+    "REDINGTON.NS": {
+      "close": 340.54998779296875,
+      "date": "2026-11-16",
+      "high": 351.0,
+      "low": 338.25,
+      "open": 350.25,
+      "turnover": null,
+      "volume": 2189900
+    },
+    "RELIANCE.NS": {
+      "close": 1344.800048828125,
+      "date": "2026-11-16",
+      "high": 1347.300048828125,
+      "low": 1333.800048828125,
+      "open": 1339.699951171875,
+      "turnover": null,
+      "volume": 7653026
+    },
+    "RRKABEL.NS": {
+      "close": 1883.9000244140625,
+      "date": "2026-11-16",
+      "high": 1998.9000244140625,
+      "low": 1862.0999755859375,
+      "open": 1995.0,
+      "turnover": null,
+      "volume": 634259
+    },
+    "RVNL.NS": {
+      "close": 194.36000061035156,
+      "date": "2026-11-16",
+      "high": 199.89999389648438,
+      "low": 193.5800018310547,
+      "open": 199.4600067138672,
+      "turnover": null,
+      "volume": 6238157
+    },
+    "SAIL.NS": {
+      "close": 168.75,
+      "date": "2026-11-16",
+      "high": 175.60000610351562,
+      "low": 168.39999389648438,
+      "open": 175.60000610351562,
+      "turnover": null,
+      "volume": 12996495
+    },
+    "SAMMAANCAP.NS": {
+      "close": 137.36000061035156,
+      "date": "2026-11-16",
+      "high": 142.0,
+      "low": 135.74000549316406,
+      "open": 140.72999572753906,
+      "turnover": null,
+      "volume": 11466640
+    },
+    "SBICARD.NS": {
+      "close": 573.0,
+      "date": "2026-11-16",
+      "high": 578.6500244140625,
+      "low": 568.9500122070312,
+      "open": 578.6500244140625,
+      "turnover": null,
+      "volume": 580148
+    },
+    "SBILIFE.NS": {
+      "close": 1827.699951171875,
+      "date": "2026-11-16",
+      "high": 1827.699951171875,
+      "low": 1785.699951171875,
+      "open": 1794.199951171875,
+      "turnover": null,
+      "volume": 777160
+    },
+    "SBIN.NS": {
+      "close": 1090.5,
+      "date": "2026-11-16",
+      "high": 1099.5,
+      "low": 1082.0,
+      "open": 1083.0,
+      "turnover": null,
+      "volume": 16215258
+    },
+    "SCHAEFFLER.NS": {
+      "close": 3604.0,
+      "date": "2026-11-16",
+      "high": 3642.5,
+      "low": 3586.199951171875,
+      "open": 3628.0,
+      "turnover": null,
+      "volume": 75175
+    },
+    "SCI.NS": {
+      "close": 265.0,
+      "date": "2026-11-16",
+      "high": 267.79998779296875,
+      "low": 262.9200134277344,
+      "open": 267.4100036621094,
+      "turnover": null,
+      "volume": 1556762
+    },
+    "SHREECEM.NS": {
+      "close": 24870.0,
+      "date": "2026-11-16",
+      "high": 24965.0,
+      "low": 24505.0,
+      "open": 24655.0,
+      "turnover": null,
+      "volume": 10779
+    },
+    "SHRIRAMFIN.NS": {
+      "close": 978.4000244140625,
+      "date": "2026-11-16",
+      "high": 980.0,
+      "low": 965.6500244140625,
+      "open": 980.0,
+      "turnover": null,
+      "volume": 5177269
+    },
+    "SIEMENS.NS": {
+      "close": 3580.89990234375,
+      "date": "2026-11-16",
+      "high": 3696.0,
+      "low": 3555.0,
+      "open": 3665.39990234375,
+      "turnover": null,
+      "volume": 262371
+    },
+    "SOLARINDS.NS": {
+      "close": 18820.0,
+      "date": "2026-11-16",
+      "high": 19341.0,
+      "low": 18780.0,
+      "open": 19341.0,
+      "turnover": null,
+      "volume": 70995
+    },
+    "SONACOMS.NS": {
+      "close": 899.0,
+      "date": "2026-11-16",
+      "high": 925.0,
+      "low": 890.5,
+      "open": 918.3499755859375,
+      "turnover": null,
+      "volume": 1913217
+    },
+    "SRF.NS": {
+      "close": 2477.0,
+      "date": "2026-11-16",
+      "high": 2490.0,
+      "low": 2451.300048828125,
+      "open": 2475.0,
+      "turnover": null,
+      "volume": 224679
+    },
+    "STLTECH.NS": {
+      "close": 675.25,
+      "date": "2026-11-16",
+      "high": 699.9500122070312,
+      "low": 675.25,
+      "open": 690.5999755859375,
+      "turnover": null,
+      "volume": 1990653
+    },
+    "SUNDARMFIN.NS": {
+      "close": 4290.2998046875,
+      "date": "2026-11-16",
+      "high": 4389.89990234375,
+      "low": 4250.0,
+      "open": 4379.89990234375,
+      "turnover": null,
+      "volume": 25819
+    },
+    "SUNPHARMA.NS": {
+      "close": 1867.5,
+      "date": "2026-11-16",
+      "high": 1899.800048828125,
+      "low": 1856.800048828125,
+      "open": 1885.0,
+      "turnover": null,
+      "volume": 1301360
+    },
+    "SUPREMEIND.NS": {
+      "close": 3266.300048828125,
+      "date": "2026-11-16",
+      "high": 3310.0,
+      "low": 3219.89990234375,
+      "open": 3308.0,
+      "turnover": null,
+      "volume": 155622
+    },
+    "SUZLON.NS": {
+      "close": 37.43000030517578,
+      "date": "2026-11-16",
+      "high": 38.27000045776367,
+      "low": 36.93000030517578,
+      "open": 38.25,
+      "turnover": null,
+      "volume": 45996172
+    },
+    "SWIGGY.NS": {
+      "close": 190.6999969482422,
+      "date": "2026-11-16",
+      "high": 192.6999969482422,
+      "low": 186.00999450683594,
+      "open": 188.0399932861328,
+      "turnover": null,
+      "volume": 14940313
+    },
+    "SYRMA.NS": {
+      "close": 1455.0,
+      "date": "2026-11-16",
+      "high": 1506.0999755859375,
+      "low": 1438.199951171875,
+      "open": 1506.0,
+      "turnover": null,
+      "volume": 1001265
+    },
+    "TATACAP.NS": {
+      "close": 351.45001220703125,
+      "date": "2026-11-16",
+      "high": 357.95001220703125,
+      "low": 347.79998779296875,
+      "open": 355.25,
+      "turnover": null,
+      "volume": 680305
+    },
+    "TATACOMM.NS": {
+      "close": 1850.5,
+      "date": "2026-11-16",
+      "high": 1858.5999755859375,
+      "low": 1765.800048828125,
+      "open": 1772.9000244140625,
+      "turnover": null,
+      "volume": 655504
+    },
+    "TATACONSUM.NS": {
+      "close": 1117.5,
+      "date": "2026-11-16",
+      "high": 1117.5,
+      "low": 1075.5,
+      "open": 1079.9000244140625,
+      "turnover": null,
+      "volume": 1430107
+    },
+    "TATAINVEST.NS": {
+      "close": 576.4500122070312,
+      "date": "2026-11-16",
+      "high": 587.5,
+      "low": 573.25,
+      "open": 587.4000244140625,
+      "turnover": null,
+      "volume": 204632
+    },
+    "TATAPOWER.NS": {
+      "close": 345.5,
+      "date": "2026-11-16",
+      "high": 349.6499938964844,
+      "low": 343.1000061035156,
+      "open": 348.0,
+      "turnover": null,
+      "volume": 6653411
+    },
+    "TATASTEEL.NS": {
+      "close": 182.25999450683594,
+      "date": "2026-11-16",
+      "high": 187.0399932861328,
+      "low": 181.35000610351562,
+      "open": 187.0,
+      "turnover": null,
+      "volume": 19079061
+    },
+    "TCS.NS": {
+      "close": 2405.0,
+      "date": "2026-11-16",
+      "high": 2449.89990234375,
+      "low": 2387.89990234375,
+      "open": 2435.0,
+      "turnover": null,
+      "volume": 1802297
+    },
+    "TDPOWERSYS.NS": {
+      "close": 635.4500122070312,
+      "date": "2026-11-16",
+      "high": 650.0,
+      "low": 621.0,
+      "open": 642.0,
+      "turnover": null,
+      "volume": 9162056
+    },
+    "TECHM.NS": {
+      "close": 1776.4000244140625,
+      "date": "2026-11-16",
+      "high": 1792.800048828125,
+      "low": 1755.5,
+      "open": 1755.5,
+      "turnover": null,
+      "volume": 1535081
+    },
+    "TEJASNET.NS": {
+      "close": 406.3500061035156,
+      "date": "2026-11-16",
+      "high": 419.3999938964844,
+      "low": 405.0,
+      "open": 419.3999938964844,
+      "turnover": null,
+      "volume": 802179
+    },
+    "THERMAX.NS": {
+      "close": 2758.60009765625,
+      "date": "2026-11-16",
+      "high": 2780.10009765625,
+      "low": 2730.10009765625,
+      "open": 2780.0,
+      "turnover": null,
+      "volume": 217476
+    },
+    "TIINDIA.NS": {
+      "close": 2236.60009765625,
+      "date": "2026-11-16",
+      "high": 2277.5,
+      "low": 2216.800048828125,
+      "open": 2276.800048828125,
+      "turnover": null,
+      "volume": 281417
+    },
+    "TITAN.NS": {
+      "close": 4910.0,
+      "date": "2026-11-16",
+      "high": 4919.5,
+      "low": 4850.0,
+      "open": 4857.0,
+      "turnover": null,
+      "volume": 912474
+    },
+    "TMCV.NS": {
+      "close": 428.25,
+      "date": "2026-11-16",
+      "high": 433.5,
+      "low": 422.79998779296875,
+      "open": 433.0,
+      "turnover": null,
+      "volume": 5027696
+    },
+    "TMPV.NS": {
+      "close": 262.3999938964844,
+      "date": "2026-11-16",
+      "high": 272.95001220703125,
+      "low": 260.3500061035156,
+      "open": 272.1000061035156,
+      "turnover": null,
+      "volume": 46715016
+    },
+    "TORNTPHARM.NS": {
+      "close": 4691.2001953125,
+      "date": "2026-11-16",
+      "high": 4732.2998046875,
+      "low": 4660.0,
+      "open": 4708.5,
+      "turnover": null,
+      "volume": 246045
+    },
+    "TORNTPOWER.NS": {
+      "close": 1224.699951171875,
+      "date": "2026-11-16",
+      "high": 1239.9000244140625,
+      "low": 1219.4000244140625,
+      "open": 1220.5,
+      "turnover": null,
+      "volume": 128990
+    },
+    "TRENT.NS": {
+      "close": 3203.699951171875,
+      "date": "2026-11-16",
+      "high": 3213.60009765625,
+      "low": 3168.10009765625,
+      "open": 3170.0,
+      "turnover": null,
+      "volume": 441512
+    },
+    "TVSMOTOR.NS": {
+      "close": 4453.0,
+      "date": "2026-11-16",
+      "high": 4528.0,
+      "low": 4366.10009765625,
+      "open": 4495.0,
+      "turnover": null,
+      "volume": 590638
+    },
+    "UBL.NS": {
+      "close": 1196.199951171875,
+      "date": "2026-11-16",
+      "high": 1219.9000244140625,
+      "low": 1191.199951171875,
+      "open": 1216.0,
+      "turnover": null,
+      "volume": 126826
+    },
+    "ULTRACEMCO.NS": {
+      "close": 12270.0,
+      "date": "2026-11-16",
+      "high": 12315.0,
+      "low": 12105.0,
+      "open": 12150.0,
+      "turnover": null,
+      "volume": 169374
+    },
+    "UNIONBANK.NS": {
+      "close": 205.60000610351562,
+      "date": "2026-11-16",
+      "high": 206.49000549316406,
+      "low": 203.10000610351562,
+      "open": 203.19000244140625,
+      "turnover": null,
+      "volume": 12748319
+    },
+    "UNITDSPR.NS": {
+      "close": 1446.0,
+      "date": "2026-11-16",
+      "high": 1446.0,
+      "low": 1412.0,
+      "open": 1416.800048828125,
+      "turnover": null,
+      "volume": 363039
+    },
+    "UNOMINDA.NS": {
+      "close": 1348.0,
+      "date": "2026-11-16",
+      "high": 1392.800048828125,
+      "low": 1337.4000244140625,
+      "open": 1384.0,
+      "turnover": null,
+      "volume": 804858
+    },
+    "UPL.NS": {
+      "close": 563.4500122070312,
+      "date": "2026-11-16",
+      "high": 566.7999877929688,
+      "low": 548.0,
+      "open": 560.0499877929688,
+      "turnover": null,
+      "volume": 2437426
+    },
+    "VAML.NS": {
+      "close": 385.25,
+      "date": "2026-11-16",
+      "high": 390.6000061035156,
+      "low": 379.0,
+      "open": 382.6000061035156,
+      "turnover": null,
+      "volume": 4345476
+    },
+    "VBL.NS": {
+      "close": 437.0,
+      "date": "2026-11-16",
+      "high": 439.79998779296875,
+      "low": 430.5,
+      "open": 434.04998779296875,
+      "turnover": null,
+      "volume": 3065479
+    },
+    "VEDL.NS": {
+      "close": 253.0,
+      "date": "2026-11-16",
+      "high": 257.30999755859375,
+      "low": 251.5,
+      "open": 257.30999755859375,
+      "turnover": null,
+      "volume": 9029420
+    },
+    "VISL.NS": {
+      "close": 25.959999084472656,
+      "date": "2026-11-16",
+      "high": 26.399999618530273,
+      "low": 25.8700008392334,
+      "open": 26.350000381469727,
+      "turnover": null,
+      "volume": 5093718
+    },
+    "VMM.NS": {
+      "close": 94.9000015258789,
+      "date": "2026-11-16",
+      "high": 96.76000213623047,
+      "low": 94.2699966430664,
+      "open": 96.12999725341797,
+      "turnover": null,
+      "volume": 6102389
+    },
+    "VOGL.NS": {
+      "close": 29.40999984741211,
+      "date": "2026-11-16",
+      "high": 30.8700008392334,
+      "low": 29.299999237060547,
+      "open": 30.700000762939453,
+      "turnover": null,
+      "volume": 18463062
+    },
+    "VOLTAS.NS": {
+      "close": 1152.5999755859375,
+      "date": "2026-11-16",
+      "high": 1154.5999755859375,
+      "low": 1121.9000244140625,
+      "open": 1135.800048828125,
+      "turnover": null,
+      "volume": 788622
+    },
+    "WAAREEENER.NS": {
+      "close": 2441.0,
+      "date": "2026-11-16",
+      "high": 2578.89990234375,
+      "low": 2420.800048828125,
+      "open": 2578.89990234375,
+      "turnover": null,
+      "volume": 1034454
+    },
+    "WELCORP.NS": {
+      "close": 2210.699951171875,
+      "date": "2026-11-16",
+      "high": 2257.60009765625,
+      "low": 2190.0,
+      "open": 2240.0,
+      "turnover": null,
+      "volume": 526557
+    },
+    "WIPRO.NS": {
+      "close": 193.5399932861328,
+      "date": "2026-11-16",
+      "high": 197.8300018310547,
+      "low": 192.0,
+      "open": 195.2100067138672,
+      "turnover": null,
+      "volume": 6752735
+    },
+    "WOCKPHARMA.NS": {
+      "close": 2004.5,
+      "date": "2026-11-16",
+      "high": 2059.60009765625,
+      "low": 1983.4000244140625,
+      "open": 2027.199951171875,
+      "turnover": null,
+      "volume": 560334
+    },
+    "YESBANK.NS": {
+      "close": 18.020000457763672,
+      "date": "2026-11-16",
+      "high": 18.059999465942383,
+      "low": 17.350000381469727,
+      "open": 17.700000762939453,
+      "turnover": null,
+      "volume": 188088907
+    },
+    "ZEEL.NS": {
+      "close": 71.66000366210938,
+      "date": "2026-11-16",
+      "high": 72.4800033569336,
+      "low": 70.37000274658203,
+      "open": 72.4800033569336,
+      "turnover": null,
+      "volume": 19711747
+    },
+    "ZENSARTECH.NS": {
+      "close": 539.0999755859375,
+      "date": "2026-11-16",
+      "high": 555.5999755859375,
+      "low": 536.5,
+      "open": 549.5499877929688,
+      "turnover": null,
+      "volume": 302763
+    },
+    "ZYDUSLIFE.NS": {
+      "close": 1192.0,
+      "date": "2026-11-16",
+      "high": 1207.199951171875,
+      "low": 1181.0999755859375,
+      "open": 1185.0,
+      "turnover": null,
+      "volume": 1427544
+    },
+    "^INDIAVIX": {
+      "close": 15.677499771118164,
+      "date": "2026-11-16",
+      "high": 15.9375,
+      "low": 13.602499961853027,
+      "open": 15.494999885559082,
+      "turnover": null,
+      "volume": 0
+    },
+    "^NSEI": {
+      "close": 25291.099609375,
+      "date": "2026-11-16",
+      "high": 25337.599609375,
+      "low": 25172.099609375,
+      "open": 25206.150390625,
+      "turnover": null,
+      "volume": 0
+    },
+    "EMBASSY.NS": {
+      "date": "2026-11-16",
+      "open": 424.0,
+      "high": 424.0,
+      "low": 417.05999755859375,
+      "close": 420.0,
+      "volume": 400044,
+      "turnover": null
+    },
+    "ICICIPRULI.NS": {
+      "date": "2026-11-16",
+      "open": 459.79998779296875,
+      "high": 461.1000061035156,
+      "low": 450.54998779296875,
+      "close": 461.1000061035156,
+      "volume": 969157,
+      "turnover": null
+    }
+  },
+  "provenance": {
+    "360ONE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:15.801841+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ABB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:16.632485+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ABBOTINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:17.593192+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ABCAPITAL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:18.359288+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ADANIENSOL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:19.186018+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ADANIENT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:19.983392+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ADANIGREEN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:20.982170+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ADANIPORTS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:21.784073+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ADANIPOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:22.917044+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AEGISLOG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:23.825849+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AIAENG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:24.973877+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AIIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:25.699170+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AJANTPHARM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:26.476366+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ALKEM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:27.229652+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AMBER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:28.245878+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AMBUJACEM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:29.297702+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ANANTRAJ.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:30.172802+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ANGELONE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:31.055327+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ANTHEM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:31.847456+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "APARINDS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:33.471169+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "APLAPOLLO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:34.342852+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "APOLLOHOSP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:35.243579+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ASHOKLEY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:36.052070+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ASIANPAINT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:36.824309+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ASTERDM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:37.725466+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ASTRAL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:38.675504+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ATGL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:39.703031+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ATHERENERG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:40.551286+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AUBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:41.349993+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AUROPHARMA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:42.806518+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AXISBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:43.783192+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "AZAD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:44.614783+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BAJAJ-AUTO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:45.545805+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BAJAJFINSV.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:46.516797+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BAJAJHFL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:47.399365+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BAJAJHLDNG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:48.478171+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BAJFINANCE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:49.245417+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BALKRISIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:50.005325+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BANDHANBNK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:50.756975+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BANKBARODA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:52.329022+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BANKINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:53.474206+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BDL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:54.351394+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:55.512241+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BERGEPAINT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:56.312561+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BHARATFORG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:57.132222+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BHARTIARTL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:58.464925+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BHARTIHEXA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:30:59.237146+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BHEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:00.019935+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BIOCON.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:00.882504+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BLUESTARCO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:01.969211+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BOSCHLTD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:02.999103+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BPCL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:03.874020+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BRITANNIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:04.966106+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "BSE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:05.929659+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CANBK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:08.557586+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CARTRADE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:09.410986+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CDSL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:10.221932+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CGPOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:11.018671+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CHENNPETRO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:11.930817+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CHOLAFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:13.556349+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CIPLA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:14.885225+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "COALINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:15.746417+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "COCHINSHIP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:16.600392+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "COFORGE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:17.515678+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "COLPAL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:19.117499+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CONCOR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:20.203789+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "COROMANDEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:20.964362+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CRISIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:21.742787+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CUMMINSIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:23.073613+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "CUPID.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:24.248452+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DABUR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:25.242673+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DALBHARAT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:26.028455+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DATAPATTNS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:26.760695+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DELHIVERY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:27.601893+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DIVISLAB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:28.426500+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DIXON.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:29.441659+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DLF.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:30.811106+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DMART.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:31.863511+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "DRREDDY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:32.618160+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "EICHERMOT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:33.671370+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ENDURANCE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:42.581411+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ENRIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:43.310398+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ESCORTS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:44.122912+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ETERNAL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:44.853325+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "EXIDEIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:45.719012+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "FACT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:46.500034+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "FEDERALBNK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:47.427228+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "FLUOROCHEM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:48.158905+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "FORCEMOT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:49.001788+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "FORTIS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:49.839426+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GAIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:51.030373+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GESHIP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:51.887231+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GICRE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:52.682758+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GLAND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:53.414222+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GLAXO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:54.591966+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GLENMARK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:56.180232+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GMRAIRPORT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:57.213587+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GODFRYPHLP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:58.357528+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GODREJCP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:31:59.397857+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GODREJIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:00.356388+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GODREJPROP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:01.164432+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GRASIM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:01.951553+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GROWW.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:02.719541+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GRSE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:03.523754+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "GVT&D.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:04.274098+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HAL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:05.041064+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HAVELLS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:05.846142+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HBLENGINE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:06.751664+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HCLTECH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:08.378369+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HDBFS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:09.157030+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HDFCAMC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:09.900796+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HDFCBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:10.721906+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HDFCLIFE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:11.465001+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HEROMOTOCO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:12.254671+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HEXT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:13.336203+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HFCL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:14.062880+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HINDALCO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:14.890507+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HINDCOPPER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:15.720157+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HINDPETRO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:16.604950+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HINDUNILVR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:17.481803+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HINDZINC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:18.277601+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HSCL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:19.858670+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HUDCO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:20.912083+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "HYUNDAI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:21.677897+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ICICIAMC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:22.512067+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ICICIBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:23.315767+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ICICIGI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:24.906677+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IDEA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:33.499108+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IDFCFIRSTB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:34.274335+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IFCI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:35.059064+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IIFL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:35.970883+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INDHOTEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:36.750299+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INDIANB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:37.498399+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INDIGO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:38.237259+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INDUSINDBK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:39.286174+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INDUSTOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:40.085109+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "INFY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:41.493529+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IOB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:42.256484+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IOC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:43.061042+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IPCALAB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:43.817181+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IRCTC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:44.604838+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IREDA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:45.756752+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "IRFC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:47.259880+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ITC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:48.300075+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ITCHOTELS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:49.136611+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JINDALSTEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:50.086728+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JIOFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:50.817968+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JKCEMENT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:51.620821+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JPPOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:52.356275+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JSL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:53.269947+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JSWENERGY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:54.290531+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JSWINFRA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:55.282975+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JSWSTEEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:56.319203+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "JUBLFOOD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:57.451078+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KALYANKJIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:58.581651+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KAYNES.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:32:59.319262+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KEI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:00.072952+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KIRLOSENG.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:01.557504+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KOTAKBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:02.323308+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KPITTECH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:03.216377+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "KPRMILL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:04.743965+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LAURUSLABS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:05.487925+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LENSKART.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:06.593728+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LGEINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:07.634100+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LICHSGFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:09.287952+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LICI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:10.177577+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LINDEINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:11.093343+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LLOYDSME.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:11.829474+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LODHA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:12.599053+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:13.383284+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LTF.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:14.214337+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LTM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:15.054019+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LTTS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:15.838503+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "LUPIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:16.583088+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "M&M.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:17.359475+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "M&MFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:18.176477+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MAHABANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:19.043174+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MANAPPURAM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:20.040381+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MANKIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:20.867905+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MARICO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:21.701197+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MARUTI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:22.454024+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MAXHEALTH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:23.234030+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MAZDOCK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:24.129373+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MCX.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:24.939008+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MEDANTA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:25.682531+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MEESHO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:26.388298+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MFSL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:27.145729+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MOTHERSON.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:28.265884+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MOTILALOFS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:29.157347+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MPHASIS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:29.975343+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MRF.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:30.888674+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MRPL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:31.921953+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MTARTECH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:32.938386+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "MUTHOOTFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:33.982228+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NAM-INDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:34.724762+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NATIONALUM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:35.656974+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NAUKRI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:36.702209+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NAVINFLUOR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:37.459142+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NESTLEIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:38.336511+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NETWEB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:39.448131+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:40.214531+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NHPC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:40.995500+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NLCINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:42.015680+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NMDC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:42.907753+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NTPC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:43.825464+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NTPCGREEN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:44.764542+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "NYKAA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:45.643055+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "OBEROIRLTY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:46.469425+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "OFSS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:47.361845+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "OIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:48.148988+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "OLAELEC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:49.302662+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ONGC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:50.144888+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PAGEIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:51.300900+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PATANJALI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:52.064000+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PAYTM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:52.842183+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PERSISTENT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:53.634367+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PETRONET.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:54.375014+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PFC.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:55.123674+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PHOENIXLTD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:55.923159+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PIDILITIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:57.052806+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PIIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:57.909203+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PINELABS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:58.647877+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PIRAMALFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:33:59.482082+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PNB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:00.258747+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "POLICYBZR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:01.272089+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "POLYCAB.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:02.105247+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "POWERGRID.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:03.615316+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "POWERINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:04.541100+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PREMIERENE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:05.320583+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PRESTIGE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:06.232206+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "PWL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:07.346375+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RADICO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:08.115667+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RBLBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:08.938529+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RECLTD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:09.998851+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "REDINGTON.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:11.038612+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RELIANCE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:12.112471+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RRKABEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:12.854032+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "RVNL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:13.603575+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SAIL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:14.545889+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SAMMAANCAP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:15.368871+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SBICARD.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:16.127116+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SBILIFE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:16.848891+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SBIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:17.656796+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SCHAEFFLER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:18.424631+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SCI.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:19.333491+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SHREECEM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:20.206926+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SHRIRAMFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:20.975388+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SIEMENS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:21.793639+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SOLARINDS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:22.556418+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SONACOMS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:23.559444+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SRF.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:24.327007+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "STLTECH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:25.126151+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SUNDARMFIN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:26.090843+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SUNPHARMA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:27.122298+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SUPREMEIND.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:28.005334+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SUZLON.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:29.536681+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SWIGGY.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:30.348925+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "SYRMA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:31.085911+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATACAP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:32.830652+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATACOMM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:33.675578+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATACONSUM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:34.500237+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATAINVEST.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:35.386442+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATAPOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:36.180642+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TATASTEEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:36.949971+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TCS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:37.813017+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TDPOWERSYS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:42.355120+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TECHM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:43.268037+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TEJASNET.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:43.982275+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "THERMAX.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:44.764709+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TIINDIA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:45.607047+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TITAN.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:46.525827+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TMCV.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:47.271804+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TMPV.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:48.990438+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TORNTPHARM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:49.801123+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TORNTPOWER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:50.942397+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TRENT.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:51.739433+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "TVSMOTOR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:52.543299+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "UBL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:53.405559+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ULTRACEMCO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:54.572566+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "UNIONBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:55.415353+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "UNITDSPR.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:56.179404+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "UNOMINDA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:57.096203+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "UPL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:57.921684+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VAML.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:59.045529+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VBL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:34:59.824771+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VEDL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:00.684173+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VISL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:01.572780+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VMM.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:02.314534+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VOGL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:03.075440+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "VOLTAS.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:04.106871+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "WAAREEENER.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:04.974971+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "WELCORP.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:05.820983+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "WIPRO.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:06.725582+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "WOCKPHARMA.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:07.508024+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "YESBANK.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:08.303628+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ZEEL.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:09.115588+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ZENSARTECH.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:09.915746+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "ZYDUSLIFE.NS": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:10.955261+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "^INDIAVIX": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:11.750794+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "^NSEI": {
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16 12:35:12.504315+00:00",
+      "source_name": "yfinance",
+      "source_version": "1.2.0"
+    },
+    "EMBASSY.NS": {
+      "source_name": "NSE_CM_FINAL",
+      "source_version": "20261116-F-4b092142ecfdd80eb359a62a9146a598a5fad274ef84930d0d7caf0e9eeaf645",
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16T12:31:05.050121+00:00"
+    },
+    "ICICIPRULI.NS": {
+      "source_name": "NSE_CM_FINAL",
+      "source_version": "20261116-F-4b092142ecfdd80eb359a62a9146a598a5fad274ef84930d0d7caf0e9eeaf645",
+      "adjustment_mode": "adjusted",
+      "retrieved_at": "2026-11-16T12:31:05.050121+00:00"
+    }
+  },
+  "database_writes": 0
+}
