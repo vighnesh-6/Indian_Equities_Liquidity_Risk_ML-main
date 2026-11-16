@@ -1,0 +1,117 @@
+{
+  "verified_at_utc": "2026-11-16T11:41:03.992471+00:00",
+  "identity": {
+    "database": "neondb",
+    "username": "neondb_owner",
+    "project_id": "super-flower-30495255",
+    "branch_id": "br-winter-thunder-azx88rt3",
+    "endpoint_id": "ep-misty-shadow-azik30ky",
+    "read_only": "on"
+  },
+  "sessions": [
+    {
+      "date": "2026-10-26",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-10-27",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-10-28",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-10-29",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-10-30",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-02",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-03",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-04",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-05",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-06",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-09",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-11",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-12",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-13",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    },
+    {
+      "date": "2026-11-16",
+      "rows": 0,
+      "instruments": 0,
+      "complete": false
+    }
+  ],
+  "checkpoint_count": 302,
+  "checkpoint_dates": [
+    "2026-10-23"
+  ],
+  "total_rows": 569517,
+  "runs": [
+    {
+      "run_id": "22404942-d6b6-42ce-9d3d-b25a98bde777",
+      "range_start": "2018-01-01",
+      "range_end": "2026-10-23",
+      "status": "SUCCESS"
+    }
+  ],
+  "basis_generations": []
+}
