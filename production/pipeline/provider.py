@@ -15,7 +15,7 @@ from numbers import Real
 import numpy as np
 import pandas as pd
 
-from .nse_calendar import IST
+from .nse_calendar import IST, NSECalendar
 from .repository import Bar, Provenance, prepare_batch
 
 
@@ -99,19 +99,22 @@ class YahooProvider:
         expected = sorted(expected)
         if not expected:
             raise ValueError("Fetching requires an explicit nonempty session plan")
+        windows = NSECalendar().request_windows(expected)
         for attempt in range(self.attempts):
-            if self.calls:
-                self.sleep(self.delay)
-            self.calls += 1
             try:
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore", DeprecationWarning)
-                    frame = self.yf.Ticker(ticker).history(
-                        start=str(expected[0]), end=str(expected[-1] + timedelta(days=1)),
-                        interval="1d", auto_adjust=True, actions=False, repair=False,
-                        timeout=self.timeout, raise_errors=True,
-                    )
-                result = normalize_history(ticker, frame, expected)
+                result = {}
+                for window in windows:
+                    if self.calls:
+                        self.sleep(self.delay)
+                    self.calls += 1
+                    with warnings.catch_warnings():
+                        warnings.simplefilter("ignore", DeprecationWarning)
+                        frame = self.yf.Ticker(ticker).history(
+                            start=str(window[0]), end=str(window[-1] + timedelta(days=1)),
+                            interval="1d", auto_adjust=True, actions=False, repair=False,
+                            timeout=self.timeout, raise_errors=True,
+                        )
+                    result.update(normalize_history(ticker, frame, window))
                 return result, Provenance("yfinance", self.version, "adjusted", datetime.now(timezone.utc))
             except ProviderIncomplete as error:
                 failure = error

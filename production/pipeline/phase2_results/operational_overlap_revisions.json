@@ -1,0 +1,1024 @@
+{
+  "result": "REVIEW_REQUIRED",
+  "checkpoint": "2026-10-23",
+  "affected_instruments": 39,
+  "all_volumes_unchanged": true,
+  "all_price_revisions_approximately_uniform": true,
+  "interpretation": "Uniform OHLC scaling with unchanged volume is consistent with provider adjustment revisions; corporate-action causes have not been independently confirmed. Existing database observations were not modified.",
+  "details": [
+    {
+      "ticker": "ASIANPAINT.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 2280.0,
+        "high": 2307.0,
+        "low": 2260.0,
+        "close": 2307.0
+      },
+      "current_provider_prices": {
+        "open": 2274.622314453125,
+        "high": 2301.55859375,
+        "low": 2254.66943359375,
+        "close": 2301.55859375
+      },
+      "old_volume": 836468,
+      "current_provider_volume": 836468,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9976413422981195,
+        0.9976413659882127
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "ASTRAL.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1380.0,
+        "high": 1397.0999755859375,
+        "low": 1347.300048828125,
+        "close": 1357.0
+      },
+      "current_provider_prices": {
+        "open": 1378.37646484375,
+        "high": 1395.4564208984375,
+        "low": 1345.7149658203125,
+        "close": 1355.403564453125
+      },
+      "old_volume": 318950,
+      "current_provider_volume": 318950,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9988235115042182,
+        0.9988235955076796
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "AUROPHARMA.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1607.699951171875,
+        "high": 1608.800048828125,
+        "low": 1547.800048828125,
+        "close": 1571.699951171875
+      },
+      "current_provider_prices": {
+        "open": 1601.6341552734375,
+        "high": 1602.7301025390625,
+        "low": 1541.9603271484375,
+        "close": 1565.77001953125
+      },
+      "old_volume": 650602,
+      "current_provider_volume": 650602,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9962270348431521,
+        0.9962270826363464
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "BALKRISIND.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 2129.0,
+        "high": 2130.0,
+        "low": 2054.199951171875,
+        "close": 2109.800048828125
+      },
+      "current_provider_prices": {
+        "open": 2125.3662109375,
+        "high": 2126.364501953125,
+        "low": 2050.69384765625,
+        "close": 2106.198974609375
+      },
+      "old_volume": 869395,
+      "current_provider_volume": 869395,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9982931680086223,
+        0.9982932024150692
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "CHENNPETRO.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1462.0,
+        "high": 1529.9000244140625,
+        "low": 1423.0,
+        "close": 1475.5999755859375
+      },
+      "current_provider_prices": {
+        "open": 1437.823486328125,
+        "high": 1504.6007080078125,
+        "low": 1399.468505859375,
+        "close": 1451.1986083984375
+      },
+      "old_volume": 6408882,
+      "current_provider_volume": 6408882,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.983463396941262,
+        0.9834634616018095
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 403.0,
+        "high": 403.3500061035156,
+        "low": 390.6499938964844,
+        "close": 397.45001220703125
+      },
+      "current_provider_prices": {
+        "open": 392.8756103515625,
+        "high": 393.2168273925781,
+        "low": 380.83587646484375,
+        "close": 387.4650573730469
+      },
+      "old_volume": 4627916,
+      "current_provider_volume": 4627916,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.974877445041098,
+        0.9748774668245836
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "COCHINSHIP.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1163.9000244140625,
+        "high": 1164.0999755859375,
+        "low": 1126.699951171875,
+        "close": 1139.9000244140625
+      },
+      "current_provider_prices": {
+        "open": 1160.9359130859375,
+        "high": 1161.1353759765625,
+        "low": 1123.83056640625,
+        "close": 1136.9970703125
+      },
+      "old_volume": 759376,
+      "current_provider_volume": 759376,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9974532840241622,
+        0.9974533256957735
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "COLPAL.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1680.0,
+        "high": 1696.800048828125,
+        "low": 1580.0,
+        "close": 1605.0
+      },
+      "current_provider_prices": {
+        "open": 1654.7447509765625,
+        "high": 1671.292236328125,
+        "low": 1556.248046875,
+        "close": 1580.8721923828125
+      },
+      "old_volume": 1445523,
+      "current_provider_volume": 1445523,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9849670980578271,
+        0.9849671182753165
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "CONCOR.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 424.0,
+        "high": 425.04998779296875,
+        "low": 406.29998779296875,
+        "close": 410.1499938964844
+      },
+      "current_provider_prices": {
+        "open": 422.1937561035156,
+        "high": 423.2392578125,
+        "low": 404.5691223144531,
+        "close": 408.4027404785156
+      },
+      "old_volume": 1035155,
+      "current_provider_volume": 1035155,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9957399322409096,
+        0.9957399908101784
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "CRISIL.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 4780.0,
+        "high": 4789.7001953125,
+        "low": 4521.10009765625,
+        "close": 4751.10009765625
+      },
+      "current_provider_prices": {
+        "open": 4762.60498046875,
+        "high": 4772.26953125,
+        "low": 4504.64697265625,
+        "close": 4733.81005859375
+      },
+      "old_volume": 66423,
+      "current_provider_volume": 66423,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9963608026908326,
+        0.9963608745750523
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "DABUR.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 368.6000061035156,
+        "high": 370.29998779296875,
+        "low": 356.04998779296875,
+        "close": 363.0
+      },
+      "current_provider_prices": {
+        "open": 365.2080993652344,
+        "high": 366.8924560546875,
+        "low": 352.7735900878906,
+        "close": 359.6596374511719
+      },
+      "old_volume": 1123440,
+      "current_provider_volume": 1123440,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9907978657566037,
+        0.9907979277702342
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1601.0,
+        "high": 1625.800048828125,
+        "low": 1581.300048828125,
+        "close": 1591.300048828125
+      },
+      "current_provider_prices": {
+        "open": 1596.4512939453125,
+        "high": 1621.180908203125,
+        "low": 1576.807373046875,
+        "close": 1586.7789306640625
+      },
+      "old_volume": 35180,
+      "current_provider_volume": 35180,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9971588344442927,
+        0.9971588720403952
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "EMBASSY.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 423.7799987792969,
+        "high": 424.7699890136719,
+        "low": 418.0,
+        "close": 421.94000244140625
+      },
+      "current_provider_prices": {
+        "open": 416.5630187988281,
+        "high": 417.5361633300781,
+        "low": 410.8814697265625,
+        "close": 414.7543640136719
+      },
+      "old_volume": 476079,
+      "current_provider_volume": 476079,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9829699844229144,
+        0.9829700232692883
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "GESHIP.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1516.0,
+        "high": 1516.0,
+        "low": 1486.699951171875,
+        "close": 1496.5999755859375
+      },
+      "current_provider_prices": {
+        "open": 1500.9393310546875,
+        "high": 1500.9393310546875,
+        "low": 1471.930419921875,
+        "close": 1481.7320556640625
+      },
+      "old_volume": 619663,
+      "current_provider_volume": 619663,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9900655218038836,
+        0.9900655601432164
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "GODFRYPHLP.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1728.0,
+        "high": 1734.9000244140625,
+        "low": 1660.0999755859375,
+        "close": 1669.0
+      },
+      "current_provider_prices": {
+        "open": 1718.508056640625,
+        "high": 1725.3702392578125,
+        "low": 1650.98095703125,
+        "close": 1659.8321533203125
+      },
+      "old_volume": 169116,
+      "current_provider_volume": 169116,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9945069461545718,
+        0.9945070119187597
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "GODREJCP.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 860.0,
+        "high": 862.2999877929688,
+        "low": 837.0,
+        "close": 856.3499755859375
+      },
+      "current_provider_prices": {
+        "open": 854.8192749023438,
+        "high": 857.1054077148438,
+        "low": 831.9578247070312,
+        "close": 851.1912231445312
+      },
+      "old_volume": 772300,
+      "current_provider_volume": 772300,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9939758830052206,
+        0.9939759014824755
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "HEXT.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 594.7999877929688,
+        "high": 609.6500244140625,
+        "low": 582.0999755859375,
+        "close": 590.7999877929688
+      },
+      "current_provider_prices": {
+        "open": 585.2356567382812,
+        "high": 599.846923828125,
+        "low": 572.7398681640625,
+        "close": 581.2999877929688
+      },
+      "old_volume": 624430,
+      "current_provider_volume": 624430,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9839200886836323,
+        0.9839201177833802
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1833.9000244140625,
+        "high": 1835.0,
+        "low": 1781.0999755859375,
+        "close": 1814.699951171875
+      },
+      "current_provider_prices": {
+        "open": 1816.6708984375,
+        "high": 1817.7606201171875,
+        "low": 1764.366943359375,
+        "close": 1797.6512451171875
+      },
+      "old_volume": 1192732,
+      "current_provider_volume": 1192732,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9906051988945977,
+        0.9906052425706744
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "HUDCO.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 152.17999267578125,
+        "high": 152.2100067138672,
+        "low": 144.13999938964844,
+        "close": 146.02000427246094
+      },
+      "current_provider_prices": {
+        "open": 150.96536254882812,
+        "high": 150.99513244628906,
+        "low": 142.98953247070312,
+        "close": 144.8545379638672
+      },
+      "old_volume": 2400892,
+      "current_provider_volume": 2400892,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9920184062451999,
+        0.9920184637573161
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "INFY.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1187.0,
+        "high": 1197.800048828125,
+        "low": 1038.050048828125,
+        "close": 1153.800048828125
+      },
+      "current_provider_prices": {
+        "open": 1160.417724609375,
+        "high": 1170.9759521484375,
+        "low": 1014.803466796875,
+        "close": 1127.9613037109375
+      },
+      "old_volume": 33044499,
+      "current_provider_volume": 33044499,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9776054967223041,
+        0.9776055304840477
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "LAURUSLABS.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1987.5,
+        "high": 2009.5999755859375,
+        "low": 1933.5,
+        "close": 1970.0
+      },
+      "current_provider_prices": {
+        "open": 1986.65283203125,
+        "high": 2008.743408203125,
+        "low": 1932.67578125,
+        "close": 1969.1602783203125
+      },
+      "old_volume": 1893713,
+      "current_provider_volume": 1893713,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9995737167054565,
+        0.9995737622446165
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "LTTS.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 3975.5,
+        "high": 4041.0,
+        "low": 3890.0,
+        "close": 3910.300048828125
+      },
+      "current_provider_prices": {
+        "open": 3955.7978515625,
+        "high": 4020.973388671875,
+        "low": 3870.7216796875,
+        "close": 3890.921142578125
+      },
+      "old_volume": 599040,
+      "current_provider_volume": 599040,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9950441080524463,
+        0.9950441446849481
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "MAZDOCK.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1915.0,
+        "high": 1918.0999755859375,
+        "low": 1845.0,
+        "close": 1860.0
+      },
+      "current_provider_prices": {
+        "open": 1909.486328125,
+        "high": 1912.577392578125,
+        "low": 1839.6878662109375,
+        "close": 1854.6446533203125
+      },
+      "old_volume": 719787,
+      "current_provider_volume": 719787,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9971207813550067,
+        0.9971208054438739
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 975.0,
+        "high": 975.7000122070312,
+        "low": 881.5999755859375,
+        "close": 922.5999755859375
+      },
+      "current_provider_prices": {
+        "open": 965.1776123046875,
+        "high": 965.87060546875,
+        "low": 872.718505859375,
+        "close": 913.3054809570312
+      },
+      "old_volume": 3036853,
+      "current_provider_volume": 3036853,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9899257373270007,
+        0.9899257900837296
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NATIONALUM.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 303.04998779296875,
+        "high": 303.95001220703125,
+        "low": 293.0,
+        "close": 301.75
+      },
+      "current_provider_prices": {
+        "open": 298.92999267578125,
+        "high": 299.8177795410156,
+        "low": 289.0166320800781,
+        "close": 297.6476745605469
+      },
+      "old_volume": 6382395,
+      "current_provider_volume": 6382395,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9864048866960957,
+        0.986404899247176
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NAUKRI.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 1228.5,
+        "high": 1229.800048828125,
+        "low": 1177.5999755859375,
+        "close": 1186.5
+      },
+      "current_provider_prices": {
+        "open": 1225.472900390625,
+        "high": 1226.769775390625,
+        "low": 1174.6983642578125,
+        "close": 1183.576416015625
+      },
+      "old_volume": 995125,
+      "current_provider_volume": 995125,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9975359384539072,
+        0.9975359957640274
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NAVINFLUOR.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 7911.0,
+        "high": 7934.5,
+        "low": 7601.0,
+        "close": 7668.5
+      },
+      "current_provider_prices": {
+        "open": 7903.7958984375,
+        "high": 7927.2744140625,
+        "low": 7594.078125,
+        "close": 7661.5166015625
+      },
+      "old_volume": 99142,
+      "current_provider_volume": 99142,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.999089339709526,
+        0.9990893563945772
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NLCINDIA.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 234.89999389648438,
+        "high": 235.60000610351562,
+        "low": 222.3000030517578,
+        "close": 228.5
+      },
+      "current_provider_prices": {
+        "open": 233.48341369628906,
+        "high": 234.17919921875,
+        "low": 220.9593963623047,
+        "close": 227.12200927734375
+      },
+      "old_volume": 2367830,
+      "current_provider_volume": 2367830,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9939693806970349,
+        0.993969432792665
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "NTPC.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 302.1000061035156,
+        "high": 302.79998779296875,
+        "low": 292.04998779296875,
+        "close": 298.0
+      },
+      "current_provider_prices": {
+        "open": 299.2383117675781,
+        "high": 299.9316711425781,
+        "low": 289.28350830078125,
+        "close": 295.1771545410156
+      },
+      "old_volume": 8751896,
+      "current_provider_volume": 8751896,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.990527327778481,
+        0.9905273767922612
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "ONGC.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 225.6999969482422,
+        "high": 227.5,
+        "low": 223.69000244140625,
+        "close": 227.5
+      },
+      "current_provider_prices": {
+        "open": 218.01004028320312,
+        "high": 219.74871826171875,
+        "low": 216.0685272216797,
+        "close": 219.74871826171875
+      },
+      "old_volume": 12949879,
+      "current_provider_volume": 12949879,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9659284047720329,
+        0.9659284319196428
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "PETRONET.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 290.3999938964844,
+        "high": 292.0,
+        "low": 279.3500061035156,
+        "close": 286.29998779296875
+      },
+      "current_provider_prices": {
+        "open": 283.98736572265625,
+        "high": 285.55206298828125,
+        "low": 273.181396484375,
+        "close": 279.9779052734375
+      },
+      "old_volume": 2777895,
+      "current_provider_volume": 2777895,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9779179465957084,
+        0.9779180239324701
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "POWERGRID.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 248.0500030517578,
+        "high": 248.60000610351562,
+        "low": 242.3000030517578,
+        "close": 247.39999389648438
+      },
+      "current_provider_prices": {
+        "open": 245.20050048828125,
+        "high": 245.7441864013672,
+        "low": 239.5165557861328,
+        "close": 244.55795288085938
+      },
+      "old_volume": 5917098,
+      "current_provider_volume": 5917098,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9885123642451901,
+        0.988512392775206
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "PREMIERENE.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 865.0499877929688,
+        "high": 869.8499755859375,
+        "low": 840.7999877929688,
+        "close": 853.2999877929688
+      },
+      "current_provider_prices": {
+        "open": 864.561767578125,
+        "high": 869.3590698242188,
+        "low": 840.3255004882812,
+        "close": 852.8184204101562
+      },
+      "old_volume": 882214,
+      "current_provider_volume": 882214,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.999435616182032,
+        0.9994356716084963
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "RECLTD.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 301.0,
+        "high": 302.0,
+        "low": 290.6499938964844,
+        "close": 293.95001220703125
+      },
+      "current_provider_prices": {
+        "open": 297.44268798828125,
+        "high": 298.4308776855469,
+        "low": 287.2149963378906,
+        "close": 290.47601318359375
+      },
+      "old_volume": 3159284,
+      "current_provider_volume": 3159284,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9881816673612154,
+        0.9881817141905526
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "RRKABEL.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 2260.0,
+        "high": 2275.699951171875,
+        "low": 2126.0,
+        "close": 2140.0
+      },
+      "current_provider_prices": {
+        "open": 2252.4873046875,
+        "high": 2268.135009765625,
+        "low": 2118.932861328125,
+        "close": 2132.88623046875
+      },
+      "old_volume": 322784,
+      "current_provider_volume": 322784,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9966757737977037,
+        0.99667585198877
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "SCI.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 252.5,
+        "high": 252.5,
+        "low": 233.4499969482422,
+        "close": 237.8000030517578
+      },
+      "current_provider_prices": {
+        "open": 248.76727294921875,
+        "high": 248.76727294921875,
+        "low": 229.99888610839844,
+        "close": 234.2845916748047
+      },
+      "old_volume": 4405453,
+      "current_provider_volume": 4405453,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9852169163205905,
+        0.9852169414136299
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "SHRIRAMFIN.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 900.0,
+        "high": 923.0499877929688,
+        "low": 833.5999755859375,
+        "close": 865.0
+      },
+      "current_provider_prices": {
+        "open": 892.973388671875,
+        "high": 915.8434448242188,
+        "low": 827.091796875,
+        "close": 858.2466430664062
+      },
+      "old_volume": 7141142,
+      "current_provider_volume": 7141142,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9921926509438223,
+        0.9921926839672237
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "SUPREMEIND.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 3463.0,
+        "high": 3484.800048828125,
+        "low": 3358.699951171875,
+        "close": 3390.0
+      },
+      "current_provider_prices": {
+        "open": 3450.053955078125,
+        "high": 3471.7724609375,
+        "low": 3346.143798828125,
+        "close": 3377.326904296875
+      },
+      "old_volume": 199906,
+      "current_provider_volume": 199906,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.996261596732069,
+        0.9962616236863938
+      ],
+      "approximately_uniform_price_scaling": true
+    },
+    {
+      "ticker": "VBL.NS",
+      "date": "2026-10-23",
+      "source_name": "cleaned_parquet",
+      "source_version": "sha256.feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "old_prices": {
+        "open": 404.3999938964844,
+        "high": 404.3999938964844,
+        "low": 385.79998779296875,
+        "close": 395.1000061035156
+      },
+      "current_provider_prices": {
+        "open": 403.9190979003906,
+        "high": 403.9190979003906,
+        "low": 385.3411865234375,
+        "close": 394.6301574707031
+      },
+      "old_volume": 4105255,
+      "current_provider_volume": 4105255,
+      "unchanged_volume": true,
+      "price_ratio_range": [
+        0.9988107794607358,
+        0.9988108407434426
+      ],
+      "approximately_uniform_price_scaling": true
+    }
+  ]
+}

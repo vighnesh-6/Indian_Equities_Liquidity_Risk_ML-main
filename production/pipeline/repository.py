@@ -151,6 +151,9 @@ class Repository:
         Fetching/validation happens before this transaction. Nested Repository
         methods share its cursor and cannot independently commit checkpoints.
         """
+        from .nse_calendar import NSECalendar
+        if day in NSECalendar().exclusions(day, day):
+            raise PersistenceError("An excluded production session cannot advance checkpoints")
         tickers = set(observations)
         if len(tickers) != 302 or tickers != set(previous) or tickers != set(provenance):
             raise PersistenceError("A complete session requires exactly 302 matching instrument payloads")

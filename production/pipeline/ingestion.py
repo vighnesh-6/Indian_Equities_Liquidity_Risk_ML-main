@@ -50,15 +50,16 @@ def validate_window(database, quotes, sessions):
             digest.update(row_bytes(day, (bar.open, bar.high, bar.low, bar.close, bar.volume, bar.turnover)))
         expected[ticker] = digest.hexdigest()
     issues = []
+    excluded = NSECalendar().exclusions(sessions[0], sessions[-1])
     with database.transaction(read_only=True) as cursor:
-        profiles = database_coverage(cursor, start=sessions[0], end=sessions[-1])
+        profiles = database_coverage(cursor, start=sessions[0], end=sessions[-1], exclude_dates=excluded)
         if set(profiles) != set(expected):
             issues.append("INSTRUMENT_COVERAGE")
         for ticker, checksum in expected.items():
             actual = profiles.get(ticker, {})
             if actual.get("rows") != len(sessions) or actual.get("values_sha256") != checksum:
                 issues.append("VALUES_OR_SESSIONS:" + ticker)
-        cursor.execute("SELECT date,count(*) AS rows FROM liquidity.market_eod WHERE date>=%s AND date<=%s GROUP BY date ORDER BY date", (sessions[0], sessions[-1]))
+        cursor.execute("SELECT date,count(*) AS rows FROM liquidity.market_eod WHERE date>=%s AND date<=%s AND date <> ALL(%s::date[]) GROUP BY date ORDER BY date", (sessions[0], sessions[-1], excluded))
         dates = {row["date"]: int(row["rows"]) for row in cursor.fetchall()}
         if dates != {day: 302 for day in sessions}:
             issues.append("DAILY_COUNTS")
@@ -84,7 +85,8 @@ class SessionIngestor:
         sessions = self.calendar.sessions(base + timedelta(days=1), ready)
         return checkpoints, {"base": str(base), "latest_completed": str(completed), "target": str(ready),
                              "sessions": list(map(str, sessions)), "expected_new_rows": 302 * len(sessions),
-                             "instruments": 302, "publication_pending": completed > ready}
+                             "instruments": 302, "publication_pending": completed > ready,
+                             "excluded_sessions": list(map(str, self.calendar.exclusions(base, ready)))}
 
     def persist_with_recovery(self, key, mode, day, observations, previous, provenance):
         for attempt in range(3):

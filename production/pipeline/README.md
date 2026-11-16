@@ -130,3 +130,11 @@ python -B -m production.pipeline.migrate --apply
 ```
 
 The runner checks identity, obtains a transaction-scoped migration lock, verifies recorded checksums and applies pending SQL atomically. Any schema conflict or error aborts the transaction. Historical snapshot import uses the repository entry points documented above.
+
+## Approved production session exclusion - 16 November 2026
+
+The user explicitly excluded **8 November 2026** (the NSE Muhurat session) from this production pipeline. This is an application policy exception, not a claim that the exchange was closed. The reviewed calendar retains the exchange special-session metadata and separately records the exclusion and approval date in `calendars/2026.json`.
+
+`NSECalendar` applies this single exclusion to catch-up and daily plans, latest-session selection, provider request ranges and reconciliation. Yahoo request windows are split across the excluded date; it is neither fetched nor expected. `Repository.persist_session` rejects checkpoint advancement for an excluded day. Reconciliation ignores any existing rows on that date while reporting their retained count. No existing historical observations are deleted or rewritten. All other regular NSE sessions remain mandatory, including 6 and 9 November; the published 10 November holiday remains a non-session.
+
+The failed GitHub run `43815823549` reached the collector after a successful Python 3.13.5 installation and dependency check. Its dedicated Neon environment value was empty because the repository Actions secret did not exist. After separate user approval, `LIQUIDITY_NEON_DATABASE_URL` was encrypted with GitHub's repository public key and configured as the dedicated Actions secret. It is scoped to the collector step. The local workflow also checks for a missing/empty secret explicitly; permissions, pinned dependencies, weekday 10:30 UTC schedule and manual dispatch remain unchanged. Local changes require approval before commit/push; Actions manual dispatch uses the existing remote `main` until then.

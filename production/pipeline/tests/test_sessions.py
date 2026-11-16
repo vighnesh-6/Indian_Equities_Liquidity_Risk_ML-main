@@ -38,11 +38,14 @@ class CalendarProviderTests(unittest.TestCase):
         with patch.dict('os.environ', {'GITHUB_ACTIONS': 'false', 'LIQUIDITY_NEON_DATABASE_URL': uri}):
             with self.assertRaises(ConfigurationError):
                 load_settings(from_environment=True)
-    def test_special_sunday_and_holiday_are_authoritative(self):
+    def test_approved_muhurat_exclusion_and_other_sessions(self):
         calendar = NSECalendar()
         sessions = calendar.sessions(BASE, date(2026, 11, 13))
-        self.assertEqual(len(sessions), 16)
-        self.assertIn(date(2026, 11, 8), sessions)
+        self.assertEqual(len(sessions), 15)
+        self.assertNotIn(date(2026, 11, 8), sessions)
+        self.assertIn(date(2026, 11, 6), sessions)
+        self.assertIn(date(2026, 11, 9), sessions)
+        self.assertEqual(calendar.exclusions(BASE, date(2026, 11, 13)), [date(2026, 11, 8)])
         self.assertNotIn(date(2026, 11, 10), sessions)
         self.assertNotIn(date(2026, 11, 7), sessions)
         self.assertFalse(calendar.is_session(date(2026, 1, 15)))
@@ -92,6 +95,25 @@ class CalendarProviderTests(unittest.TestCase):
             provider.fetch('TEST.NS', [MONDAY, TUESDAY])
         self.assertEqual(provider.calls, 6)
 
+    def test_provider_requests_never_include_excluded_session(self):
+        provider = YahooProvider.__new__(YahooProvider)
+        provider.version = '1.2.0'
+        provider.attempts, provider.delay, provider.backoff, provider.timeout = 3, 0, 2, 1
+        provider.sleep = MagicMock()
+        provider.calls, provider.retry_events = 0, []
+        provider.yf = MagicMock()
+        days = [date(2026, 11, 6), date(2026, 11, 9)]
+        def history(**kwargs):
+            day = date.fromisoformat(kwargs['start'])
+            self.assertLessEqual(date.fromisoformat(kwargs['end']), date(2026, 11, 8)) if day == days[0] else self.assertGreater(day, date(2026, 11, 8))
+            return pd.DataFrame({'Open': [10], 'High': [12], 'Low': [8], 'Close': [11], 'Volume': [100]}, index=pd.DatetimeIndex([day]))
+        provider.yf.Ticker.return_value.history.side_effect = history
+        observations, _ = provider.fetch('TEST.NS', days)
+        self.assertEqual(sorted(observations), days)
+        self.assertEqual(provider.calls, 2)
+        with self.assertRaises(ValueError):
+            provider.fetch('TEST.NS', [date(2026, 11, 8)])
+
 
 class FakeProvider:
     retry_events = []
@@ -99,9 +121,11 @@ class FakeProvider:
     def __init__(self, missing=None):
         self.missing = missing
         self.calls = 0
+        self.requested = []
 
     def fetch(self, ticker, sessions):
         self.calls += 1
+        self.requested.extend(sessions)
         if self.missing in sessions:
             raise ProviderIncomplete(ticker, 'MISSING_SESSIONS', missing=[self.missing])
         return {day: bar(day, ticker) for day in sessions}, SOURCE
@@ -149,12 +173,34 @@ class AtomicSessionTests(unittest.TestCase):
         with self.assertRaises(PersistenceError):
             self.repo.persist_session('incomplete', 'daily', TUESDAY, dict(list(observations.items())[:301]), previous, provenance)
 
-    def test_missing_special_session_blocks_all_writes(self):
-        collector = SessionIngestor(self.db, FakeProvider(missing=date(2026, 11, 8)))
+    def test_missing_regular_session_still_blocks_all_writes(self):
+        collector = SessionIngestor(self.db, FakeProvider(missing=date(2026, 11, 9)))
         report = collector.collect('catchup', now=datetime(2026, 11, 16, 10, tzinfo=IST), progress=lambda _: None)
         self.assertEqual(report['status'], 'BLOCKED')
-        self.assertEqual(report['issue']['missing_sessions'], ['2026-11-08'])
+        self.assertEqual(report['issue']['missing_sessions'], ['2026-11-09'])
         self.assertEqual(set(inspect_state(self.db).values()), {BASE})
+
+    def test_excluded_session_preserves_existing_rows_and_all_regular_sessions_reconcile(self):
+        self.db.execute("INSERT INTO liquidity.market_eod(ticker,date,open,high,low,close,volume,turnover,provenance_id) "
+                        "SELECT ticker,'2026-11-08',open,high,low,close,volume,turnover,provenance_id "
+                        "FROM liquidity.market_eod WHERE ticker=%s AND date=%s", (self.tickers[0], BASE))
+        self.db.execute("SELECT * FROM liquidity.market_eod WHERE date='2026-11-08'")
+        preserved = self.db.fetchall()
+        provider = FakeProvider(missing=date(2026, 11, 8))
+        collector = SessionIngestor(self.db, provider)
+        now = datetime(2026, 11, 16, 10, tzinfo=IST)
+        report = collector.collect('catchup', now=now, progress=lambda _: None)
+        self.assertEqual(report['status'], 'SUCCESS')
+        self.assertEqual(report['plan']['excluded_sessions'], ['2026-11-08'])
+        self.assertEqual(len(report['completed_sessions']), 14)
+        self.assertEqual(report['validation']['rows'], 14 * 302)
+        self.assertNotIn(date(2026, 11, 8), provider.requested)
+        self.assertEqual(set(inspect_state(self.db).values()), {date(2026, 11, 13)})
+        self.assertEqual(collector.collect('daily', now=now)['status'], 'NOOP')
+        self.db.execute("SELECT * FROM liquidity.market_eod WHERE date='2026-11-08'")
+        self.assertEqual(self.db.fetchall(), preserved)
+        with self.assertRaises(PersistenceError):
+            self.repo.persist_session('excluded', 'daily', date(2026, 11, 8), {}, {}, {})
 
     def test_catchup_reconciliation_daily_noop_and_recovery_after_lost_ack(self):
         collector = SessionIngestor(self.db, FakeProvider(), sleeper=lambda _: None)

@@ -1,0 +1,21 @@
+{
+  "postgres": "PostgreSQL 18.7 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+  "python": "3.13.5",
+  "host": "127.0.0.1",
+  "port": 49706,
+  "concurrency": {
+    "run": 0,
+    "pass": true,
+    "failures": 0,
+    "errors": 0
+  },
+  "regression": {
+    "run": 1,
+    "pass": true,
+    "failures": 0,
+    "errors": 0
+  },
+  "passed": [
+    "test_sessions.AtomicSessionTests.test_excluded_session_preserves_existing_rows_and_all_regular_sessions_reconcile"
+  ]
+}

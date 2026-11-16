@@ -33,7 +33,10 @@ def audit_database(database, *, now=None):
             if any(original.get(ticker, {}).get(name) != value for name, value in expected.items()):
                 issues.append("FROZEN_HISTORY_MISMATCH:" + ticker)
         cursor.execute("SELECT date,count(*) AS rows FROM liquidity.market_eod WHERE date>%s GROUP BY date ORDER BY date", (cutoff,))
-        incremental = {row["date"]: int(row["rows"]) for row in cursor.fetchall()}
+        observed_incremental = {row["date"]: int(row["rows"]) for row in cursor.fetchall()}
+        excluded = calendar.exclusions(cutoff, max(current, latest))
+        incremental = {day: count for day, count in observed_incremental.items() if day not in excluded}
+        retained_excluded = {str(day): count for day, count in observed_incremental.items() if day in excluded}
         required = calendar.sessions(cutoff + timedelta(days=1), current)
         if incremental != {day: 302 for day in required}:
             issues.append("INCREMENTAL_SESSION_COVERAGE")
@@ -64,6 +67,7 @@ def audit_database(database, *, now=None):
     return {"result": "PASS" if not issues else "FAIL", "identity": identity,
             "frozen_rows": sum(row["rows"] for row in original.values()), "total_rows": total,
             "incremental_rows": sum(incremental.values()), "instruments": len(checkpoints),
+            "excluded_sessions": list(map(str, excluded)), "excluded_session_rows_preserved": retained_excluded,
             "checkpoint": str(current), "latest_ready_session": str(latest), "up_to_date": current == latest,
             "pending_sessions": list(map(str, calendar.sessions(current + timedelta(days=1), latest))),
             "duplicate_keys": duplicates, "invalid_constraints": invalid_constraints,

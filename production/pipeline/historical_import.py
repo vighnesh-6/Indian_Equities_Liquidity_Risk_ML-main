@@ -175,7 +175,7 @@ def load_snapshot(root=ROOT, batch_size=4096):
                     "historical-parquet-v1:" + digest, batch_size, manifest["adjustment_mode"])
 
 
-def database_coverage(cursor, *, start=None, end=None):
+def database_coverage(cursor, *, start=None, end=None, exclude_dates=()):
     """Hash the same lossless row_bytes encoding using PostgreSQL core functions.
 
     int8send/float8send use network byte order, matching struct's > encoding.
@@ -189,6 +189,9 @@ def database_coverage(cursor, *, start=None, end=None):
     if end is not None:
         predicates.append("date <= %s")
         params.append(end)
+    if exclude_dates:
+        predicates.append("date <> ALL(%s::date[])")
+        params.append(list(exclude_dates))
     where = " WHERE " + " AND ".join(predicates) if predicates else ""
     cursor.execute(
         "SELECT ticker,count(*) AS rows,min(date)::text AS start,max(date)::text AS end,"
