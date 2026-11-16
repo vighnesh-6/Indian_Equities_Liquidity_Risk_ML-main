@@ -1,0 +1,1608 @@
+{
+  "result": "PASS",
+  "attempt": 6,
+  "operational_driver": "Existing per-equity production APIs with at most five attempts per transient connection or lock failure",
+  "completed_at": "2026-11-17T03:09:02.659059+05:30",
+  "elapsed_seconds_resume": 7179.451,
+  "backfill": {
+    "status": "SUCCESS",
+    "feature_version": "2be09039-8134-9be8-905c-3a1051bf3093",
+    "source_version": "canonical-basis-2",
+    "rows": 569690,
+    "tickers": 300,
+    "receipts": [
+      {
+        "run_id": "60c9a4c1-4c23-43cb-8309-e4a24888a5ec",
+        "replayed": true,
+        "rows": 1770
+      },
+      {
+        "run_id": "d7d7e2f6-2d9e-44e1-8944-e17306cda459",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "49061d28-a975-45a1-bbc6-7a047d7b15dc",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "1eac8021-dcd4-4a3a-9bbf-d6376dee61dd",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "a08d1988-9bf9-45ae-a85d-16e52da83deb",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "1226a69d-a64b-4004-919d-3296d02b9c97",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "586d3b53-daa4-4c91-a943-aa219c68b3cf",
+        "replayed": true,
+        "rows": 2077
+      },
+      {
+        "run_id": "a3fdff6b-948b-45bf-99d2-7364a2373b3e",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "227cba9d-60c9-4465-a3a1-60d7def70e83",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "9ef2122e-ad47-4aee-858f-9a5dd279c343",
+        "replayed": true,
+        "rows": 2189
+      },
+      {
+        "run_id": "fa223a4d-1838-4c59-bba5-a1143b45b7f3",
+        "replayed": true,
+        "rows": 2190
+      },
+      {
+        "run_id": "966c05a3-71f8-4717-8458-49b25aabc9bd",
+        "replayed": true,
+        "rows": 636
+      },
+      {
+        "run_id": "4968a4ab-b6c2-4698-b01b-c61ed7ae865d",
+        "replayed": true,
+        "rows": 2190
+      },
+      {
+        "run_id": "da81b966-ee8a-4fbb-8f1a-7582d798df90",
+        "replayed": true,
+        "rows": 2190
+      },
+      {
+        "run_id": "b832f4e9-6d2e-4d45-a948-1a2bb0b4861a",
+        "replayed": true,
+        "rows": 2171
+      },
+      {
+        "run_id": "35519fc5-3f21-4da1-ae9f-41c774fe72d6",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "b269881f-1468-4701-9fdd-a81e715e6721",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "c00d02a1-1a51-4cc1-a285-8bcfe3a32abf",
+        "replayed": true,
+        "rows": 1513
+      },
+      {
+        "run_id": "e3a5a478-251c-42fd-8a1b-45605fca5007",
+        "replayed": true,
+        "rows": 327
+      },
+      {
+        "run_id": "854d43d5-1012-4ff4-9d71-df05996a2a36",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "bf2500b8-3260-49f7-96fb-77f6888f5912",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "a4c83991-069e-45a6-a82e-bf1da8c7c43b",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "a2d8e5d2-66a5-42a8-ac42-76d6082c91b0",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "08c06701-8b39-4591-8d3d-4148f96cee6a",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "1727ed3d-fce3-4171-972d-fa634b9a6c7e",
+        "replayed": true,
+        "rows": 2153
+      },
+      {
+        "run_id": "683ae98d-1c1c-4df5-ae56-717ae47fc167",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "8c57a5c8-a67d-46d6-b0ca-553a365b5b88",
+        "replayed": true,
+        "rows": 1983
+      },
+      {
+        "run_id": "c506a64f-6de5-46a9-aa9e-1596651bae6f",
+        "replayed": true,
+        "rows": 381
+      },
+      {
+        "run_id": "4a3e0469-217e-467a-b759-3d7d33f9a6e4",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "a9fe7378-5d96-478d-8516-57b31a2082ca",
+        "replayed": true,
+        "rows": 2190
+      },
+      {
+        "run_id": "af17fff4-10c0-4965-9c28-40e8ca855e64",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "08501ff2-93f1-4957-bc4f-5396bac5b484",
+        "replayed": true,
+        "rows": 712
+      },
+      {
+        "run_id": "53f71ddc-e767-4513-a7e6-02d35f0547d4",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "e44e3f5b-c36f-4141-ab1f-6ffd6b2d819b",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "cd89403f-0bde-4a64-a778-d9e72d41e663",
+        "replayed": true,
+        "rows": 537
+      },
+      {
+        "run_id": "57748917-1b99-408a-b365-b8dd73fc0545",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "2f45f734-7727-4182-b02e-87634ee77893",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "d2f5f513-d7ad-45aa-90b3-98d359052d0a",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "127506e4-04c5-41c6-a062-183010eeb22f",
+        "replayed": true,
+        "rows": 2133
+      },
+      {
+        "run_id": "edf0b303-8931-457a-ba74-cb3fbcfdabdb",
+        "replayed": true,
+        "rows": 2191
+      },
+      {
+        "run_id": "2eccbd80-e97a-4143-9338-c90ef44ba623",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "51d7f331-3d1c-4c28-accb-ebfbef4e7529",
+        "replayed": false,
+        "rows": 2135
+      },
+      {
+        "run_id": "98faabcd-ba58-4eef-9e1a-2e85faa09d9a",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "0b5ff9ea-ce6f-44d9-8d43-46e207cbfcbb",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "813bd29a-4a5a-4d5d-9828-e94e24527c9f",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "0d1fa14f-e59e-461a-977c-fad721a141ba",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "4207152d-256c-4095-9709-0ae7c09bd2a1",
+        "replayed": false,
+        "rows": 642
+      },
+      {
+        "run_id": "c9be3ef5-03d1-4167-b62f-74d864af7671",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c3aef5d9-dafb-40e5-91f1-2b39c8c1d157",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "51ab0327-0bc7-4459-bb8d-0d70d4ecb94b",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "19ac92cb-fa4f-41dc-bb0f-2d3d5a781336",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "02cb3e8a-89aa-4d28-8ca4-f966e2b91e26",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8c08abde-3f5f-407a-836e-c8eb2406ace2",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "73f4e471-7c81-4229-ad0f-7d52a9fd4320",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "0a41e299-6479-44e4-b5e4-b236f798da11",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "3047827b-301b-4d7b-9af2-611faac3b1b3",
+        "replayed": false,
+        "rows": 1295
+      },
+      {
+        "run_id": "d213c57b-fada-4614-b726-1d05f8ebb4a9",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "1860c8b7-f3d8-4f3a-b91c-45ccf0d2d6bd",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fe153992-cffb-4abc-b4b0-4cdb1b964bd1",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "cc060d07-a23f-45cc-937c-34fd15b33e1f",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "86ac5caa-a41c-450a-82a7-a7a75ea2a6f3",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8994703a-4c29-44c2-974c-b0b0a47eb5eb",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "25b8ef00-d690-4944-8672-bdeb70079a3f",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "4196fe21-e278-4e41-9d71-b2ab05523c45",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "54fee42f-526b-4ec4-ad90-c162a29852bc",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "68b0048c-f5ed-4423-b0aa-c07a148eb3b4",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "60df1e43-db9f-4551-9506-76d2fa11ecf9",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b3c12e40-bd7f-4487-a82f-4b18fe7e9b93",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e107d3dd-1b2b-44c5-9382-9296293a2aef",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "5a82de6c-c5c9-4214-ad35-45280bfee87e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "06abe2a3-6acd-47e8-892e-f20a176cbb5d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fd96325f-ae3d-4c7b-8d74-93b41e910676",
+        "replayed": false,
+        "rows": 1951
+      },
+      {
+        "run_id": "0338b977-ad9f-4c40-abd4-b6d8f76c68f6",
+        "replayed": false,
+        "rows": 1209
+      },
+      {
+        "run_id": "4c7297a0-1a33-4d16-9d78-d80862cebcbe",
+        "replayed": false,
+        "rows": 1108
+      },
+      {
+        "run_id": "e47a5ea9-b4c4-44b1-b27d-7434a642cc04",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "85d777c6-88e1-417b-b9f8-912751cb1a1a",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f0b4b43a-1bca-4827-92b9-b3e1381896ed",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ef18834a-e3f4-4125-9788-1a87f4256fda",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "4ed8e881-f321-46af-86e6-d37d96063364",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "20863498-e8df-4591-a22c-fbd871b2c57f",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "0e5b2b96-fe84-4b96-aa60-b8122cc0fab6",
+        "replayed": false,
+        "rows": 1884
+      },
+      {
+        "run_id": "b03695e7-26db-492a-9d27-98bcea2dbd52",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "245b3423-034a-4c8b-a31f-f4ef63050b58",
+        "replayed": false,
+        "rows": 349
+      },
+      {
+        "run_id": "cbb82a20-02ad-46aa-9f48-a4806257cacd",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "285b1741-8722-409a-97b3-5f40d5eed1a4",
+        "replayed": false,
+        "rows": 1314
+      },
+      {
+        "run_id": "be5fb1bf-0f15-4b0d-b165-a2b816371e91",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e4677c24-2bab-4aa6-81fa-3757f1149717",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fda33365-6b98-4bb0-b425-9bdacba08ef8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fdb30eee-7d51-40c7-97a3-c8fe3808a12f",
+        "replayed": false,
+        "rows": 1754
+      },
+      {
+        "run_id": "b31acff8-53f8-4d26-9a8e-378197d0ed99",
+        "replayed": false,
+        "rows": 1751
+      },
+      {
+        "run_id": "0d202390-09e8-4f2a-8d59-747116c34433",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "406b9260-4443-43f9-a77d-4587677370e3",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b730a617-c2f9-42bd-8c40-a14c827cda1e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "353d9717-a7ba-4017-969a-cd26dffee1a3",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c27b29e3-9f4f-4be9-97da-ab3adedd1b4c",
+        "replayed": false,
+        "rows": 1478
+      },
+      {
+        "run_id": "68ece56d-876b-46f7-a85f-763e2039b331",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e27ecff1-9c76-499f-9d0d-2823fd2b9913",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a1e62824-23ba-4f37-958c-a34e01011fec",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a740def7-ece7-496b-b2aa-aece377e8d7c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e768186f-c7fd-497e-b65e-47f3b03333aa",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ecb38d6f-2786-43e0-8405-f2588cd7f77d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "639e607c-8f17-4c78-93dc-a9f7e408ce8c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c01fa6e6-ec6d-4977-9eaa-e6f1a34482f1",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "4e9037dc-ff47-42d5-b499-25695ebe045c",
+        "replayed": false,
+        "rows": 250
+      },
+      {
+        "run_id": "7a329b3a-953a-47f4-b9fd-ddbc7334cc9e",
+        "replayed": false,
+        "rows": 1991
+      },
+      {
+        "run_id": "d36dac7f-70e0-4ac2-9915-cfda243e1fe4",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "48dfea48-99dc-45f0-8b52-b7bcbb2bd14c",
+        "replayed": false,
+        "rows": 2131
+      },
+      {
+        "run_id": "443b0959-1cfc-482a-91f3-2c76b516f4d3",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ae6e09c3-5367-4275-8764-bc7b5dd3adca",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "aa363e4c-b51e-4f9d-8249-43f7cadcd6b0",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c97518a5-693d-43cf-873c-1553e4ee54df",
+        "replayed": false,
+        "rows": 340
+      },
+      {
+        "run_id": "63f13136-5428-4af3-9eea-a7dc850b03e4",
+        "replayed": false,
+        "rows": 2042
+      },
+      {
+        "run_id": "2beba423-c987-44c9-8107-750b21847b5e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "3c59f93d-35d5-4d17-8431-35eab63fdde4",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fe955560-319e-4072-9b3b-1471c4baf274",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "6369f64e-ad62-4c8e-8f8e-979df921a60f",
+        "replayed": false,
+        "rows": 427
+      },
+      {
+        "run_id": "3b6f384a-17a6-45ce-9b59-9281ecf7bc5c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8ea02feb-3cc5-43d8-ace1-36a8e8ea692d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e6e36371-282e-48a8-8d86-67c79a6b8d58",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "945b220f-63c4-4b89-bc1f-25365a1d7915",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d0b2be8f-b652-4334-8d4a-85d8df7b2a49",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9ded6b57-8c42-480e-ade2-3ac911fada1c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "0c538f5a-ea9a-4bce-bc3f-7897301fa06f",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "443182c3-d60f-428b-a04a-40911631a128",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "50ad9d11-cc56-4cfd-8aae-60820bac0ec0",
+        "replayed": false,
+        "rows": 512
+      },
+      {
+        "run_id": "8b2d5dba-ac19-450a-a8fa-f9429377eece",
+        "replayed": false,
+        "rows": 223
+      },
+      {
+        "run_id": "097c24b2-5c75-4a5a-979c-ba2077d53414",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "949e3cfd-2a3e-4ee0-8c84-cff95a880134",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9a6cd5df-1174-4ae7-a112-9ed667d2181e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9b5039b0-840a-4620-8eb1-ccb405365750",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "24c02b73-78a8-4033-a846-1b890338f81f",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "80843174-ceba-4237-90e1-89c31d4006ee",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "70c66387-00cf-4e3c-a9f7-fd04acea20cb",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9750042a-617e-4678-b0db-0ee543f50581",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9b729371-f988-4d98-a2f4-47b46cd14fbe",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c868bb59-c8c3-49d6-94ca-155e5309cb53",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fda5733b-5f8a-4f12-879a-0478a9293950",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e0347bce-1672-4ad5-bcc5-feab11263678",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e75319f9-d627-4263-b0d5-ac634b2e7b4d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e57ffc55-bf8f-4e65-a45a-667789752504",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "169724fe-5de5-4631-85c4-5bffdf6ef2c1",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c427570d-41c5-4ff0-835d-d1b235616633",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "9be2b291-b2fc-4d32-9278-73e1bf268880",
+        "replayed": false,
+        "rows": 1756
+      },
+      {
+        "run_id": "0e501485-cfb6-41b0-9bb7-d86a51c7296f",
+        "replayed": false,
+        "rows": 732
+      },
+      {
+        "run_id": "309648fe-7d76-4ef8-86d8-424e48651258",
+        "replayed": false,
+        "rows": 1432
+      },
+      {
+        "run_id": "ddd0d5c3-33ce-4f1b-9541-e4f71010ab97",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "efa20684-61c9-4582-af9a-fa44af00e40e",
+        "replayed": false,
+        "rows": 443
+      },
+      {
+        "run_id": "688b3b39-f067-48d9-8f91-9114cb599b9d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "953e61d7-ce8f-4e40-aebf-861d6fe03ee8",
+        "replayed": false,
+        "rows": 799
+      },
+      {
+        "run_id": "dc1e811b-9223-4cc1-9381-1a439447cc35",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "355dcdd4-6c67-4bd6-aafc-72b40646aafe",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d811ec37-f666-4dba-8377-9d2a817da794",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "faa4c28c-582b-48d9-8710-42b016226bfc",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d0c17ada-4dfa-4743-a131-5eb92e6bcf03",
+        "replayed": false,
+        "rows": 770
+      },
+      {
+        "run_id": "ad7fd38f-6b57-49a2-a019-e33606b9dee1",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "037fbd07-70f3-4396-8b4d-0dc426376432",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "90852b85-57c5-4334-bc81-2a82366ca00d",
+        "replayed": false,
+        "rows": 1393
+      },
+      {
+        "run_id": "f02f7902-1050-4ab2-89b8-840160024f32",
+        "replayed": false,
+        "rows": 984
+      },
+      {
+        "run_id": "f610dc91-7211-4e0b-b41b-cb243f84eeac",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "06dc6c2e-e9a6-4de7-b136-1713b0cee815",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "4541803c-966b-46e8-833a-5ba92b1a13a9",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "5a8eea18-d122-4c64-ad1c-84f27567681c",
+        "replayed": false,
+        "rows": 1872
+      },
+      {
+        "run_id": "a35e3116-1bb0-4ba7-b775-4c2b1c206787",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "1d1efb33-a21a-475c-9990-18f9c2b01214",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f3c90163-1d79-4f64-8386-ca2a4fc6d563",
+        "replayed": false,
+        "rows": 252
+      },
+      {
+        "run_id": "d4441cad-7aea-4684-9c7b-01c2295e4c5f",
+        "replayed": false,
+        "rows": 269
+      },
+      {
+        "run_id": "d715edc5-8128-4121-9e92-45f603ab0efb",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8c5fdb74-96fe-4ae7-bc15-7e175e25416b",
+        "replayed": false,
+        "rows": 1113
+      },
+      {
+        "run_id": "fbc1d46e-daa3-40cd-bb03-827085c68b7f",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "14765079-b573-4b39-9a22-43730185bfda",
+        "replayed": false,
+        "rows": 823
+      },
+      {
+        "run_id": "f123d76c-4b57-49d2-b5d8-d57ae4b8f402",
+        "replayed": false,
+        "rows": 1380
+      },
+      {
+        "run_id": "a0fd1884-ba64-4d04-af9f-8377f9753162",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "734dc7cb-cf9a-4170-b6ed-3fea681b9386",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "37c3c7c8-bea7-47e6-9b63-6d638199dfbc",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "52025ba1-4451-48fb-8820-a9a373108738",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "79368f03-475d-4224-8d3b-a0cd3ca618fe",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "369a95fb-de4a-4dda-bbdb-5afb87bae3a7",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ef3354e3-c6d1-41d5-8286-2a0a74b0cc22",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c926bd53-08d8-4f1b-8d80-2d05433346a8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8279c42e-5ac1-4805-8673-a1af67f65f2e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "84168cc9-1b77-4af3-b550-98c1d442bded",
+        "replayed": false,
+        "rows": 871
+      },
+      {
+        "run_id": "eaa032c4-ee2c-4f2a-9381-a9f6cd0d87a2",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d245fe51-0f6d-4759-859a-da45c269d902",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "10d3a6de-6777-41f2-9d1e-0d8f3cf61ffd",
+        "replayed": false,
+        "rows": 1543
+      },
+      {
+        "run_id": "4906179a-4fac-4273-b7d6-740f1a15b477",
+        "replayed": false,
+        "rows": 1508
+      },
+      {
+        "run_id": "a54e5daf-48d9-4c02-9b57-ea55fb9304a4",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "1ea6bdd9-2ce7-4fdd-84a8-df91eff3d48e",
+        "replayed": false,
+        "rows": 986
+      },
+      {
+        "run_id": "ec1b114a-5815-4708-ab41-d35f889248d0",
+        "replayed": false,
+        "rows": 230
+      },
+      {
+        "run_id": "50ec3e25-f874-42ca-84c3-742f1e80db29",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "eb911236-018f-451c-9d62-3653081b3863",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f0f73d94-230f-4bab-8b02-925d7a5f2d66",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "eaf4ae06-ca2a-4595-bcfb-483bf81efc83",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "2353b06b-a0f1-4c42-8014-af0806b5eb6b",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "2e5fcff8-bac1-4c8b-ac23-40afd01a0920",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "7da38bb0-277c-407d-89da-c5bf83ff7da1",
+        "replayed": false,
+        "rows": 1402
+      },
+      {
+        "run_id": "ff948924-ced3-4400-aa5a-c066dc0c9782",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "794a2434-6395-4910-856a-1d10e976fbd8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "6047844b-0470-4bc6-a6df-2a208e84ffb8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "2ea58ffe-07ff-41f8-8684-2db32213a2b8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f2309593-9a84-44f4-adde-36554f44eb67",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "95a8a243-e2cb-4217-9059-075d819e54a5",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b425d26a-8b45-4ec9-bf86-8281a86c67d5",
+        "replayed": false,
+        "rows": 815
+      },
+      {
+        "run_id": "b353ba72-d573-4056-bff0-ca20bfdc137a",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "bd969fef-55e5-4f8f-9d8b-8ece1eff3319",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "45953bbc-354e-4efb-b5fa-b8d34a4e8d37",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "36f9e52a-36ef-43c5-8f55-556d0e42685e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9fdb31df-b29b-4e75-ba72-505b88f42a1d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "06b325f2-301d-4c07-adec-8ae45131c2e1",
+        "replayed": false,
+        "rows": 488
+      },
+      {
+        "run_id": "c046d722-2c0d-4a41-882d-982377808169",
+        "replayed": false,
+        "rows": 1240
+      },
+      {
+        "run_id": "aca69da9-47a2-40d6-afa8-b2f9069e0354",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a90f4ea5-7531-4171-81e9-96f22f2dcb22",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "47dec0c8-1405-4ac0-b82c-e798028fb971",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "faad1931-c283-4b81-98f6-06c67e2c837f",
+        "replayed": false,
+        "rows": 562
+      },
+      {
+        "run_id": "a27d0318-94cd-4417-864b-45f97246cfcb",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9370a66f-7f4a-40b6-b228-7fcef9857656",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "39a86775-276a-4b50-abf9-b3f08852c5ef",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "78186fdd-1521-472f-8b69-ac73c08acf12",
+        "replayed": false,
+        "rows": 1234
+      },
+      {
+        "run_id": "23ec9978-ab6f-4298-aeb1-79f0bdbcfe72",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a147e052-d869-43ed-a723-89000ee77ecc",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "970d5d3a-fb71-4634-bca8-faccf0c675a5",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b8ae326f-3a3e-44be-bfd3-899dc0e012a0",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "c9cd5361-7eaa-45d4-af9e-0e628de9248c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e102e761-5575-4b58-944b-6a44b6f43d08",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "cc570e02-9912-4f1f-9b84-4506ac13cae2",
+        "replayed": false,
+        "rows": 248
+      },
+      {
+        "run_id": "688197b4-9328-4efc-9626-d0396733868f",
+        "replayed": false,
+        "rows": 253
+      },
+      {
+        "run_id": "954daa94-2ef7-4482-b6ad-51a6fd2fe8d5",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "78c80a3c-3c14-4dfe-a88c-064922e67e67",
+        "replayed": false,
+        "rows": 1236
+      },
+      {
+        "run_id": "88e4cd5b-a720-49e8-9a35-73b763736f51",
+        "replayed": false,
+        "rows": 1874
+      },
+      {
+        "run_id": "3a268164-b14c-4168-8c1d-b75d6110814c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "117cfded-f16a-4981-8597-cfd0bc568a03",
+        "replayed": false,
+        "rows": 1641
+      },
+      {
+        "run_id": "6945a174-9ef1-4adb-a744-f7793e5c19fa",
+        "replayed": false,
+        "rows": 546
+      },
+      {
+        "run_id": "841af2b8-550d-439e-b484-2e4b0891543c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a8ea99b9-98bf-45e6-ba1b-6dd03c2a28e3",
+        "replayed": false,
+        "rows": 246
+      },
+      {
+        "run_id": "5ecbaf32-f755-4f21-8357-ef61fa02bb6a",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "52c273f9-d998-4c8f-805b-6112fca38cc0",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "20a277dc-8b99-4722-8f17-9f70e6127bc2",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "5145f992-969c-4581-8b24-3bf2ac843c44",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d9863455-28b5-4bc3-81b6-a62b7e3c5823",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8a6232c6-77ec-4fb9-9411-5b6bec445ee2",
+        "replayed": false,
+        "rows": 776
+      },
+      {
+        "run_id": "14693f3d-cd3f-4b9f-9bfd-e005ff154c20",
+        "replayed": false,
+        "rows": 1877
+      },
+      {
+        "run_id": "37c8def5-07cd-4b4d-8570-3bae24f2147e",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "c407310f-9a48-49cb-a2d2-fde3ab93c3a8",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "02f057d8-32aa-4904-a2b0-3fb54a866b44",
+        "replayed": false,
+        "rows": 1651
+      },
+      {
+        "run_id": "8ff595cf-13d4-467d-8fb0-07bd5d276345",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d6f6ac00-941e-4d21-91d7-e02993dafaf9",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f22b7ab7-3c66-4199-b60f-4370ce9ea375",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ef0c4fae-3b0a-4db7-99fb-4c3ff3923a72",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8b6d65ef-601e-41f3-a0a1-6d78283976be",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "7eea46c2-c1ca-42eb-8e95-19bd2a12750b",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f42e2a32-e745-421a-a34a-5491ab1279ae",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "90c6034b-0f0d-46db-b174-a2e441efe5c3",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "d0456383-668c-4377-a907-2d904645afbe",
+        "replayed": false,
+        "rows": 1334
+      },
+      {
+        "run_id": "e611b4ff-ecb1-4aaf-8242-4cc6cc91e232",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "81be24b9-d93b-461b-aa15-599a61e6e418",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "a907f56a-7c76-41f9-8c86-f78e5598b7cc",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d7c1e106-b7a4-46d9-8573-04fc4638c81d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fd5067d7-6d18-4c92-8456-7d4eb9500a5d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b1a48ce2-d2e1-49cc-bb94-d64ead80f707",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8e6f2b10-0519-4466-a6b0-ac7119701f7a",
+        "replayed": false,
+        "rows": 496
+      },
+      {
+        "run_id": "b04f05f2-7d50-4153-9da0-d694294a977e",
+        "replayed": false,
+        "rows": 1042
+      },
+      {
+        "run_id": "1c1d883c-e338-4721-aead-036c911f1335",
+        "replayed": false,
+        "rows": 270
+      },
+      {
+        "run_id": "4b4a6dfc-a799-4c8b-acf8-c42cd7248717",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "cb105bce-3f50-4fc2-a545-b1973bee5ab1",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "cc90fbde-ef90-4999-8571-51fec9c44074",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "376b84a9-8fc5-48c8-91c8-5d934f42c664",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e6468d96-37c7-41f2-bbb1-4f439e8aee85",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "06fda7db-38d7-4410-818e-770c7b894215",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b739ae06-8541-44e3-b7e8-d11aaa6ea5fa",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "f052a1e7-1c78-4195-acc6-9f2d327ef977",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "5c21b689-bff5-4246-a29e-7fbff392b05a",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "0a081af1-234f-4bec-aff3-916bad99c159",
+        "replayed": false,
+        "rows": 2190
+      },
+      {
+        "run_id": "c6a0c41b-ad0d-4938-ba67-196a4c96d64b",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fbbdc920-0a70-4aad-8b55-cf79af44df0b",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "d63a7e57-249a-4121-b337-97028b119e6d",
+        "replayed": false,
+        "rows": 250
+      },
+      {
+        "run_id": "29b81cc0-3539-40d8-8e16-b7364bdbcec0",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "7eff6ac5-b508-41fb-a05f-542fb2bdede7",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "1cc48d6e-afa6-402d-b713-51bc4aa54083",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "840a0be3-7068-44b8-aa6f-620b482d154c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "54108afa-cd51-4ede-ab9f-218d78de1030",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "8a8af9c9-5c63-4e38-bdee-e4c76115169c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "61ba4466-2f4d-4a99-ae35-37af001722aa",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "fc9ca179-71c8-4c95-90d5-407f6c239145",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "782ba3be-7276-4529-aacc-7b6a3505a088",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "3879e0f3-9576-483a-8323-7a1ba90ebf95",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "e5c2359a-0eac-4b55-bbb4-cd57b4db2198",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "324f150f-9bf4-4edd-8f8b-f4a69d95d3b6",
+        "replayed": false,
+        "rows": 106
+      },
+      {
+        "run_id": "dced9e67-a456-43e3-ac3b-5eeb40c32cbf",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "6146f0fb-9b2e-4ae1-ab0d-ca91998ace8c",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "606a5c08-a2e4-48d8-ad7f-4dc5740bb13d",
+        "replayed": false,
+        "rows": 106
+      },
+      {
+        "run_id": "6233ba48-e6b9-43bd-97dc-2fa7ed360e9f",
+        "replayed": false,
+        "rows": 473
+      },
+      {
+        "run_id": "feb85505-ba6d-40f8-b4d9-53b33e6f26ef",
+        "replayed": false,
+        "rows": 106
+      },
+      {
+        "run_id": "0ebeb306-efb0-4fb0-9b9e-755ae26d25f7",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "ad737bbe-af7f-495c-a45b-bf6a1c7ff673",
+        "replayed": false,
+        "rows": 508
+      },
+      {
+        "run_id": "570d5637-024d-497d-86d3-76d830955ed7",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "b6eaf7f8-b51f-47df-9fda-fc3640b7045d",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "222ee19a-d543-4397-9653-3c12b1520b40",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "2a6bce22-7126-4e53-acd8-41ac2818e903",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "453ba5fd-024e-4bc7-869c-5b4396403ae6",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "1bbca2a8-fdc8-4497-a9ce-3d57dfc2ce7b",
+        "replayed": false,
+        "rows": 2191
+      },
+      {
+        "run_id": "9242bd37-73b9-454d-ad0c-204cdacdb578",
+        "replayed": false,
+        "rows": 2191
+      }
+    ]
+  },
+  "replayed_stock_histories": 40,
+  "reused_committed_stock_histories": 40,
+  "storage_samples": [],
+  "runtime_only_network_options": {
+    "keepalives": 1,
+    "keepalives_idle": 15,
+    "keepalives_interval": 5,
+    "keepalives_count": 3,
+    "tcp_user_timeout": 30000
+  },
+  "connection_retry_events": [
+    {
+      "operation": "persist_HSCL.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 3457.9
+    },
+    {
+      "operation": "persist_HSCL.NS",
+      "attempt": 2,
+      "error": "PostgreSQL operation failed (55P03)",
+      "elapsed_seconds": 3471.7
+    },
+    {
+      "operation": "persist_IOC.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 3850.2
+    },
+    {
+      "operation": "persist_IOC.NS",
+      "attempt": 2,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 3892.1
+    },
+    {
+      "operation": "read_LLOYDSME.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 4414.5
+    },
+    {
+      "operation": "persist_NAM-INDIA.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 4970.5
+    },
+    {
+      "operation": "persist_NYKAA.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 5296.4
+    },
+    {
+      "operation": "persist_PIIND.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 5578.9
+    },
+    {
+      "operation": "persist_PIIND.NS",
+      "attempt": 2,
+      "error": "PostgreSQL operation failed (55P03)",
+      "elapsed_seconds": 5592.3
+    },
+    {
+      "operation": "persist_RVNL.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 5935.2
+    },
+    {
+      "operation": "persist_RVNL.NS",
+      "attempt": 2,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 5982.5
+    },
+    {
+      "operation": "persist_WIPRO.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 6998.9
+    },
+    {
+      "operation": "persist_ZENSARTECH.NS",
+      "attempt": 1,
+      "error": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+      "elapsed_seconds": 7149.3
+    }
+  ],
+  "reconciliation": "PENDING_ESSENTIAL_FINAL_VALIDATION",
+  "new_rows_this_continuation": 491955
+}
