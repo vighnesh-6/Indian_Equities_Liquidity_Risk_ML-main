@@ -1,0 +1,14 @@
+{
+  "result": "FAILED_ATTEMPT",
+  "attempt": 2,
+  "exception_type": "DatabaseError",
+  "message": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+  "completed_or_replayed_stocks": 25,
+  "elapsed_seconds": 425.025,
+  "storage_samples": [],
+  "postgres": {
+    "sqlstate": null,
+    "message": null,
+    "detail": null
+  }
+}
