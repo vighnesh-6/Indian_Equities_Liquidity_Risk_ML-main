@@ -175,7 +175,7 @@ def load_snapshot(root=ROOT, batch_size=4096):
                     "historical-parquet-v1:" + digest, batch_size, manifest["adjustment_mode"])
 
 
-def database_coverage(cursor, *, start=None, end=None, exclude_dates=()):
+def database_coverage(cursor, *, start=None, end=None, exclude_dates=(), consistent=False):
     """Hash the same lossless row_bytes encoding using PostgreSQL core functions.
 
     int8send/float8send use network byte order, matching struct's > encoding.
@@ -203,7 +203,7 @@ def database_coverage(cursor, *, start=None, end=None, exclude_dates=()):
         "float8send(low)||float8send(close)||int8send(volume)||"
         "CASE WHEN turnover IS NULL THEN decode('4e','hex') ELSE decode('56','hex')||float8send(turnover) END,"
         "''::bytea ORDER BY date)),'hex') AS values_sha256 "
-        "FROM liquidity.market_eod" + where + " GROUP BY ticker ORDER BY ticker", params
+        + ("FROM liquidity.market_eod_consistent" if consistent else "FROM liquidity.market_eod") + where + " GROUP BY ticker ORDER BY ticker", params
     )
     profiles = {}
     for row in cursor.fetchall():

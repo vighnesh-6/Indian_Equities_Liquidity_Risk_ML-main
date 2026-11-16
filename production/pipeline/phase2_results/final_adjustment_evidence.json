@@ -1,0 +1,24 @@
+{
+  "source": "Yahoo Finance via pinned yfinance 1.2.0; auto_adjust=False/actions=True; excluded-date request splitting",
+  "corporate_actions_observed": [
+    {
+      "ticker": "ASIANPAINT.NS",
+      "date": "2026-11-04",
+      "dividend": 5.75,
+      "stock_split": 0.0
+    },
+    {
+      "ticker": "INFY.NS",
+      "date": "2026-11-03",
+      "dividend": 26.0,
+      "stock_split": 0.0
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "date": "2026-11-04",
+      "dividend": 10.25,
+      "stock_split": 0.0
+    }
+  ],
+  "production_conversion": "No arithmetic conversion is used. Canonical revisions store actual provider-adjusted OHLCV observations."
+}

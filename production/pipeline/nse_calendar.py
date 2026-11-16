@@ -37,6 +37,7 @@ class NSECalendar:
     def exclusions(self, start, end):
         """Explicit production exclusions; exchange-session metadata is retained."""
         return sorted(day for year in range(start.year, end.year + 1)
+                      if (self.directory / f"{year}.json").is_file()
                       for value in self.year(year).get("excluded_sessions", {})
                       if start <= (day := date.fromisoformat(value)) <= end)
 

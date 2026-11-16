@@ -52,7 +52,7 @@ def validate_window(database, quotes, sessions):
     issues = []
     excluded = NSECalendar().exclusions(sessions[0], sessions[-1])
     with database.transaction(read_only=True) as cursor:
-        profiles = database_coverage(cursor, start=sessions[0], end=sessions[-1], exclude_dates=excluded)
+        profiles = database_coverage(cursor, start=sessions[0], end=sessions[-1], exclude_dates=excluded, consistent=True)
         if set(profiles) != set(expected):
             issues.append("INSTRUMENT_COVERAGE")
         for ticker, checksum in expected.items():
@@ -63,7 +63,10 @@ def validate_window(database, quotes, sessions):
         dates = {row["date"]: int(row["rows"]) for row in cursor.fetchall()}
         if dates != {day: 302 for day in sessions}:
             issues.append("DAILY_COUNTS")
-    return {"result": "PASS" if not issues else "FAIL", "rows": sum(row["rows"] for row in profiles.values()), "sessions": list(map(str, sessions)), "discrepancies": issues}
+    return {"result": "PASS" if not issues else "FAIL", "rows": sum(row["rows"] for row in profiles.values()), "sessions": list(map(str, sessions)), "discrepancies": issues,
+            'per_instrument': {ticker: {'expected_rows': len(sessions), 'database_rows': profiles.get(ticker, {}).get('rows'),
+                                      'provider_sha256': checksum, 'database_sha256': profiles.get(ticker, {}).get('values_sha256')}
+                               for ticker, checksum in expected.items()}}
 
 
 class SessionIngestor:
@@ -88,10 +91,11 @@ class SessionIngestor:
                              "instruments": 302, "publication_pending": completed > ready,
                              "excluded_sessions": list(map(str, self.calendar.exclusions(base, ready)))}
 
-    def persist_with_recovery(self, key, mode, day, observations, previous, provenance):
+    def persist_with_recovery(self, key, mode, day, observations, previous, provenance, *, generation=None):
         for attempt in range(3):
             try:
-                return self.repository.persist_session(key, mode, day, observations, previous, provenance)
+                options = {'price_basis_generation': generation} if generation is not None else {}
+                return self.repository.persist_session(key, mode, day, observations, previous, provenance, **options)
             except DatabaseError as error:
                 transient = any(code in str(error) for code in ["CONNECTION_FAILURE", "080", "40001", "40P01", "55P03", "57014", "57P01"])
                 if not transient or attempt == 2:
@@ -123,36 +127,57 @@ class SessionIngestor:
         base = date.fromisoformat(plan["base"])
         window = self.calendar.sessions(base, sessions[-1])
         quotes, provenance = {}, {}
+        generation = None
+        from .price_basis import active_generation, fetch_full_history, load_history, stage_generation, reconcile_generation
+        full = getattr(self.provider, 'supports_full_history', False) and active_generation(self.database) is None
         try:
-            for number, ticker in enumerate(sorted(previous), 1):
-                quotes[ticker], provenance[ticker] = self.provider.fetch(ticker, window)
-                progress(f"Validated provider history {number}/302 {ticker}")
+            if full:
+                history = load_history(self.database, base)
+                quotes, provenance = fetch_full_history(self.provider, history, sessions, base, progress)
+            else:
+                for number, ticker in enumerate(sorted(previous), 1):
+                    quotes[ticker], provenance[ticker] = self.provider.fetch(ticker, window)
+                    progress(f"Validated provider history {number}/302 {ticker}")
         except ProviderIncomplete as error:
             report.update(status="BLOCKED", issue=error.report(), provider_retries=getattr(self.provider, "retry_events", []))
             return report
         # Overlap is checked after the entire provider window is complete. Existing
         # adjusted history is preserved when Yahoo revises an older observation.
         with self.database.transaction(read_only=True) as cursor:
-            cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod WHERE date=%s", (base,))
+            cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod_consistent WHERE date=%s", (base,))
             existing = {row["ticker"]: Bar(row["date"], row["open"], row["high"], row["low"], row["close"], row["volume"], row["turnover"]) for row in cursor.fetchall()}
         revisions = [ticker for ticker in previous if existing.get(ticker) != quotes[ticker][base]]
-        if revisions:
+        if revisions and not getattr(self.provider, 'supports_full_history', False):
             report.update(status="BLOCKED", issue={"code": "OVERLAP_REVISION", "tickers": revisions, "date": str(base)})
             return report
+        if revisions and not full:
+            try:
+                history = load_history(self.database, base)
+                quotes, provenance = fetch_full_history(self.provider, history, sessions, base, progress)
+                full = True
+            except ProviderIncomplete as error:
+                report.update(status='BLOCKED', issue=error.report())
+                return report
+        if full:
+            generation, report['price_basis'] = stage_generation(self.database, history, quotes, provenance, base, sessions[-1])
+            report['price_basis']['revised_checkpoint_instruments'] = revisions
         universe_sha = hashlib.sha256(json.dumps(sorted(previous)).encode()).hexdigest()[:24]
         for day in sessions:
             observations = {ticker: quotes[ticker][day] for ticker in previous}
             key = f"nse-session-v1:{day}:{universe_sha}"
             try:
-                receipt = self.persist_with_recovery(key, mode, day, observations, previous, provenance)
+                receipt = self.persist_with_recovery(key, mode, day, observations, previous, provenance, generation=generation)
             except (DatabaseError, PersistenceError) as error:
                 report.update(status="PARTIAL" if report["completed_sessions"] else "FAILED",
                               issue={"code": "SESSION_PERSISTENCE_FAILED", "type": type(error).__name__, "message": str(error), "session": str(day)})
                 return report
             report["completed_sessions"].append({"date": str(day), "run_id": str(receipt["run_id"]), "replayed": receipt["replayed"]})
             previous = {ticker: day for ticker in previous}
+            generation = None
             progress(f"Committed complete session {day} for 302 instruments")
         report["validation"] = validate_window(self.database, quotes, sessions)
+        if 'price_basis' in report:
+            report['historical_reconciliation'] = reconcile_generation(self.database, report['price_basis']['generation_id'])
         final = inspect_state(self.database)
-        report["status"] = "SUCCESS" if report["validation"]["result"] == "PASS" and set(final.values()) == {sessions[-1]} else "FAILED"
+        report["status"] = "SUCCESS" if report["validation"]["result"] == "PASS" and report.get('historical_reconciliation', {'result': 'PASS'})['result'] == 'PASS' and set(final.values()) == {sessions[-1]} else "FAILED"
         return report

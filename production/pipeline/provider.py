@@ -82,6 +82,7 @@ def normalize_history(ticker, frame, expected):
 
 
 class YahooProvider:
+    supports_full_history = True
     def __init__(self, *, attempts=3, delay=1.0, backoff=2.0, timeout=20, sleeper=time.sleep):
         if attempts < 1 or delay < 0 or backoff < 1 or timeout <= 0:
             raise ValueError("Provider retry and timeout settings are invalid")
@@ -95,7 +96,7 @@ class YahooProvider:
         self.yf.set_tz_cache_location(tempfile.mkdtemp(prefix="liquidity-yahoo-"))
         logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
-    def fetch(self, ticker, expected):
+    def fetch(self, ticker, expected, *, historical_cutoff=None):
         expected = sorted(expected)
         if not expected:
             raise ValueError("Fetching requires an explicit nonempty session plan")
@@ -114,6 +115,11 @@ class YahooProvider:
                             interval="1d", auto_adjust=True, actions=False, repair=False,
                             timeout=self.timeout, raise_errors=True,
                         )
+                    if historical_cutoff is not None and frame is not None and not frame.empty:
+                        index = frame.index
+                        days = index.tz_convert(IST).date if index.tz is not None else index.date
+                        allowed = set(window)
+                        frame = frame.loc[[day > historical_cutoff or day in allowed for day in days]]
                     result.update(normalize_history(ticker, frame, window))
                 return result, Provenance("yfinance", self.version, "adjusted", datetime.now(timezone.utc))
             except ProviderIncomplete as error:

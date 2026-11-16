@@ -145,7 +145,7 @@ class Repository:
             row = cursor.fetchone()
             return row["last_date"] if row else None
 
-    def persist_session(self, request_key, mode, day, observations, previous, provenance):
+    def persist_session(self, request_key, mode, day, observations, previous, provenance, *, price_basis_generation=None):
         """Commit all 302 instruments and checkpoints together, or roll back all.
 
         Fetching/validation happens before this transaction. Nested Repository
@@ -163,6 +163,7 @@ class Repository:
             prepare_batch([bar], [day], previous[ticker], provenance[ticker])
         lock = int.from_bytes(hashlib.sha256(request_key.encode()).digest()[:8], "big", signed=True)
         with self.database.transaction() as cursor:
+            cursor.execute('SELECT pg_advisory_xact_lock(6381402502)')
             cursor.execute("SELECT pg_advisory_xact_lock(%s)", (lock,))
             cursor.execute("SELECT ticker FROM liquidity.instruments")
             if {row["ticker"] for row in cursor.fetchall()} != tickers:
@@ -172,15 +173,38 @@ class Repository:
             if existing:
                 if existing["status"] != "SUCCESS":
                     raise PersistenceError("Existing session run is incomplete and requires reviewed recovery")
-                cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod WHERE date=%s", (day,))
+                cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod_consistent WHERE date=%s", (day,))
                 actual = {row["ticker"]: Bar(row["date"], row["open"], row["high"], row["low"], row["close"], row["volume"], row["turnover"]) for row in cursor.fetchall()}
                 if actual != observations:
                     raise PersistenceError("Provider revision conflicts with the already committed session")
                 return {"run_id": existing["run_id"], "replayed": True}
             scoped = Repository(_CursorScope(cursor))
+            cursor.execute('INSERT INTO liquidity.instrument_checkpoints(ticker) SELECT unnest(%s::text[]) ON CONFLICT(ticker) DO NOTHING', (sorted(tickers),))
+            cursor.execute('SELECT ticker,last_date FROM liquidity.instrument_checkpoints ORDER BY ticker FOR UPDATE')
+            if {r['ticker']: r['last_date'] for r in cursor.fetchall()} != previous:
+                raise CheckpointConflict('Instrument checkpoints changed after complete-session planning')
+            cursor.execute('SELECT DISTINCT m.ticker,p.adjustment_mode FROM liquidity.market_eod m JOIN liquidity.data_provenance p USING(provenance_id)')
+            if any(r['adjustment_mode'] != provenance[r['ticker']].adjustment_mode for r in cursor.fetchall()):
+                raise PersistenceError('Price adjustment mode differs from stored instrument history')
+            if price_basis_generation is not None:
+                from .price_basis import activate_generation
+                activate_generation(cursor, price_basis_generation)
             run = scoped.start_run(request_key, mode, {ticker: [day] for ticker in sorted(tickers)})
+            sources, bars, batches, checkpoints = [], [], [], []
             for ticker in sorted(tickers):
-                scoped.persist_batch(run["run_id"], ticker, "session", [observations[ticker]], [day], previous[ticker], provenance[ticker])
+                bar, source = observations[ticker], provenance[ticker]
+                _, _, checksum = prepare_batch([bar], [day], previous[ticker], source)
+                provenance_id, batch_id = uuid4(), uuid4()
+                sources.append((provenance_id, run['run_id'], source.source_name, source.source_version, source.adjustment_mode, source.retrieved_at, checksum))
+                bars.append((ticker, day, bar.open, bar.high, bar.low, bar.close, int(bar.volume), bar.turnover, provenance_id))
+                batches.append((batch_id, run['run_id'], ticker, 'session', checksum, provenance_id, day, day, 1))
+                checkpoints.append((day, batch_id, ticker))
+            # Psycopg pipelines executemany, retaining the existing schema,
+            # per-instrument receipts and constraints without thousands of RTTs.
+            cursor.executemany('INSERT INTO liquidity.data_provenance(provenance_id,run_id,source_name,source_version,adjustment_mode,retrieved_at,payload_sha256) VALUES (%s,%s,%s,%s,%s,%s,%s)', sources)
+            cursor.executemany('INSERT INTO liquidity.market_eod(ticker,date,open,high,low,close,volume,turnover,provenance_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)', bars)
+            cursor.executemany('INSERT INTO liquidity.ingestion_batches(batch_id,run_id,ticker,batch_key,payload_sha256,provenance_id,range_start,range_end,row_count) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)', batches)
+            cursor.executemany('UPDATE liquidity.instrument_checkpoints SET last_date=%s,last_batch_id=%s,revision=revision+1,updated_at=now() WHERE ticker=%s', checkpoints)
             scoped.complete_run(run["run_id"])
             return {"run_id": run["run_id"], "replayed": False}
 
@@ -208,10 +232,9 @@ class Repository:
             run = cursor.fetchone()
             if run["mode"] != mode or run["plan_sha256"] != plan_hash:
                 raise PersistenceError("Request key was already used for a different run plan")
-            for ticker in instruments:
-                cursor.execute(
+            cursor.executemany(
                     "INSERT INTO liquidity.ingestion_run_instruments(run_id,ticker,planned_sessions) VALUES (%s,%s,%s) "
-                    "ON CONFLICT (run_id,ticker) DO NOTHING", (run["run_id"], ticker, list(session_plan[ticker])),
+                    "ON CONFLICT (run_id,ticker) DO NOTHING", [(run["run_id"], ticker, list(session_plan[ticker])) for ticker in instruments],
                 )
             return run
 

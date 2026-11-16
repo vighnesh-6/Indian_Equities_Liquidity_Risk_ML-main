@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "identity": {
+    "database": "neondb",
+    "username": "neondb_owner",
+    "project_id": "super-flower-30495255",
+    "branch_id": "br-winter-thunder-azx88rt3",
+    "endpoint_id": "ep-misty-shadow-azik30ky"
+  },
+  "applied": [
+    "003_price_basis"
+  ],
+  "ledger_matches_files": true,
+  "ledger": [
+    {
+      "version": "000_bootstrap",
+      "sha256": "5b316adc030c37f336141c64d47f21b7ed8750d9871c135ae4f007d91bdbd300"
+    },
+    {
+      "version": "001_foundation",
+      "sha256": "b21074e3c881fbca0fde356cfffe7f5f20aaf110ccb336ae9f11a8c3e021e4bd"
+    },
+    {
+      "version": "002_integrity_guards",
+      "sha256": "26ff4f9d6006c26db6b552529fe671719c98e50445e36dad479839ddf9ffa0d0"
+    },
+    {
+      "version": "003_price_basis",
+      "sha256": "b192e9b61d0b15084d19e9e151cf99917556b3d39c620d83f0f952cf217edf88"
+    }
+  ],
+  "original_rows": 569517,
+  "consistent_view_rows_before_activation": 569517,
+  "active_generations": 0,
+  "checkpoints_before": {
+    "instruments": 302,
+    "min_date": "2026-10-23",
+    "max_date": "2026-10-23"
+  },
+  "original_observations_modified": 0
+}

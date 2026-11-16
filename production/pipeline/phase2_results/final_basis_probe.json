@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "ticker": "ASIANPAINT.NS",
+  "original_historical_keys": 2176,
+  "required_new_sessions": 14,
+  "provider_keys": 2190,
+  "all_original_keys_supplied": true,
+  "original_sha256": "2f3a5791931281ca3087c19e0398b1379025d5974182005a391e9abcfd5cb50e",
+  "provider_historical_sha256": "b455502ec0864b6535179379227b94801c46386a51f8c31abe33ebe094505695",
+  "actual_revision_rows": 2176
+}

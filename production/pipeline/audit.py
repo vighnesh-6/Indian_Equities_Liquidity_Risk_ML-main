@@ -64,7 +64,13 @@ def audit_database(database, *, now=None):
         cursor.execute("SELECT status,count(*) AS runs FROM liquidity.ingestion_runs GROUP BY status ORDER BY status")
         runs = cursor.fetchall()
     snapshot.verify_source_hashes()
+    from .price_basis import active_generation, reconcile_generation
+    generation = active_generation(database)
+    basis = reconcile_generation(database, generation) if generation is not None else {'result': 'NOT_ACTIVE'}
+    if generation is not None and basis['result'] != 'PASS':
+        issues.append('CANONICAL_PRICE_BASIS_MISMATCH')
     return {"result": "PASS" if not issues else "FAIL", "identity": identity,
+            'production_price_view': 'liquidity.market_eod_consistent', 'price_basis': basis,
             "frozen_rows": sum(row["rows"] for row in original.values()), "total_rows": total,
             "incremental_rows": sum(incremental.values()), "instruments": len(checkpoints),
             "excluded_sessions": list(map(str, excluded)), "excluded_session_rows_preserved": retained_excluded,

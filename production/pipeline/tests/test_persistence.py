@@ -51,7 +51,7 @@ class PersistenceTests(unittest.TestCase):
         with patch("production.pipeline.migrate.migration_plan", return_value=changed):
             with self.assertRaises(MigrationError):
                 apply_migrations(self.db)
-        self.assertEqual(self.count("schema_migrations"), 3)
+        self.assertEqual(self.count("schema_migrations"), 4)
 
     def test_canonical_universe_registration_is_idempotent(self):
         self.db.execute("TRUNCATE liquidity.ingestion_runs, liquidity.instruments CASCADE")
