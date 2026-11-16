@@ -1,0 +1,2 @@
+# Complete transitive closure and Windows/Ubuntu distribution hashes.
+-r ../pipeline/requirements.lock
