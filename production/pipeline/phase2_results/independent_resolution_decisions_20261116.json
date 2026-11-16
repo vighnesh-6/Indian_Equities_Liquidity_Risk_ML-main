@@ -1,0 +1,22 @@
+{
+  "verified_at_utc": "2026-11-16T12:34:54.519890+00:00",
+  "canonical_ticker": "ICICIPRULI.NS",
+  "provider_ticker": "ICICILIFE.NS",
+  "isin": "INE726G01019",
+  "symbol_change_effective": "2026-10-23",
+  "official_symbol_circular": "https://nsearchives.nseindia.com/content/circulars/CML76967.pdf",
+  "circular_verification": "Official PDF verified through web reader; direct local download timed out. No local PDF is claimed.",
+  "candidate_comparison": {
+    "ohlc_match": true,
+    "yahoo_volume": 968502,
+    "nse_final_volume": 969157,
+    "volume_difference": 655,
+    "selection": "Official NSE final observation, preserving both candidates and their discrepancy."
+  },
+  "source_permission": {
+    "official_copyright": "https://www.nseindia.in/static/nse-copyright",
+    "usage_scope": "Personal, non-commercial project research ingestion and verification, with source attribution and preserved original downloads.",
+    "public_display_or_redistribution_permission": "Not determined by this research-use review."
+  },
+  "original_report_attribution": "Source: National Stock Exchange of India Limited"
+}
