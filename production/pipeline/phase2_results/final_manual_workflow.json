@@ -1,0 +1,227 @@
+{
+  "id": 43857613068,
+  "head_sha": "38b931073d623e132dd5bedca09a0ebf274753be",
+  "status": "completed",
+  "conclusion": "failure",
+  "event": "workflow_dispatch",
+  "created_at": "2026-11-16T11:25:26Z",
+  "html_url": "https://github.com/vighnesh-6/Indian_Equities_Liquidity_Risk_ML-main/actions/runs/43857613068",
+  "jobs": [
+    {
+      "name": "collect",
+      "id": 133265846465,
+      "status": "completed",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned collector runtime",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect and validate complete NSE sessions",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Summarize ingestion result",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload ingestion audit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "all_log_files_read": [
+    {
+      "name": "0_collect.txt",
+      "bytes": 41970,
+      "lines": 440,
+      "sha256": "3ac46d279fb7b4ac419030c42a5bad05722fc995ed17b24d019e32a3f729fd7f"
+    },
+    {
+      "name": "collect/system.txt",
+      "bytes": 627,
+      "lines": 8,
+      "sha256": "db694bf1a6f42a4a5a53cd143fad24fd2105fd5f5aa80c1654691a2d41223ca3"
+    },
+    {
+      "name": "collect/1_Set up job.txt",
+      "bytes": 2269,
+      "lines": 34,
+      "sha256": "00a6c7d4fc12903eb32aecbcff05a094182e0b8e2f298b93de3bbea3a2d605ac"
+    },
+    {
+      "name": "collect/2_Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 7727,
+      "lines": 88,
+      "sha256": "be57f70abbeb97233eb3ee00fc3f47049110b38a862ba57d63a9d029d7b2bd28"
+    },
+    {
+      "name": "collect/3_Run actions_setup-python@a26af69be951a213d495a4c3e4e4022e16d87065.txt",
+      "bytes": 3320,
+      "lines": 45,
+      "sha256": "8e2007836d7d4c6ded1123bf6a68f65c183940f91164113d57d3aedba0b208ee"
+    },
+    {
+      "name": "collect/4_Install pinned collector runtime.txt",
+      "bytes": 12882,
+      "lines": 96,
+      "sha256": "82dbfce49c950ac7afc3e1818e429d993140441e498ea44e8b9b29282a1fdbb6"
+    },
+    {
+      "name": "collect/5_Collect and validate complete NSE sessions.txt",
+      "bytes": 8686,
+      "lines": 102,
+      "sha256": "9a352de47ca7c98cd5aef23ad0048b5a2a00f28ee6ec06bc9f884ddb8f6b00c1"
+    },
+    {
+      "name": "collect/6_Summarize ingestion result.txt",
+      "bytes": 2079,
+      "lines": 26,
+      "sha256": "e625e85ede7cb5ef6a57ac732615a1a418f9573b0d67905386835aa4794f9969"
+    },
+    {
+      "name": "collect/7_Upload ingestion audit.txt",
+      "bytes": 2926,
+      "lines": 35,
+      "sha256": "983215157a6c0fc3a49bba1243077431ec7737c78bd92b469a2f448063d14ad5"
+    },
+    {
+      "name": "collect/14_Post Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 1590,
+      "lines": 12,
+      "sha256": "b914b16ed400fb23ec39ddab4880c80bbcf11323b1ffff2cebd1943e55b96e83"
+    },
+    {
+      "name": "collect/15_Complete job.txt",
+      "bytes": 515,
+      "lines": 2,
+      "sha256": "5f5983e0bca5cdc8e549dd6b81ff70763d5169e0dc68da6c36910e9783451934"
+    }
+  ],
+  "dependency_check_passed": true,
+  "last_collection_progress": [],
+  "error_lines": [
+    "2026-11-16T11:28:25.2421770Z ##[error]Process completed with exit code 2."
+  ],
+  "artifacts": [
+    {
+      "id": 14222420817,
+      "name": "liquidity-daily-audit",
+      "expired": false
+    }
+  ],
+  "collector_report": {
+    "mode": "daily",
+    "plan": {
+      "base": "2026-10-23",
+      "latest_completed": "2026-11-16",
+      "target": "2026-11-16",
+      "sessions": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-16"
+      ],
+      "expected_new_rows": 4530,
+      "instruments": 302,
+      "publication_pending": false,
+      "excluded_sessions": [
+        "2026-11-08"
+      ]
+    },
+    "completed_sessions": [],
+    "status": "BLOCKED",
+    "issue": {
+      "ticker": "EMBASSY.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    "provider_retries": [
+      {
+        "attempt": 1,
+        "ticker": "EMBASSY.NS",
+        "code": "MISSING_SESSIONS",
+        "missing_sessions": [
+          "2026-11-16"
+        ],
+        "detail": {
+          "observed_rows": 4
+        }
+      },
+      {
+        "attempt": 2,
+        "ticker": "EMBASSY.NS",
+        "code": "MISSING_SESSIONS",
+        "missing_sessions": [
+          "2026-11-16"
+        ],
+        "detail": {
+          "observed_rows": 4
+        }
+      },
+      {
+        "attempt": 3,
+        "ticker": "EMBASSY.NS",
+        "code": "MISSING_SESSIONS",
+        "missing_sessions": [
+          "2026-11-16"
+        ],
+        "detail": {
+          "observed_rows": 4
+        }
+      }
+    ]
+  }
+}
