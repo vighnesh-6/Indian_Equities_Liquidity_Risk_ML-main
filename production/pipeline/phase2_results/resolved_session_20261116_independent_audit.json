@@ -1,0 +1,96 @@
+{
+  "result": "PASS",
+  "identity": {
+    "database": "neondb",
+    "username": "neondb_owner",
+    "project_id": "super-flower-30495255",
+    "branch_id": "br-winter-thunder-azx88rt3",
+    "endpoint_id": "ep-misty-shadow-azik30ky",
+    "read_only": "on"
+  },
+  "production_price_view": "liquidity.market_eod_consistent",
+  "price_basis": {
+    "result": "PASS",
+    "generation_id": 2,
+    "historical_rows": 573745,
+    "canonical_profiles_match": true
+  },
+  "frozen_rows": 569517,
+  "total_rows": 574047,
+  "incremental_rows": 4530,
+  "instruments": 302,
+  "excluded_sessions": [
+    "2026-11-08"
+  ],
+  "excluded_session_rows_preserved": {},
+  "checkpoint": "2026-11-16",
+  "latest_ready_session": "2026-11-16",
+  "up_to_date": true,
+  "pending_sessions": [],
+  "duplicate_keys": 0,
+  "invalid_constraints": 0,
+  "disabled_triggers": 0,
+  "invalid_indexes": 0,
+  "frozen_feature_count": 37,
+  "ingestion_runs": [
+    {
+      "status": "SUCCESS",
+      "runs": 16
+    }
+  ],
+  "discrepancies": [],
+  "latest_session_sources": [
+    {
+      "source_name": "NSE_CM_FINAL",
+      "rows": 2
+    },
+    {
+      "source_name": "yfinance",
+      "rows": 300
+    }
+  ],
+  "all_checkpoints": [
+    {
+      "last_date": "2026-11-16",
+      "instruments": 302
+    }
+  ],
+  "resolved_observations": [
+    {
+      "ticker": "EMBASSY.NS",
+      "date": "2026-11-16",
+      "open": 424.0,
+      "high": 424.0,
+      "low": 417.05999755859375,
+      "close": 420.0,
+      "volume": 400044
+    },
+    {
+      "ticker": "ICICIPRULI.NS",
+      "date": "2026-11-16",
+      "open": 459.79998779296875,
+      "high": 461.1000061035156,
+      "low": 450.54998779296875,
+      "close": 461.1000061035156,
+      "volume": 969157
+    }
+  ],
+  "new_basis_revision_scope": {
+    "rows": 2746,
+    "latest_date": "2026-09-02",
+    "imported_prefix_revisions": 0
+  },
+  "latest_required_nulls": 0,
+  "verified_at_utc": "2026-11-16T12:47:26.235211+00:00",
+  "earlier_14_sessions": {
+    "result": "PASS",
+    "rows": 4228,
+    "discrepancies": []
+  },
+  "latest_session": {
+    "result": "PASS",
+    "rows": 302,
+    "discrepancies": []
+  },
+  "atomic_run_id": "cb26e12a-258f-4172-9b2a-0b2707ec625f"
+}
