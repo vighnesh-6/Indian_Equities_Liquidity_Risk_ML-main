@@ -1,0 +1,20 @@
+{
+  "result": "FAIL",
+  "tickers": 12,
+  "incremental_rows": 240,
+  "feature_values_compared": 13920,
+  "tolerance": {
+    "rtol": 1e-06,
+    "atol": 1e-08,
+    "null_masks": "exact",
+    "Wilder_RSI": "exact float32"
+  },
+  "maximum_absolute_differences": {
+    "amihud_z20": 5.137920379638672e-05
+  },
+  "discrepancies": [
+    "PATANJALI.NS:2156",
+    "PATANJALI.NS:2157",
+    "PATANJALI.NS:2161"
+  ]
+}
