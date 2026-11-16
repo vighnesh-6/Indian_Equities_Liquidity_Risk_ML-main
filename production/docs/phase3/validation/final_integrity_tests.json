@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "tests": 15,
+  "passed": [
+    "production.features.tests.test_persistence.LedgerTests.test_core_collector_accepts_optional_005_with_checksums_intact",
+    "production.features.tests.test_persistence.MigrationConcurrencyTests.test_two_migration_connections_install_once_and_replay",
+    "production.features.tests.test_persistence.PersistenceTests.test_atomic_rollback_after_all_writes_and_safe_retry",
+    "production.features.tests.test_persistence.PersistenceTests.test_concurrent_conflicting_keys_cannot_duplicate_or_overwrite",
+    "production.features.tests.test_persistence.PersistenceTests.test_direct_immutability_and_backward_checkpoint_writes_rejected",
+    "production.features.tests.test_persistence.PersistenceTests.test_direct_missing_historical_coverage_cannot_succeed",
+    "production.features.tests.test_persistence.PersistenceTests.test_direct_nonfinite_feature_insertion_rejected",
+    "production.features.tests.test_persistence.PersistenceTests.test_exact_roundtrip_nulls_publication_and_duplicate_replay",
+    "production.features.tests.test_persistence.PersistenceTests.test_incomplete_session_publication_rolls_back_every_write",
+    "production.features.tests.test_persistence.PersistenceTests.test_independent_connections_concurrent_identical_replay_once",
+    "production.features.tests.test_persistence.PersistenceTests.test_normal_entrypoint_rejects_same_count_wrong_universe",
+    "production.features.tests.test_persistence.PersistenceTests.test_private_backfill_blocks_publish_until_other_instrument_arrives",
+    "production.features.tests.test_persistence.PersistenceTests.test_recursive_checkpoint_wrong_previous_close_rolls_back",
+    "production.features.tests.test_persistence.PersistenceTests.test_replay_conflicting_values_and_stale_state_rejected",
+    "production.features.tests.test_persistence.PersistenceTests.test_truncated_recursive_context_cannot_advance_checkpoint"
+  ],
+  "failures": [],
+  "errors": [],
+  "skipped": []
+}
