@@ -1,0 +1,27 @@
+{
+  "result": "FAILED_STOPPED",
+  "exception_type": "DatabaseError",
+  "message": "PostgreSQL operation failed (55P03)",
+  "completed_stocks": 40,
+  "elapsed_seconds": 386.617,
+  "connection_retry_events": [
+    {
+      "operation": "persist_AZAD.NS",
+      "attempt": 1,
+      "type": "CONNECTION_FAILURE",
+      "elapsed_seconds": 178.4
+    },
+    {
+      "operation": "persist_BANKINDIA.NS",
+      "attempt": 1,
+      "type": "CONNECTION_FAILURE",
+      "elapsed_seconds": 372.4
+    }
+  ],
+  "storage_samples": [],
+  "postgres": {
+    "sqlstate": "55P03",
+    "message": "canceling statement due to lock timeout",
+    "detail": null
+  }
+}
