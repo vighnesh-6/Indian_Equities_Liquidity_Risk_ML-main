@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "tickers": 300,
+  "incremental_rows": 6000,
+  "feature_values_compared": 348000,
+  "tolerance": {
+    "rtol": 1e-06,
+    "atol": 1e-08,
+    "null_masks": "exact",
+    "Wilder_RSI": "exact float32"
+  },
+  "maximum_absolute_differences": {},
+  "discrepancies": []
+}
