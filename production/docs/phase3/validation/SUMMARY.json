@@ -1,0 +1,83 @@
+{
+  "status": "OFFLINE_PASS_PRODUCTION_MIGRATION_PENDING_APPROVAL",
+  "phase3_unique_tests": 31,
+  "pipeline_regression_tests": 85,
+  "pipeline_concurrency_tests": 12,
+  "total_unique_tests": 128,
+  "research_parity": {
+    "result": "PASS",
+    "tickers": 300,
+    "rows": 565190,
+    "feature_values_compared": 32781020,
+    "comparison": "exact float32 with identical null masks",
+    "reference_sha256": "c3975cf9a99b84e109bf7bc2035ac0792c37ec49bef36d2049274395e4b758ae",
+    "discrepancies": []
+  },
+  "incremental_parity": {
+    "result": "PASS",
+    "tickers": 300,
+    "incremental_rows": 6000,
+    "feature_values_compared": 348000,
+    "tolerance": {
+      "rtol": 1e-06,
+      "atol": 1e-08,
+      "null_masks": "exact",
+      "Wilder_RSI": "exact float32"
+    },
+    "maximum_absolute_differences": {},
+    "discrepancies": []
+  },
+  "storage": {
+    "result": "PASS",
+    "sample_rows": 36300,
+    "sample_tickers": 21,
+    "date_start": "2018-01-01",
+    "date_end": "2026-10-23",
+    "reconciliation": {
+      "result": "PASS",
+      "rows": 36300,
+      "discrepancies": []
+    },
+    "actual_relation_bytes": {
+      "feature_checkpoints": 761856,
+      "feature_publications": 262144,
+      "feature_runs": 65536,
+      "feature_values": 16744448,
+      "feature_versions": 65536
+    },
+    "projected_full_feature_values_bytes": 262786353,
+    "projected_300_checkpoint_bytes": 10883658,
+    "projected_database_bytes": 401923963,
+    "projected_database_mib": 383.3,
+    "production_baseline_bytes_from_approved_read_only_plan": 127860736,
+    "limitation": "Extrapolation from actual representative PostgreSQL 18 heap, TOAST and indexes. Future versions, WAL, branch retention and later phases require additional capacity."
+  },
+  "migration_sha256": "4c2055a8ddafe45fbfb6aca7ed2656f14de039df467d6e61571b2ef32c0b7dc1",
+  "migration_path": "production/features/migrations/005_feature_store.sql",
+  "production_connections_during_offline_execution": 0,
+  "production_migrations_applied": [],
+  "production_feature_rows_written": 0,
+  "notes": [
+    "Initial legacy concurrency replay reused two incorrect five-row expectations for two-instrument/two-date fixtures. The Phase 3 adapter corrects these to four; all 12 cases passed. Original harness file and lock assertions retain their original content.",
+    "The first real-data incremental check failed for Patanjali Amihud z-score. Exact float64 rolling-input history now preserves pandas variance continuation. Original tolerances remain in force.",
+    "UUID relational version keys retain the complete SHA-256 registry identity and reduce the measured projected database size from 479.66 MiB to 383.3 MiB."
+  ],
+  "deployment_order": [
+    "Explicitly authorized publication of compatibility code and LF-pinned feature migration",
+    "Separately approved migration 005 application",
+    "Approved Phase 3 feature backfill and reconciliation"
+  ],
+  "final_native_evidence": "validation/portable_final_tests.json",
+  "protection_evidence": "validation/preservation.json",
+  "final_integrity_evidence": "validation/final_integrity_tests.json",
+  "all_final_components": "PASS",
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.0",
+    "psycopg": "3.2.9",
+    "PyYAML": "6.0.3",
+    "pip_check": "PASS"
+  }
+}
