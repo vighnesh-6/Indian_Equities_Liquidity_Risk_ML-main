@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "tests": 1,
+  "passed": [
+    "production.features.tests.test_persistence.PersistenceTests.test_normal_entrypoint_rejects_same_count_wrong_universe"
+  ],
+  "failures": [],
+  "errors": [],
+  "skipped": []
+}
