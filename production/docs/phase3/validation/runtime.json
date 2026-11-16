@@ -1,0 +1,9 @@
+{
+  "python": "3.13.5",
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "pyarrow": "19.0.0",
+  "psycopg": "3.2.9",
+  "PyYAML": "6.0.3",
+  "pip_check": "PASS"
+}
