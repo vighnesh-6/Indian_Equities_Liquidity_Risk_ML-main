@@ -1,0 +1,4102 @@
+{
+  "status": "SUCCESS",
+  "session": "2026-11-16",
+  "started_at_utc": "2026-11-16T12:45:28.713921+00:00",
+  "source_policy": "300 preserved Yahoo observations plus two attributed official NSE final observations for personal non-commercial project research.",
+  "dividend_basis_validation": {
+    "COCHINSHIP.NS": {
+      "historical_rows": 2190,
+      "actual_provider_revision_rows": 1403,
+      "latest_revision_date": "2026-02-02",
+      "imported_prefix_changes": []
+    },
+    "SCI.NS": {
+      "historical_rows": 2190,
+      "actual_provider_revision_rows": 1343,
+      "latest_revision_date": "2026-09-02",
+      "imported_prefix_changes": []
+    }
+  },
+  "all_14_imported_sessions_preserved": true,
+  "candidate_sha256": "537aa8768e803d786cf3f6d2663a8c02935901920667baa0f4f8808e33a0a533",
+  "snapshot_sha256": "80d8e3b0ad429e4842d466fb79685405057fd35b3352955d728e21b8df5c84b8",
+  "sources": {
+    "yfinance": 300,
+    "NSE_CM_FINAL": 2
+  },
+  "original_source_files": [
+    {
+      "path": "data/interim/stocks/ohlcv_clean.parquet",
+      "sha256": "feaefaac2ded41478f067ece25ad3860affc3aa683026b8a925ba431a1b93421",
+      "rows": 565190,
+      "start": "2018-01-01",
+      "end": "2026-10-23",
+      "nulls": {
+        "date": 0,
+        "ticker": 0,
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0,
+        "prev_close": 300,
+        "daily_return": 300,
+        "is_zero_volume": 0,
+        "is_zero_volume_nonzero_return": 0,
+        "stale_price_streak": 0,
+        "is_stale_price": 0,
+        "is_extreme_move": 0,
+        "is_corporate_action_gap": 0,
+        "is_market_shock": 0,
+        "is_short_history": 0,
+        "is_warmup": 0,
+        "is_valid_ohlcv": 0,
+        "benchmark_close": 1219,
+        "benchmark_return": 1442,
+        "nifty_close": 1219,
+        "nifty_return": 1442,
+        "is_benchmark_available": 0,
+        "is_muhurat_session": 0,
+        "benchmark_close_fallback": 223,
+        "benchmark_return_fallback": 223
+      },
+      "auxiliary_columns": [
+        "prev_close",
+        "daily_return",
+        "is_zero_volume",
+        "is_zero_volume_nonzero_return",
+        "stale_price_streak",
+        "is_stale_price",
+        "is_extreme_move",
+        "is_corporate_action_gap",
+        "is_market_shock",
+        "is_short_history",
+        "is_warmup",
+        "is_valid_ohlcv",
+        "benchmark_close",
+        "benchmark_return",
+        "nifty_close",
+        "nifty_return",
+        "is_benchmark_available",
+        "is_muhurat_session",
+        "benchmark_close_fallback",
+        "benchmark_return_fallback"
+      ]
+    },
+    {
+      "path": "data/interim/market/nifty50_clean.parquet",
+      "sha256": "0f9faf4c03f23f5a87e6d30451eeaf8ce243494d93b2e5fe7dc5fa41af1a66c5",
+      "rows": 2171,
+      "start": "2018-01-02",
+      "end": "2026-10-23",
+      "nulls": {
+        "date": 0,
+        "ticker": 0,
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0,
+        "prev_close": 1,
+        "daily_return": 1,
+        "is_zero_volume": 0,
+        "is_extreme_move": 0,
+        "is_valid_ohlcv": 0
+      },
+      "auxiliary_columns": [
+        "prev_close",
+        "daily_return",
+        "is_zero_volume",
+        "is_extreme_move",
+        "is_valid_ohlcv"
+      ]
+    },
+    {
+      "path": "data/interim/market/india_vix_clean.parquet",
+      "sha256": "3b71021c2f4ff69f3ad58ba00b2e1f3873bcb12680650933519d2dfa181307d4",
+      "rows": 2156,
+      "start": "2018-01-01",
+      "end": "2026-10-23",
+      "nulls": {
+        "date": 0,
+        "ticker": 0,
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0,
+        "prev_close": 1,
+        "daily_return": 1,
+        "daily_change": 1,
+        "is_zero_volume": 0,
+        "is_extreme_move": 0,
+        "is_valid_ohlcv": 0
+      },
+      "auxiliary_columns": [
+        "prev_close",
+        "daily_return",
+        "daily_change",
+        "is_zero_volume",
+        "is_extreme_move",
+        "is_valid_ohlcv"
+      ]
+    }
+  ],
+  "price_basis": {
+    "generation_id": 2,
+    "historical_rows": 573745,
+    "actual_provider_revision_rows": 2746,
+    "original_observations_modified": 0,
+    "basis": "Actual provider revisions for changed bases; unchanged archives attested by provider overlap and post-checkpoint corporate actions",
+    "full_provider_instruments": 2,
+    "unchanged_archive_instruments": 300,
+    "provider_historical_sha256": {
+      "COCHINSHIP.NS": "f353555bff38333bc8c3b116eff86cca6ccb8fdb386b0c7773aa76d211e50235",
+      "SCI.NS": "ac97b1eb38cb4e1244d45a24c464a6e46ba724bdb2b638530e3263dcf878fa4e"
+    },
+    "basis_evidence": {
+      "360ONE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "74f6226c0d1d413b08abf5a65c92c737136b2fb0089cd8d9cfcd1c6558ee4bca",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CRISIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "34e648c07115a7061262ef365a1390e35a85bea59dc47f2f83c3fe6ca773e872",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GMRAIRPORT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5a0f180021bd21ba633ae56ebbab038a870012e417393ab774c6a2df1201114e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LLOYDSME.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "eaf1b6e3f55b9345d06bc75d8bd4e18389bc285f8bb8f1c79b2db8c044e67239",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CUMMINSIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "95461f8b3d952154ecf56bf3991eea800cde6d2fcae95bf8346d649ec427b1f7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CUPID.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "193f8a993e9040ffcd484a7537863f0e8dd703ba80343b18eb0b68dbc71edb98",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DABUR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f6911111b85f627b06928b83d94c711ad71f47d7131b2d78911e075aa8511cfe",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DALBHARAT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "af9f513ba51385b03228169e5f74d18909ef850b75cf14bdb9a0c191128dea4f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ADANIGREEN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d9cd3f360d534919078ee29c9c077fa2c58ad45d937d75a6a43f9bc9578f08f5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ADANIPORTS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4113dc596e7ecf4f9d8f8305e76c4213fb7c99ace4858195a55c1a33087d37bc",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ADANIPOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a5cd4faf276b2fd7583cf601d77fab7f229f4e38ce0ebdc3bf5235395bbbcf72",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AEGISLOG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6f0086308559d926ede5ed21aa0f9e2f3d3bcdb5b0dc1fdc133ec081126099bf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LINDEINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4d775befe3a6ac71d0a244df7329e73c72a1865195ec3149f232c50fdba3794e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LODHA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b074eab38410942f6d171f16cced7ecfc7ba646775d8bcac84d04000058b48ef",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bbc352e65878e83a12ddfe0c112295dfa14e1948cd37382bb0b7d2248b3200a9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LTM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "75025af283580801d66692ad78ce9e1bbe450a938c9ff1a76e321b9455e4a6d4",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LTTS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5afef85f26e24c3baaacf5bf3e45868a85595ab4657d1bc4dd7e0b1718b28bf7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LUPIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d6bfea7dc82627c69de5e319381fdc46c634870ced781ed48ab6b263f7674918",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "M&M.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "edf1cfcd3cade94fe7292e9240d37deb10ae619e8b38017fc5529a1f25fa3625",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "M&MFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f4af53a8f8e72e988d9b3bf57c68878ddfa4931c064690dd5e2f3cdb054db98e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MAHABANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b3100b53089085a9ffdbe1f021ed322c99ee8903ccb68a1849ffd5c937701200",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MANAPPURAM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a13432be47c25971790f78be0acaa0f68ac78e751f334cdaf924ab57597860f3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MANKIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "7efe863c3c363252cb6237ed6bcd04ac0476e8704692026983508c3bb52f1e6f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MARICO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2ba3824e9f20eefd1181c66312edc86b7e0e7ab16fcbfc0071521b3763eef1be",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MARUTI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "05649d675f17909a7e94212e654c23940c405b0377a489615f53ef8536b2d0c5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MAXHEALTH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "53481d46419bf72cd6edb6539f7463f541e11f3bd9dce65aabff2a65f154b83d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MAZDOCK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2c002c2b8cdb4025d95b7a47bf52c83145d2c28d7e2c497c82dd70729f38c64f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MCX.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "537f6784995a6b016b4fb8f707ef76432c21158d506860a0c984fdde83acfb88",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MEDANTA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1951df9f6a1370d55d35d8f6cfb8113f6543d9d0202695d5e5e7344ddcc88f1c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MEESHO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "606d81c37e27fe7487f8beafd71daf1f8baeb20e50337e134fac76d5c0917a6a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MFSL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4c2043995565de5398f031836200b457f6a5d0152343958cd324f0d424748ce6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MOTHERSON.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "36aac885cf06db46c2cfd8739fa6a364e6901f30f6aaea6ced81891dabd7d85f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ABB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cb2660a96f12c8cda80bbb059f546b10f3bc0e694aaa23563e30f90a92f04a09",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ABBOTINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a4bd73c43021d370d6219ae2b01fa5d349d8e563b733d131f64aa7ffc7e5f6fa",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ABCAPITAL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f06d3aa096475983e3dfa52b2746c24996ab9a16489dc07fc15db01191f9a36f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ADANIENSOL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0b7e59fdb5da128ac2cf32dc19375a3da54afa9ad5c087d9bcf386bb605b5695",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ADANIENT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "167b9ccbef31f06a462e561cb59bb45f003802d0e4a1f7c788f9abd1fdf2ab88",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "FORCEMOT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "85f1797e13e1a617d10c09164387e8eb7cdbfba778a6a9f1025b348169eb0add",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "FORTIS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4a44f6d616b8516e5e77fb3136a4a8517be556f20b5bb033f228f8b335012c1a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GAIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "af08ddf9ae417561f49adad27c2081512c71f2f051edb95e1a13ade384c39ca7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GESHIP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4228e05a20ec0aab534b46c5defe666005a088fba51bb3217c73b449e21eb961",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GICRE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fb98d13d491a8c6bcdd541cde246b0c92b02f466ddc870a296befea11a80ea70",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GLAND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4dd81b6be851bfd3d8636a3cdcc3b01b12c2d410ca33aa601f018da596273683",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GLAXO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ce2b76de03959c9bab93997e997d75c5372b920ce06cdb5806621278e7528859",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GLENMARK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5a744e34f520138a7a0d6f7eda5f6ad182b6068ed6f94b0f14a145e889c2c08e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GODFRYPHLP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4f736efa1048ef5892b90b13f1bd19312bf8b99283dc610f2dda87e18f16f219",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GODREJCP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b8e137442d8adbed189362ccf6c688504a5d9d949f222d77dc3c02f6e642e2ab",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GODREJIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "365f2c24027ece7a61607663d6546c775983c369931a516f52fd7718a851795e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GODREJPROP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8fd8ae3d4f70b7c81dbaa7eef6a478885aba11a5d3c925d007d3baaa851a3cf6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GRASIM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0dcf25bfc6579d27938613850b20de7baf940cf14498e4de0c555653a57025db",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GROWW.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "999110b7ab09433c76eda83bb9966a4d41ea0fab3aadb90b9b97974d54cce9f1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GRSE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "66d61b370c3021e0da3435b0e94f02246e499f4254cc2dc2a53c804a0179d66f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "GVT&D.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0de1a6505b7d14ef29b6e1fbbf08320ec219ad67d2ab3d32c3dc7c179c54e986",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HAL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bea1edf76ef138141c68ea4709dcbba25e8ac32dc15ffdc48c778a9d4788bcac",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HAVELLS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "176cbbeea56739d19e2b5d0140ada3511a20506c61fb6cb8d8813280ee08777b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HBLENGINE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9d8e926c3a7c284a1362ef2eb8f3730773d2e8aa48e12c9c6cff4c2cf554312e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HCLTECH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1dd6a08ba1303545b83cf4b9212fa08d4af2282a9042c2b6df44e38ef6906c29",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HDBFS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "62cfa0da6f7826e14cf5c4ce2b7a907b9a01bfb53bef6b9c64c6139680f7e139",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DATAPATTNS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d8af972bc4670f2364046688ab74dcafaf36b1de97db5e041a3253b9f290e2ed",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DELHIVERY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f035a3b5d376009ab62bf0a7c7c494f804e3797f89290e68843a7f7d105e2f5e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DIVISLAB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3d720345e6d89b2a375c61d63286bcfa6c58732f3ab47aaeff0900ce8552d480",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DIXON.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "aa5182a29af8ce9ed7368ffa8e7416dfd973b2915b43293021215a3bd1735f2a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DLF.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a377fa7c94074d34e6442c8cbbcd3f83172e7bab8d2568c2fcd43681ce396fc9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DMART.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "016ddc9046fc9a0dfe5a0af3a62f97d1853d77219a2cb927c90b204735e6e882",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "DRREDDY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "010b6b587f25b12cc149cf0dd265702e2146c8e89546406391fb842c4e9414b8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "EICHERMOT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "53f83e9b0aa9051dbb4372542972cbb5e902b8bb4f4678bf3375b15549a2951b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "EMBASSY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "082c169374fcf5e9165ea658dfda6d3dd239b0ca4ccb43dfff035b6a63a296b8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ENDURANCE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "05d3c4bd7ab31a9c156d1a5c7636543e92f635049ef3cb6dfba597f3f6c6642a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ENRIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "44b7f88bf3bb7060909486511132df66b7e2e84eae4783cb2ad9c95de9da7a01",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ESCORTS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "e6477cbd005497d574e031089739edc7d3e1088049f5f060e3a7ac824ecd66e5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ETERNAL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "11c78c68ddea94b633b02e9b664fd7be0d77276f6b5f5c3a1c0eb6af92633a0a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "EXIDEIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "67dac5f5cf0fda2e9786f2b0740c21a14461b309a13f934bb3f04e212f6c567f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "FACT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1b8f5330424d4a278ad15fe210ea3afc3b2f667207e5b4a9b4b160e411846534",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "FEDERALBNK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "039b62567f4b3af368e867664bab0db1d83c05faeba553e135492c0604f103ec",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "FLUOROCHEM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "045351fc38598e9c528cd674067114458156d9bff27aa9a6e5d313e21d5b54ee",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HDFCAMC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f803fc8cd4470e71e3a82d9cfae3a5bda58034f64e816f843099eb6731898031",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HDFCBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "869a91e07eff5905209d16c1a186e98e714799161a9324847dc6e37c01e76b77",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HDFCLIFE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c8ab27b33e5b536d09ecd5c12ffb1221898e5e4b5da0c228708473edd768059e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HEROMOTOCO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "75254a8a10a8800ef62b1c8b0ed72296dc254a30dbb29a1a87f72ed07ee7381f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HEXT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ee8b1603ae0cff79160a99bff2ace3a3fa62f6214729a45efeb153c16d2535d1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HFCL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1b41d9f1f6e2e5f3b529ed0cfdaccf7f5975e6974585a453fb17a90f861ab6cd",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HINDALCO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "58bc8b78e920cab3e6ea278cc0d9764b10a6f7581a8d2c84f6dc01e296b3f0c3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HINDCOPPER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ce93f9933b9b76dbca1a34af574bfba5b4f509e3b5ed58dd9ed0e1f9d0dcd94f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HINDPETRO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c5a17c17157353b3d8671f44cf8abe4244ff4d1607ec038bdd3fdc30638e304b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HINDUNILVR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2d9159d54fe8aebdb594d97edc08508ed1cf6708f17b50c0bba89422d77076b6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HINDZINC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "243b3217760cc06ab05937e8b42f3899a8d91a0d75d572283e17f2de4697ce26",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HSCL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8fb0d5fffa13e982daef92bd3449cdc164e51cc0b7d65d1b71eb75334588c5f6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HUDCO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "78a7f1a177fa6ffd107484dd83057d9b621403083a0e97d04c0cc7aff94d5298",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "HYUNDAI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9a843fa473022941d8d9832964c10b1422da7d15973dffe7466af296d8e891c7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ICICIAMC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "384fe689a45e9407c43a7c7edcd3eee86f13f432669511f980012624ebbb230f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ICICIBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a5bbb329f331ebbf881eba94d077cc21a4d2847566116b60e2d9b8dddfffe3da",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ICICIGI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c473225b3e5b559b751d6763648499f0f621e503537f79194b4b64afc4a06c9a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ICICIPRULI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bd6652bd7a72ec656a2422f389e156300794704a086e1011d584f77bc9f4335f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IDEA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fecf3fd7187b082fe85e88a550f3bf19717a4e5ee2264012056167eb2c070130",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IDFCFIRSTB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "322dde5f39ac9572269d3009bd699426cb67ef610472206040fad35e4e80301f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IFCI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cbd8be8bfca5509aaa2cd9d35cc7ab1b386abfeb612ed58eed1525ad14fdd205",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IIFL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4615034c9af497a81688ed1f33779925e2d51d980c50caa0b9b8170f5f5ea8f5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INDHOTEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "47de7f3be96eeb6cec18d5ac272728c45be8926a0ddffb41bea1a984bd363b75",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INDIANB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fa7a82e759979aa901d9fbe8507e23242c4b842e7d4d6c99dd2e2e01b6c18399",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INDIGO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "e0809fcccc05ef0a06525b2897a347e2b2397c9470e504d00dcf81dcfe5cfe19",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INDUSINDBK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "25c3918b764956be4d052ed01e82ed97eebc38ccf070ce03c4e6487457b56a97",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INDUSTOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "91760f2cef6068f4aeb50a2844bf5919112f41603e0fa891c922b74f94ce3829",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "INFY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1f89d4bbda8bbf16bdd2c9b15e8e1963f9e4504d31d904e0fe6c5191a5e79816",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IOB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "7221078a92875a19042277a03632d677671774edbc86c663f5dc5501e0645a54",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IOC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "05f2db8e6a237ebb30bbbf9faeb0112d4a446ffc0e0a8a4f823545b3b2483a43",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IPCALAB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "126807e07b5937efc5ead5007ff50c0337611b1834e6c49085640d00c6230d61",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IRCTC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1abc146c459dc19efda79152df8fc390a4389a26c6a071b29b45edeb395b29a7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IREDA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "60532a70ab816ff97e2aee1636a218b3d620f47fe97e77de507c15de5e0a67ee",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "IRFC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "574a24affc4c263db43dbc6cd2df820e0f65622fb82306788fa7e51552f7872e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ITC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4ac6e7ce66a7b4327fef1e4967d6ecd0028c06a651243e2f8abd973726110286",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ITCHOTELS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a229182a8d8eebaf12c3ebd15ee60b5dd3003592bafda703d577c7f816790073",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JINDALSTEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "03be6daeec320ed64d8804761d4a07d8a7279a6b05d6398dc327947dcdfa6c55",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JIOFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cc04bcce6f50f6bf458a9bfe0b5becea4d8fab03e245619ac889eb4eb0873933",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JKCEMENT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fbf020f4d81eadb41f28c10656b3ddb7056aadee6fa366e1918fbf8ca094e32d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JPPOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "98e3c7b1eecb08a2f686616c1cae449e52b7f00e26d80abfc4f5bb8ab34f95c2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JSL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1c76c3be1959ffeb789e79e38285117a282b7423752f73590aab2ccdcc09515f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JSWENERGY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a232e7a9ce0021862c33466843d59ba2c273c3222b6b4a003f6ec3bcb160894b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JSWINFRA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "777921b6fd8c1baa5e47af7c984c67bc63abc944fc36248c978e4d13a0016df2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JSWSTEEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c4ed5fe21636f0830f5544045546198be07f66f244f9f1a074ca22704105be1d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "JUBLFOOD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0e19a21e6925d45b04856f0ab915fa68b6898a29b7bf9f8d29437e4c91615dab",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KALYANKJIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "45a4ef4a93d547b92d1cb2f5f48ef5bcabb2f1d3949ae12b5f3a07f35046470d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KAYNES.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d604fd84f989eedc022d387c232992a42ca18468888f1a1029f56fbd850acc86",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KEI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9f44215ba0eceee7e1c3a0566a3738a582e2943672b92a07f051218c6c67d579",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KIRLOSENG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2944f20c93fff0d556d5431fecab7ebb34b88ce5e141adeaad1ecf04f48c9c4e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KOTAKBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d2402a46bad88e7c2e92f250e1b7532b84ad4ad951cd85d71b5af8712e32cd2c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KPITTECH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6fc8cc1b05b09bfae2aa14934d2cd958fe14b9907942f7122f8f1308692eef37",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "KPRMILL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "dde889e9c62280ed7f3c646922385a3b7f587778bda47f1309eabd4da6c3ff44",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LAURUSLABS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "54bf7547d5c0050f599321b282cb33e673780b11cbeb126c5725e19ad36dda18",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LENSKART.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8bb867bc451c5a01da57d3c153880ed86a77f8b941d8a9b6936d6b618bc7fe72",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LGEINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3db62e8d6d335f2d504ba8e6ca8ef326a0dc2cb6a1348d2c91b77b10a1894298",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LICHSGFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "09558b986eb19e9b540e21f8d580c87bf8ec1944bf81544a51e9aeab95f189d7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LICI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "60ec781abce2fdf435d0a130843bbbd242d47f819dce21e0aebdfc78416386aa",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MOTILALOFS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5dfce2077f6b3dd7e58296e083f66f5450995b5e1ff624113789cb855d0d544d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MPHASIS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a2c67c7d5c6d0da78be3ac60d19fabf1921f184a4111597a4bb97015592737a5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MRF.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d3e1bebea5b5e11e7027401b7e99e3b5e5e009e70f79c30eb9611b8a6c0cf9c0",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MRPL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c08b5a815ec01c65dd59921e2bce931855e5e833420fbc5f1ecc4a76b1c36432",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MTARTECH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "067acb6a81dd3c0aff1700f7f6b1aa467da1edf0e3550d4c22e7a8e297fa192c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AIAENG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fb1f9095e9c01466898f1cb08757d420b581a08aa67201a9b71cde485e43eb17",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AIIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "078d28f20dd6714a3f0dfccec0465f70c2f77cd6306b6cff99ab025a53df933b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AJANTPHARM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2bbe88cb834c84000e49edfc692cdda4d264acf2748088308176b25ca9a44d47",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ALKEM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "80a2305820d5786e3c2007966c29b0a3e71d6d0d6b97fcdc0ad5b3cb100d0628",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AMBER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c1d52c75761f9a873cfc199a38de1427951f1f91d3bb44aac6796f10c6f677b4",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AMBUJACEM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b217b92a65334b4b6cc6d5cb465ea2f7da5cdd437f82f5c10168ce0ae29b6a69",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ANANTRAJ.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "404eba895ab8190e5caa7b237c08da7c936ddfa1d61e8a0073d60045258566cf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ANGELONE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "19881d9d52a75dbdb531e653e449fa355ac385e38f47a69e35eb273818d5d4c3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ANTHEM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "95f7e5c88b66a65b148274ada740fcbc9e27984d9ebf0beb84402e0c22a43557",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "APARINDS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "52dd5a60f0aec8d22ab8504427a8b6007be8deee2e28eaa66563130851ce97e2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "APLAPOLLO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8bc0ad31365dbc41e5269e32239a1bf09374c3324980942909a02b5e4a956fc2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "APOLLOHOSP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5b956d7de19380e4280ccb61461bb1ab8fb0e57d0545dfddf6e436bec643effb",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ASHOKLEY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "be98b6f42a7f0e02aa7b4e43db0569f77fca8b29e9d0fab298ddb580547d5321",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ASIANPAINT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fb571a45c852d7b4452158d8eb7da91d7389d7f1ff8d61d3be4a7d72b4457021",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ASTERDM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3ff1e4cefef8ee79129b2c0a2a17e02ac56886e7f31d36fe6032321c045b2117",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ASTRAL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cd05a31bf34adc4f69a8700819f779a5b2bb9e091b67d4ef63babf82934bf3a2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ATGL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "82bb5e80b93c531e4b63582c6a11b58de57ba7964daf98ecd837cb9d3b869694",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ATHERENERG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4e266fba8436fa269a85d298548898d7373bd7b9cc6369b87cdde819a44cf256",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AUBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "332a0b10b8dbf55b65152731480c29f6086cb43ab635e3767847b8138e5e9849",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NATIONALUM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0ff152812f3bfe2d21a2592213829d005a22dddb7f8c418e628780f5ac313700",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NAUKRI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1079cab2d1602c6d97c24e51e6109a43733dc611680343e533cc74ddbe7e511e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NAVINFLUOR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2250d520b17638e3b5b1c948ca9a3198fe1d37a20721e909059955dd2c0bfd05",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NESTLEIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b0e0b8a9f8ad862c005cab0e882238647eb8bb8e466772c2eb42539e8d642698",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NETWEB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8caa492ec1261df8b124daf109ae8d9b82c00b680e603ba5c63794728cb70bdb",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "14e2f8260ec7bf341d8e2f70bb93b8446fff4a59f9a440142ccf23c3569950e1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NHPC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ca550f4b1357bb0a301093c2aaa7ac94a4a3ed1a08c5c26a122a1084362bf94c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NLCINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8a6f3c757d68417956132887f6013d1b498013617a81ad8ef0eca748531359f2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NMDC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2b166f0f7c8a6b5a39cd444eb5c93f3f027475708b869082070323f0d86eb729",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NTPC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0364d61d17c58826fd618c2c6ae2ee6d170030ce7df13b4c6fe81b80d75ff917",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NTPCGREEN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5b7ef4748b0839b032f781df334099f0264ff0b983cae19cd6d0ce2b86c22516",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NYKAA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0f05322ed2daa4ba6980c6fb89baae67e89e43fdcda2cd991933aa7b81a99b9a",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "OBEROIRLTY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6d06ca2d45f5348142b7d156972e952bf17dfa8a212e6065d717930a3d17ebec",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "OFSS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "42087d00e6dc27b9131de62fe2e760d6b8c5ea14c42b58cd62af0ca737da95b0",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "OIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bd4a979398419d21ab2a32431ce5a1470172baa6e2e8ef41064496a44fb02587",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "OLAELEC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "80964b4360df3331540eb6321cfe3194fc80ae29343109c14c30e49655296930",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ONGC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3dc5f38e4659ab3cd9fd7e94e161481a9997a410590677c0c41fd720d96a948b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PAGEIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a7ba87c622d5bcd697b112ac53a683eaf5fdaef75489a950956e3cbfdcf30d28",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PATANJALI.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "70cc62a5f8757e573d6234afd651f0582c6020683ce742b235922a3ec4294375",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PAYTM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bb1a86844e67c93fa8615be2c4dd57702f743ead888a11a710c5942ad46873ec",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PERSISTENT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "24d3c24a2aedf8f0f9d0c9a37b9a51be2f39f4d24fd81cac29ea6f37fdb3ad0f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PETRONET.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "dd2e650544ff3b130b7147823889a00a9dffdd4d32aee04147057e6058940af2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PFC.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3d7013097468f3c200775661668f6ddc9a86c651be2e0d17a4327ee77fe47a5d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PHOENIXLTD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1e4c1f36ef8ec4502c009380011d89102cee1189d596e56a2263e0854d448d38",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PIDILITIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9d2cdbe598019c8484ff1961eecfe7d7ec0cb3c206bbe23f96b6747731c0adc6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PIIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4086db16d9a565aeb7308818c6e564124066bbf826b662d445877d69854318ba",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PINELABS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b4753be8eef8d3112355e6d2b50f549531edf290247c9522c58b9370e7be98b3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BERGEPAINT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ba604aa4d3c9634181311bf93ac72944451ce2b8e93a9fb9db64ba3f965d1844",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BHARATFORG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "7f97f3391c8d45081b86f1f35200f2c0c2112f4ff3735f294e2c8f74001cf0cf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BHARTIARTL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bece851a73936d0ecbd186cf44c26a002cab2ffc1f06775f5d8384dfac6f87b4",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BHARTIHEXA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "694aee891d8ef830108ad0d5354034b9b876b69777dee12ae2afc8aefbb116c1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BHEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f930dfb6fa4f3bd6e14327b72fb950628137e3871376d768817479015d3b266c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BIOCON.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bad4905377136d6fa39787bfe3b511e8e384c0e0c7d58bd13297f6a9bd582753",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BLUESTARCO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "03a432cd262fad84a35427c94b37d8179a7b8e3069c820c89889193edef09f59",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BOSCHLTD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "792caaf47eae814b48a1d38d26a97ed5f3ecb13d6915555c4a8447ff30bb40d3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BPCL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "15cc1dec9dfbf585b3f05b14dec1b41b441b4990628db08d8a0900f846312395",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BRITANNIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "aef7966e833f13218c5a5cd50754594de50be18e80c864f60cd83de06397eed8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BSE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d27b4fda5c0135950f3718e6f33c6a1b61aa81efeb8ebef12ab2320ae6682424",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CANBK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5ae3afc96b7e678df5e9de2c7320a7beb58300c37a1baf5b3e93a3070cb043af",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CARTRADE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "279c1f83dddd4b1531a024f94754e0e19e5565425aca78a2b98e205370a3efc6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CDSL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "e1c24a67a3d9834d4587f2cac101047cc559e81e84eedda9864dad4064af9838",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CGPOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0299605cf13d009d80a5c1b4e36491850860ee615c8c15f73b0ff0f17a7e2036",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CHENNPETRO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "08f37a03ddac094d40079751758b727ece4681c2c0b76ee7192444f16cf985d8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CHOLAFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cedea1453cc9fb50559d4315365d9b68fe18260a0cbafe4a1086d3acba67927f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CIPLA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5001a6875cf1276baf8bf31b21d57812368e465da24fb88dcb642f647fa6e4b9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "COALINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9f7f57cb0c0d75f0eeea1db90d996e767fe3fedcd8062941840042f1857a05c1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "COCHINSHIP.NS": {
+        "kind": "FULL_PROVIDER"
+      },
+      "COFORGE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f1cf79fb79d0ec8b2ab2e3e59b62c63c3bb9316333e27bb0d1a3b30c731d2a83",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "COLPAL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f0fe77a613db89ecd6f6cab8945177531def935e65d1ddec973ec9796113e761",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "CONCOR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "5690fcbc396d1b48115d90ef89efd8dd6154b6ec39d4b8bc25f68eaf3dac98b8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "COROMANDEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8ad0057b361d4d666f07d7cd989c59203b7c58a7c03e3d4e23cbf965c2892b56",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AUROPHARMA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f6c99f2a1234d8da5839885021d03a5f2fe1ec84bfb2aaede9a446404cfba15b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AXISBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3deaf173c86a158f4c9ae91809f02df564ae58c91698f23aa30390545d5085ed",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "AZAD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "36e705a1277a749a1c37bc4d669a0499a07bc8612216b377f2442c3d24c77976",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BAJAJ-AUTO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "81c1f34e2e20560ffe8bc90543729d2c1d7419f7ce95ab162ff2013748cab555",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BAJAJFINSV.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6b09def676550794567be30504646b211b488f772575d0cd1d310eb149371084",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BAJAJHFL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b961ebc860f8b456b6ba96feb631d3076293a0ef0668c7344b5f73c2e023b0b0",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BAJAJHLDNG.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2191a4bb1a0c5708a85ec76c3026de1bdb6e48f97bbb9d69fec46a23f7dcd63d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BAJFINANCE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8b0bdd12d43b6a27e190eb7246ba2fcbd0c9d5ace6f81cdea5e4ef267f61dd1f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BALKRISIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0607b404cc84085735253710607653f8f5412f788a5ea89d3efea1078a474b15",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BANDHANBNK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3db18ea89d26f44698c39ea3650f0cfb1bb8da9719e91521faba2a670da14394",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BANKBARODA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "91266d4d0e2005412f35bb04e7b37600efdee2cd2cc154f75088b4f123698977",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BANKINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "12809b7f5a2617bcd45e893bd4a9da4db562001b6d60afe51f90681270f01acf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BDL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cdc33105827e8e0b1c18a8afc8d7c0f189209df4ed6ff3eedbab31c13cfe8f13",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "BEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bc3b8d086ed0167fe1fdcc49615c66de5fa8592b08061a86f088e0a661e8a10b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "LTF.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "09d79edf490214a6d71c9e37553d167f1f1e6d238a0849ec0ecd088f574c4a8b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PIRAMALFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2e0b6671820b12626d5124bc8c05031086a39949093ae2353074432017bf59fc",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PNB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "949f22c46c875f6e83fb09e1c8a0ff1e826dc6800612450e711a1c87648511bf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "POLICYBZR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "40c4ac15f9adc17734625837ea2b0d79e93223751bc410c394cfee36873cc736",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "POLYCAB.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2b893b015ac74b51c8ff2a3422da1932f9694b1a9716fe8ea9d72444f2a67473",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "POWERGRID.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a89166e26464db9f81eb6253c24c569f3d3a2b76e205591cec2adeab3ec2e6b9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "POWERINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f014eca696641436915d9243aa7ed1a745d7f10b543525c75fe1aab8ef51aacf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PREMIERENE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2974d4e2dc8866cd6262420dd2312081b34e02a2fe241f4ab93938f219f30eda",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PRESTIGE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "cb56d7c9805b346285967a4471a2ed249fc084559f0160757c248d64099b49ac",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "PWL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "eff084c3e7e1def06293d07bdb0f3b3e1b8508490831d34e75889f3a1f0890a7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RADICO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d1ebb2b32cb17930436175b941fcbbd04b5cd279ea47f4e316a87157978ce69d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RBLBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "62687ebd111bdbae48a7a5e191d91616f5d59a3b5b0aca99191a0ec3cb186990",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RECLTD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "99fa4b97d5bf4c26a76dfe804297185380512c8dd615b6bb49f8efeeb759f7b1",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "REDINGTON.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6e676bc38ddd2b8a6ed63ade840ecfbf7b9b8bb875d3e565c1c816c68b210422",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RELIANCE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c2321a0c6670dfe2f11a776866d9ef8403510c7ab546b97fae11db5b78b2253c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RRKABEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f67cdb2cb85a79f646e2751fe612fb9e52f04ce3dfb74c6e632f16ddc67e68dd",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "RVNL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8032fdf6e1b5bdca314ddbfe6bbb726838f9f046b4943e1ba9976ae11af87907",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SAIL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "97d5caeb8573f4dde638da889d4a198e633cfbb38b4ddbabafa7111e8ce84ee7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SAMMAANCAP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "abfc7824332838cf47b22fc93efb22995f5672ab44629f198e48f051cec8f5ab",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SBICARD.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "bd86fffb0b26f16fd377004b8105d9a515541fe8f0085f3d895a6e84aa1730e9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SBILIFE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "15698df29699c82b6a594226b7815070bae8d0041a24d75f297b4b67958a0619",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SBIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "11e39cad8b4dd6ffc397216110ed229a66743b8a19cfc92e47606652a15dad5b",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TORNTPHARM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "e58eab676d7b331753b89c33c1793a8ae791efe090ada705653a5494f196ff02",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TORNTPOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a42117e68657d9f507fc90c142285e147d35292cdd917a8c88c5a6b482f889a5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TRENT.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "78dd98d7d3447f0f5496ea49d405d96db419301c36bd956b118d4fc868cc86be",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TVSMOTOR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6e9204326f4ef0867278358532e8034000aec2ea31e0dda2c32f08c26ee126d9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "UBL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "58d6c2e62e6bf676027c82afd01412a2846791a0a81cd39901841be144629b32",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ULTRACEMCO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "69e9c33f4ae088e0009a44d886be0ed25ec8fd98f031418d33b646bbbc2fe313",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "UNIONBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "23bd57e2610cad54c41acdf299df70d693dd35fdf79e332945c68170ea2fe7e0",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "UNITDSPR.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "b733786656b26003a4d328c27e4cddf37c50f6e5bc5d6a366a51b75370f176f9",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "UNOMINDA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "fbe25d6884f21147180fe81376b3f005c3e61e9dde5eae735ee6afa8fde0b8bf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "UPL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "48070f8350af9fe79bf9a73295137157b5cc0a4b80aed49baa466618b83a0ebf",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VAML.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "2e3d26a0bb748f61502c3496ea7e428a3225e358108e978289578603b33b027e",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VBL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c0890278437892e0542bd628a0351a2431e2956630e2887124d95ffc2e287eb4",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VEDL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0f09e0cae998a50565ec5d715f2de83ceba22442182387075b52fac595b710d6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VISL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "10724744e175d98fa74270f448ceb271c7f0664fe50dcabf7841296e1e044525",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VMM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ea666dd24e0379a3a8f38f01545ff209f09ed6fa9da88793891b9015fa7c9bab",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VOGL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c204ad10a8bbcffb509c7b5ddf07b56d4cf466d9fe733f415ed90365cc83fe4f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "VOLTAS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "83427a95ed91d91f31af38db7e6fb4d164a04d72ac4eb92bb8166d7327e44ede",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "WAAREEENER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "811bade6279d45636a6193fbc2391b1a0e63393a9a09a434783570a72d62d738",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "WELCORP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "99c57f299258f8866cc5a4d5ed2d59153dd694f58728ee9ba2bb44c2bd98c295",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "WIPRO.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "9dc3d3b312eb6b74e52c82806b6a0ad1dd339d52cc4be40af080243ab97f820d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "WOCKPHARMA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "0f9b7b7b3375cc7ce654844e6ac21179ca5b00869fe9a4f442fb1c9419b0d955",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "YESBANK.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1867499b8bb4662ce62c397c77ea003f52c4ef18c59029781b152e31b1a3a8c2",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ZEEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d85ef77eb2fcf48deb2d1551c52aaf381560030deb6f054dca5865cee85290be",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ZENSARTECH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c0e107639b1e1abf12c040d990995ddc3575823f4156edb398d8253d24847fd8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "ZYDUSLIFE.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "12db2d098052ef6bad4a88966e8941bb0e487c3d9154732eca96ef31d07eb511",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "^INDIAVIX": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "02f81db220978701e482a175b729f9911e898c86d7eebe2f5d803a8e963edf8f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "^NSEI": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1096ce007ac0af9990605a28eddcfd81a90f6243ace4e9bac644a39a9de26da8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "THERMAX.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "08a874fc5cace3f77939870321d704b874ffabe627ac710625746caf8d822737",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TIINDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "920a90b0c18698b7d1fdc4b887a731cc380a9c01be628e659952cf7c421d10c5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TITAN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3d64a6906b62aa53ea1eb8da8c275daa0f184b17c7a8725eb97ee0e6cd90c664",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TMCV.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "548f10f2e4c84f514ee371b7d83756e259c1dc8ac5cd781218330dcb2d8071db",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TMPV.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "71fe59d7c7fc171bc401b5ea2464c136df5b4c7766cb05f417fc7367dc75623f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "MUTHOOTFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d9dd64e9a64c5d4ec361c2a6ae6baa7c9250a5bd393d5a1c94503b76e3389e11",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "NAM-INDIA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4765533d7f739c4f9b019dc416cb1bb884497fbe7757989cb01d707840a435e5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SCHAEFFLER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "56018a55f29825dcb426f70d120d4b6c4d65ab401399bc4be012db0b28d6e329",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SCI.NS": {
+        "kind": "FULL_PROVIDER"
+      },
+      "SHREECEM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "8263be48f97f7c875e591209cc24610fb5a47ce02a400b317ca0877ca4b069bd",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SHRIRAMFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "f2697b5673c491ba8b7c3e8ebce756d617cf5a55328aab30070146e35b5be2e5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SIEMENS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "26e8e1ec533d2e082dd971d44f2f4f20196af8fb3c1dd1fb444a0b2ec8928ea8",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SOLARINDS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "774311201e21c03bbe2a21f1fbb46559604bc57d7ab3b1725245273dbcb145aa",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SONACOMS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "663fd2428833c77fa3e12de56cd0cbaaa17eef6650f01d1de74dd5462a254b9d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SRF.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "e03c6d8df50590279c7fd77276b0e05918e0cb6e92777c44aa14f08bd532de8f",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "STLTECH.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "4f5fa166e996225cac3a027b4f0e51d3008a700eb53f598182f040e07dffa5a3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SUNDARMFIN.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "eeecdb52ff01398451e732421e0a80129cb9bec3c66897c2da64a626ac5d9bb3",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SUNPHARMA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1ead547184b6d69e5baeb88afd94af1ab6514465b0b5259a065b281369b1ba5c",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SUPREMEIND.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "de7aed758fc9f96bf403827b48db36f73a5c5dd437cb47c9af7845e548a574c7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SUZLON.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "1cdfe9ad47f99807f6eabf0ce3cbec577ab175dd9300ba715d3850ec6208c2dc",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SWIGGY.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "a19440f63e9ea9be6cd918d1cd020afff69253468024996f6e73f2000cddd811",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "SYRMA.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "ecb1f3a6e55c4197f252d3cf509b120738eab8478c60ebd692ecf11ae845f536",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATACAP.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "d99e002844290f8113f75e825ee1db5a160d376d4a56043ce5d0a90e7e7517a7",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATACOMM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "36dcb09078623386319ceb307537dd6316157b4d584944f2aa22b99d21be05e6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATACONSUM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "214378b316ee89d2a2f59d3f5b8eddf2fbefe83b6cda53fef786e9e88079f380",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATAINVEST.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "c5b2aa08463cd70bfe77e9850449a3ca214ca9621d547269fd5cf02fe0af4204",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATAPOWER.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "3fcba55cc11b7a6399dca475b1eae57f5af83a19e570ec8e8f2a23a7aebf6a0d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TATASTEEL.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "397e6b2b89e1cfa70914df6b0786427fcf49c17ebc86034ca9421ccb17547b7d",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TCS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "6d73be5de7735981fa55e39f023d9b5f19c6fcd7d37463c31695824861e7b8c0",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TDPOWERSYS.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "740a1da314f18275a2fe6f05f9f492aba966765ce09eb550f179ca5a0d1a2e49",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TECHM.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "76bb13808b4819531355a16b589a04f6a2b69bc7e82a8cbb6ebe8b05ceefdba5",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      },
+      "TEJASNET.NS": {
+        "kind": "UNCHANGED_BASIS",
+        "verified_overlap_rows": 1,
+        "checkpoint_sha256": "23131d381f703a45352eba67b4264b6a991793919c7482d8e51ddad6a60b8cf6",
+        "post_checkpoint_actions": [],
+        "action_sessions_verified": 1
+      }
+    }
+  },
+  "receipt": {
+    "run_id": "cb26e12a-258f-4172-9b2a-0b2707ec625f",
+    "replayed": false
+  },
+  "validation": {
+    "result": "PASS",
+    "rows": 302,
+    "sessions": [
+      "2026-11-16"
+    ],
+    "discrepancies": [],
+    "per_instrument": {
+      "360ONE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5afc54f3d30080973a331b8add403a64b0ea2ea0ff69b54639deddd0faf04bd8",
+        "database_sha256": "5afc54f3d30080973a331b8add403a64b0ea2ea0ff69b54639deddd0faf04bd8"
+      },
+      "CRISIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4d941a1a5f459a29e751150000b603e7977dc448936409d908adbb4313ca4724",
+        "database_sha256": "4d941a1a5f459a29e751150000b603e7977dc448936409d908adbb4313ca4724"
+      },
+      "GMRAIRPORT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ef2d8c7516513bf3c9da0c98780e44c15e2192657b1fdabb4f70b89f50519499",
+        "database_sha256": "ef2d8c7516513bf3c9da0c98780e44c15e2192657b1fdabb4f70b89f50519499"
+      },
+      "LLOYDSME.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7ed7090781d358fd5f7a030ab9489eb61325b0875fe4fe589d01d197fccc926f",
+        "database_sha256": "7ed7090781d358fd5f7a030ab9489eb61325b0875fe4fe589d01d197fccc926f"
+      },
+      "CUMMINSIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "447bef5d730818a20b9e018e934d8029d9b4f4e98358880e297ffca7ba9cb73e",
+        "database_sha256": "447bef5d730818a20b9e018e934d8029d9b4f4e98358880e297ffca7ba9cb73e"
+      },
+      "CUPID.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "454794021ee11b53d9f25ca35842481da27073aa9a4c78e79c0a0804cca1afaf",
+        "database_sha256": "454794021ee11b53d9f25ca35842481da27073aa9a4c78e79c0a0804cca1afaf"
+      },
+      "DABUR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b433ccb43950cca33f64d1b8b47f0edce9de072f1783260dc67df9ae98f4adb6",
+        "database_sha256": "b433ccb43950cca33f64d1b8b47f0edce9de072f1783260dc67df9ae98f4adb6"
+      },
+      "DALBHARAT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "36fc7f8fc7ee4cff537dc902514f48b34405d641ae6629856e1c3b783b690a16",
+        "database_sha256": "36fc7f8fc7ee4cff537dc902514f48b34405d641ae6629856e1c3b783b690a16"
+      },
+      "ADANIGREEN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9b154c70ab5f8968a3b3759e34761b3ffd2fbabd466c777015986bceafbe713f",
+        "database_sha256": "9b154c70ab5f8968a3b3759e34761b3ffd2fbabd466c777015986bceafbe713f"
+      },
+      "ADANIPORTS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "70f0bc4896106099c87e63f12c6d7eca771a6f39793d8e69669cd199be81828a",
+        "database_sha256": "70f0bc4896106099c87e63f12c6d7eca771a6f39793d8e69669cd199be81828a"
+      },
+      "ADANIPOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "828080220d886435c4d26142bd1f0d39db7b3fdd5ee9b2110d80733725fc1a72",
+        "database_sha256": "828080220d886435c4d26142bd1f0d39db7b3fdd5ee9b2110d80733725fc1a72"
+      },
+      "AEGISLOG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4076c53d3c6d785a8a27752cc4e2ac21cfe4a5ee3ef82de8e24044e58aabb21a",
+        "database_sha256": "4076c53d3c6d785a8a27752cc4e2ac21cfe4a5ee3ef82de8e24044e58aabb21a"
+      },
+      "LINDEINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "97785e781ff479fcd36704e9843eaccc48cc24c65be3db49f95bfd6cffd9c04e",
+        "database_sha256": "97785e781ff479fcd36704e9843eaccc48cc24c65be3db49f95bfd6cffd9c04e"
+      },
+      "LODHA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "22d2450cbda3ca83ce8127d44da380782a35eabe1bc0877c485e0fa8cba3a11c",
+        "database_sha256": "22d2450cbda3ca83ce8127d44da380782a35eabe1bc0877c485e0fa8cba3a11c"
+      },
+      "LT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e4b3a4d3406c022160a12a91c1f524e62177224b40cf66795c2cc9e0efcc14a3",
+        "database_sha256": "e4b3a4d3406c022160a12a91c1f524e62177224b40cf66795c2cc9e0efcc14a3"
+      },
+      "LTM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7c264f94d1fb3ab9ac3559c06fba626ce561e6f7950c506ec6b498c5e6648a31",
+        "database_sha256": "7c264f94d1fb3ab9ac3559c06fba626ce561e6f7950c506ec6b498c5e6648a31"
+      },
+      "LTTS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "18d81c997aff154c10c1ec279fc903be9734d02fdd4539952624a87de957acf5",
+        "database_sha256": "18d81c997aff154c10c1ec279fc903be9734d02fdd4539952624a87de957acf5"
+      },
+      "LUPIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "91112a98dbf6c8442909df4230a27fe048b8559389502d78011f2564cbdd4770",
+        "database_sha256": "91112a98dbf6c8442909df4230a27fe048b8559389502d78011f2564cbdd4770"
+      },
+      "M&M.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "71415fe1f6bdcd1f5a3ac0f4d6dcab26b77681ece6a255f8e04763938af25830",
+        "database_sha256": "71415fe1f6bdcd1f5a3ac0f4d6dcab26b77681ece6a255f8e04763938af25830"
+      },
+      "M&MFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "cfa285f3b56993c6cb5ce639ba95a69f3c3f35f9c0d0d8ed5bf6de1bfbad5e34",
+        "database_sha256": "cfa285f3b56993c6cb5ce639ba95a69f3c3f35f9c0d0d8ed5bf6de1bfbad5e34"
+      },
+      "MAHABANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "97f1ffab59f12f635515714b4b90bd122943f52d113489f7d33d67905a6e76bd",
+        "database_sha256": "97f1ffab59f12f635515714b4b90bd122943f52d113489f7d33d67905a6e76bd"
+      },
+      "MANAPPURAM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "cf8f659946ca4c4f7b352a5f6ed20f4b7633cecaeeaa840a37a37cc48a044f9f",
+        "database_sha256": "cf8f659946ca4c4f7b352a5f6ed20f4b7633cecaeeaa840a37a37cc48a044f9f"
+      },
+      "MANKIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "1fbd0723186710deb1599bee85920912d3ea2d4676900397b2b090c2a2b5ba16",
+        "database_sha256": "1fbd0723186710deb1599bee85920912d3ea2d4676900397b2b090c2a2b5ba16"
+      },
+      "MARICO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ab1b344e9add81bc75acfee8ec983266f4896fda97e84d89f84bdace10381086",
+        "database_sha256": "ab1b344e9add81bc75acfee8ec983266f4896fda97e84d89f84bdace10381086"
+      },
+      "MARUTI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8238c23a3b62b8011bf672c8e4e3aa75f1298356d2f35188ab4e3a879ffdd8b2",
+        "database_sha256": "8238c23a3b62b8011bf672c8e4e3aa75f1298356d2f35188ab4e3a879ffdd8b2"
+      },
+      "MAXHEALTH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ce357eb45d1a16600a869fd560d68d21e2fbd17e8dff1defe1dfa1274eac2a77",
+        "database_sha256": "ce357eb45d1a16600a869fd560d68d21e2fbd17e8dff1defe1dfa1274eac2a77"
+      },
+      "MAZDOCK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "57499556b002231bcd2b3f4732d8c9e872e3b4f54819ccab5eba445e3db9f3ca",
+        "database_sha256": "57499556b002231bcd2b3f4732d8c9e872e3b4f54819ccab5eba445e3db9f3ca"
+      },
+      "MCX.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "49e117c4b51ab43fa1c793565935fa6e995ca86c6dcfbd1647093cbad38ffb0c",
+        "database_sha256": "49e117c4b51ab43fa1c793565935fa6e995ca86c6dcfbd1647093cbad38ffb0c"
+      },
+      "MEDANTA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "217eef0e4cb0b86bca7edc80ef56211f08849b1752b01047a01387f32ed323fc",
+        "database_sha256": "217eef0e4cb0b86bca7edc80ef56211f08849b1752b01047a01387f32ed323fc"
+      },
+      "MEESHO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "922064b13451a793615a9cd5e370f9e1ddaf90cecfeb082644b4dbbe207b743c",
+        "database_sha256": "922064b13451a793615a9cd5e370f9e1ddaf90cecfeb082644b4dbbe207b743c"
+      },
+      "MFSL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "348795df21a0d22963eaafc6ac301bc27069e0ce6563d8f124b680ad806adb6a",
+        "database_sha256": "348795df21a0d22963eaafc6ac301bc27069e0ce6563d8f124b680ad806adb6a"
+      },
+      "MOTHERSON.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "1525bb42ac14d37aafcc36227d9b57bedfc79b10959f345fdb6a89dd3cfb35b6",
+        "database_sha256": "1525bb42ac14d37aafcc36227d9b57bedfc79b10959f345fdb6a89dd3cfb35b6"
+      },
+      "ABB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e1c1147b3ca472fc87e7bba03ba687036306fbde523c7e8dbeb238aa2d683038",
+        "database_sha256": "e1c1147b3ca472fc87e7bba03ba687036306fbde523c7e8dbeb238aa2d683038"
+      },
+      "ABBOTINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "43bbc07f474a07f9fccd70c365e4b323b25fcf40a89dc6439e3dfe1645451ce8",
+        "database_sha256": "43bbc07f474a07f9fccd70c365e4b323b25fcf40a89dc6439e3dfe1645451ce8"
+      },
+      "ABCAPITAL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ca1585f5b10507012f2826f3603d7c84a67fb7e52f40b4b39ccb9584d4863685",
+        "database_sha256": "ca1585f5b10507012f2826f3603d7c84a67fb7e52f40b4b39ccb9584d4863685"
+      },
+      "ADANIENSOL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4e8268015b19a326791eb9bef79ac4eb1db8066d36854d0e3f86e55a1ce6c059",
+        "database_sha256": "4e8268015b19a326791eb9bef79ac4eb1db8066d36854d0e3f86e55a1ce6c059"
+      },
+      "ADANIENT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4b5caffa4871e12a708b5dc5b9c0a6ecdc7a082f4a546dcb7b10ed9591ce4e08",
+        "database_sha256": "4b5caffa4871e12a708b5dc5b9c0a6ecdc7a082f4a546dcb7b10ed9591ce4e08"
+      },
+      "FORCEMOT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "884a502d2e94f01740ac6bf52f30bb5182674d24dd10d93867e5997f36cde2d5",
+        "database_sha256": "884a502d2e94f01740ac6bf52f30bb5182674d24dd10d93867e5997f36cde2d5"
+      },
+      "FORTIS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9e117f7ac920105006b9ec57722a119275bbd6d6379386470f061e6fbbc2d943",
+        "database_sha256": "9e117f7ac920105006b9ec57722a119275bbd6d6379386470f061e6fbbc2d943"
+      },
+      "GAIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2aaa9a8446c6f45cf2bce684a78bb31786785c7c9762562c84db52ce2c620696",
+        "database_sha256": "2aaa9a8446c6f45cf2bce684a78bb31786785c7c9762562c84db52ce2c620696"
+      },
+      "GESHIP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3b3daa00d37eca49a4004662ecc124219a81fd2282fd591bd85e251f62a3e93f",
+        "database_sha256": "3b3daa00d37eca49a4004662ecc124219a81fd2282fd591bd85e251f62a3e93f"
+      },
+      "GICRE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "630f857964c7d36d1324eee8f2a6e1a7c7a12b0d32713f13ae2f29753e554a59",
+        "database_sha256": "630f857964c7d36d1324eee8f2a6e1a7c7a12b0d32713f13ae2f29753e554a59"
+      },
+      "GLAND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a9c0c88ea6768b68a4aac0681f08089aaa75f2e7e4cb5b16335e4c869fa7c563",
+        "database_sha256": "a9c0c88ea6768b68a4aac0681f08089aaa75f2e7e4cb5b16335e4c869fa7c563"
+      },
+      "GLAXO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a616ce3489cc0e7835e5d5f7122ae22acba4d521719a644f70050bbb3cc717a2",
+        "database_sha256": "a616ce3489cc0e7835e5d5f7122ae22acba4d521719a644f70050bbb3cc717a2"
+      },
+      "GLENMARK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2264a5ae1167b6be419cbaac2ed489fe138d06961a3cd19f39c5b11cbee5c116",
+        "database_sha256": "2264a5ae1167b6be419cbaac2ed489fe138d06961a3cd19f39c5b11cbee5c116"
+      },
+      "GODFRYPHLP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f5f1691a34488fd33499d90ac79710c9ffd8757c9c2c1f90447b87f25ccbe300",
+        "database_sha256": "f5f1691a34488fd33499d90ac79710c9ffd8757c9c2c1f90447b87f25ccbe300"
+      },
+      "GODREJCP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d65cf91cc98c24bfd4d42126efd248df8c6f2d1d9824608135fff009bc9abe7f",
+        "database_sha256": "d65cf91cc98c24bfd4d42126efd248df8c6f2d1d9824608135fff009bc9abe7f"
+      },
+      "GODREJIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3dee6d1632c9d2d8a919a0fe0cca4062acfedf72f270d9e5fae5c7c47e95b088",
+        "database_sha256": "3dee6d1632c9d2d8a919a0fe0cca4062acfedf72f270d9e5fae5c7c47e95b088"
+      },
+      "GODREJPROP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "28f3061d66a249944e4ed1f5309938e384f169b12ac6bf9e1361c9167b80121e",
+        "database_sha256": "28f3061d66a249944e4ed1f5309938e384f169b12ac6bf9e1361c9167b80121e"
+      },
+      "GRASIM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e67d1466d53a87583e338f9c558503e57f7d3b350d718c7c2edc02e9886e0c66",
+        "database_sha256": "e67d1466d53a87583e338f9c558503e57f7d3b350d718c7c2edc02e9886e0c66"
+      },
+      "GROWW.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7231cec8960fc80cf71529465ca4120c405aa98f032569701572780e1a24bf60",
+        "database_sha256": "7231cec8960fc80cf71529465ca4120c405aa98f032569701572780e1a24bf60"
+      },
+      "GRSE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3460fa3b92b31e424f16b1b233923a17bfceda16657e48cc8dd356e83348c299",
+        "database_sha256": "3460fa3b92b31e424f16b1b233923a17bfceda16657e48cc8dd356e83348c299"
+      },
+      "GVT&D.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "446d8dd9a67461ca69821224d2dae694610ed4b00eb2775810a5103128cbcb3a",
+        "database_sha256": "446d8dd9a67461ca69821224d2dae694610ed4b00eb2775810a5103128cbcb3a"
+      },
+      "HAL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5fdff1b2f010c3361e553e295b2ccf7dfe9cb98a48afce6d50f6b7d0b5b86d35",
+        "database_sha256": "5fdff1b2f010c3361e553e295b2ccf7dfe9cb98a48afce6d50f6b7d0b5b86d35"
+      },
+      "HAVELLS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "77fa6bf004b1ca0cb9e7e17670a0da0fcd23a11ae8608a911b06979aae5b0279",
+        "database_sha256": "77fa6bf004b1ca0cb9e7e17670a0da0fcd23a11ae8608a911b06979aae5b0279"
+      },
+      "HBLENGINE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "709ec56171cfb2a1d59f78ef9970bd4a9846466bf10c44fb7417a33a7c64fe68",
+        "database_sha256": "709ec56171cfb2a1d59f78ef9970bd4a9846466bf10c44fb7417a33a7c64fe68"
+      },
+      "HCLTECH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5c1943d149f8c9456b9405168526793203d0ecdad96b9d027591e7a1f988271a",
+        "database_sha256": "5c1943d149f8c9456b9405168526793203d0ecdad96b9d027591e7a1f988271a"
+      },
+      "HDBFS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "03934564ad0b15b94e9c54e9b44e83c8634d067284b4b8619d4d7bfcab80524c",
+        "database_sha256": "03934564ad0b15b94e9c54e9b44e83c8634d067284b4b8619d4d7bfcab80524c"
+      },
+      "DATAPATTNS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "74fa2f6defe0c3ca1cafefb9529686169d5a238edde61bfee0a6f1b1a10cbc8d",
+        "database_sha256": "74fa2f6defe0c3ca1cafefb9529686169d5a238edde61bfee0a6f1b1a10cbc8d"
+      },
+      "DELHIVERY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0705f75c70fb53395c251c7ddd7504fd02f182a99a1655967889c9c6017e5d09",
+        "database_sha256": "0705f75c70fb53395c251c7ddd7504fd02f182a99a1655967889c9c6017e5d09"
+      },
+      "DIVISLAB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "786097d93acd816e4223a0a82b2c0e6a3a0a758b0297ea5f4e008124082ca0b8",
+        "database_sha256": "786097d93acd816e4223a0a82b2c0e6a3a0a758b0297ea5f4e008124082ca0b8"
+      },
+      "DIXON.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c9b7ac8fb77b4bb374c567a0bb17b10c24c144a90d927a8b1605ffb960ce04e3",
+        "database_sha256": "c9b7ac8fb77b4bb374c567a0bb17b10c24c144a90d927a8b1605ffb960ce04e3"
+      },
+      "DLF.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "475e3c22962d0ce8440225f7bea8dcbacb1cde51c776af4cec985aa1993cc608",
+        "database_sha256": "475e3c22962d0ce8440225f7bea8dcbacb1cde51c776af4cec985aa1993cc608"
+      },
+      "DMART.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f23d3b6a05949a94d6472dc041358780066f73d38edb697e94b2daae4600a555",
+        "database_sha256": "f23d3b6a05949a94d6472dc041358780066f73d38edb697e94b2daae4600a555"
+      },
+      "DRREDDY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7101931e8c90ba45e769c5b21f1373368a22649cf32183b0df75c5e415b81e5b",
+        "database_sha256": "7101931e8c90ba45e769c5b21f1373368a22649cf32183b0df75c5e415b81e5b"
+      },
+      "EICHERMOT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b034d2eb707cb03d6b3f47ce058263be812f9d4a47b54f9288918e8ecaa2e4b6",
+        "database_sha256": "b034d2eb707cb03d6b3f47ce058263be812f9d4a47b54f9288918e8ecaa2e4b6"
+      },
+      "EMBASSY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "bbb47367feda7cb5248e25d009066fa2097d5ded7ff2259a2e074697d117072c",
+        "database_sha256": "bbb47367feda7cb5248e25d009066fa2097d5ded7ff2259a2e074697d117072c"
+      },
+      "ENDURANCE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8fa49a19f2b8ea389b74fd0812d9a9d33eeac1807d5ea6e7a4c359000001ad33",
+        "database_sha256": "8fa49a19f2b8ea389b74fd0812d9a9d33eeac1807d5ea6e7a4c359000001ad33"
+      },
+      "ENRIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6c4fa8912d6ac5836f6e78155890383b844a9fcaf5a1e6a8f057fdc56bab79ec",
+        "database_sha256": "6c4fa8912d6ac5836f6e78155890383b844a9fcaf5a1e6a8f057fdc56bab79ec"
+      },
+      "ESCORTS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4ee9abe72acc6a2382ed535075fadd0b8709dba35adb3151500370f104a264f0",
+        "database_sha256": "4ee9abe72acc6a2382ed535075fadd0b8709dba35adb3151500370f104a264f0"
+      },
+      "ETERNAL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3f945214c8a2bd6ad17a239372d5a277991d8648dbb9e870ba82ef112fbe2ab3",
+        "database_sha256": "3f945214c8a2bd6ad17a239372d5a277991d8648dbb9e870ba82ef112fbe2ab3"
+      },
+      "EXIDEIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5d5c2a8abb025cb1839698d52f7875ce9ab11c8351e63182a78f294b1610640a",
+        "database_sha256": "5d5c2a8abb025cb1839698d52f7875ce9ab11c8351e63182a78f294b1610640a"
+      },
+      "FACT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2da11d71b03cb9041a9b67846fc7939c3f03a1529e23eeba80610c6fd8349e98",
+        "database_sha256": "2da11d71b03cb9041a9b67846fc7939c3f03a1529e23eeba80610c6fd8349e98"
+      },
+      "FEDERALBNK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9e2abce9be01fc66ad5b11f3a72b94c5884c83b24a2d12a120e1d17806a9af11",
+        "database_sha256": "9e2abce9be01fc66ad5b11f3a72b94c5884c83b24a2d12a120e1d17806a9af11"
+      },
+      "FLUOROCHEM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "884653d94f08f6b6a09359a9ff10b0fed73cb1fcdf407fc9e43bba3773fc98d0",
+        "database_sha256": "884653d94f08f6b6a09359a9ff10b0fed73cb1fcdf407fc9e43bba3773fc98d0"
+      },
+      "HDFCAMC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "1fc42caf80643f9dec27d578f08a2a81ae7d710a030d6bea60cfee739751ed20",
+        "database_sha256": "1fc42caf80643f9dec27d578f08a2a81ae7d710a030d6bea60cfee739751ed20"
+      },
+      "HDFCBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "586fdab3dec04a4fd8424fa230896f391bd8ed58a8878fd3a757d771c12af844",
+        "database_sha256": "586fdab3dec04a4fd8424fa230896f391bd8ed58a8878fd3a757d771c12af844"
+      },
+      "HDFCLIFE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e2bc77420e56f7b91a51f27fe528632147b39ef2f8fb1dc9c69f3e106b850dde",
+        "database_sha256": "e2bc77420e56f7b91a51f27fe528632147b39ef2f8fb1dc9c69f3e106b850dde"
+      },
+      "HEROMOTOCO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "af6a88d4bc04d31ca9b4fb25962a2e8f8319e04aa4d05e034a285718de1df604",
+        "database_sha256": "af6a88d4bc04d31ca9b4fb25962a2e8f8319e04aa4d05e034a285718de1df604"
+      },
+      "HEXT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c2f0ba51004349f49bb2be9563819fe412ceb6a896000a6bad1171f2a27d78a2",
+        "database_sha256": "c2f0ba51004349f49bb2be9563819fe412ceb6a896000a6bad1171f2a27d78a2"
+      },
+      "HFCL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6e7a4789a17f292547fc375a9287e0a977ff9564015a5c8ea2d01f23807d6e69",
+        "database_sha256": "6e7a4789a17f292547fc375a9287e0a977ff9564015a5c8ea2d01f23807d6e69"
+      },
+      "HINDALCO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b2714ed12d700331b47b14105a9b14f6fb373fd1c0c4f71def6b5b306f4668d6",
+        "database_sha256": "b2714ed12d700331b47b14105a9b14f6fb373fd1c0c4f71def6b5b306f4668d6"
+      },
+      "HINDCOPPER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4484f58b716e5a84eb78b9e47e16b107b2330b33a20be60a2035abeabbd901ac",
+        "database_sha256": "4484f58b716e5a84eb78b9e47e16b107b2330b33a20be60a2035abeabbd901ac"
+      },
+      "HINDPETRO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "cd1ae02a21b25f2ea297e9c6e199f6ffb1bf9872659d7158bf2c1604cf3beae1",
+        "database_sha256": "cd1ae02a21b25f2ea297e9c6e199f6ffb1bf9872659d7158bf2c1604cf3beae1"
+      },
+      "HINDUNILVR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5010e33691290fc6058b7cbbb553267708e758e9159a8824b153a2a024de0288",
+        "database_sha256": "5010e33691290fc6058b7cbbb553267708e758e9159a8824b153a2a024de0288"
+      },
+      "HINDZINC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "47312f9ef8013f7db077b9bd7f6c32661fcbec8b54c1eeaf9279357578885a61",
+        "database_sha256": "47312f9ef8013f7db077b9bd7f6c32661fcbec8b54c1eeaf9279357578885a61"
+      },
+      "HSCL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ec1a7dd53a6e0ebca007ee67912f704c9388b7f4aefcd25c4753775f984c55d1",
+        "database_sha256": "ec1a7dd53a6e0ebca007ee67912f704c9388b7f4aefcd25c4753775f984c55d1"
+      },
+      "HUDCO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d680abc3d4894f40be678c68199e10a08db2cc684caa13103c2ff761d2dd854f",
+        "database_sha256": "d680abc3d4894f40be678c68199e10a08db2cc684caa13103c2ff761d2dd854f"
+      },
+      "HYUNDAI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b8631353542d697f956d77bd5c05c85598d6d9a8ff1e6bed3c83f524d5bb1f1d",
+        "database_sha256": "b8631353542d697f956d77bd5c05c85598d6d9a8ff1e6bed3c83f524d5bb1f1d"
+      },
+      "ICICIAMC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f450627cdb4450cb793daff821147e3ff2eb94aa3b1839f6e8f9e0ca45850887",
+        "database_sha256": "f450627cdb4450cb793daff821147e3ff2eb94aa3b1839f6e8f9e0ca45850887"
+      },
+      "ICICIBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6ca86e3fb5a45acb3f98e619931d834492b8d5e55b989e8897eec7dc1f46caec",
+        "database_sha256": "6ca86e3fb5a45acb3f98e619931d834492b8d5e55b989e8897eec7dc1f46caec"
+      },
+      "ICICIGI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "84834645dc1203144d03769b4580759912fea883d5e494706e060024a933e00c",
+        "database_sha256": "84834645dc1203144d03769b4580759912fea883d5e494706e060024a933e00c"
+      },
+      "ICICIPRULI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6ea8b96b68c4fa98e5175ef31d2d1604f8d2b940e7788f8b1904625e7eecb2b4",
+        "database_sha256": "6ea8b96b68c4fa98e5175ef31d2d1604f8d2b940e7788f8b1904625e7eecb2b4"
+      },
+      "IDEA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6bf7f63d66767ad2a0c34f7505aa659ed098eb3b31f0b5fc3835941c193fc63f",
+        "database_sha256": "6bf7f63d66767ad2a0c34f7505aa659ed098eb3b31f0b5fc3835941c193fc63f"
+      },
+      "IDFCFIRSTB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "14f41bbee2eabc2fe2d2681956508aa1168ead2a83c5030f83c6c6c03bbc382a",
+        "database_sha256": "14f41bbee2eabc2fe2d2681956508aa1168ead2a83c5030f83c6c6c03bbc382a"
+      },
+      "IFCI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3a55de7ce1ad2350aa439871dec6e57125bddc1159112d39fef87a4bfbc35efb",
+        "database_sha256": "3a55de7ce1ad2350aa439871dec6e57125bddc1159112d39fef87a4bfbc35efb"
+      },
+      "IIFL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d63dd7d50b6ab2e6ab85378d6af20470f8c285e9700ce4dc4638f883199007d5",
+        "database_sha256": "d63dd7d50b6ab2e6ab85378d6af20470f8c285e9700ce4dc4638f883199007d5"
+      },
+      "INDHOTEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e8d8ae0bf3d4edde4680aa542af78e57e532b4046ed9cd4e693c30b61560fe9b",
+        "database_sha256": "e8d8ae0bf3d4edde4680aa542af78e57e532b4046ed9cd4e693c30b61560fe9b"
+      },
+      "INDIANB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2954fff166ba44eb57f3c5f011f2af168d2bec9cb72f135e77285224687c3c7f",
+        "database_sha256": "2954fff166ba44eb57f3c5f011f2af168d2bec9cb72f135e77285224687c3c7f"
+      },
+      "INDIGO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "299175a1df6dde025830ca47e5ef6244811117533f43e8ef41e5d4172d75e270",
+        "database_sha256": "299175a1df6dde025830ca47e5ef6244811117533f43e8ef41e5d4172d75e270"
+      },
+      "INDUSINDBK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "26f0aee4f78ca445a3cf3a5fa0b6c1f58a5e2321b29c85f99ca24d4fe8ec5c10",
+        "database_sha256": "26f0aee4f78ca445a3cf3a5fa0b6c1f58a5e2321b29c85f99ca24d4fe8ec5c10"
+      },
+      "INDUSTOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e87905e0dd7f14ea9a66c4b3a7bd6c2edc3daf262e64f2a67d239055d98ac7b7",
+        "database_sha256": "e87905e0dd7f14ea9a66c4b3a7bd6c2edc3daf262e64f2a67d239055d98ac7b7"
+      },
+      "INFY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "98c68db90eb0d1294c1d0e990baf1fd9a2576033b9cb31aa85593020e08d2ffe",
+        "database_sha256": "98c68db90eb0d1294c1d0e990baf1fd9a2576033b9cb31aa85593020e08d2ffe"
+      },
+      "IOB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "610de398ef1c68ea8dca68ee34f9d647451ecb1df8453f234b720ce0d7fd57db",
+        "database_sha256": "610de398ef1c68ea8dca68ee34f9d647451ecb1df8453f234b720ce0d7fd57db"
+      },
+      "IOC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "08bea92d9050686199a7c0fc2d1d893d89648a6ed7c3323ae84742369af061fe",
+        "database_sha256": "08bea92d9050686199a7c0fc2d1d893d89648a6ed7c3323ae84742369af061fe"
+      },
+      "IPCALAB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "40b1da5ed13774355c939c3c3626ff20a96ec4f87a870ea177d5806f51e6b5d1",
+        "database_sha256": "40b1da5ed13774355c939c3c3626ff20a96ec4f87a870ea177d5806f51e6b5d1"
+      },
+      "IRCTC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2a4fea0f0b2fc1d1718a422088a2b5780d98e05aff8803e76e419ad954dd5a3e",
+        "database_sha256": "2a4fea0f0b2fc1d1718a422088a2b5780d98e05aff8803e76e419ad954dd5a3e"
+      },
+      "IREDA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "23ff9cb73aff4d7d7502fb2211c7db430758920471cd0633705ffa715b4414a1",
+        "database_sha256": "23ff9cb73aff4d7d7502fb2211c7db430758920471cd0633705ffa715b4414a1"
+      },
+      "IRFC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5b3cff0b34e7f808c6e2c0ff711a7aedae05f0c75c1bf16727fff58d19a6f780",
+        "database_sha256": "5b3cff0b34e7f808c6e2c0ff711a7aedae05f0c75c1bf16727fff58d19a6f780"
+      },
+      "ITC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "cd3abc0a9d3e5bbce61300fc885adea13d075459f056b90d0785c9c6b0b65b96",
+        "database_sha256": "cd3abc0a9d3e5bbce61300fc885adea13d075459f056b90d0785c9c6b0b65b96"
+      },
+      "ITCHOTELS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7f259a5492695b7e393b4edb84549b2280185e2ecd7035e9240d292cc0f28821",
+        "database_sha256": "7f259a5492695b7e393b4edb84549b2280185e2ecd7035e9240d292cc0f28821"
+      },
+      "JINDALSTEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "23dbc0a15ecceda7db812c8258825c279c136478915dd381403a306440a20d2d",
+        "database_sha256": "23dbc0a15ecceda7db812c8258825c279c136478915dd381403a306440a20d2d"
+      },
+      "JIOFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2fd350697083f2ce15da94b6523a1a7eded47faff7e6053c6afaa1066f587dd0",
+        "database_sha256": "2fd350697083f2ce15da94b6523a1a7eded47faff7e6053c6afaa1066f587dd0"
+      },
+      "JKCEMENT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5b5749c3dbb83d7d8e0b40da2c75f90b90e9f0febf328f2eef17adf48e607cb2",
+        "database_sha256": "5b5749c3dbb83d7d8e0b40da2c75f90b90e9f0febf328f2eef17adf48e607cb2"
+      },
+      "JPPOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2d8aef82f070c70597fd389e1e2281eac168499a1873b9162b1a18da9c48da56",
+        "database_sha256": "2d8aef82f070c70597fd389e1e2281eac168499a1873b9162b1a18da9c48da56"
+      },
+      "JSL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5b278d44681c1db59fbcd4e4441b270186ff824496077242be65fe6d54c5d6aa",
+        "database_sha256": "5b278d44681c1db59fbcd4e4441b270186ff824496077242be65fe6d54c5d6aa"
+      },
+      "JSWENERGY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a8485a277a1985af3fb486e5848a391de6d64848071fc06432a0b53756eb7dec",
+        "database_sha256": "a8485a277a1985af3fb486e5848a391de6d64848071fc06432a0b53756eb7dec"
+      },
+      "JSWINFRA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a6fad1c0da6b18dbba40e72d20956db78f6a654d3f441a7ab81a0f6ecc45772f",
+        "database_sha256": "a6fad1c0da6b18dbba40e72d20956db78f6a654d3f441a7ab81a0f6ecc45772f"
+      },
+      "JSWSTEEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2124ec9b4ff17c716c0ed8cae317d81ab5ea2d03b2d17d8cead41d8cbc266f42",
+        "database_sha256": "2124ec9b4ff17c716c0ed8cae317d81ab5ea2d03b2d17d8cead41d8cbc266f42"
+      },
+      "JUBLFOOD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "884262d28c1c6d44f36850f09d2c855c8af3ce96cfc17fb90fa0c08a45be2f84",
+        "database_sha256": "884262d28c1c6d44f36850f09d2c855c8af3ce96cfc17fb90fa0c08a45be2f84"
+      },
+      "KALYANKJIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "71df9d28d4d418f74190c8b0a15d6ede0d909bb597ddcfdb15695aa97e50a3ca",
+        "database_sha256": "71df9d28d4d418f74190c8b0a15d6ede0d909bb597ddcfdb15695aa97e50a3ca"
+      },
+      "KAYNES.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e130484436f35d98ba15a2e0ad646bb6d02843edecdb465587c78e6003618c3a",
+        "database_sha256": "e130484436f35d98ba15a2e0ad646bb6d02843edecdb465587c78e6003618c3a"
+      },
+      "KEI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "66338a5269066a8e63b4c12163fd2de1dad95c63cb09a8ff7b977234a894cd92",
+        "database_sha256": "66338a5269066a8e63b4c12163fd2de1dad95c63cb09a8ff7b977234a894cd92"
+      },
+      "KIRLOSENG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "485d273e61ab4978f8e2373486a746684011a48f84a57625a77b9ff9ed17dedc",
+        "database_sha256": "485d273e61ab4978f8e2373486a746684011a48f84a57625a77b9ff9ed17dedc"
+      },
+      "KOTAKBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d341cb7b95d06579770ca265cd8239384bde6a86e90b0c39d48c206afe9067c7",
+        "database_sha256": "d341cb7b95d06579770ca265cd8239384bde6a86e90b0c39d48c206afe9067c7"
+      },
+      "KPITTECH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0e0e97bbcec3684db73e26c15bfe9188b132b8d9841c66dd3d103bd8c34494c3",
+        "database_sha256": "0e0e97bbcec3684db73e26c15bfe9188b132b8d9841c66dd3d103bd8c34494c3"
+      },
+      "KPRMILL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c310bf61faba9966ee28cac0cd8cdc7c078940fa328de30c7d07d8367d5f93bf",
+        "database_sha256": "c310bf61faba9966ee28cac0cd8cdc7c078940fa328de30c7d07d8367d5f93bf"
+      },
+      "LAURUSLABS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b9219cde4c9bb9b9f8f9cce479110c21aed0b46833c151ee33150ab4c1498ca3",
+        "database_sha256": "b9219cde4c9bb9b9f8f9cce479110c21aed0b46833c151ee33150ab4c1498ca3"
+      },
+      "LENSKART.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3ad38c17e70241ed12451aad05096b2bc53f866a2f7e7071227a9d59886a67df",
+        "database_sha256": "3ad38c17e70241ed12451aad05096b2bc53f866a2f7e7071227a9d59886a67df"
+      },
+      "LGEINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "19eccdbbf2558b0d393922a105e746298c4aa16e13b7c2f49743914f0f38d8fb",
+        "database_sha256": "19eccdbbf2558b0d393922a105e746298c4aa16e13b7c2f49743914f0f38d8fb"
+      },
+      "LICHSGFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "59d4c5e9534f402da80d83812b37fb11c9f9b09da335ba6244deb324c9643615",
+        "database_sha256": "59d4c5e9534f402da80d83812b37fb11c9f9b09da335ba6244deb324c9643615"
+      },
+      "LICI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d8f8cfdba1ee637853648510869964cf382c20cd5b568539ac1c0eaa56550274",
+        "database_sha256": "d8f8cfdba1ee637853648510869964cf382c20cd5b568539ac1c0eaa56550274"
+      },
+      "MOTILALOFS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "43f0206eb803e5cb02a46de2f52c354c9966717a1a5789a2a57ef4d9d37ab9ce",
+        "database_sha256": "43f0206eb803e5cb02a46de2f52c354c9966717a1a5789a2a57ef4d9d37ab9ce"
+      },
+      "MPHASIS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "fe74f8943129023aab42b9a411dc7052887b20a5283d614268202ca915b8829f",
+        "database_sha256": "fe74f8943129023aab42b9a411dc7052887b20a5283d614268202ca915b8829f"
+      },
+      "MRF.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3f049328540383aa39606145b97dbdd1ce96fb4f9149ca38d1c0160609c36170",
+        "database_sha256": "3f049328540383aa39606145b97dbdd1ce96fb4f9149ca38d1c0160609c36170"
+      },
+      "MRPL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a8df3b9bfadeee1ac0577b4a2e4234d616b452e2ba19327e909dfff214861896",
+        "database_sha256": "a8df3b9bfadeee1ac0577b4a2e4234d616b452e2ba19327e909dfff214861896"
+      },
+      "MTARTECH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a9946c822d3f993a812947a7e3ec42b1f30e473a157e48ec5d49ef54442392c2",
+        "database_sha256": "a9946c822d3f993a812947a7e3ec42b1f30e473a157e48ec5d49ef54442392c2"
+      },
+      "AIAENG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "929b9acefc6a2b3f18e365ed033a4e829d383e97df544824813d054f55079721",
+        "database_sha256": "929b9acefc6a2b3f18e365ed033a4e829d383e97df544824813d054f55079721"
+      },
+      "AIIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5b1c5fa65e8c1aba92d524266abcc1fb736f8ac55ce2f61af252bd39b70b6a44",
+        "database_sha256": "5b1c5fa65e8c1aba92d524266abcc1fb736f8ac55ce2f61af252bd39b70b6a44"
+      },
+      "AJANTPHARM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f3de11cbb761ad6a2ec713194112be0c3825d1b2d03c11b203d4ef4a3a2e39d0",
+        "database_sha256": "f3de11cbb761ad6a2ec713194112be0c3825d1b2d03c11b203d4ef4a3a2e39d0"
+      },
+      "ALKEM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e1cee854b0892ed56ca96c0e856da62db57be98b7e873b820999d8489d76262a",
+        "database_sha256": "e1cee854b0892ed56ca96c0e856da62db57be98b7e873b820999d8489d76262a"
+      },
+      "AMBER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "699a3bc1ba9b3208b9647b7aeca72cf407352dad0f6613d7acfc425f33bc6741",
+        "database_sha256": "699a3bc1ba9b3208b9647b7aeca72cf407352dad0f6613d7acfc425f33bc6741"
+      },
+      "AMBUJACEM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d26a293c7e07ccc287441ba78d1462a60ac24741c75adc38cb5ebbe8b275fbf7",
+        "database_sha256": "d26a293c7e07ccc287441ba78d1462a60ac24741c75adc38cb5ebbe8b275fbf7"
+      },
+      "ANANTRAJ.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ce53aabd9cdb60afa3a25336121631d82a869f1a4913e0077405ea24918f89a9",
+        "database_sha256": "ce53aabd9cdb60afa3a25336121631d82a869f1a4913e0077405ea24918f89a9"
+      },
+      "ANGELONE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6c1077e2d948c2714f14a457a7988bdd215606f06883cafcfa9eb5d93281d864",
+        "database_sha256": "6c1077e2d948c2714f14a457a7988bdd215606f06883cafcfa9eb5d93281d864"
+      },
+      "ANTHEM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0e5de62757dffde73b50976cef72e5dd1f5441846686453cf77a574520c5da14",
+        "database_sha256": "0e5de62757dffde73b50976cef72e5dd1f5441846686453cf77a574520c5da14"
+      },
+      "APARINDS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e63bc0bac4c30ccc2f4a83f188ab63f35ebd26c56cfeb885ec51f3f79d2ff054",
+        "database_sha256": "e63bc0bac4c30ccc2f4a83f188ab63f35ebd26c56cfeb885ec51f3f79d2ff054"
+      },
+      "APLAPOLLO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "617e937d343473d2f9e4841996dfd7a8e098a8e942c0d3a2f1c200d86a1389ef",
+        "database_sha256": "617e937d343473d2f9e4841996dfd7a8e098a8e942c0d3a2f1c200d86a1389ef"
+      },
+      "APOLLOHOSP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "765c30a388e0b498f6c857ca0c8b1d241ae9eaa619fd224b40c75154a7a89e0c",
+        "database_sha256": "765c30a388e0b498f6c857ca0c8b1d241ae9eaa619fd224b40c75154a7a89e0c"
+      },
+      "ASHOKLEY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4deff311c544a015492f81d4856189671395901cd15985cd870bc4906037c93e",
+        "database_sha256": "4deff311c544a015492f81d4856189671395901cd15985cd870bc4906037c93e"
+      },
+      "ASIANPAINT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b12d8179cf362209de3f1881d766eef47106d503037c80191a7a14d18eae915e",
+        "database_sha256": "b12d8179cf362209de3f1881d766eef47106d503037c80191a7a14d18eae915e"
+      },
+      "ASTERDM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c3d705670de7fa261ac05d64d977a1b1a813485ed94302ccc23ae6b2c8862d32",
+        "database_sha256": "c3d705670de7fa261ac05d64d977a1b1a813485ed94302ccc23ae6b2c8862d32"
+      },
+      "ASTRAL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8fb0c833ab4e75bdb474270111ac6cba634e8ef74d65815c0caecc0acc8b62d6",
+        "database_sha256": "8fb0c833ab4e75bdb474270111ac6cba634e8ef74d65815c0caecc0acc8b62d6"
+      },
+      "ATGL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "750e4d6b3b134364509bbf486b6de894e0c92daa9cd478189eb7f81c0fb32836",
+        "database_sha256": "750e4d6b3b134364509bbf486b6de894e0c92daa9cd478189eb7f81c0fb32836"
+      },
+      "ATHERENERG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "26d8c56371dc13248449e0a16717f1fc656096e951f400c9c9c1c19db32ffa47",
+        "database_sha256": "26d8c56371dc13248449e0a16717f1fc656096e951f400c9c9c1c19db32ffa47"
+      },
+      "AUBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ad27ff1cfb496a21f63f2a8c18f789b2d83c0d28dffa03a070ce11ee989bba90",
+        "database_sha256": "ad27ff1cfb496a21f63f2a8c18f789b2d83c0d28dffa03a070ce11ee989bba90"
+      },
+      "NATIONALUM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2586d8a48ecbf4992f4c59e2822ccec1fb16187fd55ffcf6b08b920d1b27ba8a",
+        "database_sha256": "2586d8a48ecbf4992f4c59e2822ccec1fb16187fd55ffcf6b08b920d1b27ba8a"
+      },
+      "NAUKRI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2c54c7a9501aa32c16780d7421dbcfcf9f3682f7679328f7dd2820f5a0720474",
+        "database_sha256": "2c54c7a9501aa32c16780d7421dbcfcf9f3682f7679328f7dd2820f5a0720474"
+      },
+      "NAVINFLUOR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f8f0b2be18c59d1d26fb9bba1e7d1adfc45496297554e330be2900ed9cb523d1",
+        "database_sha256": "f8f0b2be18c59d1d26fb9bba1e7d1adfc45496297554e330be2900ed9cb523d1"
+      },
+      "NESTLEIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ab1dbf0e1cc590db740af1cd196d712f1060f4ac2c02ddaa8f46b6c3e579c8ac",
+        "database_sha256": "ab1dbf0e1cc590db740af1cd196d712f1060f4ac2c02ddaa8f46b6c3e579c8ac"
+      },
+      "NETWEB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7852d01d85f64b3d283be8dd5ccf93ae3d4fadb5e786bef81e1b546147833363",
+        "database_sha256": "7852d01d85f64b3d283be8dd5ccf93ae3d4fadb5e786bef81e1b546147833363"
+      },
+      "NH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "077473d97b4bfbc184b439b703635f935e7dd62ab3d907a1e78eaa54bd9a93a8",
+        "database_sha256": "077473d97b4bfbc184b439b703635f935e7dd62ab3d907a1e78eaa54bd9a93a8"
+      },
+      "NHPC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "334bb7db92d77f84e46b4ee87932ed0ed31f698d3f7855e463b0d3ad48b666ea",
+        "database_sha256": "334bb7db92d77f84e46b4ee87932ed0ed31f698d3f7855e463b0d3ad48b666ea"
+      },
+      "NLCINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c4485353c30a5881cab206cd8c76939742df76c866dbada606eef667907d44fb",
+        "database_sha256": "c4485353c30a5881cab206cd8c76939742df76c866dbada606eef667907d44fb"
+      },
+      "NMDC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a2dc1206ccf662aeebfcf1aee14cfab5daecff19773bb993e4257187d19353b0",
+        "database_sha256": "a2dc1206ccf662aeebfcf1aee14cfab5daecff19773bb993e4257187d19353b0"
+      },
+      "NTPC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a59caa4149800b5eef2cbe16d94009570aa48af05352ec5da661176d36127a4a",
+        "database_sha256": "a59caa4149800b5eef2cbe16d94009570aa48af05352ec5da661176d36127a4a"
+      },
+      "NTPCGREEN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "82b7a97fd83188c5f79c6c5d51e8b9c7c64226e96e92c4c2883f56bc3b9e1b09",
+        "database_sha256": "82b7a97fd83188c5f79c6c5d51e8b9c7c64226e96e92c4c2883f56bc3b9e1b09"
+      },
+      "NYKAA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c6ec90eaf5e21ae731635be2cf5683324215439f12099adfc92c7c253ca88207",
+        "database_sha256": "c6ec90eaf5e21ae731635be2cf5683324215439f12099adfc92c7c253ca88207"
+      },
+      "OBEROIRLTY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9e495f3adccbab6d6c83f6c5542aec907374ebf852aaebd9401d4333d96b6f5e",
+        "database_sha256": "9e495f3adccbab6d6c83f6c5542aec907374ebf852aaebd9401d4333d96b6f5e"
+      },
+      "OFSS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a3e1eb234cbbf82e45a70917c07b3442aa148d03d8e032ef0da8c966c8182197",
+        "database_sha256": "a3e1eb234cbbf82e45a70917c07b3442aa148d03d8e032ef0da8c966c8182197"
+      },
+      "OIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7ed441559fea2b62d4b8369d9968df7c631f8bae7afc1bd0ab5a053ed65491cd",
+        "database_sha256": "7ed441559fea2b62d4b8369d9968df7c631f8bae7afc1bd0ab5a053ed65491cd"
+      },
+      "OLAELEC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0a980e0180f2a94d867a84d612315e6a2d5bb2e5c18e14f18746c88ddc17076a",
+        "database_sha256": "0a980e0180f2a94d867a84d612315e6a2d5bb2e5c18e14f18746c88ddc17076a"
+      },
+      "ONGC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ed01c3af85266d687d758d575d4e8de0bd8d3f0512f570fb956eba21440ddb3b",
+        "database_sha256": "ed01c3af85266d687d758d575d4e8de0bd8d3f0512f570fb956eba21440ddb3b"
+      },
+      "PAGEIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "29480f38f7027701a86f6a5d75509ce9ab3a79bc8b9086e3575ed832866bf210",
+        "database_sha256": "29480f38f7027701a86f6a5d75509ce9ab3a79bc8b9086e3575ed832866bf210"
+      },
+      "PATANJALI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e03764a849b817607dab571750016d60614956612d2a2a301fcf1fcb210065b1",
+        "database_sha256": "e03764a849b817607dab571750016d60614956612d2a2a301fcf1fcb210065b1"
+      },
+      "PAYTM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b94f664e01eb52ffd078bc6d696457c5f826973849f3571b53c38a2327429cbc",
+        "database_sha256": "b94f664e01eb52ffd078bc6d696457c5f826973849f3571b53c38a2327429cbc"
+      },
+      "PERSISTENT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3d48d53c885274de52118a5b9587c966fa0265592a8b5ed4148c5be7b0ef762c",
+        "database_sha256": "3d48d53c885274de52118a5b9587c966fa0265592a8b5ed4148c5be7b0ef762c"
+      },
+      "PETRONET.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a8bcead8132417e2be56c3f5c6f9858ad273ca8c53de729b0af11a44222b5b38",
+        "database_sha256": "a8bcead8132417e2be56c3f5c6f9858ad273ca8c53de729b0af11a44222b5b38"
+      },
+      "PFC.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "05c6330b042af0dc83503493ef6a7baeb2cb32cfb8f4d26520bf9bad86d995c4",
+        "database_sha256": "05c6330b042af0dc83503493ef6a7baeb2cb32cfb8f4d26520bf9bad86d995c4"
+      },
+      "PHOENIXLTD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e84f582113c031d16dff73ca031573e5d51c04dd9b8deba7ff19fbbe5b5f7bd7",
+        "database_sha256": "e84f582113c031d16dff73ca031573e5d51c04dd9b8deba7ff19fbbe5b5f7bd7"
+      },
+      "PIDILITIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "76c4675de54560b013022355f3ea2824aa6a340a9f797a3e7a578e8d1a6ce8ce",
+        "database_sha256": "76c4675de54560b013022355f3ea2824aa6a340a9f797a3e7a578e8d1a6ce8ce"
+      },
+      "PIIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3d55f9a55d96f3441b5f6e50e0662060ca9dec45d47be8c774f6d9963d55fd07",
+        "database_sha256": "3d55f9a55d96f3441b5f6e50e0662060ca9dec45d47be8c774f6d9963d55fd07"
+      },
+      "PINELABS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b4556c9f2c26f931784cedf28501edff4a6accc597ac651780c9cf4c1ae1cfe2",
+        "database_sha256": "b4556c9f2c26f931784cedf28501edff4a6accc597ac651780c9cf4c1ae1cfe2"
+      },
+      "BERGEPAINT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6c88088bd52f215778e4c8dc01a0de8d2cb596ab93dd00b914da07966a302d48",
+        "database_sha256": "6c88088bd52f215778e4c8dc01a0de8d2cb596ab93dd00b914da07966a302d48"
+      },
+      "BHARATFORG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b21ebc9cfe7b48c0904ebc132eac1ad87f790cd716825eb287d07ef80726825e",
+        "database_sha256": "b21ebc9cfe7b48c0904ebc132eac1ad87f790cd716825eb287d07ef80726825e"
+      },
+      "BHARTIARTL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4e577f224f532c074bd15fca25543301738cf4b3d2d79841a07f94906c5dee86",
+        "database_sha256": "4e577f224f532c074bd15fca25543301738cf4b3d2d79841a07f94906c5dee86"
+      },
+      "BHARTIHEXA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "940315f5427389851a71df4c167d9318bfd14126d94d2211e6f38c2c16874ba6",
+        "database_sha256": "940315f5427389851a71df4c167d9318bfd14126d94d2211e6f38c2c16874ba6"
+      },
+      "BHEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6c9e50001be2098ad4d4e8cb95f85b4e93ca2c7a7aece445b7a4c837b5f69b1b",
+        "database_sha256": "6c9e50001be2098ad4d4e8cb95f85b4e93ca2c7a7aece445b7a4c837b5f69b1b"
+      },
+      "BIOCON.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7e9db081dba4cdda151480f4da84e3164dbef187ada7f62746630e27e8a8f499",
+        "database_sha256": "7e9db081dba4cdda151480f4da84e3164dbef187ada7f62746630e27e8a8f499"
+      },
+      "BLUESTARCO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "19a029368d6517128892b29baf7f438615b4995a2f57d5e5b60b225e6833a0b0",
+        "database_sha256": "19a029368d6517128892b29baf7f438615b4995a2f57d5e5b60b225e6833a0b0"
+      },
+      "BOSCHLTD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "24f023c7cd207e656e0ec75aca696505e04d1c5351c48135a06be1c8a06e6ce5",
+        "database_sha256": "24f023c7cd207e656e0ec75aca696505e04d1c5351c48135a06be1c8a06e6ce5"
+      },
+      "BPCL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "de8f56f80b9a2281d86333b2a5e025645cb8397ab4a70da2a28a34c3a59375e5",
+        "database_sha256": "de8f56f80b9a2281d86333b2a5e025645cb8397ab4a70da2a28a34c3a59375e5"
+      },
+      "BRITANNIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7efc74f29e3db6d1a928e01d2485dd2be7a79e80a5330a5cf79bc6f05f6e8130",
+        "database_sha256": "7efc74f29e3db6d1a928e01d2485dd2be7a79e80a5330a5cf79bc6f05f6e8130"
+      },
+      "BSE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "73a112870fcb034b6254fbda59e5dcadd4763c232154a45b15f6e28c5a60d2c9",
+        "database_sha256": "73a112870fcb034b6254fbda59e5dcadd4763c232154a45b15f6e28c5a60d2c9"
+      },
+      "CANBK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "88a4290beb5dc6dc9febc8628c019d7555e74c2a5c060b9edcf0f08cf3bda65b",
+        "database_sha256": "88a4290beb5dc6dc9febc8628c019d7555e74c2a5c060b9edcf0f08cf3bda65b"
+      },
+      "CARTRADE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ac8f679cee3d33a519200e3728fe7106abaf5c9e5099937b673cd2d8c4c5f6a9",
+        "database_sha256": "ac8f679cee3d33a519200e3728fe7106abaf5c9e5099937b673cd2d8c4c5f6a9"
+      },
+      "CDSL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "6fddfd8c3f4913e853b099d6083fc3b9797a165d8bdf85148b563d1e73f4a2fc",
+        "database_sha256": "6fddfd8c3f4913e853b099d6083fc3b9797a165d8bdf85148b563d1e73f4a2fc"
+      },
+      "CGPOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "eef907033a54e46fa3f2c5b8d1da1f4e5161ec8ab9d2a568f80685cde68fdb35",
+        "database_sha256": "eef907033a54e46fa3f2c5b8d1da1f4e5161ec8ab9d2a568f80685cde68fdb35"
+      },
+      "CHENNPETRO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4f82a7dbf0ed5f2cf6194caad808709a8615f62805d9554709066b003c4b1fab",
+        "database_sha256": "4f82a7dbf0ed5f2cf6194caad808709a8615f62805d9554709066b003c4b1fab"
+      },
+      "CHOLAFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0f0f480271ef01a6de52c242dcb69f4d7b6d6d4a60dff1c9867cdbd009d9c1e2",
+        "database_sha256": "0f0f480271ef01a6de52c242dcb69f4d7b6d6d4a60dff1c9867cdbd009d9c1e2"
+      },
+      "CIPLA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "be1dd86c1c83e4356d5d89d7afa46356f64df7d9f1d18b77f4561efa74289dd6",
+        "database_sha256": "be1dd86c1c83e4356d5d89d7afa46356f64df7d9f1d18b77f4561efa74289dd6"
+      },
+      "COALINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9487edbae56feb03855fa96f8ae7ae3e02bc4502859c64b451a9c7b4d384c551",
+        "database_sha256": "9487edbae56feb03855fa96f8ae7ae3e02bc4502859c64b451a9c7b4d384c551"
+      },
+      "COCHINSHIP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "dbc46ee2178c4a234216d4c354dde2140c8df717ba94357738a8ac5555f55736",
+        "database_sha256": "dbc46ee2178c4a234216d4c354dde2140c8df717ba94357738a8ac5555f55736"
+      },
+      "COFORGE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0c1459ac8f30667b045c79478e110b07b11f0a1bb32e04ed7518455d61a43ee2",
+        "database_sha256": "0c1459ac8f30667b045c79478e110b07b11f0a1bb32e04ed7518455d61a43ee2"
+      },
+      "COLPAL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "facd3be70c6d47c88c1bc10b9dcadeccba937b03508450fe5af7cf20e85fc8ed",
+        "database_sha256": "facd3be70c6d47c88c1bc10b9dcadeccba937b03508450fe5af7cf20e85fc8ed"
+      },
+      "CONCOR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "dbdd5ad836fe50793ac414524a48c6bd12687f94ae90f2dbc34852e54d2996b4",
+        "database_sha256": "dbdd5ad836fe50793ac414524a48c6bd12687f94ae90f2dbc34852e54d2996b4"
+      },
+      "COROMANDEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "31dafaf8ee09ffbe309bdd3a35c1bd1f8f3e1e23cad880352521b1e71a80aac0",
+        "database_sha256": "31dafaf8ee09ffbe309bdd3a35c1bd1f8f3e1e23cad880352521b1e71a80aac0"
+      },
+      "AUROPHARMA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c3618e719b4d10aca0028a564735c14f4ad35f15143448daf8249879ce757fff",
+        "database_sha256": "c3618e719b4d10aca0028a564735c14f4ad35f15143448daf8249879ce757fff"
+      },
+      "AXISBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3bae61a888f54ef6501acc990ec16317862fee4c7b961b8a065fa99d0c9b333e",
+        "database_sha256": "3bae61a888f54ef6501acc990ec16317862fee4c7b961b8a065fa99d0c9b333e"
+      },
+      "AZAD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4d7288549ce33e445d69c7a821b935fad72df8b80029e64ddde14331f8923488",
+        "database_sha256": "4d7288549ce33e445d69c7a821b935fad72df8b80029e64ddde14331f8923488"
+      },
+      "BAJAJ-AUTO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3d9b54485095b5881b7b31cc295b8b2c6dd65088d03d8f2d774bcef5e28fcda2",
+        "database_sha256": "3d9b54485095b5881b7b31cc295b8b2c6dd65088d03d8f2d774bcef5e28fcda2"
+      },
+      "BAJAJFINSV.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d60f79d89f37e94108abb21db87fc475431f0a35dd6872c2537be867f0e38b39",
+        "database_sha256": "d60f79d89f37e94108abb21db87fc475431f0a35dd6872c2537be867f0e38b39"
+      },
+      "BAJAJHFL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "91060e6c07d9c6c154e01df33c91a46c27a316155db4c216c297eaf26dfb0939",
+        "database_sha256": "91060e6c07d9c6c154e01df33c91a46c27a316155db4c216c297eaf26dfb0939"
+      },
+      "BAJAJHLDNG.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2a51e22a0ec073d557173bcc79e370b2b82d55a7e4b733ab403b8626860b949e",
+        "database_sha256": "2a51e22a0ec073d557173bcc79e370b2b82d55a7e4b733ab403b8626860b949e"
+      },
+      "BAJFINANCE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a138ce0499f02589ba52d2832a2b07b921cd6b759d7a89ca9aa86dbd1815a0e0",
+        "database_sha256": "a138ce0499f02589ba52d2832a2b07b921cd6b759d7a89ca9aa86dbd1815a0e0"
+      },
+      "BALKRISIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4bfa236ae5df6561ef8e2db4445bf2d51253698819321119b47556a52972060c",
+        "database_sha256": "4bfa236ae5df6561ef8e2db4445bf2d51253698819321119b47556a52972060c"
+      },
+      "BANDHANBNK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9fa7591f77e827317ce7e71378e5568966b95b86c5747e5b9f2fc746e103eff8",
+        "database_sha256": "9fa7591f77e827317ce7e71378e5568966b95b86c5747e5b9f2fc746e103eff8"
+      },
+      "BANKBARODA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a387f33c2bc1a651a222e4f5ba7065aa3b6a96776857131c9df94d336adbbb5f",
+        "database_sha256": "a387f33c2bc1a651a222e4f5ba7065aa3b6a96776857131c9df94d336adbbb5f"
+      },
+      "BANKINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "394c7b61a8536a154a584fb8b038815084d31f966b7769cbd8127c96a85dd9d8",
+        "database_sha256": "394c7b61a8536a154a584fb8b038815084d31f966b7769cbd8127c96a85dd9d8"
+      },
+      "BDL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a728bba7a0b429918d51f2a4626b35c9389fab163437051ea84717f19a4be79b",
+        "database_sha256": "a728bba7a0b429918d51f2a4626b35c9389fab163437051ea84717f19a4be79b"
+      },
+      "BEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8b1c2129324bea33e90f12150d22b184eb542734488e9092463541a6cf9773e9",
+        "database_sha256": "8b1c2129324bea33e90f12150d22b184eb542734488e9092463541a6cf9773e9"
+      },
+      "LTF.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "801848ed0ba70a530fe44d5a6ca3c49e6a358bc966d8d9eabeb9f149c7c3f4fe",
+        "database_sha256": "801848ed0ba70a530fe44d5a6ca3c49e6a358bc966d8d9eabeb9f149c7c3f4fe"
+      },
+      "PIRAMALFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "27a2b12c34ad676caa233a8d2eaae2937ef9bcaaf94d9b11d3b42def44fc9ce3",
+        "database_sha256": "27a2b12c34ad676caa233a8d2eaae2937ef9bcaaf94d9b11d3b42def44fc9ce3"
+      },
+      "PNB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "edd85a6904eba865010dd708d51bf163a7e90a1a35d63d5f4eb3f71b6f5ea150",
+        "database_sha256": "edd85a6904eba865010dd708d51bf163a7e90a1a35d63d5f4eb3f71b6f5ea150"
+      },
+      "POLICYBZR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b1ca3636359e08c34e746893fddb7102dc95ef8a8d1bfa4ba2a0e366859724a9",
+        "database_sha256": "b1ca3636359e08c34e746893fddb7102dc95ef8a8d1bfa4ba2a0e366859724a9"
+      },
+      "POLYCAB.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "1d410bf075a24a765f5fcfe1b360db8e53d862b0ffee3db10f32604b42c89432",
+        "database_sha256": "1d410bf075a24a765f5fcfe1b360db8e53d862b0ffee3db10f32604b42c89432"
+      },
+      "POWERGRID.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f0128980866b88d6cc8ea644f88189c13bae544f11d5beeb93e70c37341ecc09",
+        "database_sha256": "f0128980866b88d6cc8ea644f88189c13bae544f11d5beeb93e70c37341ecc09"
+      },
+      "POWERINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d779a3bdd73b270bd8c92cd14c13702094a7a021a135dbb642e8b54b40e9170c",
+        "database_sha256": "d779a3bdd73b270bd8c92cd14c13702094a7a021a135dbb642e8b54b40e9170c"
+      },
+      "PREMIERENE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8014cb78ae23cab2336033a0a095b5aadf57f1f6db11be848169848f190c1c2c",
+        "database_sha256": "8014cb78ae23cab2336033a0a095b5aadf57f1f6db11be848169848f190c1c2c"
+      },
+      "PRESTIGE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0d7b422a58d8f9d8f8da3678c7deb69c65ec94edef9db7437688265188ffc89b",
+        "database_sha256": "0d7b422a58d8f9d8f8da3678c7deb69c65ec94edef9db7437688265188ffc89b"
+      },
+      "PWL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c9291d225cf66a98616144716055e5aeed28e50b42699a63792fb299f25f287a",
+        "database_sha256": "c9291d225cf66a98616144716055e5aeed28e50b42699a63792fb299f25f287a"
+      },
+      "RADICO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "5bbda3c94c462a127c1f5a30c57d2edca310556172facb735a3383d05314a0e8",
+        "database_sha256": "5bbda3c94c462a127c1f5a30c57d2edca310556172facb735a3383d05314a0e8"
+      },
+      "RBLBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "36c76d061aedbbe9db108d1caa2c80f4f748626d3cc3593da75c31af1c47f7c9",
+        "database_sha256": "36c76d061aedbbe9db108d1caa2c80f4f748626d3cc3593da75c31af1c47f7c9"
+      },
+      "RECLTD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "af1a0cb0abaa64173d14e4f0090a6b94bd805bc470b55e15ee10ec6b17c96ee3",
+        "database_sha256": "af1a0cb0abaa64173d14e4f0090a6b94bd805bc470b55e15ee10ec6b17c96ee3"
+      },
+      "REDINGTON.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "35d7565dc8e7a2717a8261323e0d9ee2f8d0366b8dbde50f58e1a9490311c545",
+        "database_sha256": "35d7565dc8e7a2717a8261323e0d9ee2f8d0366b8dbde50f58e1a9490311c545"
+      },
+      "RELIANCE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "452c2b6770a0adbf70dd1f58efb589705503fd7a67257b89dc6473cb6ba1d190",
+        "database_sha256": "452c2b6770a0adbf70dd1f58efb589705503fd7a67257b89dc6473cb6ba1d190"
+      },
+      "RRKABEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "12d431be43f97aa26bb6df8f0dabc3f0eb492d03060f14a5e26881a659399010",
+        "database_sha256": "12d431be43f97aa26bb6df8f0dabc3f0eb492d03060f14a5e26881a659399010"
+      },
+      "RVNL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b7c776ce8d9af6dd77d8155ea1a70a51f9ddcf0637cbf1b24409e9eb238bbe69",
+        "database_sha256": "b7c776ce8d9af6dd77d8155ea1a70a51f9ddcf0637cbf1b24409e9eb238bbe69"
+      },
+      "SAIL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b000b4a7e11b806c7d6e5f974928a429e06ad883c95efa25968a1993acba6009",
+        "database_sha256": "b000b4a7e11b806c7d6e5f974928a429e06ad883c95efa25968a1993acba6009"
+      },
+      "SAMMAANCAP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "01911ea7c969646408749a394d45baa1d734e0b382b006c51477defc4fa9aa19",
+        "database_sha256": "01911ea7c969646408749a394d45baa1d734e0b382b006c51477defc4fa9aa19"
+      },
+      "SBICARD.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d181649b18c1b8e0056ddd4b6c3c8576bbe29ca9f6be9b9c9ad6c79aceeee696",
+        "database_sha256": "d181649b18c1b8e0056ddd4b6c3c8576bbe29ca9f6be9b9c9ad6c79aceeee696"
+      },
+      "SBILIFE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "eca91649337cb6b6195e3c33315ce05f924ef546e248d37a5048602ce2e706d4",
+        "database_sha256": "eca91649337cb6b6195e3c33315ce05f924ef546e248d37a5048602ce2e706d4"
+      },
+      "SBIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "83625bb00d3fc286e165daf8d197b0e03ca647893a200d0fbfb8f1eb8c35241f",
+        "database_sha256": "83625bb00d3fc286e165daf8d197b0e03ca647893a200d0fbfb8f1eb8c35241f"
+      },
+      "TORNTPHARM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d5ffd7ffcd26b1a1071411f3dba1c388f0b526b478b20a459710fa856367388a",
+        "database_sha256": "d5ffd7ffcd26b1a1071411f3dba1c388f0b526b478b20a459710fa856367388a"
+      },
+      "TORNTPOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a76afd0c95b7dd521b7b3ec6f87c718380db61754380cdd40352aa100fe0fb0b",
+        "database_sha256": "a76afd0c95b7dd521b7b3ec6f87c718380db61754380cdd40352aa100fe0fb0b"
+      },
+      "TRENT.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "62fff9065f4ab8084b420eae94d87b3475be96bb530be1af343d3abc3e2c71c0",
+        "database_sha256": "62fff9065f4ab8084b420eae94d87b3475be96bb530be1af343d3abc3e2c71c0"
+      },
+      "TVSMOTOR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "1d53eedffa3e478469dba7d96dadb2b1d8449a7f419aa20b7262d1df147f3691",
+        "database_sha256": "1d53eedffa3e478469dba7d96dadb2b1d8449a7f419aa20b7262d1df147f3691"
+      },
+      "UBL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c7b71d4c571f513dc65e23e119a08d9b98baa4cab6cc4795168eaad5fe64b5b7",
+        "database_sha256": "c7b71d4c571f513dc65e23e119a08d9b98baa4cab6cc4795168eaad5fe64b5b7"
+      },
+      "ULTRACEMCO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "182bbf4093b7847adfec21a247f2cda61f2effe4664baa8db2cf0027ad847f70",
+        "database_sha256": "182bbf4093b7847adfec21a247f2cda61f2effe4664baa8db2cf0027ad847f70"
+      },
+      "UNIONBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c7f99d1bfc320af364577ea392c97e29bf15d4174e3febc2217f151024a2d462",
+        "database_sha256": "c7f99d1bfc320af364577ea392c97e29bf15d4174e3febc2217f151024a2d462"
+      },
+      "UNITDSPR.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "77665dcded9e92f4b3b1544c6efe2736fddc05c19247323b4aecfb7fa944fbe8",
+        "database_sha256": "77665dcded9e92f4b3b1544c6efe2736fddc05c19247323b4aecfb7fa944fbe8"
+      },
+      "UNOMINDA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3c61eaa599664c2595b2b8e5d26c855230521879b7c5223ec1072b1cfe4bfe65",
+        "database_sha256": "3c61eaa599664c2595b2b8e5d26c855230521879b7c5223ec1072b1cfe4bfe65"
+      },
+      "UPL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b1e52a3c268a2f7eae5d9ab4e68c72de4f85ac89d84ddee4965a3c1c17c71fa5",
+        "database_sha256": "b1e52a3c268a2f7eae5d9ab4e68c72de4f85ac89d84ddee4965a3c1c17c71fa5"
+      },
+      "VAML.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "86c1d4b2131729e4e4c58f95f1de8c9cddf8e3986431330bab66d62a91a7ad74",
+        "database_sha256": "86c1d4b2131729e4e4c58f95f1de8c9cddf8e3986431330bab66d62a91a7ad74"
+      },
+      "VBL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "447884a9773c73ab010f9442fe8f8092d0c644a93fd5af2c01212b343a1c48b9",
+        "database_sha256": "447884a9773c73ab010f9442fe8f8092d0c644a93fd5af2c01212b343a1c48b9"
+      },
+      "VEDL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2abd4722bdf5593cd4f8988720a0cfaf1c45ad3c4fdb9a99eebe497282be559a",
+        "database_sha256": "2abd4722bdf5593cd4f8988720a0cfaf1c45ad3c4fdb9a99eebe497282be559a"
+      },
+      "VISL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c208f2cd479050fc601dcee0a614d1ff110d372da28a3cc0eed873e4afe83a10",
+        "database_sha256": "c208f2cd479050fc601dcee0a614d1ff110d372da28a3cc0eed873e4afe83a10"
+      },
+      "VMM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "193f6d8b278bf18b5654d8dccbd63fe5fc40673f59b8858a88fc59619047f3a1",
+        "database_sha256": "193f6d8b278bf18b5654d8dccbd63fe5fc40673f59b8858a88fc59619047f3a1"
+      },
+      "VOGL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f16004686cdc55ba87d7274feb086e87840c152298d59224729e4ac026f57735",
+        "database_sha256": "f16004686cdc55ba87d7274feb086e87840c152298d59224729e4ac026f57735"
+      },
+      "VOLTAS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f01a66142fdc752dc1385e0fbb23000db3d40ee487ff7fd45697def5852c7e71",
+        "database_sha256": "f01a66142fdc752dc1385e0fbb23000db3d40ee487ff7fd45697def5852c7e71"
+      },
+      "WAAREEENER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "c3d9cbaa6518718f0df8438a708dfe7aa4f8f276dc06c776ac9695065a86a03e",
+        "database_sha256": "c3d9cbaa6518718f0df8438a708dfe7aa4f8f276dc06c776ac9695065a86a03e"
+      },
+      "WELCORP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "656b0578c4c45a0c73897cc9dc47767694766c2f6b61f6235cd1456054ae0a07",
+        "database_sha256": "656b0578c4c45a0c73897cc9dc47767694766c2f6b61f6235cd1456054ae0a07"
+      },
+      "WIPRO.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "26cb1e62688700f3f606fe4379ca8d42011b56fc56f68af7cdcbcfaacd10ae67",
+        "database_sha256": "26cb1e62688700f3f606fe4379ca8d42011b56fc56f68af7cdcbcfaacd10ae67"
+      },
+      "WOCKPHARMA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "930610b5d8c6193d40d0d69bda4f7eccb1fd694d8de20db02ee45a8cb56a0deb",
+        "database_sha256": "930610b5d8c6193d40d0d69bda4f7eccb1fd694d8de20db02ee45a8cb56a0deb"
+      },
+      "YESBANK.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a5af881a5392b78791a4035f9b450ff1b840af087823dd60034500490f9efef1",
+        "database_sha256": "a5af881a5392b78791a4035f9b450ff1b840af087823dd60034500490f9efef1"
+      },
+      "ZEEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "71218d3fbaf25ad1df18e07a45a0e45ace226ba38cc3dc3dab71928effc283b5",
+        "database_sha256": "71218d3fbaf25ad1df18e07a45a0e45ace226ba38cc3dc3dab71928effc283b5"
+      },
+      "ZENSARTECH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "f181df84af701da1a8d48d2dff51ac8405c171cf000a32c8d0c51339e2279c66",
+        "database_sha256": "f181df84af701da1a8d48d2dff51ac8405c171cf000a32c8d0c51339e2279c66"
+      },
+      "ZYDUSLIFE.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "058124356d1acdb31e3d51f8103e5d6dedcc68b7af19fe40cd992ac3e2c6fcff",
+        "database_sha256": "058124356d1acdb31e3d51f8103e5d6dedcc68b7af19fe40cd992ac3e2c6fcff"
+      },
+      "^INDIAVIX": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a54629a9fee482159910e8219c993bf568adf123e18c49375670ae3fc3de9132",
+        "database_sha256": "a54629a9fee482159910e8219c993bf568adf123e18c49375670ae3fc3de9132"
+      },
+      "^NSEI": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ad66b22151e6209e144e47c32723cc0507166352a22cd6d58a4bc4c6392dec90",
+        "database_sha256": "ad66b22151e6209e144e47c32723cc0507166352a22cd6d58a4bc4c6392dec90"
+      },
+      "THERMAX.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7585220a259f0709a5a09655922f66e3af0a6f87e44c1667cae6bccd5c8cc843",
+        "database_sha256": "7585220a259f0709a5a09655922f66e3af0a6f87e44c1667cae6bccd5c8cc843"
+      },
+      "TIINDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "e98571b44ff0cdfa4f08f4502d8db9b7a272e2aabe894563adcce3d63aa52f96",
+        "database_sha256": "e98571b44ff0cdfa4f08f4502d8db9b7a272e2aabe894563adcce3d63aa52f96"
+      },
+      "TITAN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2ae5c4f12ce5f43aae5d7bf46395b0cf0a9698f4fff1955982d2d0a67137795f",
+        "database_sha256": "2ae5c4f12ce5f43aae5d7bf46395b0cf0a9698f4fff1955982d2d0a67137795f"
+      },
+      "TMCV.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2404bb2089c9c20d1c9346119a64f9d5a4c34d268651e4e53f28ff30e347b5c7",
+        "database_sha256": "2404bb2089c9c20d1c9346119a64f9d5a4c34d268651e4e53f28ff30e347b5c7"
+      },
+      "TMPV.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7ab36b3fd6f2233974f084b9a0bb9d3e76d6baf8d4d3c2b2fe04c53f67e11cb8",
+        "database_sha256": "7ab36b3fd6f2233974f084b9a0bb9d3e76d6baf8d4d3c2b2fe04c53f67e11cb8"
+      },
+      "MUTHOOTFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d5a565d17bd42211c627f051a71ce9d27d794acc101ea5d11e268cbadd675cf5",
+        "database_sha256": "d5a565d17bd42211c627f051a71ce9d27d794acc101ea5d11e268cbadd675cf5"
+      },
+      "NAM-INDIA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d94bd44815b17c0ae7274a779706218d07fc48ed0a475da4d3d32fb33e02850a",
+        "database_sha256": "d94bd44815b17c0ae7274a779706218d07fc48ed0a475da4d3d32fb33e02850a"
+      },
+      "SCHAEFFLER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a350d04b367abeafdaa81045300f429c0e08143530962203cc3e0b6c65d99761",
+        "database_sha256": "a350d04b367abeafdaa81045300f429c0e08143530962203cc3e0b6c65d99761"
+      },
+      "SCI.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "4542f958d9cea91cb20aad87910d952e8481c9363b5d16374fe502b36f762c6d",
+        "database_sha256": "4542f958d9cea91cb20aad87910d952e8481c9363b5d16374fe502b36f762c6d"
+      },
+      "SHREECEM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2089d413f3393a61135488c779bdd2d374d1ec49735190371df706f6b4994172",
+        "database_sha256": "2089d413f3393a61135488c779bdd2d374d1ec49735190371df706f6b4994172"
+      },
+      "SHRIRAMFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b9557717a6e964bc9b305845631348150dfff7867e700759bdea1b4ba3b232be",
+        "database_sha256": "b9557717a6e964bc9b305845631348150dfff7867e700759bdea1b4ba3b232be"
+      },
+      "SIEMENS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0e388d3da9d121b75ecb80a5973cb74d603a68ef846e27399797448c40ccc051",
+        "database_sha256": "0e388d3da9d121b75ecb80a5973cb74d603a68ef846e27399797448c40ccc051"
+      },
+      "SOLARINDS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0047df7b9f8bd5d90a38f7ebe9799db6c113da01a57e806e5df6706cfe155764",
+        "database_sha256": "0047df7b9f8bd5d90a38f7ebe9799db6c113da01a57e806e5df6706cfe155764"
+      },
+      "SONACOMS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "9552a23949833ed2cad8ab9323d939b4f7415bf4d407e2b49932df0aa1e8fd5f",
+        "database_sha256": "9552a23949833ed2cad8ab9323d939b4f7415bf4d407e2b49932df0aa1e8fd5f"
+      },
+      "SRF.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "111f5fcb449354d49f9fd9c0baf667f02527eb61dc354eed12dd7506ec66f93e",
+        "database_sha256": "111f5fcb449354d49f9fd9c0baf667f02527eb61dc354eed12dd7506ec66f93e"
+      },
+      "STLTECH.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7d0ea382b47edac63871bb3d5674ea26747b380f55a326e0d62363403d346a49",
+        "database_sha256": "7d0ea382b47edac63871bb3d5674ea26747b380f55a326e0d62363403d346a49"
+      },
+      "SUNDARMFIN.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "fd9d562fc1909bea661f4c5087a10d3c09db3d66fe4b609a7f36c10d68e7e98c",
+        "database_sha256": "fd9d562fc1909bea661f4c5087a10d3c09db3d66fe4b609a7f36c10d68e7e98c"
+      },
+      "SUNPHARMA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "bc76547b66b0cb7ec2188509817aff807ea62667a75b724ebb214b26e9648974",
+        "database_sha256": "bc76547b66b0cb7ec2188509817aff807ea62667a75b724ebb214b26e9648974"
+      },
+      "SUPREMEIND.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "a81ee2e53c53d4e1047ca5e73462c711619257a3309f434dce3b9f63b61daa27",
+        "database_sha256": "a81ee2e53c53d4e1047ca5e73462c711619257a3309f434dce3b9f63b61daa27"
+      },
+      "SUZLON.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "785b8a24204bd62a4e4b4215e594717f6950cd456c09c36b9002f2fc8ffd1e8e",
+        "database_sha256": "785b8a24204bd62a4e4b4215e594717f6950cd456c09c36b9002f2fc8ffd1e8e"
+      },
+      "SWIGGY.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b88ea1a479e768726139218ca25f6714f94970cc1b01fd8b743774bc2fcf2c7e",
+        "database_sha256": "b88ea1a479e768726139218ca25f6714f94970cc1b01fd8b743774bc2fcf2c7e"
+      },
+      "SYRMA.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "b70b5bf3fa18a632c0a70e346e2a12d57aa219b71aed938a29b85b5712cb7922",
+        "database_sha256": "b70b5bf3fa18a632c0a70e346e2a12d57aa219b71aed938a29b85b5712cb7922"
+      },
+      "TATACAP.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "8776f309b398c51f2a5f5a000bed8dfc2c3ac2e9d2ad93e2fbffb773118f8fdf",
+        "database_sha256": "8776f309b398c51f2a5f5a000bed8dfc2c3ac2e9d2ad93e2fbffb773118f8fdf"
+      },
+      "TATACOMM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7103d5f5bdc649630079b39c6587d233bcf5e1cb282aea24df3fcb823325bc02",
+        "database_sha256": "7103d5f5bdc649630079b39c6587d233bcf5e1cb282aea24df3fcb823325bc02"
+      },
+      "TATACONSUM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "3a36f4ba2999c77819882bc6d76270a6472273330d2915cf3129022ead6a7706",
+        "database_sha256": "3a36f4ba2999c77819882bc6d76270a6472273330d2915cf3129022ead6a7706"
+      },
+      "TATAINVEST.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "81b05a87fc80ec0e1a59e80101b8da8d4e9de703e80deecf8afddef00245ab7d",
+        "database_sha256": "81b05a87fc80ec0e1a59e80101b8da8d4e9de703e80deecf8afddef00245ab7d"
+      },
+      "TATAPOWER.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "2c3a094534307c4c1748389ef7237bda13b4f804f412e1c276c53cf5301b807c",
+        "database_sha256": "2c3a094534307c4c1748389ef7237bda13b4f804f412e1c276c53cf5301b807c"
+      },
+      "TATASTEEL.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "0e90e17dcc6118eb9e20231dd8b664ec7fc15420d377fb3c55aedaa6cc50715d",
+        "database_sha256": "0e90e17dcc6118eb9e20231dd8b664ec7fc15420d377fb3c55aedaa6cc50715d"
+      },
+      "TCS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "d6c0610e5bf52061be8157fd9f56df1a9a748722cb7b955c60e1fdc4c0b54c37",
+        "database_sha256": "d6c0610e5bf52061be8157fd9f56df1a9a748722cb7b955c60e1fdc4c0b54c37"
+      },
+      "TDPOWERSYS.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "704c10bfe95fc131094c4079dc7bbd0e770a20fce0f206f86d24a46c2fe1d452",
+        "database_sha256": "704c10bfe95fc131094c4079dc7bbd0e770a20fce0f206f86d24a46c2fe1d452"
+      },
+      "TECHM.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "7310974a01222788421552483182f510e9df61b6847aac7e8aad5d78dc04056b",
+        "database_sha256": "7310974a01222788421552483182f510e9df61b6847aac7e8aad5d78dc04056b"
+      },
+      "TEJASNET.NS": {
+        "expected_rows": 1,
+        "database_rows": 1,
+        "provider_sha256": "ceeedeec2e66682baef07c1a23f8a072a215bb775b024efe9136b24e446e44d0",
+        "database_sha256": "ceeedeec2e66682baef07c1a23f8a072a215bb775b024efe9136b24e446e44d0"
+      }
+    }
+  },
+  "historical_reconciliation": {
+    "result": "PASS",
+    "generation_id": 2,
+    "historical_rows": 573745,
+    "canonical_profiles_match": true
+  },
+  "checkpoint_groups": {
+    "2026-11-16": 302
+  },
+  "finished_at_utc": "2026-11-16T12:46:25.879195+00:00"
+}
