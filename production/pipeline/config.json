@@ -1,0 +1,12 @@
+{
+  "project_name": "liquidity-risk-production",
+  "project_id": "super-flower-30495255",
+  "branch_name": "production",
+  "branch_id": "br-winter-thunder-azx88rt3",
+  "endpoint_id": "ep-misty-shadow-azik30ky",
+  "hostname": "ep-misty-shadow-azik30ky-pooler.c-3.ap-southeast-1.aws.neon.tech",
+  "database": "neondb",
+  "connect_timeout_seconds": 15,
+  "statement_timeout_ms": 30000,
+  "lock_timeout_ms": 10000
+}
