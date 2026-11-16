@@ -1,0 +1,5 @@
+*.py text eol=lf
+*.json text eol=lf
+*.sql text eol=lf
+*.txt text eol=lf
+*.lock text eol=lf
