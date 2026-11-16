@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 import re
+from contextlib import contextmanager
 from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from numbers import Integral
@@ -18,6 +19,16 @@ class PersistenceError(ValueError):
 
 class CheckpointConflict(PersistenceError):
     pass
+
+
+class _CursorScope:
+    """Bind existing Repository operations to one identity-verified transaction."""
+    def __init__(self, cursor):
+        self.cursor = cursor
+
+    @contextmanager
+    def transaction(self, *, read_only=False):
+        yield self.cursor
 
 
 @dataclass(frozen=True)
@@ -133,6 +144,42 @@ class Repository:
             cursor.execute("SELECT last_date FROM liquidity.instrument_checkpoints WHERE ticker=%s", (ticker,))
             row = cursor.fetchone()
             return row["last_date"] if row else None
+
+    def persist_session(self, request_key, mode, day, observations, previous, provenance):
+        """Commit all 302 instruments and checkpoints together, or roll back all.
+
+        Fetching/validation happens before this transaction. Nested Repository
+        methods share its cursor and cannot independently commit checkpoints.
+        """
+        tickers = set(observations)
+        if len(tickers) != 302 or tickers != set(previous) or tickers != set(provenance):
+            raise PersistenceError("A complete session requires exactly 302 matching instrument payloads")
+        for ticker, bar in observations.items():
+            if bar.date != day:
+                raise PersistenceError("Session observation date differs from the requested date")
+            prepare_batch([bar], [day], previous[ticker], provenance[ticker])
+        lock = int.from_bytes(hashlib.sha256(request_key.encode()).digest()[:8], "big", signed=True)
+        with self.database.transaction() as cursor:
+            cursor.execute("SELECT pg_advisory_xact_lock(%s)", (lock,))
+            cursor.execute("SELECT ticker FROM liquidity.instruments")
+            if {row["ticker"] for row in cursor.fetchall()} != tickers:
+                raise PersistenceError("Session payload differs from the registered instrument universe")
+            cursor.execute("SELECT run_id,status FROM liquidity.ingestion_runs WHERE request_key=%s", (request_key,))
+            existing = cursor.fetchone()
+            if existing:
+                if existing["status"] != "SUCCESS":
+                    raise PersistenceError("Existing session run is incomplete and requires reviewed recovery")
+                cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod WHERE date=%s", (day,))
+                actual = {row["ticker"]: Bar(row["date"], row["open"], row["high"], row["low"], row["close"], row["volume"], row["turnover"]) for row in cursor.fetchall()}
+                if actual != observations:
+                    raise PersistenceError("Provider revision conflicts with the already committed session")
+                return {"run_id": existing["run_id"], "replayed": True}
+            scoped = Repository(_CursorScope(cursor))
+            run = scoped.start_run(request_key, mode, {ticker: [day] for ticker in sorted(tickers)})
+            for ticker in sorted(tickers):
+                scoped.persist_batch(run["run_id"], ticker, "session", [observations[ticker]], [day], previous[ticker], provenance[ticker])
+            scoped.complete_run(run["run_id"])
+            return {"run_id": run["run_id"], "replayed": False}
 
     def start_run(self, request_key, mode, session_plan):
         instruments = sorted(session_plan)

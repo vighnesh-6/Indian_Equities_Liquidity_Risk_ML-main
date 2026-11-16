@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "identity": {
+    "database": "neondb",
+    "username": "neondb_owner",
+    "project_id": "super-flower-30495255",
+    "branch_id": "br-winter-thunder-azx88rt3",
+    "endpoint_id": "ep-misty-shadow-azik30ky",
+    "read_only": "on"
+  },
+  "frozen_rows": 569517,
+  "total_rows": 569517,
+  "incremental_rows": 0,
+  "instruments": 302,
+  "checkpoint": "2026-10-23",
+  "latest_ready_session": "2026-11-13",
+  "up_to_date": false,
+  "pending_sessions": [
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-08",
+    "2026-11-09",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13"
+  ],
+  "duplicate_keys": 0,
+  "invalid_constraints": 0,
+  "disabled_triggers": 0,
+  "invalid_indexes": 0,
+  "frozen_feature_count": 37,
+  "ingestion_runs": [
+    {
+      "status": "SUCCESS",
+      "runs": 1
+    }
+  ],
+  "discrepancies": []
+}

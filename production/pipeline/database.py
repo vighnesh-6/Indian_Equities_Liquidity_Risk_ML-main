@@ -29,7 +29,7 @@ SELECT pg_catalog.current_database() AS database,
 
 class Database:
     def __init__(self):
-        self.settings = load_settings()
+        self.settings = load_settings(from_environment=os.environ.get("GITHUB_ACTIONS") == "true")
 
     @contextmanager
     def transaction(self, *, read_only=False):

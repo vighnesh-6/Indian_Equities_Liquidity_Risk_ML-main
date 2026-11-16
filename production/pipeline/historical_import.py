@@ -175,13 +175,21 @@ def load_snapshot(root=ROOT, batch_size=4096):
                     "historical-parquet-v1:" + digest, batch_size, manifest["adjustment_mode"])
 
 
-def database_coverage(cursor):
+def database_coverage(cursor, *, start=None, end=None):
     """Hash the same lossless row_bytes encoding using PostgreSQL core functions.
 
     int8send/float8send use network byte order, matching struct's > encoding.
     Each aggregate covers one instrument in date order. DATE ordinals start at 1.
     This returns 302 small profiles while hashing every stored key and value.
     """
+    predicates, params = [], []
+    if start is not None:
+        predicates.append("date >= %s")
+        params.append(start)
+    if end is not None:
+        predicates.append("date <= %s")
+        params.append(end)
+    where = " WHERE " + " AND ".join(predicates) if predicates else ""
     cursor.execute(
         "SELECT ticker,count(*) AS rows,min(date)::text AS start,max(date)::text AS end,"
         "count(*) FILTER (WHERE volume=0) AS zero_volume_rows,"
@@ -192,7 +200,7 @@ def database_coverage(cursor):
         "float8send(low)||float8send(close)||int8send(volume)||"
         "CASE WHEN turnover IS NULL THEN decode('4e','hex') ELSE decode('56','hex')||float8send(turnover) END,"
         "''::bytea ORDER BY date)),'hex') AS values_sha256 "
-        "FROM liquidity.market_eod GROUP BY ticker ORDER BY ticker"
+        "FROM liquidity.market_eod" + where + " GROUP BY ticker ORDER BY ticker", params
     )
     profiles = {}
     for row in cursor.fetchall():

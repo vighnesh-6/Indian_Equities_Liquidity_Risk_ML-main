@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "baseline_file_count": 360,
+  "final_file_count": 379,
+  "modified_existing_files": [
+    "production/pipeline/config.py",
+    "production/pipeline/database.py",
+    "production/pipeline/historical_import.py",
+    "production/pipeline/repository.py"
+  ],
+  "new_files": [
+    ".github/workflows/liquidity-risk-daily-ingestion.yml",
+    "production/pipeline/PHASE2_COMPLETION_REPORT.md",
+    "production/pipeline/audit.py",
+    "production/pipeline/calendars/2026.json",
+    "production/pipeline/catchup.py",
+    "production/pipeline/daily.py",
+    "production/pipeline/ingestion.py",
+    "production/pipeline/nse_calendar.py",
+    "production/pipeline/phase2_results/catchup.json",
+    "production/pipeline/phase2_results/daily_plan.json",
+    "production/pipeline/phase2_results/final_audit.json",
+    "production/pipeline/phase2_results/native_tests.json",
+    "production/pipeline/phase2_results/preservation.json",
+    "production/pipeline/phase2_results/reconciliation.json",
+    "production/pipeline/provider.py",
+    "production/pipeline/requirements-collector.lock",
+    "production/pipeline/requirements-collector.txt",
+    "production/pipeline/tests/test_daily_workflow.py",
+    "production/pipeline/tests/test_sessions.py"
+  ],
+  "protected_changes": [],
+  "existing_reports_changed": [],
+  "existing_workflow_changes": [],
+  "migration_changes": [],
+  "head_unchanged": true,
+  "status_outside_approved_scope_unchanged": true,
+  "diff_check": "PASS",
+  "notes": [
+    "Pre-existing untracked data/processed/features.parquet and features_with_targets.parquet were preserved byte-for-byte.",
+    "No commits or pushes were performed.",
+    "The preservation record itself is included in the final file count; its existence and the final scope were checked after creation."
+  ]
+}

@@ -1,6 +1,7 @@
-"""Load credentials exclusively from the checkout's root .env.local."""
+"""Load local credentials or the explicitly selected GitHub Actions secret."""
 
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import parse_qsl, unquote, urlsplit
@@ -32,10 +33,15 @@ class Settings:
     password: str = field(repr=False)
 
 
-def load_settings(project_root: Path = ROOT) -> Settings:
+def load_settings(project_root: Path = ROOT, *, from_environment=False) -> Settings:
     try:
         config = json.loads((Path(__file__).with_name("config.json")).read_text(encoding="utf-8"))
-        lines = (project_root / ".env.local").read_text(encoding="utf-8-sig").splitlines()
+        if from_environment:
+            if os.environ.get("GITHUB_ACTIONS") != "true":
+                raise ConfigurationError("Environment credentials require GitHub Actions context")
+            lines = ["LIQUIDITY_NEON_DATABASE_URL=" + os.environ.get("LIQUIDITY_NEON_DATABASE_URL", "")]
+        else:
+            lines = (project_root / ".env.local").read_text(encoding="utf-8-sig").splitlines()
     except (OSError, ValueError):
         raise ConfigurationError("Production configuration could not be loaded") from None
     if tuple(config.get(key) for key in ["project_id", "branch_id", "endpoint_id", "hostname", "database"]) != APPROVED_TARGET:

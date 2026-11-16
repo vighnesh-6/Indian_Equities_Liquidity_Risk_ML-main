@@ -1,0 +1,67 @@
+name: Liquidity Risk daily ingestion
+
+on:
+  schedule:
+    - cron: '30 10 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: liquidity-risk-production-daily-ingestion
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+          architecture: x64
+      - name: Install pinned collector runtime
+        shell: bash
+        run: |
+          python -B -m venv "$RUNNER_TEMP/liquidity-venv"
+          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m pip --isolated install --require-hashes --only-binary=:all: -r production/pipeline/requirements-collector.lock
+          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m pip check
+      - name: Collect and validate complete NSE sessions
+        env:
+          LIQUIDITY_NEON_DATABASE_URL: ${{ secrets.LIQUIDITY_NEON_DATABASE_URL }}
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m production.pipeline.daily --report "$RUNNER_TEMP/liquidity-daily.json"
+      - name: Summarize ingestion result
+        if: always()
+        shell: bash
+        run: |
+          python -B - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path(os.environ['RUNNER_TEMP']) / 'liquidity-daily.json'
+          result = json.loads(path.read_text()) if path.exists() else {'status': 'FAILED_BEFORE_COLLECTION'}
+          lines = ['## Liquidity Risk ingestion', '', 'Status **' + result['status'] + '**', '']
+          lines.append('Completed sessions ' + str(len(result.get('completed_sessions', []))))
+          if 'issue' in result:
+              lines.extend(['', '```json', json.dumps(result['issue'], indent=2), '```'])
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write('\n'.join(lines) + '\n')
+          PY
+      - name: Upload ingestion audit
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: liquidity-daily-audit
+          retention-days: 7
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/liquidity-daily.json

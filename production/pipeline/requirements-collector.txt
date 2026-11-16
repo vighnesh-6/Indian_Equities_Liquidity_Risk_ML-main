@@ -1,0 +1,18 @@
+# Complete pinned collector additions to the frozen production runtime.
+-r requirements.txt
+beautifulsoup4==4.15.0
+cffi==2.1.1
+charset-normalizer==3.5.2
+curl_cffi==0.13.0
+frozendict==2.5.1
+idna==3.20
+multitasking==0.0.13
+peewee==4.5.3
+platformdirs==4.14.5
+protobuf==7.36.2
+pycparser==3.12
+requests==2.34.2
+soupsieve==4.1.1
+urllib3==2.8.0
+websockets==17.4
+yfinance==1.2.0
