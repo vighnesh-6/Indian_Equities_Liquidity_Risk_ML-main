@@ -8,7 +8,7 @@ from datetime import date, datetime, timedelta, timezone
 from .config import ROOT
 from .database import DatabaseError
 from .historical_import import database_coverage, row_bytes
-from .migrate import migration_plan
+from .migrate import MigrationError, verify_history
 from .nse_calendar import NSECalendar
 from .provider import ProviderIncomplete
 from .repository import Bar, PersistenceError, Repository
@@ -26,8 +26,10 @@ def inspect_state(database):
     expected = set(canonical_tickers())
     with database.transaction(read_only=True) as cursor:
         cursor.execute("SELECT version,sha256 FROM liquidity.schema_migrations ORDER BY version")
-        if cursor.fetchall() != [{"version": row["version"], "sha256": row["sha256"]} for row in migration_plan()]:
-            raise PersistenceError("Migration ledger differs from the approved local SQL")
+        try:
+            verify_history(cursor.fetchall())
+        except MigrationError:
+            raise PersistenceError("Migration ledger differs from the approved local SQL") from None
         cursor.execute("SELECT ticker,instrument_type FROM liquidity.instruments")
         types = {row["ticker"]: row["instrument_type"] for row in cursor.fetchall()}
         expected_types = {ticker: "volatility_index" if ticker == "^INDIAVIX" else "index" if ticker == "^NSEI" else "stock" for ticker in expected}
