@@ -1,0 +1,105 @@
+{
+  "checked_at_utc": "2026-11-16T12:00:11.902965+00:00",
+  "requested_regular_sessions": [
+    "2026-11-09",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16"
+  ],
+  "database_writes": 0,
+  "results": [
+    {
+      "required_date": "2026-11-16",
+      "status": "BLOCKED",
+      "ticker": "EMBASSY.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "required_date": "2026-11-16",
+      "status": "BLOCKED",
+      "ticker": "ICICIPRULI.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    }
+  ],
+  "retry_events": [
+    {
+      "attempt": 1,
+      "ticker": "EMBASSY.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "ticker": "EMBASSY.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "attempt": 3,
+      "ticker": "EMBASSY.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "attempt": 1,
+      "ticker": "ICICIPRULI.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "ticker": "ICICIPRULI.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    },
+    {
+      "attempt": 3,
+      "ticker": "ICICIPRULI.NS",
+      "code": "MISSING_SESSIONS",
+      "missing_sessions": [
+        "2026-11-16"
+      ],
+      "detail": {
+        "observed_rows": 4
+      }
+    }
+  ]
+}
