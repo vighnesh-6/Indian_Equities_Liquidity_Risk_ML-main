@@ -1,0 +1,18 @@
+{
+  "result": "FAILED_STOPPED",
+  "exception_type": "DatabaseError",
+  "message": "PostgreSQL operation failed (CONNECTION_FAILURE)",
+  "completed_stocks": 26,
+  "elapsed_seconds": 544.285,
+  "storage_samples": [
+    {
+      "completed_stocks": 25,
+      "database_bytes": 152231936
+    }
+  ],
+  "postgres": {
+    "sqlstate": null,
+    "message": null,
+    "detail": null
+  }
+}
