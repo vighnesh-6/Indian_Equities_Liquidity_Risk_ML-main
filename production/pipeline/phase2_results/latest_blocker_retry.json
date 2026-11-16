@@ -1,0 +1,66 @@
+{
+  "checked_at_utc": "2026-11-16T11:53:57.065959+00:00",
+  "database_writes": 0,
+  "observations": [
+    {
+      "required_date": "2026-11-16",
+      "status": "BLOCKED",
+      "ticker": "EMBASSY.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "required_date": "2026-11-16",
+      "status": "BLOCKED",
+      "ticker": "ICICIPRULI.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    }
+  ],
+  "retry_events": [
+    {
+      "attempt": 1,
+      "ticker": "EMBASSY.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "attempt": 2,
+      "ticker": "EMBASSY.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "attempt": 3,
+      "ticker": "EMBASSY.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "attempt": 1,
+      "ticker": "ICICIPRULI.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "attempt": 2,
+      "ticker": "ICICIPRULI.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    },
+    {
+      "attempt": 3,
+      "ticker": "ICICIPRULI.NS",
+      "code": "PROVIDER_REQUEST_FAILED",
+      "missing_sessions": [],
+      "detail": "YFPricesMissingError"
+    }
+  ]
+}
