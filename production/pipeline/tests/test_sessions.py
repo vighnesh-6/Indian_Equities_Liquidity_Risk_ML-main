@@ -22,6 +22,19 @@ def bar(day, ticker):
 
 
 class CalendarProviderTests(unittest.TestCase):
+    def test_yahoo_adjustment_one_ulp_boundary_preserves_strict_stored_bounds(self):
+        import math
+        close = 242.05484008789062
+        frame = pd.DataFrame({'Open': [245.32585144042972], 'High': [246.68658337863164],
+                              'Low': [math.nextafter(close, math.inf)], 'Close': [close], 'Volume': [212800]},
+                             index=pd.DatetimeIndex([MONDAY]))
+        result = normalize_history('EMBASSY.NS', frame, [MONDAY])[MONDAY]
+        self.assertEqual(result.low, result.close)
+        self.assertEqual(result.volume, 212800)
+        frame['Low'] = close + 0.000001
+        with self.assertRaises(ProviderIncomplete):
+            normalize_history('EMBASSY.NS', frame, [MONDAY])
+
     def test_ci_secret_source_is_explicit_and_target_isolated(self):
         host = 'ep-misty-shadow-azik30ky-pooler.c-3.ap-southeast-1.aws.neon.tech'
         uri = f'postgresql://test_role:SYNTHETIC_SECRET@{host}/neondb?sslmode=require'

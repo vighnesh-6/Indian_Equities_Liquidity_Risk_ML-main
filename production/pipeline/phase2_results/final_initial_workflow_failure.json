@@ -1,0 +1,216 @@
+{
+  "id": 43836331344,
+  "head_sha": "badf1c37df0024715eb8a4f1c073c13994fab7ed",
+  "status": "completed",
+  "conclusion": "failure",
+  "event": "workflow_dispatch",
+  "created_at": "2026-11-16T09:03:22Z",
+  "html_url": "https://github.com/vighnesh-6/Indian_Equities_Liquidity_Risk_ML-main/actions/runs/43836331344",
+  "jobs": [
+    {
+      "name": "collect",
+      "id": 133193769225,
+      "status": "completed",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned collector runtime",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect and validate complete NSE sessions",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Summarize ingestion result",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload ingestion audit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "all_log_files_read": [
+    {
+      "name": "0_collect.txt",
+      "bytes": 42763,
+      "lines": 440,
+      "sha256": "ecb7c6ea67b726540163f90697d7ef4e5746f9bb87b8c958936075b1f566ee29"
+    },
+    {
+      "name": "collect/system.txt",
+      "bytes": 627,
+      "lines": 8,
+      "sha256": "b8a7868e489394a31ebf63326633d961852bacb33394b5538652444b863bba6f"
+    },
+    {
+      "name": "collect/1_Set up job.txt",
+      "bytes": 2269,
+      "lines": 34,
+      "sha256": "76967253e3da7a3c396ed9c1e9d7ce05444007bc9092ecd02181dad5d206eb25"
+    },
+    {
+      "name": "collect/2_Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 7727,
+      "lines": 88,
+      "sha256": "b681462686cb6eec4de2bc6e838024a3865a2be779acbeb617ff61b02ca2dd93"
+    },
+    {
+      "name": "collect/3_Run actions_setup-python@a26af69be951a213d495a4c3e4e4022e16d87065.txt",
+      "bytes": 3320,
+      "lines": 45,
+      "sha256": "07158ca99f736c9e9c7d69864f0104928e2a54998a5547c30dc531d9477c3841"
+    },
+    {
+      "name": "collect/4_Install pinned collector runtime.txt",
+      "bytes": 12873,
+      "lines": 96,
+      "sha256": "4067cc221b89fd0a652f0b59a4e79cad6727cebf376533cfe8b7c53368d0a699"
+    },
+    {
+      "name": "collect/5_Collect and validate complete NSE sessions.txt",
+      "bytes": 9488,
+      "lines": 102,
+      "sha256": "e28c99caaf9e98e47c2744862d84e2c7c9e406f20d6d602c33457bbae0fe4e0d"
+    },
+    {
+      "name": "collect/6_Summarize ingestion result.txt",
+      "bytes": 2079,
+      "lines": 26,
+      "sha256": "d000afadce25ad881b4fb5bb8c19a68ab55aa33423c15edb476b86ad7180a218"
+    },
+    {
+      "name": "collect/7_Upload ingestion audit.txt",
+      "bytes": 2926,
+      "lines": 35,
+      "sha256": "460e3bee4caad13bb9fd5038223bee99549ae080290c127eab95944eac9453b7"
+    },
+    {
+      "name": "collect/14_Post Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 1590,
+      "lines": 12,
+      "sha256": "c5a4e29e0771cc04e1aeeb929810751a395c7b87d7c5e37f49a4996fffdf65c1"
+    },
+    {
+      "name": "collect/15_Complete job.txt",
+      "bytes": 515,
+      "lines": 2,
+      "sha256": "4d97d581b553ce6966e3888065e3a0da072bd9f7b6b21da773cdc9bcd9923669"
+    }
+  ],
+  "dependency_check_passed": true,
+  "last_collection_progress": [
+    "2026-11-16T09:09:59.9358365Z Validated full historical price basis 76/302 DIXON.NS",
+    "2026-11-16T09:10:04.3885890Z Validated full historical price basis 77/302 DLF.NS",
+    "2026-11-16T09:10:08.7646001Z Validated full historical price basis 78/302 DMART.NS",
+    "2026-11-16T09:10:13.2106151Z Validated full historical price basis 79/302 DRREDDY.NS",
+    "2026-11-16T09:10:17.6897404Z Validated full historical price basis 80/302 EICHERMOT.NS"
+  ],
+  "error_lines": [
+    "2026-11-16T09:10:27.2877773Z ##[error]Process completed with exit code 2."
+  ],
+  "artifacts": [
+    {
+      "id": 14210169986,
+      "name": "liquidity-daily-audit",
+      "expired": false
+    }
+  ],
+  "collector_report": {
+    "mode": "daily",
+    "plan": {
+      "base": "2026-10-23",
+      "latest_completed": "2026-11-13",
+      "target": "2026-11-13",
+      "sessions": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "expected_new_rows": 4228,
+      "instruments": 302,
+      "publication_pending": false,
+      "excluded_sessions": [
+        "2026-11-08"
+      ]
+    },
+    "completed_sessions": [],
+    "status": "BLOCKED",
+    "issue": {
+      "ticker": "EMBASSY.NS",
+      "code": "INVALID_OHLCV_BOUNDS",
+      "missing_sessions": [],
+      "detail": "2020-04-23"
+    },
+    "provider_retries": [
+      {
+        "attempt": 1,
+        "ticker": "EMBASSY.NS",
+        "code": "INVALID_OHLCV_BOUNDS",
+        "missing_sessions": [],
+        "detail": "2020-04-23"
+      },
+      {
+        "attempt": 2,
+        "ticker": "EMBASSY.NS",
+        "code": "INVALID_OHLCV_BOUNDS",
+        "missing_sessions": [],
+        "detail": "2020-04-23"
+      },
+      {
+        "attempt": 3,
+        "ticker": "EMBASSY.NS",
+        "code": "INVALID_OHLCV_BOUNDS",
+        "missing_sessions": [],
+        "detail": "2020-04-23"
+      }
+    ]
+  }
+}

@@ -63,7 +63,9 @@ def normalize_history(ticker, frame, expected):
             raise ProviderIncomplete(ticker, "CONFLICTING_DUPLICATE", detail=str(day))
         raw_records[day] = raw
         opening, high, low, close = values[:4]
-        if low <= 0 or not low <= min(opening, close) <= max(opening, close) <= high:
+        # auto_adjust multiplies Low/High but uses Adj Close directly. Equal
+        # source bounds can differ by one float64 ULP after that arithmetic.
+        if low <= 0 or low > high or not math.nextafter(low, -math.inf) <= min(opening, close) <= max(opening, close) <= math.nextafter(high, math.inf):
             raise ProviderIncomplete(ticker, "INVALID_OHLCV_BOUNDS", detail=str(day))
         bar = Bar(day, *[float(np.float32(value)) for value in values[:4]], integer_volume)
         if day in records and records[day] != bar:
