@@ -2,7 +2,8 @@
 
 market_eod is the immutable observation archive. Production readers use
 market_eod_consistent, whose activated overlays contain actual provider bars.
-Every historical key must be fetched before a generation can be activated.
+Changed bases require every historical key from the provider. Unchanged bases
+retain the hashed archive with verified overlap and corporate-action evidence.
 """
 
 import hashlib
@@ -48,7 +49,7 @@ def fetch_full_history(provider, history, sessions, base, progress):
             probe, _ = provider.fetch(ticker, [anchor])
             if probe[anchor] != quotes[ticker][anchor]:
                 raise PersistenceError('Provider adjustment changed during full-history collection: ' + ticker)
-        progress(f'Validated full historical price basis {number}/302 {ticker}')
+        progress(f'Validated full historical price basis {number}/{len(history)} {ticker}')
     return quotes, sources
 
 
@@ -57,10 +58,11 @@ def profiles(cursor, base):
     return {row['ticker']: (int(row['rows']), row['values_sha256']) for row in cursor.fetchall()}
 
 
-def stage_generation(database, history, quotes, sources, base, target):
+def stage_generation(database, history, quotes, sources, base, target, *, basis_evidence=None):
     if set(history) != set(quotes) or len(history) != 302:
         raise PersistenceError('A price-basis generation requires all 302 historical instruments')
     baseline = {ticker: (len(rows), digest(rows)) for ticker, rows in history.items()}
+    basis_evidence = basis_evidence or {ticker: {'kind': 'FULL_PROVIDER'} for ticker in history}
     canonical = {}
     changes = []
     for ticker, old in history.items():
@@ -75,13 +77,13 @@ def stage_generation(database, history, quotes, sources, base, target):
             raise PersistenceError('Canonical history changed while the provider snapshot was collected')
         cursor.execute("SELECT max(generation_id) AS id FROM liquidity.price_basis_generations WHERE state='ACTIVE'")
         parent = cursor.fetchone()['id']
-        request = hashlib.sha256(json.dumps({'parent': parent, 'base': str(base), 'target': str(target), 'baseline': baseline, 'provider': canonical}, sort_keys=True).encode()).hexdigest()
+        request = hashlib.sha256(json.dumps({'parent': parent, 'base': str(base), 'target': str(target), 'baseline': baseline, 'provider': canonical, 'evidence':basis_evidence}, sort_keys=True).encode()).hexdigest()
         cursor.execute("INSERT INTO liquidity.price_basis_generations(request_key,parent_id,base_date,target_date) VALUES (%s,%s,%s,%s) ON CONFLICT(request_key) DO NOTHING RETURNING generation_id", (request, parent, base, target))
         created = cursor.fetchone()
         if created:
             generation = created['generation_id']
-            cursor.executemany('INSERT INTO liquidity.price_basis_receipts(generation_id,ticker,expected_rows,baseline_sha256,provider_sha256,source_version,retrieved_at) VALUES (%s,%s,%s,%s,%s,%s,%s)',
-                               [(generation, ticker, baseline[ticker][0], baseline[ticker][1], canonical[ticker][1], sources[ticker].source_version, sources[ticker].retrieved_at) for ticker in sorted(history)])
+            cursor.executemany('INSERT INTO liquidity.price_basis_receipts(generation_id,ticker,expected_rows,baseline_sha256,provider_sha256,source_version,retrieved_at,basis_evidence) VALUES (%s,%s,%s,%s,%s,%s,%s,%s::jsonb)',
+                               [(generation, ticker, baseline[ticker][0], baseline[ticker][1], canonical[ticker][1], sources[ticker].source_version, sources[ticker].retrieved_at, json.dumps(basis_evidence[ticker])) for ticker in sorted(history)])
             for offset in range(0, len(changes), 1000):
                 cursor.executemany('INSERT INTO liquidity.price_basis_revisions(generation_id,ticker,date,open,high,low,close,volume,turnover) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)',
                                    [(generation, *row) for row in changes[offset:offset + 1000]])
@@ -90,8 +92,11 @@ def stage_generation(database, history, quotes, sources, base, target):
             generation = cursor.fetchone()['generation_id']
     return generation, {'generation_id': generation, 'historical_rows': sum(count for count, _ in canonical.values()),
                         'actual_provider_revision_rows': len(changes), 'original_observations_modified': 0,
-                        'basis': 'Actual Yahoo adjusted OHLCV; complete historical-key reconciliation; no arithmetic rescaling',
-                        'provider_historical_sha256': {ticker: value[1] for ticker, value in canonical.items()}}
+                        'basis': 'Actual provider revisions for changed bases; unchanged archives attested by provider overlap and post-checkpoint corporate actions',
+                        'full_provider_instruments': sum(value['kind']=='FULL_PROVIDER' for value in basis_evidence.values()),
+                        'unchanged_archive_instruments': sum(value['kind']=='UNCHANGED_BASIS' for value in basis_evidence.values()),
+                        'provider_historical_sha256': {ticker: value[1] for ticker, value in canonical.items() if basis_evidence[ticker]['kind']=='FULL_PROVIDER'},
+                        'basis_evidence': basis_evidence}
 
 
 def activate_generation(cursor, generation):
@@ -117,4 +122,4 @@ def reconcile_generation(database, generation):
         actual = profiles(cursor, row['base_date'])
     return {'result': 'PASS' if row['state'] == 'ACTIVE' and len(expected) == 302 and expected == actual else 'FAIL',
             'generation_id': generation, 'historical_rows': sum(value[0] for value in actual.values()),
-            'provider_profiles_match': expected == actual}
+            'canonical_profiles_match': expected == actual}

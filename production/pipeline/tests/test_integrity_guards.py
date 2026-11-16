@@ -285,7 +285,7 @@ class ForwardMigrationTests(unittest.TestCase):
             run = repo.start_run('upgrade', 'daily', {'TEST.NS': [D1]})['run_id']
             repo.persist_batch(run, 'TEST.NS', 'one', [fixtures.bar(D1)], [D1], None, fixtures.SOURCE)
             repo.complete_run(run)
-            self.assertEqual(apply_migrations(db), ['002_integrity_guards', '003_price_basis'])
+            self.assertEqual(apply_migrations(db), ['002_integrity_guards', '003_price_basis', '004_basis_evidence'])
             self.assertEqual(repo.get_checkpoint('TEST.NS'), D1)
             db.execute('SELECT count(*) AS n FROM liquidity.market_eod')
             self.assertEqual(db.fetchone()['n'], 1)

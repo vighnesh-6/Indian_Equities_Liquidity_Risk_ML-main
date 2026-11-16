@@ -133,3 +133,27 @@ class PriceBasisTests(unittest.TestCase):
                 c.execute('DELETE FROM liquidity.market_eod WHERE ticker=%s AND date=%s',(ticker,TUESDAY))
                 c.execute("UPDATE liquidity.ingestion_runs SET status='SUCCESS',finished_at=now() WHERE run_id=%s",(run,))
         self.assertEqual(self.repo.get_checkpoint(ticker),TUESDAY)
+
+    def test_unchanged_basis_retains_archive_with_explicit_overlap_and_action_evidence(self):
+        class StableProvider(FakeProvider):
+            supports_full_history = True
+            def __init__(self):
+                super().__init__()
+                self.action_evidence = {}
+            def fetch(self,ticker,sessions,*,historical_cutoff=None):
+                result = super().fetch(ticker,sessions)
+                self.action_evidence[ticker] = {'complete':True,'events':[]}
+                return result
+        result = SessionIngestor(self.db,StableProvider()).collect('catchup',now=datetime(2026,10,26,16,tzinfo=IST),progress=lambda _:None)
+        self.assertEqual(result['status'],'SUCCESS')
+        self.assertEqual(result['price_basis']['unchanged_archive_instruments'],302)
+        self.assertEqual(result['price_basis']['full_provider_instruments'],0)
+        self.assertEqual(result['price_basis']['provider_historical_sha256'],{})
+        self.assertEqual(reconcile_generation(self.db,result['price_basis']['generation_id'])['result'],'PASS')
+
+    def test_missing_basis_evidence_kind_is_rejected_by_postgresql(self):
+        self.db.execute('INSERT INTO liquidity.price_basis_generations(request_key,base_date,target_date) VALUES (%s,%s,%s) RETURNING generation_id',('f'*64,BASE,MONDAY))
+        generation = self.db.fetchone()['generation_id']
+        with self.assertRaises(SqlError):
+            self.db.execute("INSERT INTO liquidity.price_basis_receipts(generation_id,ticker,expected_rows,baseline_sha256,provider_sha256,source_version,retrieved_at,basis_evidence) VALUES (%s,%s,1,%s,%s,'test',%s,'{}'::jsonb)",
+                            (generation,self.tickers[0],'0'*64,'0'*64,SOURCE.retrieved_at))

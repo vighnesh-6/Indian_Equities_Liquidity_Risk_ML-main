@@ -85,7 +85,7 @@ def normalize_history(ticker, frame, expected):
 
 class YahooProvider:
     supports_full_history = True
-    def __init__(self, *, attempts=3, delay=1.0, backoff=2.0, timeout=20, sleeper=time.sleep):
+    def __init__(self, *, attempts=3, delay=0.5, backoff=2.0, timeout=20, sleeper=time.sleep):
         if attempts < 1 or delay < 0 or backoff < 1 or timeout <= 0:
             raise ValueError("Provider retry and timeout settings are invalid")
         import yfinance as yf
@@ -95,6 +95,7 @@ class YahooProvider:
         self.sleep = sleeper
         self.calls = 0
         self.retry_events = []
+        self.action_evidence = {}
         self.yf.set_tz_cache_location(tempfile.mkdtemp(prefix="liquidity-yahoo-"))
         logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
@@ -106,6 +107,7 @@ class YahooProvider:
         for attempt in range(self.attempts):
             try:
                 result = {}
+                events, observed, complete_actions = [], [], True
                 for window in windows:
                     if self.calls:
                         self.sleep(self.delay)
@@ -114,7 +116,7 @@ class YahooProvider:
                         warnings.simplefilter("ignore", DeprecationWarning)
                         frame = self.yf.Ticker(ticker).history(
                             start=str(window[0]), end=str(window[-1] + timedelta(days=1)),
-                            interval="1d", auto_adjust=True, actions=False, repair=False,
+                            interval="1d", auto_adjust=True, actions=True, repair=False,
                             timeout=self.timeout, raise_errors=True,
                         )
                     if historical_cutoff is not None and frame is not None and not frame.empty:
@@ -123,6 +125,18 @@ class YahooProvider:
                         allowed = set(window)
                         frame = frame.loc[[day > historical_cutoff or day in allowed for day in days]]
                     result.update(normalize_history(ticker, frame, window))
+                    complete_actions = complete_actions and {'Dividends', 'Stock Splits'}.issubset(frame.columns)
+                    if complete_actions:
+                        for stamp, row in frame.iterrows():
+                            observed.append(str(stamp.date()))
+                            dividend, split = float(row['Dividends']), float(row['Stock Splits'])
+                            if not math.isfinite(dividend) or not math.isfinite(split):
+                                complete_actions = False
+                            elif dividend or split:
+                                events.append({'date': str(stamp.date()), 'dividend': dividend, 'split': split})
+                if not hasattr(self, 'action_evidence'):
+                    self.action_evidence = {}
+                self.action_evidence[ticker] = {'complete': complete_actions, 'observed_dates': observed, 'events': events}
                 return result, Provenance("yfinance", self.version, "adjusted", datetime.now(timezone.utc))
             except ProviderIncomplete as error:
                 failure = error

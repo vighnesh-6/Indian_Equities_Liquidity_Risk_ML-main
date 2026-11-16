@@ -129,15 +129,15 @@ class SessionIngestor:
         quotes, provenance = {}, {}
         generation = None
         from .price_basis import active_generation, fetch_full_history, load_history, stage_generation, reconcile_generation
-        full = getattr(self.provider, 'supports_full_history', False) and active_generation(self.database) is None
+        capable = getattr(self.provider, 'supports_full_history', False)
+        full = capable and active_generation(self.database) is None
+        history = load_history(self.database, base) if full else None
         try:
-            if full:
-                history = load_history(self.database, base)
-                quotes, provenance = fetch_full_history(self.provider, history, sessions, base, progress)
-            else:
-                for number, ticker in enumerate(sorted(previous), 1):
-                    quotes[ticker], provenance[ticker] = self.provider.fetch(ticker, window)
-                    progress(f"Validated provider history {number}/302 {ticker}")
+            for number, ticker in enumerate(sorted(previous), 1):
+                expected = sorted(set(sorted(history[ticker])[-20:]) | set(sessions)) if history is not None else window
+                options = {'historical_cutoff': base} if capable else {}
+                quotes[ticker], provenance[ticker] = self.provider.fetch(ticker, expected, **options)
+                progress(f"Validated provider history {number}/302 {ticker}")
         except ProviderIncomplete as error:
             report.update(status="BLOCKED", issue=error.report(), provider_retries=getattr(self.provider, "retry_events", []))
             return report
@@ -147,19 +147,41 @@ class SessionIngestor:
             cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod_consistent WHERE date=%s", (base,))
             existing = {row["ticker"]: Bar(row["date"], row["open"], row["high"], row["low"], row["close"], row["volume"], row["turnover"]) for row in cursor.fetchall()}
         revisions = [ticker for ticker in previous if existing.get(ticker) != quotes[ticker][base]]
+        if history is not None:
+            revisions = [ticker for ticker in previous if any(day<=base and value!=history[ticker][day] for day,value in quotes[ticker].items())]
         if revisions and not getattr(self.provider, 'supports_full_history', False):
             report.update(status="BLOCKED", issue={"code": "OVERLAP_REVISION", "tickers": revisions, "date": str(base)})
             return report
-        if revisions and not full:
+        actions = getattr(self.provider, 'action_evidence', {})
+        refresh = set(revisions)
+        if capable:
+            refresh.update(ticker for ticker in previous if any(date.fromisoformat(event['date'])>base for event in actions.get(ticker,{}).get('events',[])))
+        full = full or bool(refresh)
+        if full:
+            history = history or load_history(self.database, base)
+            evidence = {}
+            for ticker in previous:
+                action = actions.get(ticker,{})
+                events = [event for event in action.get('events',[]) if date.fromisoformat(event['date'])>base]
+                if ticker in refresh or not action.get('complete',False):
+                    refresh.add(ticker)
+                    evidence[ticker] = {'kind':'FULL_PROVIDER'}
+                else:
+                    from .price_basis import digest
+                    overlap = {day:bar for day,bar in quotes[ticker].items() if day<=base}
+                    if any(bar!=history[ticker][day] for day,bar in overlap.items()):
+                        raise PersistenceError('Unchanged-basis overlap does not match the archive')
+                    evidence[ticker] = {'kind':'UNCHANGED_BASIS','verified_overlap_rows':len(overlap),
+                                        'checkpoint_sha256':digest({base:quotes[ticker][base]}),
+                                        'post_checkpoint_actions':events,'action_sessions_verified':len(sessions)}
             try:
-                history = load_history(self.database, base)
-                quotes, provenance = fetch_full_history(self.provider, history, sessions, base, progress)
-                full = True
+                replaced, replaced_sources = fetch_full_history(self.provider,{t:history[t] for t in refresh},sessions,base,progress)
             except ProviderIncomplete as error:
                 report.update(status='BLOCKED', issue=error.report())
                 return report
-        if full:
-            generation, report['price_basis'] = stage_generation(self.database, history, quotes, provenance, base, sessions[-1])
+            quotes = {ticker:replaced.get(ticker,{**history[ticker],**quotes[ticker]}) for ticker in previous}
+            provenance.update(replaced_sources)
+            generation, report['price_basis'] = stage_generation(self.database, history, quotes, provenance, base, sessions[-1],basis_evidence=evidence)
             report['price_basis']['revised_checkpoint_instruments'] = revisions
         universe_sha = hashlib.sha256(json.dumps(sorted(previous)).encode()).hexdigest()[:24]
         for day in sessions:

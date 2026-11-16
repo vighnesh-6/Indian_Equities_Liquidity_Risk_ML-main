@@ -1,0 +1,9 @@
+{
+  "ticker": "ICICIPRULI.NS",
+  "provider_first_date": "2026-07-17",
+  "provider_rows": 82,
+  "matching_available_historical_rows": 68,
+  "historical_differences": [],
+  "post_checkpoint_corporate_actions": [],
+  "provider_history_limitation": "Earlier Yahoo observations are unavailable. Frozen archive observations remain authoritative for their original dates."
+}

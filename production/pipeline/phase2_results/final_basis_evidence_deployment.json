@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "applied": [
+    "004_basis_evidence"
+  ],
+  "ledger_matches": true,
+  "checkpoints": {
+    "rows": 302,
+    "min_date": "2026-10-23",
+    "max_date": "2026-10-23"
+  },
+  "original_observations_modified": 0
+}
