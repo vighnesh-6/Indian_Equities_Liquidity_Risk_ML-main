@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "aa5bc6d0d5e884a381993a0b72b64d656246f92b",
+  "protected_tracked_files_compared": 273,
+  "result": "PASS",
+  "head": "38b931073d623e132dd5bedca09a0ebf274753be",
+  "untracked_research_files_preserved": [
+    "data/processed/features.parquet",
+    "data/processed/features_with_targets.parquet"
+  ],
+  "protected_content_changes": [],
+  "checkout_line_ending_differences": 46,
+  "comparison_note": "Git blob bytes normalized for Windows CRLF checkout; no file was rewritten.",
+  "git_protected_diff": []
+}
