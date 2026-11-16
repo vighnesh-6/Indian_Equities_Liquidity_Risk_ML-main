@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://www.nseindia.in/",
+    "error": "HTTPError",
+    "http_status": 403
+  },
+  {
+    "url": "https://www.nseindia.in/api/corporate-actions?index=equities&symbol=EMBASSY&from_date=17-11-2025&to_date=16-11-2026",
+    "error": "HTTPError",
+    "http_status": 404
+  }
+]
