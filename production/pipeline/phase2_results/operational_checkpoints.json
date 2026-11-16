@@ -1,0 +1,1519 @@
+{
+  "checkpoint_count": 302,
+  "dates": [
+    "2026-10-23"
+  ],
+  "checkpoints": [
+    {
+      "ticker": "360ONE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ABB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ABBOTINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ABCAPITAL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ADANIENSOL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ADANIENT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ADANIGREEN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AEGISLOG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AIAENG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AIIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AJANTPHARM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ALKEM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AMBER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AMBUJACEM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ANANTRAJ.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ANGELONE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ANTHEM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "APARINDS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "APLAPOLLO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "APOLLOHOSP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ASHOKLEY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ASIANPAINT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ASTERDM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ASTRAL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ATGL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ATHERENERG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AUBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AUROPHARMA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "AZAD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BAJAJFINSV.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BAJAJHFL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BAJAJHLDNG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BALKRISIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BANDHANBNK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BANKBARODA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BANKINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BDL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BERGEPAINT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BHARATFORG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BHARTIHEXA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BHEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BIOCON.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BLUESTARCO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BOSCHLTD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BPCL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BRITANNIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "BSE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CANBK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CARTRADE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CDSL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CGPOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CHENNPETRO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CHOLAFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CIPLA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "COCHINSHIP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "COFORGE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "COLPAL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CONCOR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "COROMANDEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CRISIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CUMMINSIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "CUPID.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DABUR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DATAPATTNS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DELHIVERY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DIVISLAB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DIXON.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DLF.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DMART.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "DRREDDY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "EICHERMOT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "EMBASSY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ENDURANCE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ENRIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ESCORTS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ETERNAL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "EXIDEIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "FACT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "FEDERALBNK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "FLUOROCHEM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "FORCEMOT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "FORTIS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GAIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GESHIP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GICRE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GLAND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GLAXO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GLENMARK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GMRAIRPORT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GODFRYPHLP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GODREJCP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GODREJIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GODREJPROP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GROWW.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GRSE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "GVT&D.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HAL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HAVELLS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HBLENGINE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HDBFS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HDFCAMC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HDFCLIFE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HEROMOTOCO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HEXT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HFCL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HINDALCO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HINDCOPPER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HINDPETRO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HINDZINC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HSCL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HUDCO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "HYUNDAI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ICICIAMC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ICICIGI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ICICIPRULI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IDEA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IDFCFIRSTB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IFCI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IIFL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INDHOTEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INDIANB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INDIGO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INDUSINDBK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INDUSTOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "INFY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IOB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IOC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IPCALAB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IRCTC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IREDA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "IRFC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ITC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ITCHOTELS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JINDALSTEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JIOFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JKCEMENT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JPPOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JSL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JSWENERGY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JSWINFRA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JSWSTEEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "JUBLFOOD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KALYANKJIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KAYNES.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KEI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KIRLOSENG.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KPITTECH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "KPRMILL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LAURUSLABS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LENSKART.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LGEINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LICHSGFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LICI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LINDEINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LLOYDSME.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LODHA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LTF.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LTM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LTTS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "LUPIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "M&M.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "M&MFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MAHABANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MANAPPURAM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MANKIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MARICO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MARUTI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MAXHEALTH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MAZDOCK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MCX.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MEDANTA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MEESHO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MFSL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MOTHERSON.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MOTILALOFS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MPHASIS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MRF.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MRPL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MTARTECH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "MUTHOOTFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NATIONALUM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NAUKRI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NAVINFLUOR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NETWEB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NHPC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NLCINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NMDC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NTPC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NTPCGREEN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "NYKAA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "OBEROIRLTY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "OFSS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "OIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "OLAELEC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ONGC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PAGEIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PATANJALI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PAYTM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PERSISTENT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PETRONET.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PFC.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PHOENIXLTD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PIDILITIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PIIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PINELABS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PIRAMALFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PNB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "POLICYBZR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "POWERGRID.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "POWERINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PREMIERENE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PRESTIGE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "PWL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RADICO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RBLBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RECLTD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "REDINGTON.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RRKABEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "RVNL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SAIL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SAMMAANCAP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SBICARD.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SBILIFE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SBIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SCHAEFFLER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SCI.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SHREECEM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SHRIRAMFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SIEMENS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SOLARINDS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SONACOMS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SRF.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "STLTECH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SUNDARMFIN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SUNPHARMA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SUPREMEIND.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SUZLON.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SWIGGY.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "SYRMA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATACAP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATACOMM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATACONSUM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATAINVEST.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATAPOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TCS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TDPOWERSYS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TECHM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TEJASNET.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "THERMAX.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TIINDIA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TITAN.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TMCV.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TMPV.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TORNTPHARM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TORNTPOWER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TRENT.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "TVSMOTOR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "UBL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "UNIONBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "UNITDSPR.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "UNOMINDA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "UPL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VAML.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VBL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VEDL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VISL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VMM.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VOGL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "VOLTAS.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "WAAREEENER.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "WELCORP.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "WIPRO.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "WOCKPHARMA.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "YESBANK.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ZEEL.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ZENSARTECH.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "ZYDUSLIFE.NS",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "^INDIAVIX",
+      "last_date": "2026-10-23",
+      "revision": 1
+    },
+    {
+      "ticker": "^NSEI",
+      "last_date": "2026-10-23",
+      "revision": 1
+    }
+  ],
+  "incremental_coverage": []
+}

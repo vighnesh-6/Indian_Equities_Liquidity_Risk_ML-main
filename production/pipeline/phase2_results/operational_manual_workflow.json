@@ -1,0 +1,226 @@
+{
+  "id": 43819767605,
+  "head_sha": "54075937c3dc6f279db499f325446d5598191be3",
+  "status": "completed",
+  "conclusion": "failure",
+  "event": "workflow_dispatch",
+  "created_at": "2026-11-16T06:52:23Z",
+  "html_url": "https://github.com/vighnesh-6/Indian_Equities_Liquidity_Risk_ML-main/actions/runs/43819767605",
+  "jobs": [
+    {
+      "name": "collect",
+      "id": 133139920442,
+      "status": "completed",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned collector runtime",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect and validate complete NSE sessions",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Summarize ingestion result",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload ingestion audit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "all_log_files_read": [
+    {
+      "name": "0_collect.txt",
+      "bytes": 58612,
+      "lines": 662,
+      "sha256": "39ce3f66ae88f07ec6ed3b09f39438787a5a6f3e9d670343dd2ca62c9fd01849"
+    },
+    {
+      "name": "collect/system.txt",
+      "bytes": 627,
+      "lines": 8,
+      "sha256": "8d0248b41ef9868cd5b6e03022f0b8e292a206720ffb83f2e96d967cc464ad47"
+    },
+    {
+      "name": "collect/1_Set up job.txt",
+      "bytes": 2269,
+      "lines": 34,
+      "sha256": "d20d8393f1793186466910aad127334b15c3bbb7a637726e3c35761d3ebe11b4"
+    },
+    {
+      "name": "collect/2_Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 7727,
+      "lines": 88,
+      "sha256": "1387daea34e4865f057526c5755ffdfabd58af0b308e0813f8d65f9cc30318d4"
+    },
+    {
+      "name": "collect/3_Run actions_setup-python@a26af69be951a213d495a4c3e4e4022e16d87065.txt",
+      "bytes": 3322,
+      "lines": 45,
+      "sha256": "74ee26ec4d64561752a76f78be55e6cd8ad03a0e7b0741f9b7e20872d23f5b92"
+    },
+    {
+      "name": "collect/4_Install pinned collector runtime.txt",
+      "bytes": 12873,
+      "lines": 96,
+      "sha256": "df27eed3c8a46c7eea8444003c14b51555190bba427f9a1ccaa0d660f8fe8c89"
+    },
+    {
+      "name": "collect/5_Collect and validate complete NSE sessions.txt",
+      "bytes": 25335,
+      "lines": 324,
+      "sha256": "a0cd71ecb84aec4cff5b6969a9d9c85f245624a1bc0de3fd76e8559d98a8d7b7"
+    },
+    {
+      "name": "collect/6_Summarize ingestion result.txt",
+      "bytes": 2079,
+      "lines": 26,
+      "sha256": "5e669e3c92b949f78d4903e364c77ae6ce0fe8336c9e052600e883e1a372c871"
+    },
+    {
+      "name": "collect/7_Upload ingestion audit.txt",
+      "bytes": 2926,
+      "lines": 35,
+      "sha256": "f27e74a37028170b4474e7684e0373a01d0fde930ef45c8b684ccb91d8a4eb7f"
+    },
+    {
+      "name": "collect/14_Post Run actions_checkout@11d5960a326750d5838078e36cf38b85af677262.txt",
+      "bytes": 1590,
+      "lines": 12,
+      "sha256": "196edfeccf166fd9a406ec1d84a9fea81443fa5c4762e658ace517f8c755e018"
+    },
+    {
+      "name": "collect/15_Complete job.txt",
+      "bytes": 515,
+      "lines": 2,
+      "sha256": "9d9c7f59b43f3972df4e50c0d996b5a5d14224ac754723f1cf019c2341f58ce3"
+    }
+  ],
+  "pinned_dependency_check_passed": true,
+  "last_provider_progress": [
+    "2026-11-16T07:04:04.5020711Z Validated provider history 302/302 ^NSEI"
+  ],
+  "artifacts": [
+    {
+      "id": 14204317876,
+      "name": "liquidity-daily-audit",
+      "expired": false
+    }
+  ],
+  "collector_report": {
+    "mode": "daily",
+    "plan": {
+      "base": "2026-10-23",
+      "latest_completed": "2026-11-13",
+      "target": "2026-11-13",
+      "sessions": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "expected_new_rows": 4228,
+      "instruments": 302,
+      "publication_pending": false,
+      "excluded_sessions": [
+        "2026-11-08"
+      ]
+    },
+    "completed_sessions": [],
+    "status": "BLOCKED",
+    "issue": {
+      "code": "OVERLAP_REVISION",
+      "tickers": [
+        "ASIANPAINT.NS",
+        "ASTRAL.NS",
+        "AUROPHARMA.NS",
+        "BALKRISIND.NS",
+        "CHENNPETRO.NS",
+        "COALINDIA.NS",
+        "COCHINSHIP.NS",
+        "COLPAL.NS",
+        "CONCOR.NS",
+        "CRISIL.NS",
+        "DABUR.NS",
+        "DALBHARAT.NS",
+        "EMBASSY.NS",
+        "GESHIP.NS",
+        "GODFRYPHLP.NS",
+        "GODREJCP.NS",
+        "HEXT.NS",
+        "HINDUNILVR.NS",
+        "HUDCO.NS",
+        "INFY.NS",
+        "LAURUSLABS.NS",
+        "LTTS.NS",
+        "MAZDOCK.NS",
+        "NAM-INDIA.NS",
+        "NATIONALUM.NS",
+        "NAUKRI.NS",
+        "NAVINFLUOR.NS",
+        "NLCINDIA.NS",
+        "NTPC.NS",
+        "ONGC.NS",
+        "PETRONET.NS",
+        "POWERGRID.NS",
+        "PREMIERENE.NS",
+        "RECLTD.NS",
+        "RRKABEL.NS",
+        "SCI.NS",
+        "SHRIRAMFIN.NS",
+        "SUPREMEIND.NS",
+        "VBL.NS"
+      ],
+      "date": "2026-10-23"
+    }
+  },
+  "matches_local_overlap_block": true
+}
