@@ -1,0 +1,46 @@
+{
+  "verified_at": "2026-11-16T11:32:39.222332+00:00",
+  "ticker": "EMBASSY.NS",
+  "requests": [
+    {
+      "request": "recent_range",
+      "rows": 4,
+      "dates": [
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "last_row": [
+        {
+          "Date": "2026-11-13 00:00:00+05:30",
+          "Open": 420.0,
+          "High": 424.8999938964844,
+          "Low": 418.94000244140625,
+          "Close": 423.6099853515625,
+          "Volume": 778663,
+          "Dividends": 0.0,
+          "Stock Splits": 0.0,
+          "Capital Gains": 0.0
+        }
+      ]
+    },
+    {
+      "request": "target_day",
+      "error_type": "YFPricesMissingError"
+    },
+    {
+      "request": "latest_day",
+      "error_type": "YFPricesMissingError"
+    }
+  ],
+  "metadata": {
+    "symbol": "EMBASSY.NS",
+    "exchangeName": "NSI",
+    "instrumentType": "MUTUALFUND",
+    "regularMarketTime": 1721764800,
+    "regularMarketPrice": 369.92,
+    "exchangeTimezoneName": "Asia/Kolkata",
+    "dataGranularity": "1d"
+  }
+}
