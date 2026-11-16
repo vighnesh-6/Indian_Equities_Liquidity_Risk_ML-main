@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-11-16T12:31:57.065565+00:00",
+  "results": [
+    {
+      "provider_ticker": "ICICILIFE.NS",
+      "status": "AVAILABLE",
+      "bars": [
+        {
+          "date": "2026-11-13",
+          "open": 471.0,
+          "high": 471.04998779296875,
+          "low": 454.45001220703125,
+          "close": 455.54998779296875,
+          "volume": 1551301,
+          "turnover": null
+        },
+        {
+          "date": "2026-11-16",
+          "open": 459.79998779296875,
+          "high": 461.1000061035156,
+          "low": 450.54998779296875,
+          "close": 461.1000061035156,
+          "volume": 968502,
+          "turnover": null
+        }
+      ],
+      "provenance": {
+        "source_name": "yfinance",
+        "source_version": "1.2.0",
+        "adjustment_mode": "adjusted",
+        "retrieved_at": "2026-11-16 12:31:57.065384+00:00"
+      },
+      "action_evidence": {
+        "complete": true,
+        "observed_dates": [
+          "2026-11-13",
+          "2026-11-16"
+        ],
+        "events": []
+      }
+    }
+  ],
+  "retry_events": []
+}
