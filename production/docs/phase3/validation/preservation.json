@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "protected_files_hashed": 373,
+  "protected_changes": [],
+  "out_of_scope_changes": [],
+  "baseline_head": "c8e71a06ff079d842120db55acac2c012946069f",
+  "final_head": "c8e71a06ff079d842120db55acac2c012946069f",
+  "modified_existing_files": [
+    "production/pipeline/ingestion.py",
+    "production/pipeline/migrate.py"
+  ],
+  "preexisting_untracked_files_preserved": [
+    "data/processed/features.parquet",
+    "data/processed/features_with_targets.parquet"
+  ],
+  "production_neon_access_in_this_offline_execution": false
+}
