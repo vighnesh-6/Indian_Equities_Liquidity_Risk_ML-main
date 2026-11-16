@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "committed_stocks": 26,
+  "committed_rows": 52271,
+  "committed_tickers": [
+    "360ONE.NS",
+    "ABB.NS",
+    "ABBOTINDIA.NS",
+    "ABCAPITAL.NS",
+    "ADANIENSOL.NS",
+    "ADANIENT.NS",
+    "ADANIGREEN.NS",
+    "ADANIPORTS.NS",
+    "ADANIPOWER.NS",
+    "AEGISLOG.NS",
+    "AIAENG.NS",
+    "AIIL.NS",
+    "AJANTPHARM.NS",
+    "ALKEM.NS",
+    "AMBER.NS",
+    "AMBUJACEM.NS",
+    "ANANTRAJ.NS",
+    "ANGELONE.NS",
+    "ANTHEM.NS",
+    "APARINDS.NS",
+    "APLAPOLLO.NS",
+    "APOLLOHOSP.NS",
+    "ASHOKLEY.NS",
+    "ASIANPAINT.NS",
+    "ASTERDM.NS",
+    "ASTRAL.NS"
+  ],
+  "next_uncommitted": "ATGL.NS",
+  "database_bytes": 153968640,
+  "identity": {
+    "database": "neondb",
+    "username": "neondb_owner",
+    "project_id": "super-flower-30495255",
+    "branch_id": "br-winter-thunder-azx88rt3",
+    "endpoint_id": "ep-misty-shadow-azik30ky"
+  },
+  "published_dates": 0,
+  "network_timeout_options": {
+    "keepalives": 1,
+    "keepalives_idle": 15,
+    "keepalives_interval": 5,
+    "keepalives_count": 3,
+    "tcp_user_timeout": 30000
+  }
+}
