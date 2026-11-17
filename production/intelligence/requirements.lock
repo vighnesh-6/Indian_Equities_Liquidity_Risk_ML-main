@@ -1,0 +1,2 @@
+# Reuse the pinned Linux/Windows collector and frozen-model dependency closure.
+-r ../pipeline/requirements-collector.lock
