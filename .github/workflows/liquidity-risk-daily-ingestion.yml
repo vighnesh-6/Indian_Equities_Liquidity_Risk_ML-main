@@ -46,6 +46,7 @@ jobs:
           fi
           "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m production.pipeline.daily --report "$RUNNER_TEMP/liquidity-daily.json"
       - name: Summarize ingestion result
+        # Downstream computation runs after successful ingestion, including NOOP recovery.
         if: always()
         shell: bash
         run: |
@@ -69,3 +70,17 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
           path: ${{ runner.temp }}/liquidity-daily.json
+      - name: Features, matured labels, frozen inference and risk intelligence
+        env:
+          LIQUIDITY_NEON_DATABASE_URL: ${{ secrets.LIQUIDITY_NEON_DATABASE_URL }}
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m production.intelligence.daily --report "$RUNNER_TEMP/liquidity-intelligence.json"
+      - name: Upload intelligence execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: liquidity-intelligence-audit
+          retention-days: 7
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/liquidity-intelligence.json
