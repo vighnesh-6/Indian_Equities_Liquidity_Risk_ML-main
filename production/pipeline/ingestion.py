@@ -119,7 +119,8 @@ class SessionIngestor:
                     raise PersistenceError("Checkpoints changed during failed session recovery") from None
                 self.sleep(2 ** (attempt + 1))
 
-    def collect(self, mode, *, now=None, progress=print, allow_basis_refresh=True):
+    def collect(self, mode, *, now=None, progress=print, allow_basis_refresh=True,
+                before_basis_stage=None):
         previous, plan = self.plan(now)
         report = {"mode": mode, "plan": plan, "completed_sessions": [], "status": "RUNNING"}
         sessions = [date.fromisoformat(value) for value in plan["sessions"]]
@@ -195,6 +196,8 @@ class SessionIngestor:
                 return report
             quotes = {ticker:replaced.get(ticker,{**history[ticker],**quotes[ticker]}) for ticker in previous}
             provenance.update(replaced_sources)
+            if before_basis_stage is not None:
+                before_basis_stage(history, quotes)
             generation, report['price_basis'] = stage_generation(self.database, history, quotes, provenance, base, sessions[-1],basis_evidence=evidence)
             report['price_basis']['revised_checkpoint_instruments'] = revisions
         universe_sha = hashlib.sha256(json.dumps(sorted(previous)).encode()).hexdigest()[:24]
