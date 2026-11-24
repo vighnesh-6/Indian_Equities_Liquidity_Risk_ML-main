@@ -134,7 +134,7 @@ class SessionIngestor:
         from .price_basis import active_generation, fetch_full_history, load_history, stage_generation, reconcile_generation
         capable = getattr(self.provider, 'supports_full_history', False)
         full = capable and active_generation(self.database) is None
-        history = load_history(self.database, base) if full else None
+        history = load_history(self.database, base, progress=progress) if full else None
         try:
             for number, ticker in enumerate(sorted(previous), 1):
                 expected = sorted(set(sorted(history[ticker])[-20:]) | set(sessions)) if history is not None else window
@@ -173,7 +173,7 @@ class SessionIngestor:
             })
             return report
         if full:
-            history = history or load_history(self.database, base)
+            history = history or load_history(self.database, base, progress=progress)
             evidence = {}
             for ticker in previous:
                 action = actions.get(ticker,{})
