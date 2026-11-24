@@ -27,12 +27,22 @@ def active_generation(database):
         return cursor.fetchone()['id']
 
 
-def load_history(database, base):
+def load_history(database, base, *, progress=None):
+    from production.intelligence.database import retry
     groups = defaultdict(dict)
     with database.transaction(read_only=True) as cursor:
-        cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod_consistent WHERE date<=%s ORDER BY ticker,date", (base,))
-        for row in cursor.fetchall():
+        cursor.execute('SELECT ticker FROM liquidity.instruments ORDER BY ticker')
+        tickers = [row['ticker'] for row in cursor.fetchall()]
+    for number, ticker in enumerate(tickers, 1):
+        def read_batch():
+            with database.transaction(read_only=True) as cursor:
+                cursor.execute("SELECT ticker,date,open,high,low,close,volume,turnover FROM liquidity.market_eod_consistent "
+                               "WHERE ticker=%s AND date<=%s ORDER BY date", (ticker, base))
+                return cursor.fetchall()
+        for row in retry(read_batch):
             groups[row['ticker']][row['date']] = Bar(row['date'], row['open'], row['high'], row['low'], row['close'], row['volume'], row['turnover'])
+        if progress is not None and (number % 25 == 0 or number == len(tickers)):
+            progress(f'Read canonical archive {number}/{len(tickers)} instruments')
     if len(groups) != 302 or any(not records or max(records) != base for records in groups.values()):
         raise PersistenceError('Full price-basis transition requires complete 302-instrument checkpoint history')
     return dict(groups)
