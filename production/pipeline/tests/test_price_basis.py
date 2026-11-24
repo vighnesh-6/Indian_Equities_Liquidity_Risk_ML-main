@@ -113,6 +113,17 @@ class PriceBasisTests(unittest.TestCase):
         stage.assert_not_called()
         self.assertEqual(set(inspect_state(self.db).values()), {BASE})
 
+    def test_batched_history_reads_preserve_every_instrument_and_value(self):
+        with patch.object(self.db, 'execute', wraps=self.db.execute) as execute:
+            history = load_history(self.db, BASE)
+        queries = [call for call in execute.call_args_list
+                   if call.args[0].startswith('SELECT ticker,date,open,high,low,close,volume,turnover')]
+        self.assertEqual(len(queries), 302)
+        self.assertTrue(all('WHERE ticker=%s AND date<=%s' in call.args[0] for call in queries))
+        self.assertEqual(set(history), set(self.tickers))
+        for ticker in self.tickers:
+            self.assertEqual(history[ticker], {BASE: bar(BASE, ticker)})
+
     def test_missing_only_recovery_blocks_revisions_of_an_active_basis(self):
         with patch('production.pipeline.price_basis.active_generation', return_value=1), \
              patch('production.pipeline.price_basis.fetch_full_history') as fetch:
