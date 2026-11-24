@@ -44,8 +44,8 @@ def read_features(database, version, *, columns=None, start=None, through=None):
     names = columns or ['amihud_ma20', 'cs_spread_ma10', 'volume_z20', 'downside_vol_20d']
     tickers = [ticker for ticker in canonical_tickers() if ticker not in ('^NSEI', '^INDIAVIX')]
     pieces = []
-    for offset in range(0, len(tickers), 20):
-        selected = tickers[offset:offset+20]
+    for offset in range(0, len(tickers)):
+        selected = tickers[offset:offset+1]
         def read_batch():
             with database.transaction(read_only=True) as cursor:
                 cursor.execute('SELECT f.ticker,f.date,s.cap_segment,f.is_warmup,f.is_valid_ohlcv,' +
