@@ -119,7 +119,7 @@ class SessionIngestor:
                     raise PersistenceError("Checkpoints changed during failed session recovery") from None
                 self.sleep(2 ** (attempt + 1))
 
-    def collect(self, mode, *, now=None, progress=print):
+    def collect(self, mode, *, now=None, progress=print, allow_basis_refresh=True):
         previous, plan = self.plan(now)
         report = {"mode": mode, "plan": plan, "completed_sessions": [], "status": "RUNNING"}
         sessions = [date.fromisoformat(value) for value in plan["sessions"]]
@@ -159,6 +159,18 @@ class SessionIngestor:
         if capable:
             refresh.update(ticker for ticker in previous if any(date.fromisoformat(event['date'])>base for event in actions.get(ticker,{}).get('events',[])))
         full = full or bool(refresh)
+        if full and not allow_basis_refresh:
+            # Missing-only production recovery must not silently expand into a
+            # historical price-basis rebuild or invalidate published features.
+            report.update(status='BLOCKED', issue={
+                'code': 'PRICE_BASIS_REFRESH_REQUIRED',
+                'date': str(base),
+                'revised_checkpoint_instruments': revisions,
+                'revised_checkpoint_count': len(revisions),
+                'refresh_instruments': sorted(refresh),
+                'detail': 'Historical basis reconciliation requires separate authorization; no records or checkpoints were changed.',
+            })
+            return report
         if full:
             history = history or load_history(self.database, base)
             evidence = {}
