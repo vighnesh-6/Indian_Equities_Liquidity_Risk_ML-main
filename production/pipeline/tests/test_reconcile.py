@@ -5,12 +5,31 @@ from unittest.mock import MagicMock, patch
 import numpy as np
 import pandas as pd
 
-from production.pipeline.reconcile import RESERVE_BYTES, initialize_features, require_capacity, run, storage_estimate
+from production.pipeline.reconcile import RESERVE_BYTES, initialize_features, read_committed_features, require_capacity, run, storage_estimate
 from production.pipeline.ingestion import canonical_tickers
 from production.pipeline.repository import PersistenceError
 
 
 class ReconciliationTests(unittest.TestCase):
+    def test_paged_verification_preserves_every_value_flag_and_null(self):
+        from production.features.contract import FEATURES, FLAGS
+        days = pd.date_range('2020-01-01', periods=1101).date
+        rows = [{'ticker': 'ONE.NS', 'date': day,
+                 **{name: True for name in FLAGS},
+                 **{name: (None if n % 7 == 0 else n * 0.125) for name in FEATURES}}
+                for n, day in enumerate(days)]
+        database = MagicMock()
+        cursor = database.transaction.return_value.__enter__.return_value
+        cursor.fetchall.side_effect = [rows[:500], rows[500:1000], rows[1000:]]
+        actual = read_committed_features(database, 'version', 'ONE.NS', days[0], days[-1])
+        pd.testing.assert_frame_equal(actual, pd.DataFrame(rows))
+        calls = cursor.execute.call_args_list
+        self.assertEqual(len(calls), 3)
+        self.assertTrue(all('ORDER BY date LIMIT 500' in call.args[0] for call in calls))
+        self.assertEqual(calls[1].args[1][2], days[499])
+        self.assertEqual(calls[2].args[1][2], days[999])
+        self.assertTrue(all(call.kwargs == {'read_only': True} for call in database.transaction.call_args_list))
+
     def test_storage_estimate_retains_current_allocation_and_budgets_both_versions(self):
         sizes = {'feature_values': 4000, 'intelligence_observations': 2000,
                  'feature_checkpoints': 300 * 40000, 'price_basis_revisions': 2400,
