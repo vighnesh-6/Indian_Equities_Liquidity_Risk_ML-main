@@ -35,7 +35,8 @@ def run_cli(mode):
             _, plan = collector.plan()
             report = {"status": "PLAN", "mode": mode, "plan": plan}
         else:
-            report = collector.collect(mode, progress=lambda text: print(text, flush=True))
+            report = collector.collect(mode, progress=lambda text: print(text, flush=True),
+                                       allow_basis_refresh=False)
     except (ConfigurationError, CalendarUnavailable, DatabaseError, PersistenceError) as error:
         report = {"status": "FAILED", "mode": mode,
                   "issue": {"code": type(error).__name__, "message": str(error)}}
