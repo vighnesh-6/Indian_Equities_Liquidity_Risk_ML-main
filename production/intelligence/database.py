@@ -25,39 +25,51 @@ class WorkerDatabase(Database):
     @contextmanager
     def transaction(self, *, read_only=False):
         settings = self.settings
-        try:
-            if self.connection is None or self.connection.closed:
-                self.connection = psycopg.connect(
-                    host=settings.hostname, port=5432, dbname=settings.database,
-                    user=settings.username, password=settings.password,
-                    sslmode='verify-full', sslrootcert=certifi.where(), channel_binding='require',
-                    passfile=__import__('os').devnull, sslcertmode='disable',
-                    connect_timeout=settings.connect_timeout_seconds, autocommit=True,
-                    prepare_threshold=None, row_factory=dict_row,
-                    application_name='liquidity-risk-production', keepalives=1,
-                    keepalives_idle=15, keepalives_interval=5, keepalives_count=3,
-                    tcp_user_timeout=30000)
-            connection = self.connection
-            if connection.info.host != settings.hostname:
-                raise IdentityError('Approved endpoint mismatch')
-            connection.read_only = read_only
-            with connection.transaction():
-                with connection.cursor() as cursor:
-                    cursor.execute(IDENTITY_SQL)
-                    expected = dict(database=settings.database, username=settings.username,
-                                    project_id=settings.project_id, branch_id=settings.branch_id,
-                                    endpoint_id=settings.endpoint_id)
-                    if cursor.fetchone() != expected:
-                        raise IdentityError('Approved Liquidity Risk server identity mismatch')
-                    cursor.execute("SELECT set_config('search_path','pg_catalog',true),set_config('statement_timeout',%s,true),set_config('lock_timeout',%s,true)",
-                                   (str(settings.statement_timeout_ms), str(settings.lock_timeout_ms)))
-                    yield cursor
-        except psycopg.Error as error:
-            self.close()
-            raise DatabaseError('PostgreSQL operation failed (' + (error.sqlstate or 'CONNECTION_FAILURE') + ')') from None
-        except BaseException:
-            self.close()
-            raise
+        for attempt in range(3):
+            entered = False
+            try:
+                if self.connection is None or self.connection.closed:
+                    self.connection = psycopg.connect(
+                        host=settings.hostname, port=5432, dbname=settings.database,
+                        user=settings.username, password=settings.password,
+                        sslmode='verify-full', sslrootcert=certifi.where(), channel_binding='require',
+                        passfile=__import__('os').devnull, sslcertmode='disable',
+                        connect_timeout=settings.connect_timeout_seconds, autocommit=True,
+                        prepare_threshold=None, row_factory=dict_row,
+                        application_name='liquidity-risk-production', keepalives=1,
+                        keepalives_idle=15, keepalives_interval=5, keepalives_count=3,
+                        tcp_user_timeout=30000)
+                connection = self.connection
+                if connection.info.host != settings.hostname:
+                    raise IdentityError('Approved endpoint mismatch')
+                connection.read_only = read_only
+                with connection.transaction():
+                    with connection.cursor() as cursor:
+                        cursor.execute(IDENTITY_SQL)
+                        expected = dict(database=settings.database, username=settings.username,
+                                        project_id=settings.project_id, branch_id=settings.branch_id,
+                                        endpoint_id=settings.endpoint_id)
+                        if cursor.fetchone() != expected:
+                            raise IdentityError('Approved Liquidity Risk server identity mismatch')
+                        cursor.execute("SELECT set_config('search_path','pg_catalog',true),set_config('statement_timeout',%s,true),set_config('lock_timeout',%s,true)",
+                                       (str(settings.statement_timeout_ms), str(settings.lock_timeout_ms)))
+                        # Retry only setup. Once yielded, the caller owns recovery
+                        # of its transaction and any uncertain commit acknowledgement.
+                        entered = True
+                        yield cursor
+                return
+            except psycopg.Error as error:
+                self.close()
+                code = error.sqlstate or 'CONNECTION_FAILURE'
+                transient = code == 'CONNECTION_FAILURE' or code.startswith('08') or code in {'57P01', '57P02', '57P03'}
+                if not entered and transient and attempt < 2:
+                    time.sleep(2 ** attempt)
+                    continue
+                stage = 'transaction body or commit' if entered else 'connection verification'
+                raise DatabaseError('PostgreSQL operation failed (' + code + ') during ' + stage) from None
+            except BaseException:
+                self.close()
+                raise
 
 
 def retry(operation, *, attempts=5):
