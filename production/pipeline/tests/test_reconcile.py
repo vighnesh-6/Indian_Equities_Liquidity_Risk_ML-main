@@ -1,16 +1,34 @@
 import unittest
+from pathlib import Path
 from datetime import date
 from unittest.mock import MagicMock, patch
 
 import numpy as np
 import pandas as pd
 
-from production.pipeline.reconcile import RESERVE_BYTES, initialize_features, read_committed_features, require_capacity, run, storage_estimate
+from production.pipeline.reconcile import RESERVE_BYTES, initialize_features, read_committed_features, report_path, require_capacity, run, storage_estimate
+from production.pipeline.config import ROOT
 from production.pipeline.ingestion import canonical_tickers
 from production.pipeline.repository import PersistenceError
 
 
 class ReconciliationTests(unittest.TestCase):
+    def test_ci_runner_temp_outside_os_temp_is_accepted_only_in_actions(self):
+        runner = ROOT / 'uncreated-ci-temporary-directory'
+        target = runner / 'liquidity-daily.json'
+        with patch.dict('os.environ', {'GITHUB_ACTIONS': 'true', 'RUNNER_TEMP': str(runner)}):
+            self.assertEqual(report_path(target), target.resolve())
+        with patch.dict('os.environ', {'GITHUB_ACTIONS': 'false', 'RUNNER_TEMP': str(runner)}):
+            with self.assertRaises(ValueError):
+                report_path(target)
+
+    def test_ci_report_guard_rejects_traversal_and_non_json_outputs(self):
+        runner = ROOT / 'uncreated-ci-temporary-directory'
+        with patch.dict('os.environ', {'GITHUB_ACTIONS': 'true', 'RUNNER_TEMP': str(runner)}):
+            for target in [runner / '..' / 'outside.json', runner / 'report.txt']:
+                with self.subTest(target=target), self.assertRaises(ValueError):
+                    report_path(target)
+
     def test_paged_verification_preserves_every_value_flag_and_null(self):
         from production.features.contract import FEATURES, FLAGS
         days = pd.date_range('2020-01-01', periods=1101).date
