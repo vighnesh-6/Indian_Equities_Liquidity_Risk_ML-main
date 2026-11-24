@@ -104,12 +104,7 @@ def initialize_features(database, through, *, progress=print):
                   provenance={'source_version': source, 'market_view': 'liquidity.market_eod_consistent',
                               'input_hashes': lineage}))
             # Verify the committed values and null masks before publication.
-            with database.transaction(read_only=True) as cursor:
-                cursor.execute('SELECT ticker,date,' + ','.join([*FLAGS, *FEATURES]) +
-                               ' FROM liquidity.feature_values WHERE feature_version=%s AND ticker=%s '
-                               'AND date>=%s AND date<=%s ORDER BY date',
-                               (version, ticker, values.date.min().date(), through))
-                actual = pd.DataFrame(cursor.fetchall())
+            actual = read_committed_features(database, version, ticker, values.date.min().date(), through)
             actual['date'] = pd.to_datetime(actual.date)
             for name in FEATURES:
                 actual[name] = pd.to_numeric(actual[name]).astype('float32')
@@ -132,6 +127,26 @@ def initialize_features(database, through, *, progress=print):
     retry(lambda: repository.publish(version, days))
     return {'status': 'SUCCESS', 'feature_version': version, 'rows_verified': verified_rows,
             'tickers_processed': processed, 'published_dates': len(days)}
+
+
+def read_committed_features(database, version, ticker, first, through):
+    """Read every committed value without an oversized serverless result."""
+    from datetime import timedelta
+    previous = first - timedelta(days=1)
+    rows = []
+    while True:
+        def read():
+            with database.transaction(read_only=True) as cursor:
+                cursor.execute('SELECT ticker,date,' + ','.join([*FLAGS, *FEATURES]) +
+                               ' FROM liquidity.feature_values WHERE feature_version=%s AND ticker=%s '
+                               'AND date>%s AND date<=%s ORDER BY date LIMIT 500',
+                               (version, ticker, previous, through))
+                return cursor.fetchall()
+        batch = retry(read)
+        rows.extend(batch)
+        if len(batch) < 500:
+            return pd.DataFrame(rows)
+        previous = batch[-1]['date']
 
 
 def run(database, provider, *, now=None, progress=print):
