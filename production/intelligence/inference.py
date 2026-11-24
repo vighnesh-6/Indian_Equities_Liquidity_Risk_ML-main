@@ -92,14 +92,7 @@ def run_inference(database, *, incremental=False):
         for offset in range(0, len(days), 40):
             batch_days = days[offset:offset+40]
             def read():
-                with database.transaction(read_only=True) as cursor:
-                    cursor.execute('SELECT f.ticker,f.date,f.is_warmup,f.is_valid_ohlcv,'+','.join('f.'+name for name in MODEL_FEATURES)+
-                                   ' FROM liquidity.feature_values f WHERE f.feature_version=%s AND f.date=ANY(%s) ORDER BY f.ticker,f.date', (version, batch_days))
-                    result = pd.DataFrame(cursor.fetchall())
-                result['date'] = pd.to_datetime(result.date)
-                for name in MODEL_FEATURES:
-                    result[name] = pd.to_numeric(result[name]).astype('float32')
-                return result
+                return read_inference_features(database, version, batch_days)
             features = retry(read)
             predictions = engine.predict(features)
             processed += retry(lambda: persist_predictions(database, predictions, version))
@@ -114,3 +107,19 @@ def run_inference(database, *, incremental=False):
             pass
         raise
     return {'status': 'SUCCESS', 'feature_version': str(version), 'through': str(through), 'rows': processed, 'run_id': str(run_id)}
+
+
+def read_inference_features(database, version, days):
+    """Bound wide SQL responses while preserving the frozen input order."""
+    pieces = []
+    for offset in range(0, len(days), 3):
+        with database.transaction(read_only=True) as cursor:
+            cursor.execute('SELECT f.ticker,f.date,f.is_warmup,f.is_valid_ohlcv,'+','.join('f.'+name for name in MODEL_FEATURES)+
+                           ' FROM liquidity.feature_values f WHERE f.feature_version=%s AND f.date=ANY(%s) ORDER BY f.ticker,f.date',
+                           (version, days[offset:offset+3]))
+            pieces.append(pd.DataFrame(cursor.fetchall()))
+    result = pd.concat(pieces, ignore_index=True).sort_values(['ticker', 'date']).reset_index(drop=True)
+    result['date'] = pd.to_datetime(result.date)
+    for name in MODEL_FEATURES:
+        result[name] = pd.to_numeric(result[name]).astype('float32')
+    return result
