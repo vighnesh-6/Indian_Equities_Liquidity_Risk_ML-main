@@ -46,6 +46,26 @@ class ReconciliationTests(unittest.TestCase):
         self.assertTrue(collector.return_value.collect.call_args.kwargs['allow_basis_refresh'])
         self.assertTrue(callable(collector.return_value.collect.call_args.kwargs['before_basis_stage']))
 
+    def test_capacity_reconnect_does_not_repeat_provider_collection(self):
+        from production.pipeline.database import DatabaseError
+        from production.pipeline.repository import Bar
+        base, following = date(2026,11,16), date(2026,11,17)
+        history = {'ONE.NS': {base: Bar(base, 10, 12, 8, 11, 100)}}
+        quotes = {'ONE.NS': {**history['ONE.NS'], following: Bar(following, 11, 13, 9, 12, 100)}}
+        def collect(*args, **kwargs):
+            kwargs['before_basis_stage'](history, quotes)
+            return {'status': 'BLOCKED', 'completed_sessions': []}
+        with patch('production.pipeline.reconcile.SessionIngestor') as collector, \
+             patch('production.pipeline.reconcile.require_capacity', side_effect=[
+                 DatabaseError('PostgreSQL operation failed (CONNECTION_FAILURE)'),
+                 {'current_bytes': 100}]) as capacity, \
+             patch('production.intelligence.database.time.sleep'):
+            collector.return_value.collect.side_effect = collect
+            result = run(MagicMock(), MagicMock(), progress=lambda _: None)
+        self.assertEqual(capacity.call_count, 2)
+        collector.return_value.collect.assert_called_once()
+        self.assertEqual(result['storage']['current_bytes'], 100)
+
     def test_existing_complete_feature_cohort_is_reused_without_calculation(self):
         database = MagicMock()
         cursor = database.transaction.return_value.__enter__.return_value
