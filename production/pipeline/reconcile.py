@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import tempfile
 from datetime import date
 from pathlib import Path
@@ -172,14 +173,22 @@ def run(database, provider, *, now=None, progress=print):
     return result
 
 
+def report_path(path):
+    target = path.resolve()
+    allowed = [Path(tempfile.gettempdir()).resolve(), ROOT / 'production/pipeline/phase2_results']
+    ci_temp = os.environ.get('RUNNER_TEMP') if os.environ.get('GITHUB_ACTIONS') == 'true' else None
+    if ci_temp:
+        allowed.append(Path(ci_temp).resolve())
+    if target.suffix != '.json' or not any(target.is_relative_to(root) for root in allowed):
+        raise ValueError('Operational reports require temporary or approved production storage')
+    return target
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
-    target = args.report.resolve()
-    if target.suffix != '.json' or not any(target.is_relative_to(root) for root in
-            [Path(tempfile.gettempdir()).resolve(), ROOT / 'production/pipeline/phase2_results']):
-        raise ValueError('Operational reports require temporary or approved production storage')
+    target = report_path(args.report)
     database = WorkerDatabase()
     result = None
     try:
