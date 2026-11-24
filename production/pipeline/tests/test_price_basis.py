@@ -1,6 +1,7 @@
 import unittest
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
+from unittest.mock import patch
 
 from production.pipeline.database import DatabaseError
 from production.pipeline.ingestion import SessionIngestor, inspect_state
@@ -84,6 +85,49 @@ class PriceBasisTests(unittest.TestCase):
         self.assertEqual(set(inspect_state(self.db).values()),{BASE})
         self.db.execute("SELECT count(*) AS n FROM liquidity.price_basis_generations WHERE state='ACTIVE'")
         self.assertEqual(int(self.db.fetchone()['n']),0)
+
+    def test_missing_only_recovery_blocks_initial_historical_basis_build(self):
+        with patch('production.pipeline.price_basis.fetch_full_history') as fetch, \
+             patch('production.pipeline.price_basis.stage_generation') as stage:
+            result = SessionIngestor(self.db, FullProvider()).collect(
+                'daily', now=datetime(2026,10,26,16,tzinfo=IST),
+                progress=lambda _:None, allow_basis_refresh=False)
+        self.assertEqual(result['issue']['code'], 'PRICE_BASIS_REFRESH_REQUIRED')
+        self.assertEqual(result['completed_sessions'], [])
+        fetch.assert_not_called()
+        stage.assert_not_called()
+        self.assertEqual(set(inspect_state(self.db).values()), {BASE})
+        self.db.execute('SELECT count(*) AS n FROM liquidity.price_basis_generations')
+        self.assertEqual(int(self.db.fetchone()['n']), 0)
+
+    def test_missing_only_recovery_blocks_revisions_of_an_active_basis(self):
+        with patch('production.pipeline.price_basis.active_generation', return_value=1), \
+             patch('production.pipeline.price_basis.fetch_full_history') as fetch:
+            result = SessionIngestor(self.db, FullProvider()).collect(
+                'daily', now=datetime(2026,10,26,16,tzinfo=IST),
+                progress=lambda _:None, allow_basis_refresh=False)
+        self.assertEqual(result['status'], 'BLOCKED')
+        self.assertEqual(result['issue']['revised_checkpoint_instruments'], ['360ONE.NS'])
+        self.assertEqual(result['issue']['revised_checkpoint_count'], 1)
+        fetch.assert_not_called()
+        self.db.execute('SELECT count(*) AS n FROM liquidity.market_eod')
+        self.assertEqual(int(self.db.fetchone()['n']), 302)
+        self.assertEqual(set(inspect_state(self.db).values()), {BASE})
+
+    def test_missing_only_recovery_appends_when_active_overlap_matches(self):
+        generation, observations, sources = self.stage()
+        self.repo.persist_session('activate', 'catchup', MONDAY, observations,
+                                  inspect_state(self.db), sources,
+                                  price_basis_generation=generation)
+        with patch('production.pipeline.price_basis.fetch_full_history') as fetch:
+            result = SessionIngestor(self.db, FullProvider()).collect(
+                'daily', now=datetime(2026,10,27,16,tzinfo=IST),
+                progress=lambda _:None, allow_basis_refresh=False)
+        self.assertEqual(result['status'], 'SUCCESS')
+        self.assertEqual(result['validation']['rows'], 302)
+        fetch.assert_not_called()
+        self.db.execute('SELECT count(*) AS n FROM liquidity.market_eod')
+        self.assertEqual(int(self.db.fetchone()['n']), 906)
 
     def test_direct_activation_without_complete_receipts_is_rejected(self):
         with self.assertRaises(SqlError):
