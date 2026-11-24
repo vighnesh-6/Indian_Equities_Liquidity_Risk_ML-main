@@ -44,7 +44,7 @@ jobs:
             echo "::error::Repository Actions secret LIQUIDITY_NEON_DATABASE_URL is missing or empty."
             exit 1
           fi
-          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m production.pipeline.daily --report "$RUNNER_TEMP/liquidity-daily.json"
+          "$RUNNER_TEMP/liquidity-venv/bin/python" -B -m production.pipeline.reconcile --report "$RUNNER_TEMP/liquidity-daily.json"
       - name: Summarize ingestion result
         # Downstream computation runs after successful ingestion, including NOOP recovery.
         if: always()
