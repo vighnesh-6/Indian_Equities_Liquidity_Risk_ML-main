@@ -40,7 +40,7 @@ class DailyWorkflowTests(unittest.TestCase):
         self.assertEqual(len(secret_steps), 2)
         for step in secret_steps:
             self.assertEqual(step['env']['LIQUIDITY_NEON_DATABASE_URL'], '${{ secrets.LIQUIDITY_NEON_DATABASE_URL }}')
-        self.assertIn('-m production.pipeline.daily', secret_steps[0]['run'])
+        self.assertIn('-m production.pipeline.reconcile', secret_steps[0]['run'])
         self.assertIn('-m production.intelligence.daily', secret_steps[1]['run'])
         self.assertIn('${LIQUIDITY_NEON_DATABASE_URL:-}', secret_steps[0]['run'])
         self.assertIn('missing or empty', secret_steps[0]['run'])
