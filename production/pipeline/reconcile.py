@@ -142,7 +142,8 @@ def run(database, provider, *, now=None, progress=print):
         revisions = sum(bar != quotes[ticker][day] for ticker, rows in history.items()
                         for day, bar in rows.items())
         new_rows = sum(len(quotes[ticker]) - len(rows) for ticker, rows in history.items())
-        capacity.update(require_capacity(database, stock_rows, new_rows=new_rows, revisions=revisions))
+        capacity.update(retry(lambda: require_capacity(
+            database, stock_rows, new_rows=new_rows, revisions=revisions)))
         progress('Append-only storage preflight: ' + json.dumps(capacity))
 
     ingestion = SessionIngestor(database, provider).collect(
