@@ -100,6 +100,19 @@ class PriceBasisTests(unittest.TestCase):
         self.db.execute('SELECT count(*) AS n FROM liquidity.price_basis_generations')
         self.assertEqual(int(self.db.fetchone()['n']), 0)
 
+    def test_storage_preflight_failure_prevents_basis_staging_and_ingestion(self):
+        from production.pipeline.repository import PersistenceError
+        def reject_storage(history, quotes):
+            self.assertEqual(set(history), set(quotes))
+            raise PersistenceError('Insufficient capacity')
+        with self.assertRaises(PersistenceError), \
+             patch('production.pipeline.price_basis.stage_generation') as stage:
+            SessionIngestor(self.db, FullProvider()).collect(
+                'daily', now=datetime(2026,10,26,16,tzinfo=IST),
+                progress=lambda _:None, before_basis_stage=reject_storage)
+        stage.assert_not_called()
+        self.assertEqual(set(inspect_state(self.db).values()), {BASE})
+
     def test_missing_only_recovery_blocks_revisions_of_an_active_basis(self):
         with patch('production.pipeline.price_basis.active_generation', return_value=1), \
              patch('production.pipeline.price_basis.fetch_full_history') as fetch:
